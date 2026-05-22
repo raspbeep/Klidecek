@@ -1,0 +1,13 @@
+node_modules
+materials
+dist
+.DS_Store
+*.log
+.claude
+.vite
+.env
+.env.local
+# Local design handoff bundle (kept locally only)
+school-helper-design/
+school helper-handoff.zip
+NEXT_SESSION.md

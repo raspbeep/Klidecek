@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-density="regular">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/webp" href="klidecek.webp" />
+    <link rel="apple-touch-icon" href="klidecek.webp" />
+    <title>Klideček — exam prep</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .anchor-always .subtopic-anchor { opacity: 1; }
+      html { scroll-behavior: smooth; }
+      .booting #root { opacity: 0; }
+      .booted #root { opacity: 1; transition: opacity 0.2s ease; }
+    </style>
+  </head>
+  <body class="booting">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+---
+title: Minimum Extraction Sort a Median Finding and Splitting
+---
+
+# Řadicí algoritmy výběrem
+
+Předchozí kapitola ([[merge-radici]]) probrala řazení *slučováním*. Třetí kategorie paralelních řadicích algoritmů jsou *výběrové* (selection-based) — iterativně extrahují *vybraný* prvek (minimum, medián) a tím konstruují výstup. Tato kapitola probírá dva: **Minimum Extraction Sort** (jednoduchá konstrukce na stromě, nevyžaduje pivota) a **Median Finding and Splitting** (paralelní quicksort s mediánovým pivotem) — druhý je *cost-optimal* a dokončuje portfolio cost-optimálních paralelních sortů.
+
+## Minimum Extraction Sort
+
+### Topologie
+
+**Binární strom** procesorů. **Listy** obsahují *řazenou posloupnost* (každý list jednu hodnotu nebo skupinu). **Vnitřní uzly** pumpují minimum nahoru, **kořen** posílá hodnoty na výstup.
+
+### Princip
+
+Každý vnitřní uzel:
+
+- Porovná hodnoty svých dvou synů.
+- Menší z nich pošle svému *otci*.
+
+Po $\log n + 1$ krocích se *minimum* dostane do kořene. Každým dalším krokem se získá *další* nejmenší prvek (následník v setříděné posloupnosti).
+
+```
+procedure MIN_EXTRACT_SORT
+  (1) for all leafs in parallel
+        načti jeden prvek
+  (2) for i = 1 to 2n + log(n) - 1 do
+        for all nonleaf nodes in parallel
+          if kořen a má hodnotu: vystoupit hodnotu
+          else if má hodnotu: nic (čeká na další cyklus)
+          else // prázdný
+            if oba synové prázdní: nic
+            else if jeden syn prázdný: získat hodnotu od druhého
+            else: získat menší ze synů
+```
+
+### Příklad — vstup $[8, 7, 6, 5, 4, 3, 2, 1]$
+
+```
+Inicializace listů:    8  7  6  5  4  3  2  1
+Krok 1: úroveň 1:        7    5    3    1
+Krok 2: úroveň 2:           5         1
+Krok 3: kořen:                  1
+Krok 4: výstup 1, kořen ← další minimum = 2
+        ... (každý další cyklus = 1 prvek)
+```
+
+::: svg "Minimum Extraction — minimum bublají k vrchu, výstup postupně"
+<svg viewBox="0 0 540 200" font-family="ui-sans-serif, system-ui" font-size="11">
+  <g stroke="var(--line)" stroke-width="0.9" fill="var(--bg-card)">
+    <circle cx="270" cy="30" r="14"/>
+    <circle cx="180" cy="80" r="13"/>
+    <circle cx="360" cy="80" r="13"/>
+    <circle cx="120" cy="130" r="12"/>
+    <circle cx="220" cy="130" r="12"/>
+    <circle cx="320" cy="130" r="12"/>
+    <circle cx="420" cy="130" r="12"/>
+    <rect x="55" y="175" width="22" height="20"/>
+    <rect x="100" y="175" width="22" height="20"/>
+    <rect x="180" y="175" width="22" height="20"/>
+    <rect x="225" y="175" width="22" height="20"/>
+    <rect x="300" y="175" width="22" height="20"/>
+    <rect x="345" y="175" width="22" height="20"/>
+    <rect x="420" y="175" width="22" height="20"/>
+    <rect x="465" y="175" width="22" height="20"/>
+  </g>
+  <g fill="var(--accent)" text-anchor="middle" font-weight="600">
+    <text x="270" y="34">1</text>
+  </g>
+  <g fill="var(--text)" text-anchor="middle">
+    <text x="180" y="84">3</text>
+    <text x="360" y="84">1</text>
+    <text x="120" y="134">7</text>
+    <text x="220" y="134">3</text>
+    <text x="320" y="134">5</text>
+    <text x="420" y="134">1</text>
+    <text x="66" y="189">8</text>
+    <text x="111" y="189">7</text>
+    <text x="191" y="189">6</text>
+    <text x="236" y="189">3</text>
+    <text x="311" y="189">5</text>
+    <text x="356" y="189">4</text>
+    <text x="431" y="189">2</text>
+    <text x="476" y="189">1</text>
+  </g>
+  <g stroke="var(--text-faint)" stroke-width="0.6">
+    <line x1="265" y1="42" x2="184" y2="68"/>
+    <line x1="275" y1="42" x2="356" y2="68"/>
+    <line x1="175" y1="92" x2="125" y2="120"/>
+    <line x1="185" y1="92" x2="215" y2="120"/>
+    <line x1="355" y1="92" x2="325" y2="120"/>
+    <line x1="365" y1="92" x2="415" y2="120"/>
+    <line x1="115" y1="142" x2="66" y2="175"/>
+    <line x1="125" y1="142" x2="111" y2="175"/>
+    <line x1="215" y1="142" x2="191" y2="175"/>
+    <line x1="225" y1="142" x2="236" y2="175"/>
+    <line x1="315" y1="142" x2="311" y2="175"/>
+    <line x1="325" y1="142" x2="356" y2="175"/>
+    <line x1="415" y1="142" x2="431" y2="175"/>
+    <line x1="425" y1="142" x2="476" y2="175"/>
+  </g>
+</svg>
+:::
+
+::: viz min-extraction-sort "Krokuj cyklus po cyklu. Sleduj, jak minimum bubbluje k root: jakmile dorazí, root vydá hodnotu, ten leaf se vyprázdní (∅), a další minimum putuje vzhůru. První po log n+1 krocích, každé další po 2."
+:::
+
+### Analýza
+
+- První prvek se získá po $\log n + 1$ krocích.
+- Každý další prvek po **2 krocích** (jeden na porovnání, jeden na uložení/přesun).
+
+::: math
+t(n) = 2n + \log n - 1 = O(n)
+:::
+
+- $p(n) = 2n - 1$ procesorů.
+- $c(n) = O(n^2)$ — **není cost-optimal** (sekvenční $O(n \log n)$).
+
+### Diskuze
+
+- Algoritmus je *jednoduchý* a *intuitivní* — minimum se *vyplave* na povrch.
+- *Plýtvá procesory* — $n^2$ cena.
+- Realisticky se používá *pro hardwarové* min-heap implementace (priority queues).
+
+## Median Finding and Splitting
+
+### Idea — paralelní quicksort s mediánovým pivotem
+
+Stejná **architektura** jako Bucket Sort: strom s $m = \log n$ listy. *Vnitřní uzly* ale neslučují — *dělí* (split) podle mediánu.
+
+```
+procedure MEDIAN_FINDING_AND_SPLITTING
+  (1) kořen načte řazenou sekvenci S
+  (2) for i = 0 to log(m) - 1 do
+        for all processors at level i do in parallel
+          (2.1) najdi medián M své sekvence (sekvenčně, optimálním Select)
+          (2.2) pro každý prvek x:
+                if x < M: pošli levému synovi
+                else:     pošli pravému synovi
+        endfor
+      endfor
+  (3) for all leaf processors in parallel
+        seřaď svou sekvenci sekvenčním algoritmem
+        ulož na výstup
+```
+
+### Princip — perfektní rozdělení
+
+Klíčový rozdíl od sekvenčního quicksort: **každý vnitřní uzel hledá *medián*** své podsekvence (ne náhodný pivot). To garantuje, že *obě* podsekvence jsou *přesně* poloviny → strom je *vyvážený*.
+
+::: svg "Median Finding and Splitting — rekurzivní dělení podle mediánu"
+<svg viewBox="0 0 540 200" font-family="ui-sans-serif, system-ui" font-size="11">
+  <g stroke="var(--line)" stroke-width="0.9" fill="var(--bg-card)">
+    <rect x="200" y="20" width="140" height="22"/>
+    <rect x="100" y="75" width="120" height="22"/>
+    <rect x="320" y="75" width="120" height="22"/>
+    <rect x="40" y="125" width="80" height="22"/>
+    <rect x="140" y="125" width="80" height="22"/>
+    <rect x="320" y="125" width="80" height="22"/>
+    <rect x="420" y="125" width="80" height="22"/>
+  </g>
+  <g fill="var(--text)" text-anchor="middle" font-size="10">
+    <text x="270" y="34">[2,5,7,1,8,4,6,3]</text>
+    <text x="160" y="89">[2,1,4,3]</text>
+    <text x="380" y="89">[5,7,8,6]</text>
+    <text x="80" y="139">[1,2]</text>
+    <text x="180" y="139">[3,4]</text>
+    <text x="360" y="139">[5,6]</text>
+    <text x="460" y="139">[7,8]</text>
+  </g>
+  <g fill="var(--accent)" text-anchor="middle" font-size="9" font-weight="600">
+    <text x="270" y="52">M=4</text>
+    <text x="160" y="107">M=2</text>
+    <text x="380" y="107">M=6</text>
+  </g>
+  <g stroke="var(--text-faint)" stroke-width="0.6">
+    <line x1="240" y1="42" x2="180" y2="75"/>
+    <line x1="300" y1="42" x2="360" y2="75"/>
+    <line x1="140" y1="97" x2="100" y2="125"/>
+    <line x1="180" y1="97" x2="180" y2="125"/>
+    <line x1="360" y1="97" x2="360" y2="125"/>
+    <line x1="400" y1="97" x2="440" y2="125"/>
+  </g>
+  <text x="270" y="170" fill="var(--text-muted)" text-anchor="middle" font-size="10">Listy: sekvenční sort → konkatenace dává seřazený výstup</text>
+</svg>
+:::
+
+::: viz median-splitting "Krokuj fáze: kořen najde medián, rozdělí na ≤M (levý) a >M (pravý), pošle synům. Opakuje se až k listům, ty seřadí sekvenčně. Mediánový pivot garantuje perfektní rozdělení (vždy n/2 a n/2)."
+:::
+
+### Analýza
+
+1. **První krok** (načtení S kořenem): $O(n)$.
+2. **Dělení na úrovni $i$**: procesor zpracovává sekvenci délky $n/2^i$.
+   - Medián v $O(n/2^i)$ (sekv. Select).
+   - Rozdělení v $O(n/2^i)$.
+   - Suma přes úrovně: $\sum_{i=0}^{\log m - 1} n/2^i = O(n)$.
+3. **Listový sort**: každý list seřadí $n/\log n$ prvků sekvenčním optimálním algoritmem v $O((n/\log n) \log(n/\log n)) = O(n)$.
+
+**Celkem**:
+
+- $t(n) = O(n)$
+- $p(n) = O(\log n)$ procesorů.
+- $c(n) = O(n \log n)$ — **cost-optimal**!
+
+### Diskuze
+
+- *Cost-optimal* stejně jako Bucket Sort a Pipeline Merge Sort.
+- *Garance vyváženosti* mediánovým pivotem — žádné worst-case degradace jako u náhodného quicksortu.
+- *Komplikovanější implementace* (medián v každém uzlu) — typicky se v praxi nahrazuje randomizovaným pivotem (jednodušší, $O(n)$ průměrně, ale $O(n^2)$ worst-case).
+- Konceptuálně jde o *paralelní quicksort* s **deterministickým** pivotem.
+
+## Souhrnná tabulka — všechny paralelní řadicí algoritmy
+
+| Algoritmus | Topologie | Čas | Procesory | Cena | Cost-opt? |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Sekv. merge sort | — | $O(n \log n)$ | 1 | $O(n \log n)$ | ✓ |
+| Odd-Even Transposition | lineární | $O(n)$ | $n$ | $O(n^2)$ | ✗ |
+| Enumeration (mřížka) | $n \times n$ mesh | $O(\log n)$ | $n^2$ | $O(n^2 \log n)$ | ✗ |
+| Enumeration (lineární) | lin. + sběrnice | $O(n)$ | $n$ | $O(n^2)$ | ✗ |
+| **Bucket Sort** | strom | $O(n)$ | $O(\log n)$ | $O(n \log n)$ | ✓ |
+| Odd-Even Merge Sort | řadicí síť | $O(\log^2 n)$ | $O(n \log^2 n)$ | $O(n \log^4 n)$ | ✗ |
+| **Pipeline Merge Sort** | lineární řetězec | $O(n)$ | $O(\log n)$ | $O(n \log n)$ | ✓ |
+| Minimum Extraction Sort | strom | $O(n)$ | $2n - 1$ | $O(n^2)$ | ✗ |
+| **Median Finding+Splitting** | strom | $O(n)$ | $O(\log n)$ | $O(n \log n)$ | ✓ |
+
+**Cost-optimal trojice**: **Bucket Sort**, **Pipeline Merge Sort**, **Median Finding and Splitting**. Všechny mají *jen* $O(\log n)$ procesorů a *lineární* čas.
+
+## Výběr v praxi
+
+| Scénář | Doporučený algoritmus |
+| :--- | :--- |
+| HPC cluster s MPI | Sample sort (varianta Median+Splitting) |
+| GPU (CUDA, OpenCL) | Bitonic merge sort, radix sort |
+| FPGA / ASIC | Odd-Even Merge Sort (řadicí síť) |
+| Streaming dat | Pipeline Merge Sort |
+| Embedded multi-core (4–16 jader) | Bucket Sort |
+| Algoritmus pro výuku | Odd-Even Transposition (jednoduchý) |
+
+V *teorii* existují *AKS network* (Ajtai, Komlós, Szemerédi 1983) a *Cole's parallel merge sort* (1988) s časem $O(\log n)$ a cenou $O(n \log n)$ — *asymptoticky lepší* než Batcher. V *praxi* mají tak velké konstanty, že nejsou používány. Batcher zůstává *standardní* pro hardware sortovací sítě.
+
+## Co dál
+
+Topic [[transpozice]] (Paralelní maticové operace) přejde od *řazení* k *lineární algebře* — paralelní výpočty matice-vektor, matice-matice, transpozice — na *PRAM*, *mřížce*, *hyperkrychli*. Topic *Kontrakce stromu* dále rozvine paralelní algoritmy na stromech (Euler tour, expression evaluation).
+
+---
+
+*Zdroj: PRL přednášky 2025/26, Ing. František Zbořil ml., Ph.D., a doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Akl, S.G.: *Parallel Sorting Algorithms* (Academic Press 1985); Akl, S.G.: *The Design and Analysis of Parallel Algorithms* (Prentice Hall 1989), kap. 4; Cole, R.: „Parallel merge sort" (SIAM J. Comput. 17(4), 1988, [DOI 10.1137/0217049](https://doi.org/10.1137/0217049)); Ajtai, M., Komlós, J., Szemerédi, E.: „An O(n log n) sorting network" (STOC 1983, [DOI 10.1145/800061.808726](https://doi.org/10.1145/800061.808726)); JáJá, J.: *An Introduction to Parallel Algorithms* (1992), kap. 4; Grama et al.: *Introduction to Parallel Computing* (2003), kap. 9.*

@@ -1,0 +1,12 @@
+{
+  "$schema": "Edit this file by hand to mark study material as human-verified. The blue check then shows next to that item in the UI and the AI-notice reflects it.",
+  "$keys": [
+    "Use the same shape as URLs:",
+    "  - '<courseId>'                       → marks the whole course as verified",
+    "  - '<courseId>/<topicId>'             → marks a topic (and its subtopics inherit)",
+    "  - '<courseId>/<topicId>/<subId>'     → marks an individual subtopic"
+  ],
+  "verified": [
+    "PDS/transport/arq-okno"
+  ]
+}
