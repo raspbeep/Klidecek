@@ -93,7 +93,7 @@ export default function TomasuloRsCdb() {
 
   const cur = simulate(t);
 
-  const W = 580, H = 320;
+  const W = 580, H = 340;
   return (
     <div style={{ width: "100%" }}>
       <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
@@ -152,11 +152,11 @@ export default function TomasuloRsCdb() {
           ))}
         </g>
 
-        {/* CDB last broadcast */}
-        <text x={10} y={H - 50} fontSize="11" fill="var(--text)" fontWeight="600">CDB (poslední broadcast):</text>
+        {/* CDB last broadcast — moved up to give the WAR/WAW footnote breathing room. */}
+        <text x={10} y={H - 78} fontSize="11" fill="var(--text)" fontWeight="600">CDB (poslední broadcast):</text>
         <g>
           {cur.cdbHist.slice(-3).map((b, i) => (
-            <text key={i} x={10} y={H - 36 + i * 12} fontSize="9.5" fontFamily="ui-monospace, monospace" fill="oklch(0.7 0.15 60)">
+            <text key={i} x={10} y={H - 64 + i * 12} fontSize="9.5" fontFamily="ui-monospace, monospace" fill="oklch(0.7 0.15 60)">
               t{b.cycle}: tag {b.tag} → {b.dst} (i{b.instId})
             </text>
           ))}

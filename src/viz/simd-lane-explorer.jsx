@@ -29,9 +29,11 @@ export default function SimdLaneExplorer() {
     return () => clearInterval(id);
   }, [running, t.n]);
 
-  const W = 720, H = 360;
+  const W = 760, H = 360;
   const panelW = (W - 32) / 2;        // two panels with 32 px gutter
-  const laneW = (panelW - 38) / t.n - 2;
+  // Lane area starts after timeline (TIMELINE_X 14 + TIMELINE_W 18 + 12 px gap = 44)
+  // and needs ~8 px right padding inside the panel.
+  const laneW = (panelW - 44 - 8) / t.n - 2;
   const valsA = Array.from({ length: t.n }, (_, i) => t.getA(i));
   const valsB = Array.from({ length: t.n }, (_, i) => t.getB(i));
   const valsR = valsA.map((a, i) => a + valsB[i]);

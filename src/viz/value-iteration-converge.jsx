@@ -77,9 +77,9 @@ export default function ValueIterationConverge() {
           {/* s2 → s3, action a, r=1 */}
           <path d="M 330 110 L 425 200" stroke="var(--line-strong)" fill="none" markerEnd="url(#viArr)" />
           <text x="395" y="155" textAnchor="middle" fontSize="10.5" fill="var(--text-muted)" fontFamily="var(--font-mono)">a, r=1</text>
-          {/* s3 self-loop (absorbing) */}
-          <path d="M 468 220 C 510 220, 510 250, 468 245" stroke="var(--accent-line)" fill="none" markerEnd="url(#viArr)" />
-          <text x="490" y="265" textAnchor="middle" fontSize="10" fill="var(--accent-line)" fontFamily="var(--font-mono)">absorpční</text>
+          {/* s3 self-loop (absorbing) — loop right of node, label tucked above the loop */}
+          <path d="M 468 220 C 510 220, 510 250, 478 250" stroke="var(--accent-line)" fill="none" markerEnd="url(#viArr)" />
+          <text x="540" y="226" textAnchor="end" fontSize="10" fill="var(--accent-line)" fontFamily="var(--font-mono)">absorbing</text>
         </g>
 
         {/* Q-table */}

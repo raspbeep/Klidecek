@@ -294,15 +294,17 @@ export default function RaftPraxe() {
 
   useMemo(() => { setStep(0); }, [scenario]);
 
-  const W = 560, H = 380;
-  const cx = W / 2, cy = 170, r = 110;
+  const W = 560, H = 400;
+  // Nodes ring sized so V1 (top) clears the client box.
+  const cx = W / 2, cy = 200, r = 110;
   const nodePos = (id) => {
     const a = ((id - 1) / N) * Math.PI * 2 - Math.PI / 2;
     return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
   };
 
-  // Client position at top
-  const clientPos = { x: cx, y: 30 };
+  // Client at top, far enough above V1 (which is at y = cy − r = 90) that the
+  // client's bottom edge (y + 12 = 30) doesn't bite into V1's circle.
+  const clientPos = { x: cx, y: 18 };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>

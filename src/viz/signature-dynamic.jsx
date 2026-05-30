@@ -181,6 +181,7 @@ export default function SignatureDynamic() {
           <svg viewBox={`0 0 ${W/2} 80`} style={{ width: "100%", background: "var(--bg-inset)", borderRadius: 4 }}>
             <polyline points={pressureGen.map((p, i) => `${5 + i * 170 / pressureGen.length},${80 - p * 70}`).join(" ")} fill="none" stroke="rgb(64,192,87)" strokeWidth="1.5" opacity="0.5" />
             <polyline points={pressureSeq.map((p, i) => `${5 + i * 170 / pressureSeq.length},${80 - p * 70}`).join(" ")} fill="none" stroke={scenario === "genuine" ? "rgb(64,192,87)" : "rgb(220,80,80)"} strokeWidth="2" />
+            <rect x={3} y={2} width={96} height={14} fill="var(--bg-inset)" stroke="var(--line)" strokeWidth="0.5" rx="2" />
             <text x={5} y={12} fontSize="9" fill="var(--text-muted)">DTW dist = {dPressure.toFixed(3)}</text>
           </svg>
         </div>
@@ -189,6 +190,7 @@ export default function SignatureDynamic() {
           <svg viewBox={`0 0 ${W/2} 80`} style={{ width: "100%", background: "var(--bg-inset)", borderRadius: 4 }}>
             <polyline points={velGen.map((v, i) => `${5 + i * 170 / velGen.length},${80 - Math.min(v, 500) / 500 * 70}`).join(" ")} fill="none" stroke="rgb(64,192,87)" strokeWidth="1.5" opacity="0.5" />
             <polyline points={velProbe.map((v, i) => `${5 + i * 170 / velProbe.length},${80 - Math.min(v, 500) / 500 * 70}`).join(" ")} fill="none" stroke={scenario === "genuine" ? "rgb(64,192,87)" : "rgb(220,80,80)"} strokeWidth="2" />
+            <rect x={3} y={2} width={96} height={14} fill="var(--bg-inset)" stroke="var(--line)" strokeWidth="0.5" rx="2" />
             <text x={5} y={12} fontSize="9" fill="var(--text-muted)">DTW dist = {dVelocity.toFixed(1)}</text>
           </svg>
         </div>
