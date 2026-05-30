@@ -877,6 +877,7 @@ button { font: inherit; color: inherit; }
 
 .block-image, .block-svg {
   margin: 0;
+  position: relative;
   border: 0.5px solid var(--line);
   background: var(--bg-card);
   border-radius: var(--r-md);
@@ -907,6 +908,7 @@ button { font: inherit; color: inherit; }
 }
 
 .block-viz {
+  position: relative;
   border: 0.5px solid var(--line);
   background: var(--bg-card);
   border-radius: var(--r-md);
@@ -946,6 +948,46 @@ button { font: inherit; color: inherit; }
   color: var(--text-muted);
   padding: 0 var(--pad-3) var(--pad-3);
 }
+
+/* ── Shareable per-figure deep links ─────────────────────────────────────── */
+.block-viz-head-right { display: flex; align-items: center; gap: 8px; }
+.fig-anchor {
+  appearance: none;
+  display: inline-grid; place-items: center;
+  border: 0.5px solid var(--line);
+  background: color-mix(in oklch, var(--bg-card) 80%, transparent);
+  color: var(--text-faint);
+  width: 26px; height: 22px; padding: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transition: opacity 0.12s ease, color 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+.fig-anchor:hover { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+.fig-anchor.copied { color: var(--ok); border-color: var(--ok); }
+/* Overlay variant for image/svg figures: hover-reveal in the top-right corner. */
+.block-image > .fig-anchor, .block-svg > .fig-anchor {
+  position: absolute; top: 8px; right: 8px; z-index: 3;
+  opacity: 0;
+}
+.block-image:hover > .fig-anchor, .block-svg:hover > .fig-anchor,
+.block-image:focus-within > .fig-anchor, .block-svg:focus-within > .fig-anchor,
+.anchor-always .block-image > .fig-anchor, .anchor-always .block-svg > .fig-anchor {
+  opacity: 1;
+}
+/* Inline variant in the viz header (always visible, borderless). */
+.block-viz-head .fig-anchor {
+  border: none; background: transparent; width: 20px; height: 18px;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.block-viz-head .fig-anchor:hover { background: var(--accent-soft); }
+
+/* Brief highlight when arriving via a figure deep-link. */
+@keyframes fig-flash {
+  0%, 70% { box-shadow: 0 0 0 3px var(--accent-line), var(--shadow-md); }
+  100%    { box-shadow: 0 0 0 0 transparent; }
+}
+.fig-highlight { animation: fig-flash 2.4s ease-out; }
 
 .block-quiz {
   border: 0.5px solid var(--line);

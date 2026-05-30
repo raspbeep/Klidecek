@@ -27,9 +27,9 @@ function parseHash(hash) {
   const [head, ...rest] = parts;
   if (head === "c") {
     if (rest.length === 0) return { mode: "courses" };
-    const [cid, second, third] = rest;
+    const [cid, second, third, fourth] = rest;
     if (second === "mm") return { mode: "course", courseId: cid, view: "mm" };
-    return { mode: "course", courseId: cid, focusTopic: second, focusSub: third };
+    return { mode: "course", courseId: cid, focusTopic: second, focusSub: third, focusFig: fourth };
   }
   if (head === "s") {
     if (rest.length === 0) return { mode: "specs" };
@@ -493,7 +493,7 @@ export function App() {
   switch (route.mode) {
     case "home":           page = <HomePage content={content} navigate={navigate} />; break;
     case "courses":        page = <CoursesPage content={content} navigate={navigate} />; break;
-    case "course":         page = <CourseDetailPage content={content} courseId={route.courseId} focusTopic={route.focusTopic} focusSub={route.focusSub} view={route.view} navigate={navigate} />; break;
+    case "course":         page = <CourseDetailPage content={content} courseId={route.courseId} focusTopic={route.focusTopic} focusSub={route.focusSub} focusFig={route.focusFig} view={route.view} navigate={navigate} />; break;
     case "specs":          page = <SpecsPage content={content} navigate={navigate} />; break;
     case "spec":           page = <SpecDetailPage content={content} specId={route.specId} navigate={navigate} />; break;
     case "exam":           page = <ExamPage content={content} navigate={navigate} />; break;

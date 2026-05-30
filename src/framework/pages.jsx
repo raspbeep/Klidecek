@@ -371,7 +371,7 @@ function TocSidebarReopen({ onToggle, hidden }) {
 }
 
 /* ─── COURSE DETAIL ────────────────────────────────────────── */
-export function CourseDetailPage({ content, courseId, focusTopic, focusSub, view, navigate }) {
+export function CourseDetailPage({ content, courseId, focusTopic, focusSub, focusFig, view, navigate }) {
   const course = content.findCourse(courseId);
   const { set, toggle, courseStats } = useProgress(content);
   const { isCollapsed, setCollapsed, toggle: toggleCollapsed } = useCollapsed();
@@ -397,10 +397,16 @@ export function CourseDetailPage({ content, courseId, focusTopic, focusSub, view
     if (!course || isMindmap) return;
     if (focusSub && focusTopic) {
       requestAnimationFrame(() => requestAnimationFrame(() => {
-        const el = document.getElementById(`sub-${focusTopic}-${focusSub}`);
+        // Prefer a specific figure (#/c/cid/tid/sid/figN) when present, else the subtopic.
+        const figEl = focusFig && document.getElementById(`sub-${focusTopic}-${focusSub}--${focusFig}`);
+        const el = figEl || document.getElementById(`sub-${focusTopic}-${focusSub}`);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          el.scrollIntoView({ behavior: "smooth", block: figEl ? "center" : "start" });
           setActiveTopic(focusTopic);
+          if (figEl) {
+            figEl.classList.add("fig-highlight");
+            setTimeout(() => figEl.classList.remove("fig-highlight"), 2400);
+          }
         }
       }));
     } else if (focusTopic) {
@@ -411,7 +417,7 @@ export function CourseDetailPage({ content, courseId, focusTopic, focusSub, view
     } else {
       window.scrollTo({ top: 0 });
     }
-  }, [courseId, focusTopic, focusSub, isMindmap, course]);
+  }, [courseId, focusTopic, focusSub, focusFig, isMindmap, course]);
 
   useEffect(() => {
     if (!course || isMindmap) return;
@@ -622,7 +628,7 @@ export function CourseDetailPage({ content, courseId, focusTopic, focusSub, view
                           )}
                         </button>
                       </header>
-                      {!subCollapsed && <BlockList blocks={sub.blocks} />}
+                      {!subCollapsed && <BlockList blocks={sub.blocks} courseId={course.id} topicId={t.id} subId={sub.id} />}
                     </article>
                   );
                 })}

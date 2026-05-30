@@ -6,7 +6,7 @@
 // Wiki links navigate within the app via a React context populated by BlockList.
 // Math (inline and block) is rendered with KaTeX.
 
-import { createContext, useContext, useCallback, useState } from "react";
+import { createContext, useContext, useCallback, useState, useMemo } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import * as viz from "./viz-registry.js";
@@ -20,6 +20,44 @@ function resolveAsset(src) {
 
 /* ─── Context: { content, navigate } so wiki-links can resolve a target ── */
 export const BlockContext = createContext({ content: null, navigate: null });
+
+/* ─── Context: per-subtopic anchor base so figures get shareable deep-links ──
+ * subAnchor = "sub-<tid>-<sid>" (the enclosing <article> id); a figure's DOM id
+ * is `${subAnchor}--fig<N>` and its shareable URL is `#${routeBase}/fig<N>`. */
+export const FigureContext = createContext({ subAnchor: null, routeBase: null });
+
+// Small "copy link to this figure" button, shown on image/svg/viz blocks.
+function FigureAnchor({ figId }) {
+  const { routeBase } = useContext(FigureContext);
+  const [copied, setCopied] = useState(false);
+  if (!routeBase || !figId) return null;
+  const onCopy = (e) => {
+    e.stopPropagation();
+    const url = location.origin + location.pathname + "#" + routeBase + "/" + figId;
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).catch(() => {});
+    setCopied(true);
+    if (typeof window !== "undefined" && window.toast) window.toast("Figure link copied to clipboard");
+    setTimeout(() => setCopied(false), 1600);
+  };
+  return (
+    <button className={"fig-anchor" + (copied ? " copied" : "")} onClick={onCopy}
+      title="Copy link to this figure" aria-label="Copy link to this figure">
+      {copied ? (
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m5 12 5 5 9-11"/></svg>
+      ) : (
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+      )}
+    </button>
+  );
+}
+
+// Resolve a figure's stable DOM id + short key from its 1-based index in the subtopic.
+function useFigureId(figIndex) {
+  const { subAnchor } = useContext(FigureContext);
+  if (!subAnchor || !figIndex) return {};
+  const figKey = "fig" + figIndex;
+  return { domId: subAnchor + "--" + figKey, figKey };
+}
 
 /* ─── Escapes / inline markdown ────────────────────────────────────────── */
 function escapeHtml(s) {
@@ -298,22 +336,26 @@ function DiagramBlock({ block }) {
   );
 }
 
-function ImageBlock({ block }) {
+function ImageBlock({ block, figIndex }) {
+  const { domId, figKey } = useFigureId(figIndex);
   return (
-    <figure className="block-image">
+    <figure className="block-image" id={domId}>
       <img src={resolveAsset(block.src)} alt={block.alt || ""} loading="lazy" />
       {block.caption && <figcaption>{block.caption}</figcaption>}
+      <FigureAnchor figId={figKey} />
     </figure>
   );
 }
 
 // Inline SVG block. Body is author-controlled markup from the local repo's
 // MD files (no user input), so dangerouslySetInnerHTML is acceptable here.
-function SvgBlock({ block }) {
+function SvgBlock({ block, figIndex }) {
+  const { domId, figKey } = useFigureId(figIndex);
   return (
-    <figure className="block-svg">
+    <figure className="block-svg" id={domId}>
       <div dangerouslySetInnerHTML={{ __html: block.body || "" }} />
       {block.caption && <figcaption>{block.caption}</figcaption>}
+      <FigureAnchor figId={figKey} />
     </figure>
   );
 }
@@ -354,13 +396,17 @@ function QuizBlock({ block }) {
   );
 }
 
-function VizBlock({ block }) {
+function VizBlock({ block, figIndex }) {
   const Component = viz.get(block.id);
+  const { domId, figKey } = useFigureId(figIndex);
   return (
-    <div className="block-viz">
+    <div className="block-viz" id={domId}>
       <div className="block-viz-head">
         <span>interactive · {block.id || "?"}</span>
-        <span>drag · click · tap</span>
+        <span className="block-viz-head-right">
+          <FigureAnchor figId={figKey} />
+          <span className="block-viz-hint">drag · click · tap</span>
+        </span>
       </div>
       <div className="block-viz-body">
         {Component
@@ -376,7 +422,7 @@ function VizBlock({ block }) {
   );
 }
 
-export function Block({ block }) {
+export function Block({ block, figIndex }) {
   switch (block.kind) {
     case "text":    return <TextBlock block={block} />;
     case "heading": return <HeadingBlock block={block} />;
@@ -384,9 +430,9 @@ export function Block({ block }) {
     case "code":    return <CodeBlock block={block} />;
     case "link":    return <LinkBlock block={block} />;
     case "diagram": return <DiagramBlock block={block} />;
-    case "image":   return <ImageBlock block={block} />;
-    case "svg":     return <SvgBlock block={block} />;
-    case "viz":     return <VizBlock block={block} />;
+    case "image":   return <ImageBlock block={block} figIndex={figIndex} />;
+    case "svg":     return <SvgBlock block={block} figIndex={figIndex} />;
+    case "viz":     return <VizBlock block={block} figIndex={figIndex} />;
     case "quiz":    return <QuizBlock block={block} />;
     case "table":   return <TableBlock block={block} />;
     case "list":    return <ListBlock block={block} />;
@@ -396,11 +442,25 @@ export function Block({ block }) {
   }
 }
 
-export function BlockList({ blocks }) {
+export function BlockList({ blocks, courseId, topicId, subId }) {
   const onClick = useWikiLinkHandler();
+  const figCtx = useMemo(
+    () => (courseId && topicId && subId)
+      ? { subAnchor: `sub-${topicId}-${subId}`, routeBase: `/c/${courseId}/${topicId}/${subId}` }
+      : { subAnchor: null, routeBase: null },
+    [courseId, topicId, subId]
+  );
+  // Number figures (image / svg / viz) in document order so each gets a stable
+  // `fig<N>` id for deep-linking.
+  let figN = 0;
   return (
-    <div className="blocks" onClick={onClick}>
-      {(blocks || []).map((b, i) => <Block key={i} block={b} />)}
-    </div>
+    <FigureContext.Provider value={figCtx}>
+      <div className="blocks" onClick={onClick}>
+        {(blocks || []).map((b, i) => {
+          const figIndex = (b.kind === "image" || b.kind === "svg" || b.kind === "viz") ? ++figN : undefined;
+          return <Block key={i} block={b} figIndex={figIndex} />;
+        })}
+      </div>
+    </FigureContext.Provider>
   );
 }
