@@ -178,11 +178,13 @@ export default function McClassification() {
           const sy = y1 + (dy / d) * r;
           const ex = x2 - (dx / d) * r;
           const ey = y2 - (dy / d) * r;
-          const perpX = -dy / d * 4, perpY = dx / d * 4;
+          // Wider perp offset so two-way arrow labels (e.g. S3↔S4 with both p=1.00)
+          // sit clearly on opposite sides instead of stacking on top of each other.
+          const perpX = -dy / d * 8, perpY = dx / d * 8;
           return (
             <g key={k}>
               <path d={`M ${sx + perpX} ${sy + perpY} L ${ex + perpX} ${ey + perpY}`} stroke="var(--line-strong)" fill="none" markerEnd="url(#mcArr)" />
-              <text x={(sx + ex) / 2 + perpX * 2} y={(sy + ey) / 2 + perpY * 2 + 3} fontSize="9.5" textAnchor="middle" fill="var(--text-muted)" fontFamily="var(--font-mono)">{p.toFixed(2)}</text>
+              <text x={(sx + ex) / 2 + perpX * 1.6} y={(sy + ey) / 2 + perpY * 1.6 + 3} fontSize="9.5" textAnchor="middle" fill="var(--text-muted)" fontFamily="var(--font-mono)">{p.toFixed(2)}</text>
             </g>
           );
         })}

@@ -65,7 +65,9 @@ export default function BeliefStateVacuum() {
     belief = filterByPercept(belief, h.observed);
   }
 
-  const W = 540, H = 320;
+  // Initial belief has 64 mini-grids; 6 per row → 11 rows × ~56 px each
+  // needs H ≥ 640 to keep the bottom rows fully on canvas.
+  const W = 540, H = 680;
   const ROOM_SIZE = 36;
   const GROUPS_PER_ROW = 6;
 

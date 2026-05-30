@@ -74,7 +74,9 @@ export default function PrefixSumUvod() {
 
   const n = input.length;
   const cellW = 60;
-  const W = 540, totalH = appKey === "základ" ? 200 : 260;
+  // Cells start after the ~80 px label gutter, so n=8 cells × 60 = 480 needs
+  // ≥ 560 + a little right padding. 600 keeps everything on canvas.
+  const W = 600, totalH = appKey === "základ" ? 200 : 260;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>

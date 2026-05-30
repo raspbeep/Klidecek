@@ -1,7 +1,10 @@
 // DTMC simulator — pick a chain, step/run, see t^(k) evolve.
 import { useState, useEffect, useRef } from "react";
 
-const W = 540, H = 320;
+// Canvas widened from 540 → 640 to separate the state-graph (left) from the
+// t⁽ᵏ⁾ bar chart (right) — at the original 540 the "error" / "start" labels
+// from both regions sat in the same band and collided.
+const W = 640, H = 320;
 
 const PRESETS = {
   protocol: {

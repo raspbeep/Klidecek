@@ -59,20 +59,23 @@ export default function AttackTreeTraversal() {
 
   function toggle(id) { setState(s => ({ ...s, [id]: !s[id] })); }
 
-  const W = 580, H = 280;
+  // Widened canvas + respaced leaves so the 6 boxes (each 100 px wide) sit
+  // shoulder-to-shoulder without overlapping their neighbours. Original layout
+  // had x positions 60/180/230/350/400/520 with width 120 → boxes 2↔3 and 4↔5
+  // overlapped by ~50 px and the inner labels were truncated.
+  const W = 740, H = 280;
 
-  // Layout
   const NODE_POS = {
-    root: { x: 290, y: 30 },
-    sqli: { x: 120, y: 100 },
-    bof:  { x: 290, y: 100 },
-    soc:  { x: 460, y: 100 },
-    "sqli-find":  { x: 60, y: 200 },
-    "sqli-craft": { x: 180, y: 200 },
-    "bof-ver":    { x: 230, y: 200 },
-    "bof-cve":    { x: 350, y: 200 },
-    "soc-phish":  { x: 400, y: 200 },
-    "soc-pre":    { x: 520, y: 200 },
+    root: { x: 370, y: 30 },
+    sqli: { x: 130, y: 100 },
+    bof:  { x: 370, y: 100 },
+    soc:  { x: 610, y: 100 },
+    "sqli-find":  { x:  70, y: 200 },
+    "sqli-craft": { x: 190, y: 200 },
+    "bof-ver":    { x: 310, y: 200 },
+    "bof-cve":    { x: 430, y: 200 },
+    "soc-phish":  { x: 550, y: 200 },
+    "soc-pre":    { x: 670, y: 200 },
   };
 
   function renderNode(node, parentResult = null) {
@@ -89,7 +92,7 @@ export default function AttackTreeTraversal() {
               stroke={open ? "oklch(0.65 0.18 22)" : "var(--line)"} strokeWidth={open ? 1.5 : 0.8} />
           );
         })}
-        <rect x={pos.x - 60} y={pos.y - 15} width={120} height={30} rx="3"
+        <rect x={pos.x - 50} y={pos.y - 15} width={100} height={30} rx="3"
           fill={result ? "oklch(0.65 0.18 22 / 0.3)" : "var(--bg-inset)"}
           stroke={result ? "oklch(0.65 0.18 22)" : "var(--line)"} strokeWidth={result ? 1.5 : 0.8}
           style={{ cursor: isLeaf ? "pointer" : "default" }}
