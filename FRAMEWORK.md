@@ -613,6 +613,202 @@ Audit before shipping a viz batch:
 grep -nE 'mathbb|mathcal|mathbf|\\frac\{|\\sqrt\{|\\binom\{' src/viz/*.jsx
 ```
 
+### 5.2 Layout pitfalls — what a screenshot will catch but `vite build` won't
+
+The build is happy as long as the file compiles. The browser only complains if
+JS throws. So every layout bug below ships unless you actually **render the
+viz and look at it.** A scan of 215 viz pages caught these patterns:
+
+**Right/bottom-edge clipping from miscounted cell widths.** A row of `n` cells
+with width `cellW` placed after a left-side label gutter of `Lpad` needs
+`Lpad + n*cellW + Rpad ≤ W`. If the canvas is too narrow (or the cell width
+formula doesn't account for both pads), the last cell prints past the
+viewBox and is invisible to the user.
+
+```jsx
+// ❌ For n = 8, cellW = 60, Lpad ≈ 80 → cells reach x = 560 but W = 540 → clipped
+const W = 540;
+const cellW = 60;
+…cells.map((c, i) => <rect x={Lpad + i * cellW} … />)
+
+// ✓ Account for both gutters explicitly
+const W = 600;
+const cellW = (W - Lpad - Rpad) / n;
+```
+
+Same trap for the **vertical** direction. `belief-state-vacuum` had 64 mini
+grids at 6 per row → 11 rows × 56 px each = 616, but H = 320 sliced off the
+bottom 6 rows. Always size the canvas to the *worst-case* preset (max `n`,
+deepest tree, biggest grid), not the default.
+
+**Labels positioned at the edge of their parent shape.** Text in SVG anchors
+on the baseline, so a label at `y = r - 2` inside a circle of radius `r` has
+its descenders crossing the stroke. Keep ~6 px between baseline and the
+nearest stroke, or move the label outside the shape entirely.
+
+```jsx
+// ❌ Descenders of "term=0" bite the circle border
+<circle r={22} … />
+<text y={20} fontSize="9">term={n.term}</text>
+
+// ✓ Move below the circle or shrink the y target
+<text y={34} fontSize="9">term={n.term}</text>   // outside
+<text y={14} fontSize="9">term={n.term}</text>   // inside but clear of stroke
+```
+
+**Bidirectional arrow labels stacking on top of each other.** If two arrows
+share endpoints (A↔B both with `p = 1.00`), the midpoints are identical and
+your two labels print in the same place unless the perpendicular offset is
+≥ half the wider label. A 4-px perp offset is not enough for a "1.00"
+glyph. Use 8+ px and place each label on its arrow's offset side.
+
+```jsx
+const perpX = -dy / d * 8, perpY = dx / d * 8;     // 8, not 4
+<text x={(sx+ex)/2 + perpX * 1.5} y={(sy+ey)/2 + perpY * 1.5} … />
+```
+
+**Boxes that overlap when placed by absolute coords.** A rectangle drawn at
+`x = pos.x - W/2, width = W` extends from `pos.x - W/2` to `pos.x + W/2`. If
+two boxes have centers closer than `W`, they overlap and one covers the
+other's label. Either widen the canvas + respace, or shrink the box.
+
+```jsx
+// ❌ Centers at x = 180 and x = 230, box width 120
+//    → box1 ends at 240, box2 starts at 170 → 70 px of overlap
+<rect x={pos.x - 60} width={120} …/>
+
+// ✓ Spread centres so |Δx| ≥ box width + small gap
+```
+
+**Sharing the same horizontal band between two visual regions.** If the
+state graph occupies the left half and the bar chart occupies the right
+half but they live at the same y range, node labels collide with bar
+labels. Either widen the canvas so the two regions don't overlap, or move
+one to a separate `<svg>` and stack vertically.
+
+**Text crossing a polyline.** A `<text>` printed on top of a polyline gets
+visually struck through by the line. Add a background rect (matched to the
+panel fill) just behind the text, or use the paint-order stroke halo trick:
+
+```jsx
+// Background rect
+<rect x={3} y={2} width={96} height={14} fill="var(--bg-inset)"
+  stroke="var(--line)" strokeWidth="0.5" rx="2" />
+<text x={5} y={12} fontSize="9">DTW dist = {d.toFixed(3)}</text>
+
+// Or stroke halo (paints the stroke first as a halo)
+<text style={{ paintOrder: "stroke" }}
+  stroke="var(--bg-card)" strokeWidth="3" strokeLinejoin="round"
+  fill="var(--text)">{label}</text>
+```
+
+**`textAnchor="start"` labels near the right edge.** Text width is roughly
+`len * 6.5 px` at `fontSize: 11`. If `x + textWidth > W`, the label
+overflows. Either right-anchor it, shorten the string, or move x left.
+
+**Multiple `<svg>` elements in one component — coordinates do not share a
+space.** A `<marker viewBox="0 0 10 10">` inside `<defs>` has nothing to do
+with the outer canvas's viewBox. If you write a static-analysis script that
+greps for `viewBox`, take the **first** SVG tag, not the largest viewBox you
+find. Similarly, an inner detail `<svg viewBox="0 0 520 140">` next to a
+parent `<svg viewBox="0 0 540 70">` are independent coordinate systems —
+don't reason about positions across them.
+
+**Comparison viz that don't read as comparisons.** When the viz name or
+description says "A vs B", the user must *see* both A and B simultaneously.
+Anti-patterns: tab-switcher that only shows one at a time; one side
+visualised as a chart and the other reduced to a number in the legend; two
+panels with no header or divider so they look like one continuous figure.
+The fix: explicit panel headers, a centred "VS" pill or vertical divider,
+matched axes/legends on both sides, key-metric callouts on each side so the
+two-way trade-off is obvious.
+
+```jsx
+// Side-by-side comparison pattern
+<rect x={4}             y={4} width={panelW} height={28} … />       // left header
+<text x={panelW/2}      y={20}>A · description</text>
+<rect x={panelW + 28}   y={4} width={panelW} height={28} … />       // right header
+<text x={panelW*1.5+28} y={20}>B · description</text>
+<circle cx={panelW + 16} cy={18} r={13} … />                        // VS pill
+<text   x={panelW + 16} y={22}>VS</text>
+<line   x1={panelW+16} y1={36} x2={panelW+16} y2={H-50}             // divider
+  strokeDasharray="3 4" />
+```
+
+**Tiny interactivity is fine, fake interactivity is not.** A viz that
+re-renders the same picture regardless of state changes is worse than a
+static SVG. If the component has a slider or toggle, *something* visible
+must change when it moves.
+
+### 5.3 Verify a viz batch by actually rendering it
+
+Static analysis catches none of the bugs above. The only reliable check is
+to render every viz in a real browser and look. The cheapest setup:
+
+```python
+# requires: pip install playwright && python -m playwright install chromium
+from playwright.sync_api import sync_playwright
+import json
+routes = json.load(open("/tmp/viz_routes.json"))   # vid → [cid, tid, sid]
+with sync_playwright() as p:
+    b = p.chromium.launch()
+    page = b.new_context(viewport={"width": 1100, "height": 900}).new_page()
+    page.set_default_timeout(10000)
+    for vid, (cid, tid, sid) in routes.items():
+        page.goto(f"http://localhost:5183/#/c/{cid}/{tid}/{sid}",
+                  wait_until="domcontentloaded")
+        page.wait_for_selector(".block-viz")
+        page.wait_for_timeout(400)
+        # Match the right block by head text (case-insensitive)
+        for blk in page.query_selector_all(".block-viz"):
+            head = blk.query_selector(".block-viz-head span:first-child")
+            if head and vid.lower() in (head.text_content() or "").lower():
+                blk.scroll_into_view_if_needed()
+                blk.screenshot(path=f"/tmp/shots/{vid}.png")
+                break
+    b.close()
+```
+
+Two pitfalls in the harness itself:
+
+* **Match the viz block by text, not by index.** A subtopic page can host
+  several viz blocks; picking the first one silently mis-names every
+  screenshot after the first that matches.
+* **Use `text_content()`, not `inner_text()`.** The block header sits under
+  `text-transform: uppercase`, so `inner_text()` returns the *rendered*
+  uppercase text; `text_content()` returns the original lowercase id and a
+  case-insensitive substring match works either way.
+
+Static checks that **do** catch a real subset (run before the screenshot
+pass to weed out the obvious cases):
+
+```sh
+# Hardcoded coords past the outer SVG's viewBox (per-block, not per-file).
+# A viz with multiple <svg> elements needs per-block accounting — see §5.2.
+python3 - <<'PY'
+import os, re
+for f in os.listdir("src/viz"):
+    if not f.endswith(".jsx"): continue
+    src = open(f"src/viz/{f}").read()
+    consts = {m[0]: float(m[1]) for m in re.findall(r'\bconst\s+(\w+)\s*=\s*(\d+(?:\.\d+)?)', src)}
+    for block in re.findall(r'<svg[^>]*>.*?</svg>', src, re.DOTALL):
+        W = H = None
+        if (m := re.search(r'viewBox=["\']`?\s*0\s+0\s+([\d.]+)\s+([\d.]+)', block)):
+            W, H = float(m[1]), float(m[2])
+        elif (m := re.search(r'viewBox=\{`0 0 \$\{(\w+)\}\s+\$\{(\w+)\}`\}', block)):
+            W, H = consts.get(m[1]), consts.get(m[2])
+        if not W or W < 16: continue            # skip marker viewBoxes
+        for attr, val in re.findall(r'\b(x|y|cx|cy|x1|y1|x2|y2)\s*=\s*"(\d+(?:\.\d+)?)"', block):
+            limit = W if attr in ("x","cx","x1","x2") else H
+            if float(val) > limit + 5:
+                print(f"{f}: {attr}={val} past viewBox {W}×{H}")
+PY
+```
+
+Don't ship a batch of new/edited viz without running both the static
+analysis and the visual sweep — even a single missed offset turns into a
+clipped figure in production.
+
 ---
 
 ## 6. How to add a specialization
