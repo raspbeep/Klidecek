@@ -824,9 +824,11 @@ button { font: inherit; color: inherit; }
 .block-code .tok-str { color: oklch(0.50 0.14 145); }
 .block-code .tok-com { color: var(--text-faint); font-style: italic; }
 .block-code .tok-num { color: oklch(0.55 0.16 30); }
+.block-code .tok-type { color: oklch(0.52 0.13 230); }
 [data-theme="dark"] .block-code .tok-kw { color: oklch(0.78 0.15 290); }
 [data-theme="dark"] .block-code .tok-str { color: oklch(0.78 0.13 145); }
 [data-theme="dark"] .block-code .tok-num { color: oklch(0.78 0.14 30); }
+[data-theme="dark"] .block-code .tok-type { color: oklch(0.80 0.11 225); }
 
 .block-link {
   display: flex; align-items: center; gap: 10px;

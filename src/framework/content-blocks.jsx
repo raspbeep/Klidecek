@@ -277,29 +277,179 @@ function ListBlock({ block }) {
   return renderListItems(items, !!block.ordered, content, 0, items[0].depth, block.start || 1);
 }
 
-function highlightCode(code, lang) {
-  const escaped = escapeHtml(code);
-  let html = escaped;
-  html = html.replace(/("([^"\\]|\\.)*"|'([^'\\]|\\.)*')/g, '<span class="tok-str">$1</span>');
-  if (lang === "python") html = html.replace(/(#[^\n]*)/g, '<span class="tok-com">$1</span>');
-  else if (lang === "sql") html = html.replace(/(--[^\n]*)/g, '<span class="tok-com">$1</span>');
-  else html = html.replace(/(\/\/[^\n]*)/g, '<span class="tok-com">$1</span>');
-  html = html.replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="tok-num">$1</span>');
-  const kw = {
-    python: ["def","return","if","else","elif","for","while","in","not","and","or","import","from","as","class","with","try","except","finally","lambda","yield","is","None","True","False"],
-    c:      ["int","float","double","char","void","return","if","else","for","while","struct","typedef","static","const","sizeof","unsigned","signed","long","short","switch","case","break","continue","goto","extern","auto","register","inline","discard"],
-    sql:    ["select","from","where","group","by","order","having","join","left","right","inner","outer","on","create","table","insert","into","update","delete","values","primary","key","references","foreign","not","null","int","char","varchar","explain","analyze","count","as","and","or"],
-    latex:  [],
-    js:     ["const","let","var","function","return","if","else","for","while","import","export","from","as","class","new","this","async","await","try","catch","finally","throw","typeof","instanceof","true","false","null","undefined"],
-    rust:   ["fn","let","mut","const","struct","enum","impl","trait","pub","use","mod","match","if","else","for","while","loop","return","self","Self","ref","as","in","where","Some","None","Ok","Err","true","false"],
+/* ─── Syntax highlighting ────────────────────────────────────────────────
+ * A small single-pass tokenizer. Because each emitted chunk is HTML-escaped
+ * and wrapped exactly once, tokens can never nest or double-wrap (the old
+ * regex-on-HTML approach coloured keywords/numbers *inside* strings). */
+const KW = (s) => new Set(s.split(/\s+/).filter(Boolean));
+const C_KW = "auto break case char const continue default do double else enum extern float for goto if inline int long register return short signed sizeof static struct switch typedef union unsigned void volatile while bool true false NULL size_t int8_t int16_t int32_t int64_t uint8_t uint16_t uint32_t uint64_t";
+const CUDA_KW = C_KW + " __global__ __device__ __host__ __shared__ __constant__ __syncthreads threadIdx blockIdx blockDim gridDim dim3 cudaMalloc cudaMemcpy cudaFree";
+const JAVA_KW = "abstract assert boolean break byte case catch char class const continue default do double else enum extends final finally float for goto if implements import instanceof int interface long native new package private protected public return short static strictfp super switch synchronized this throw throws transient try void volatile while var record sealed permits yield true false null";
+const JS_KW = "abstract arguments await break case catch class const continue debugger default delete do else export extends finally for function if import in instanceof let new return static super switch this throw try typeof var void while with yield async of from get set null true false undefined NaN Infinity";
+const RUST_KW = "as async await break const continue crate dyn else enum extern false fn for if impl in let loop match mod move mut pub ref return self Self static struct super trait true type unsafe use where while box";
+const PY_KW = "False None True and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield match case";
+const HS_KW = "module import where let in do case of if then else data type newtype class instance deriving default infixl infixr infix foreign family forall qualified hiding as";
+const PROLOG_KW = "is mod rem div true fail false not dynamic discontiguous module use_module assert asserta assertz retract findall bagof setof forall halt write writeln nl read";
+const BASH_KW = "if then else elif fi for while until do done case esac function in return select local export readonly declare unset echo printf read cd exit set source eval exec trap shift getopts test";
+const SQL_KW = "select from where group by order having join left right inner outer full cross natural on using create alter drop table view index insert into update delete values set primary key references foreign unique constraint distinct limit offset union all between like in is null not and or case when then else end as with explain analyze begin commit rollback count sum avg min max coalesce cast int integer varchar char text date timestamp boolean";
+const SPARQL_KW = "select where prefix base filter optional distinct reduced order by limit offset group having construct ask describe union bind values service graph from named minus exists not as a";
+const PHP_KW = "abstract and array as break callable case catch class clone const continue declare default do echo else elseif empty endif endfor endforeach endwhile extends final finally fn for foreach function global goto if implements include include_once instanceof insteadof interface isset list namespace new or print private protected public require require_once return static switch throw trait try unset use var while xor yield true false null";
+const CS_KW = "abstract as base bool break byte case catch char checked class const continue decimal default delegate do double else enum event explicit extern false finally fixed float for foreach goto if implicit in int interface internal is lock long namespace new null object operator out override params private protected public readonly ref return sbyte sealed short sizeof static string struct switch this throw true try typeof uint ulong unchecked unsafe ushort using var virtual void volatile while async await record";
+const GRAPHQL_KW = "query mutation subscription fragment on type input enum interface union scalar schema implements extend directive true false null";
+const PROTO_KW = "syntax message service rpc returns repeated optional required reserved enum import package option oneof map int32 int64 uint32 uint64 sint32 sint64 fixed32 fixed64 bool string bytes double float";
+
+const C_LIKE = { line: ["//"], block: [["/*", "*/"]], str: ['"'], charLit: true, type: true };
+const HASH = (kw) => ({ line: ["#"], block: [], str: ['"', "'"], type: false, kw: KW(kw) });
+function langConfig(lang) {
+  const M = {
+    c: { ...C_LIKE, kw: KW(C_KW) }, "c++": { ...C_LIKE, kw: KW(C_KW) }, cpp: { ...C_LIKE, kw: KW(C_KW) },
+    cuda: { ...C_LIKE, kw: KW(CUDA_KW) }, p4: { ...C_LIKE, kw: KW(C_KW) },
+    java: { ...C_LIKE, kw: KW(JAVA_KW) }, csharp: { ...C_LIKE, kw: KW(CS_KW) },
+    js: { ...C_LIKE, str: ['"', "'", "`"], kw: KW(JS_KW) }, javascript: { ...C_LIKE, str: ['"', "'", "`"], kw: KW(JS_KW) },
+    ts: { ...C_LIKE, str: ['"', "'", "`"], kw: KW(JS_KW + " interface type enum implements namespace declare readonly") },
+    typescript: { ...C_LIKE, str: ['"', "'", "`"], kw: KW(JS_KW + " interface type enum implements namespace declare readonly") },
+    rust: { ...C_LIKE, kw: KW(RUST_KW), cmd: /^[A-Za-z_][A-Za-z0-9_]*!/ },
+    php: { ...C_LIKE, str: ['"', "'"], charLit: false, kw: KW(PHP_KW) },
+    css: { line: [], block: [["/*", "*/"]], str: ['"', "'"], type: false, kw: KW("") },
+    protobuf: { ...C_LIKE, kw: KW(PROTO_KW) },
+    python: { line: ["#"], block: [], str: ['"', "'"], type: true, kw: KW(PY_KW) },
+    bash: HASH(BASH_KW), sh: HASH(BASH_KW), shell: HASH(BASH_KW), zsh: HASH(BASH_KW),
+    ruby: HASH("def end if elsif else unless while until for in do begin rescue ensure class module return yield self nil true false require attr_accessor puts"),
+    r: HASH("if else for while function return in next break TRUE FALSE NULL NA NaN Inf library require"),
+    yaml: { line: ["#"], block: [], str: ['"', "'"], type: false, kw: KW("true false null yes no on off") },
+    toml: HASH("true false"), ini: { line: [";", "#"], block: [], str: ['"', "'"], type: false, kw: KW("true false") },
+    properties: { line: ["#", "!"], block: [], str: [], type: false, kw: KW("") },
+    nginx: HASH("server location listen root index proxy_pass upstream events http worker_processes include if return"),
+    nft: HASH("table chain rule set map type hook priority policy accept drop"),
+    apache: HASH(""), rego: HASH("package import default allow deny some every in with as not"), conf: HASH(""),
+    haskell: { line: ["--"], block: [["{-", "-}"]], str: ['"'], charLit: true, type: true, kw: KW(HS_KW) },
+    sql: { line: ["--"], block: [["/*", "*/"]], str: ["'", '"'], type: false, kw: KW(SQL_KW), kwCI: true },
+    jpql: { line: ["--"], block: [["/*", "*/"]], str: ["'"], type: false, kw: KW(SQL_KW), kwCI: true },
+    cypher: { line: ["//"], block: [["/*", "*/"]], str: ["'", '"'], type: false, kwCI: true,
+      kw: KW("match optional where return create merge delete detach set remove with unwind order by limit skip as and or not in starts ends contains distinct union call yield") },
+    sparql: { line: ["#"], block: [], str: ['"', "'"], type: false, kw: KW(SPARQL_KW), kwCI: true },
+    turtle: { line: ["#"], block: [], str: ['"', "'"], type: false, kw: KW("a prefix base true false") },
+    prolog: { line: ["%"], block: [["/*", "*/"]], str: ["'", '"'], type: false, kw: KW(PROLOG_KW) },
+    erlang: { line: ["%"], block: [], str: ['"', "'"], type: false, kw: KW("module export import if case of end fun receive after when begin try catch") },
+    latex: { line: ["%"], block: [], str: [], type: false, kw: KW(""), cmd: /^\\[A-Za-z@]+\*?/ },
+    asm: { line: [";", "#"], block: [], str: ['"', "'"], type: false, kw: KW("mov add sub mul div push pop jmp je jne jg jl call ret cmp lea xor and or nop int section global extern db dw dd resb") },
+    assembly: { line: [";", "#"], block: [], str: ['"', "'"], type: false, kw: KW("mov add sub mul div push pop jmp je jne jg jl call ret cmp lea xor and or nop int") },
+    fortran: { line: ["!"], block: [], str: ['"', "'"], type: false, kwCI: true,
+      kw: KW("program end subroutine function if then else do while integer real double precision character logical call return print write read implicit none allocate deallocate") },
+    graphql: { line: ["#"], block: [], str: ['"'], type: true, kw: KW(GRAPHQL_KW) },
+    xml: { markup: true }, html: { markup: true }, xhtml: { markup: true }, svg: { markup: true },
+    json: { json: true }, jsonc: { json: true },
+    text: { plain: true }, txt: { plain: true }, http: { plain: true }, math: { plain: true }, "": { plain: true },
   };
-  const list = kw[lang] || [];
-  if (list.length) {
-    const re = new RegExp("\\b(" + list.join("|") + ")\\b", lang === "sql" ? "gi" : "g");
-    html = html.replace(re, '<span class="tok-kw">$1</span>');
+  return M[lang] || { line: ["//", "#"], block: [["/*", "*/"]], str: ['"', "'", "`"], type: false, kw: KW("") };
+}
+
+const CHAR_LIT = /^'(\\(?:u\{[0-9a-fA-F]+\}|x[0-9a-fA-F]{1,2}|[^])|[^'\\\n])'/;
+const NUM = /^(?:0[xX][0-9a-fA-F_]+|0[bB][01_]+|0[oO][0-7_]+|\d[\d_]*(?:\.\d+)?(?:[eEdD][+-]?\d+)?[fFlLuU]*)/;
+const IDENT = /^[A-Za-z_$][A-Za-z0-9_$']*/;
+
+function highlightCode(code, lang) {
+  const cfg = langConfig((lang || "").toLowerCase());
+  if (cfg.plain) return escapeHtml(code);
+  if (cfg.markup) return highlightMarkup(code);
+  if (cfg.json) return highlightJson(code);
+  let out = "", i = 0;
+  const n = code.length;
+  const push = (cls, text) => { out += cls ? `<span class="tok-${cls}">${escapeHtml(text)}</span>` : escapeHtml(text); };
+  while (i < n) {
+    const rest = code.slice(i), ch = code[i];
+    // block comments
+    let m = false;
+    for (const [o, c] of (cfg.block || [])) if (rest.startsWith(o)) {
+      let e = code.indexOf(c, i + o.length); e = e === -1 ? n : e + c.length;
+      push("com", code.slice(i, e)); i = e; m = true; break;
+    }
+    if (m) continue;
+    // line comments
+    for (const lc of (cfg.line || [])) if (rest.startsWith(lc)) {
+      let e = code.indexOf("\n", i); e = e === -1 ? n : e;
+      push("com", code.slice(i, e)); i = e; m = true; break;
+    }
+    if (m) continue;
+    // macro / command tokens (rust foo!, latex \cmd)
+    if (cfg.cmd) { const cm = cfg.cmd.exec(rest); if (cm) { push("kw", cm[0]); i += cm[0].length; continue; } }
+    // char literals ('a') where ' is not a string delimiter (C/Rust/Haskell/Java)
+    if (ch === "'" && cfg.charLit && !(cfg.str || []).includes("'")) {
+      const cm = CHAR_LIT.exec(rest);
+      if (cm) { push("str", cm[0]); i += cm[0].length; continue; }
+      push(null, ch); i++; continue; // lone ' = rust lifetime / haskell prime tick
+    }
+    // strings
+    if ((cfg.str || []).includes(ch)) {
+      let j = i + 1;
+      while (j < n) { const cj = code[j]; if (cj === "\\") { j += 2; continue; } if (cj === ch) { j++; break; } if (cj === "\n") break; j++; }
+      push("str", code.slice(i, j)); i = j; continue;
+    }
+    // numbers
+    if (ch >= "0" && ch <= "9") { const nm = NUM.exec(rest); if (nm) { push("num", nm[0]); i += nm[0].length; continue; } }
+    // identifiers / keywords / types
+    const im = IDENT.exec(rest);
+    if (im) {
+      const w = im[0];
+      const isKw = cfg.kw && (cfg.kw.has(w) || (cfg.kwCI && cfg.kw.has(w.toLowerCase())));
+      if (isKw) push("kw", w);
+      else if (cfg.type && /^[A-Z]/.test(w)) push("type", w);
+      else push(null, w);
+      i += w.length; continue;
+    }
+    push(null, ch); i++;
   }
-  if (lang === "latex") html = html.replace(/(\\[A-Za-z]+)/g, '<span class="tok-kw">$1</span>');
-  return html;
+  return out;
+}
+
+// Markup (xml/html): tags -> kw, attribute names -> type, values -> str, <!-- --> -> com.
+// Everything is HTML-escaped as it is emitted (so the markup shows as text).
+function highlightMarkup(code) {
+  let out = "", i = 0; const n = code.length;
+  while (i < n) {
+    if (code.startsWith("<!--", i)) { let e = code.indexOf("-->", i); e = e === -1 ? n : e + 3; out += `<span class="tok-com">${escapeHtml(code.slice(i, e))}</span>`; i = e; continue; }
+    if (code[i] === "<") {
+      let e = code.indexOf(">", i); e = e === -1 ? n : e + 1;
+      out += highlightTag(code.slice(i, e)); i = e; continue;
+    }
+    let e = code.indexOf("<", i); e = e === -1 ? n : e;
+    out += escapeHtml(code.slice(i, e)); i = e;
+  }
+  return out;
+}
+function highlightTag(tag) {
+  let r = "", p = 0; const L = tag.length;
+  const head = (/^<\/?/.exec(tag) || ["<"])[0]; r += escapeHtml(head); p = head.length;
+  const nameM = /^[A-Za-z_!?][\w:.?-]*/.exec(tag.slice(p));
+  if (nameM) { r += `<span class="tok-kw">${escapeHtml(nameM[0])}</span>`; p += nameM[0].length; }
+  while (p < L) {
+    const s = tag.slice(p);
+    const str = /^"[^"]*"|^'[^']*'/.exec(s);
+    const attr = /^[A-Za-z_][\w:.-]*/.exec(s);
+    if (str) { r += `<span class="tok-str">${escapeHtml(str[0])}</span>`; p += str[0].length; }
+    else if (attr) { r += `<span class="tok-type">${escapeHtml(attr[0])}</span>`; p += attr[0].length; }
+    else { r += escapeHtml(tag[p]); p++; }
+  }
+  return r;
+}
+
+function highlightJson(code) {
+  let out = "", i = 0; const n = code.length;
+  while (i < n) {
+    const ch = code[i];
+    if (ch === '"') {
+      let j = i + 1; while (j < n) { if (code[j] === "\\") { j += 2; continue; } if (code[j] === '"') { j++; break; } j++; }
+      const s = code.slice(i, j);
+      let k = j; while (k < n && /\s/.test(code[k])) k++;
+      const cls = code[k] === ":" ? "type" : "str"; // key vs value
+      out += `<span class="tok-${cls}">${escapeHtml(s)}</span>`; i = j; continue;
+    }
+    if ((ch >= "0" && ch <= "9") || (ch === "-" && /\d/.test(code[i + 1] || ""))) { const nm = /^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/.exec(code.slice(i)); if (nm) { out += `<span class="tok-num">${nm[0]}</span>`; i += nm[0].length; continue; } }
+    const kwm = /^(true|false|null)\b/.exec(code.slice(i));
+    if (kwm) { out += `<span class="tok-kw">${kwm[0]}</span>`; i += kwm[0].length; continue; }
+    out += escapeHtml(ch); i++;
+  }
+  return out;
 }
 
 function CodeBlock({ block }) {
