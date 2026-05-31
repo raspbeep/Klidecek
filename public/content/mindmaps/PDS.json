@@ -13,24 +13,36 @@
           "id": "models",
           "label": "Vrstvené modely",
           "leaves": [
-            { "ref": "komunikace" },
-            { "ref": "vrstvene-modely" }
+            {
+              "ref": "komunikace"
+            },
+            {
+              "ref": "vrstvene-modely"
+            }
           ]
         },
         {
           "id": "addressing",
           "label": "Adresování (L2/L3)",
           "leaves": [
-            { "ref": "adresovani-l2" },
-            { "ref": "adresovani-l3" }
+            {
+              "ref": "adresovani-l2"
+            },
+            {
+              "ref": "adresovani-l3"
+            }
           ]
         },
         {
           "id": "devices",
           "label": "Zařízení a paket",
           "leaves": [
-            { "ref": "sitove-zarizeni" },
-            { "ref": "paketovy-prenos" }
+            {
+              "ref": "sitove-zarizeni"
+            },
+            {
+              "ref": "paketovy-prenos"
+            }
           ]
         }
       ]
@@ -45,37 +57,63 @@
           "id": "reliability",
           "label": "Spolehlivost (ARQ, časovače)",
           "leaves": [
-            { "ref": "transport-uvod" },
-            { "ref": "chyby-paketu" },
-            { "ref": "sekvencni-cisla-detekce" },
-            { "ref": "timeouty-rtt" },
-            { "ref": "arq-okno" },
-            { "ref": "rizeni-toku-zahlceni" }
+            {
+              "ref": "transport-uvod"
+            },
+            {
+              "ref": "chyby-paketu"
+            },
+            {
+              "ref": "sekvencni-cisla-detekce"
+            },
+            {
+              "ref": "timeouty-rtt"
+            },
+            {
+              "ref": "arq-okno"
+            },
+            {
+              "ref": "rizeni-toku-zahlceni"
+            }
           ]
         },
         {
           "id": "connection-oriented",
           "label": "Spojované protokoly",
           "leaves": [
-            { "ref": "tcp-spojeni-hlavicka" },
-            { "ref": "tcp-options" },
-            { "ref": "tcp-congestion-variants" },
-            { "ref": "sctp" }
+            {
+              "ref": "tcp-spojeni-hlavicka"
+            },
+            {
+              "ref": "tcp-options"
+            },
+            {
+              "ref": "tcp-congestion-variants"
+            },
+            {
+              "ref": "sctp"
+            }
           ]
         },
         {
           "id": "connectionless",
           "label": "Nespojované",
           "leaves": [
-            { "ref": "udp-dccp" }
+            {
+              "ref": "udp-dccp"
+            }
           ]
         },
         {
           "id": "modern",
           "label": "Moderní transporty",
           "leaves": [
-            { "ref": "mptcp" },
-            { "ref": "quic" }
+            {
+              "ref": "mptcp"
+            },
+            {
+              "ref": "quic"
+            }
           ]
         }
       ]
@@ -90,27 +128,45 @@
           "id": "intra-domain",
           "label": "Intra-domain (IGP)",
           "leaves": [
-            { "ref": "smerovani-uvod" },
-            { "ref": "smerovaci-tabulky" },
-            { "ref": "distance-vector" },
-            { "ref": "dv-protokoly" },
-            { "ref": "link-state" },
-            { "ref": "konvergence-smycky" }
+            {
+              "ref": "smerovani-uvod"
+            },
+            {
+              "ref": "smerovaci-tabulky"
+            },
+            {
+              "ref": "distance-vector"
+            },
+            {
+              "ref": "dv-protokoly"
+            },
+            {
+              "ref": "link-state"
+            },
+            {
+              "ref": "konvergence-smycky"
+            }
           ]
         },
         {
           "id": "inter-domain",
           "label": "Inter-domain (BGP)",
           "leaves": [
-            { "ref": "bgp-zaklady" },
-            { "ref": "bgp-policy-te" }
+            {
+              "ref": "bgp-zaklady"
+            },
+            {
+              "ref": "bgp-policy-te"
+            }
           ]
         },
         {
           "id": "label-switching",
           "label": "Label switching",
           "leaves": [
-            { "ref": "mpls" }
+            {
+              "ref": "mpls"
+            }
           ]
         }
       ]
@@ -125,35 +181,57 @@
           "id": "switch-arch",
           "label": "Architektury přepínačů",
           "leaves": [
-            { "ref": "prepinac-uvod" },
-            { "ref": "architektury" },
-            { "ref": "hol-voq" }
+            {
+              "ref": "prepinac-uvod"
+            },
+            {
+              "ref": "architektury"
+            },
+            {
+              "ref": "hol-voq"
+            }
           ]
         },
         {
           "id": "scheduling",
           "label": "Plánování crossbaru",
           "leaves": [
-            { "ref": "planovani-pim" },
-            { "ref": "planovani-islip" }
+            {
+              "ref": "planovani-pim"
+            },
+            {
+              "ref": "planovani-islip"
+            }
           ]
         },
         {
           "id": "multistage",
           "label": "Multistage Clos/Beneš",
           "leaves": [
-            { "ref": "multistage-clos-benes" }
+            {
+              "ref": "multistage-clos-benes"
+            }
           ]
         },
         {
           "id": "router-arch",
           "label": "Architektura routerů",
           "leaves": [
-            { "ref": "router-funkce" },
-            { "ref": "router-kategorie" },
-            { "ref": "router-architektura" },
-            { "ref": "prepinani-paketu" },
-            { "ref": "architektury-prehled" }
+            {
+              "ref": "router-funkce"
+            },
+            {
+              "ref": "router-kategorie"
+            },
+            {
+              "ref": "router-architektura"
+            },
+            {
+              "ref": "prepinani-paketu"
+            },
+            {
+              "ref": "architektury-prehled"
+            }
           ]
         }
       ]
@@ -168,23 +246,33 @@
           "id": "one-dim",
           "label": "1D — Trie a LPM",
           "leaves": [
-            { "ref": "klasifikace-uvod" },
-            { "ref": "stromy-trie" }
+            {
+              "ref": "klasifikace-uvod"
+            },
+            {
+              "ref": "stromy-trie"
+            }
           ]
         },
         {
           "id": "two-dim",
           "label": "2D — průniky polorovin",
           "leaves": [
-            { "ref": "2d-klasifikace" },
-            { "ref": "bit-vector-cartesian" }
+            {
+              "ref": "2d-klasifikace"
+            },
+            {
+              "ref": "bit-vector-cartesian"
+            }
           ]
         },
         {
           "id": "n-dim",
           "label": "n-D — geometrie a TCAM",
           "leaves": [
-            { "ref": "hicuts-tcam" }
+            {
+              "ref": "hicuts-tcam"
+            }
           ]
         }
       ]
@@ -199,43 +287,128 @@
           "id": "p2p",
           "label": "Peer-to-peer",
           "leaves": [
-            { "ref": "maly-svet" },
-            { "ref": "p2p-uvod" },
-            { "ref": "referencni-model" },
-            { "ref": "nestrukturovane-site" },
-            { "ref": "strukturovane-site" }
+            {
+              "ref": "maly-svet"
+            },
+            {
+              "ref": "p2p-uvod"
+            },
+            {
+              "ref": "referencni-model"
+            },
+            {
+              "ref": "nestrukturovane-site"
+            },
+            {
+              "ref": "strukturovane-site"
+            }
           ]
         },
         {
           "id": "ids",
           "label": "Detekce průniku",
           "leaves": [
-            { "ref": "ids-uvod" },
-            { "ref": "port-header-identifikace" },
-            { "ref": "signatury-snort" },
-            { "ref": "netflow-ipfix" },
-            { "ref": "detekce-anomalii" }
+            {
+              "ref": "ids-uvod"
+            },
+            {
+              "ref": "port-header-identifikace"
+            },
+            {
+              "ref": "signatury-snort"
+            },
+            {
+              "ref": "netflow-ipfix"
+            },
+            {
+              "ref": "detekce-anomalii"
+            }
           ]
         },
         {
           "id": "packet-processing",
           "label": "Packet processing",
           "leaves": [
-            { "ref": "zpracovani-uvod" },
-            { "ref": "linux-kernel-stack" },
-            { "ref": "napi-rss-offload" },
-            { "ref": "dpdk-pfring" },
-            { "ref": "ebpf-xdp" }
+            {
+              "ref": "zpracovani-uvod"
+            },
+            {
+              "ref": "linux-kernel-stack"
+            },
+            {
+              "ref": "napi-rss-offload"
+            },
+            {
+              "ref": "dpdk-pfring"
+            },
+            {
+              "ref": "ebpf-xdp"
+            }
           ]
         },
         {
           "id": "sdn",
           "label": "SDN / NFV / P4",
           "leaves": [
-            { "ref": "roviny-routera" },
-            { "ref": "dcn-topologie" },
-            { "ref": "sdn-uvod" },
-            { "ref": "openflow-nfv-p4" }
+            {
+              "ref": "roviny-routera"
+            },
+            {
+              "ref": "dcn-topologie"
+            },
+            {
+              "ref": "sdn-uvod"
+            },
+            {
+              "ref": "openflow-nfv-p4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trust-anon",
+      "label": "Důvěra a anonymita",
+      "hue": 340,
+      "summary": "Reputační systémy a anonymita na Internetu",
+      "clusters": [
+        {
+          "id": "reputace",
+          "label": "Reputační systémy",
+          "leaves": [
+            {
+              "ref": "duvera-reputace"
+            },
+            {
+              "ref": "architektura-reputace"
+            },
+            {
+              "ref": "vypocet-skore"
+            },
+            {
+              "ref": "sitovy-system"
+            },
+            {
+              "ref": "priklady-rizika"
+            }
+          ]
+        },
+        {
+          "id": "anonymita",
+          "label": "Anonymita",
+          "leaves": [
+            {
+              "ref": "identifikace-uzivatele"
+            },
+            {
+              "ref": "ip-geolokace"
+            },
+            {
+              "ref": "vpn-proxy"
+            },
+            {
+              "ref": "onion-tor"
+            }
           ]
         }
       ]

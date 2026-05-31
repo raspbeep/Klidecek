@@ -1,0 +1,127 @@
+{
+  "courseId": "WAP",
+  "title": "Internetové aplikace",
+  "summary": "JavaScript, data, přenos, služby a bezpečnost webu",
+  "branches": [
+    {
+      "id": "js",
+      "label": "JavaScript",
+      "hue": 50,
+      "summary": "Jazyk a jeho běhový model",
+      "clusters": [
+        {
+          "id": "lang",
+          "label": "Jazyk",
+          "leaves": [
+            {
+              "ref": "datove-typy"
+            },
+            {
+              "ref": "scope-uzavery"
+            },
+            {
+              "ref": "prototypy-delegace"
+            }
+          ]
+        },
+        {
+          "id": "ev",
+          "label": "Události",
+          "leaves": [
+            {
+              "ref": "event-loop"
+            },
+            {
+              "ref": "asynchronni-programovani"
+            },
+            {
+              "ref": "dom-events"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Data a přenos",
+      "hue": 215,
+      "summary": "Reprezentace a doručení dat",
+      "clusters": [
+        {
+          "id": "rep",
+          "label": "Reprezentace dat",
+          "leaves": [
+            {
+              "ref": "mime-types"
+            },
+            {
+              "ref": "znackovaci-jazyky"
+            },
+            {
+              "ref": "validace-dat"
+            }
+          ]
+        },
+        {
+          "id": "http",
+          "label": "Přenos (HTTP)",
+          "leaves": [
+            {
+              "ref": "uri-url-urn"
+            },
+            {
+              "ref": "http-protokol"
+            },
+            {
+              "ref": "cdn-anycast"
+            },
+            {
+              "ref": "http-streams"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sluzby",
+      "label": "Služby a bezpečnost",
+      "hue": 340,
+      "summary": "API a obrana aplikací",
+      "clusters": [
+        {
+          "id": "ws",
+          "label": "Webové služby",
+          "leaves": [
+            {
+              "ref": "xml-rpc"
+            },
+            {
+              "ref": "soap-wsdl-uddi"
+            },
+            {
+              "ref": "rest"
+            }
+          ]
+        },
+        {
+          "id": "sec",
+          "label": "Bezpečnost",
+          "leaves": [
+            {
+              "ref": "sop-cors"
+            },
+            {
+              "ref": "xss"
+            },
+            {
+              "ref": "csrf"
+            },
+            {
+              "ref": "bezpecnostni-hlavicky"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

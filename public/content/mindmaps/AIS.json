@@ -1,0 +1,139 @@
+{
+  "courseId": "AIS",
+  "title": "Analýza a návrh informačních systémů",
+  "summary": "Proces vývoje, modelování, návrh a kvalita softwaru",
+  "branches": [
+    {
+      "id": "proces",
+      "label": "Proces a požadavky",
+      "hue": 142,
+      "summary": "Jak software vzniká a co má dělat",
+      "clusters": [
+        {
+          "id": "lifecycle",
+          "label": "Životní cyklus",
+          "leaves": [
+            {
+              "ref": "vodopad-iterativni"
+            },
+            {
+              "ref": "unified-process"
+            },
+            {
+              "ref": "agilni-vyvoj"
+            },
+            {
+              "ref": "mda-agilni-modelovani"
+            }
+          ]
+        },
+        {
+          "id": "reqs",
+          "label": "Požadavky",
+          "leaves": [
+            {
+              "ref": "evoluce-pozadavku"
+            },
+            {
+              "ref": "furps-plus"
+            },
+            {
+              "ref": "techniky-elicitace"
+            },
+            {
+              "ref": "use-case-model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "navrh",
+      "label": "Návrh",
+      "hue": 22,
+      "summary": "Jak systém strukturovat",
+      "clusters": [
+        {
+          "id": "ood",
+          "label": "OO návrh",
+          "leaves": [
+            {
+              "ref": "oo-podstata"
+            },
+            {
+              "ref": "rdd-crc"
+            },
+            {
+              "ref": "grasp"
+            },
+            {
+              "ref": "solid"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "label": "Návrhové vzory",
+          "leaves": [
+            {
+              "ref": "vzory-podstata"
+            },
+            {
+              "ref": "creational-singleton-factory"
+            },
+            {
+              "ref": "structural-composite-facade"
+            },
+            {
+              "ref": "behavioral-strategy-observer"
+            },
+            {
+              "ref": "anti-vzory"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kvalita",
+      "label": "Modelování a kvalita",
+      "hue": 200,
+      "summary": "Vizualizace a udržení kvality",
+      "clusters": [
+        {
+          "id": "uml",
+          "label": "UML",
+          "leaves": [
+            {
+              "ref": "uml-charakteristika-rozsiritelnost"
+            },
+            {
+              "ref": "strukturni-diagramy"
+            },
+            {
+              "ref": "diagramy-chovani"
+            }
+          ]
+        },
+        {
+          "id": "quality",
+          "label": "TDD a správa kódu",
+          "leaves": [
+            {
+              "ref": "tdd"
+            },
+            {
+              "ref": "refaktorizace"
+            },
+            {
+              "ref": "vlastnictvi-kodu"
+            },
+            {
+              "ref": "vetveni-git"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

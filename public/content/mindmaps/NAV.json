@@ -1,0 +1,121 @@
+{
+  "courseId": "NAV",
+  "title": "Návrh vestavěných systémů",
+  "summary": "Hardware, rozhraní, software a spotřeba vestavěných systémů",
+  "branches": [
+    {
+      "id": "platforma",
+      "label": "Platforma",
+      "hue": 315,
+      "summary": "Co odlišuje vestavěný systém",
+      "clusters": [
+        {
+          "id": "def",
+          "label": "Vymezení",
+          "leaves": [
+            {
+              "ref": "gpcs-vs-embedded"
+            },
+            {
+              "ref": "architektura-odlisnosti"
+            }
+          ]
+        },
+        {
+          "id": "codesign",
+          "label": "HW/SW co-design",
+          "leaves": [
+            {
+              "ref": "partitioning"
+            },
+            {
+              "ref": "sw-vs-hw-implementace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rozhrani",
+      "label": "Rozhraní s fyzickým světem",
+      "hue": 50,
+      "summary": "Vstupy, výstupy a senzory",
+      "clusters": [
+        {
+          "id": "io",
+          "label": "Číslicové I/O",
+          "leaves": [
+            {
+              "ref": "level-shifting"
+            },
+            {
+              "ref": "debouncing"
+            },
+            {
+              "ref": "ovladani-zateze"
+            },
+            {
+              "ref": "h-mustek"
+            }
+          ]
+        },
+        {
+          "id": "sensors",
+          "label": "Senzory",
+          "leaves": [
+            {
+              "ref": "merici-retezec"
+            },
+            {
+              "ref": "typy-senzoru"
+            },
+            {
+              "ref": "analogove-pripojeni"
+            },
+            {
+              "ref": "digitalni-rozhrani"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "label": "Software a spotřeba",
+      "hue": 175,
+      "summary": "Organizace SW a energie",
+      "clusters": [
+        {
+          "id": "arch",
+          "label": "Architektura SW",
+          "leaves": [
+            {
+              "ref": "super-loop"
+            },
+            {
+              "ref": "stavovy-automat"
+            },
+            {
+              "ref": "preruseni-isr"
+            }
+          ]
+        },
+        {
+          "id": "power",
+          "label": "Řízení spotřeby",
+          "leaves": [
+            {
+              "ref": "spotreba-podstata"
+            },
+            {
+              "ref": "rezimy-cinnosti"
+            },
+            {
+              "ref": "spotreba-perifierii"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

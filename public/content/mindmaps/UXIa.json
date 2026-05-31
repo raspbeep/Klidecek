@@ -1,0 +1,53 @@
+{
+  "courseId": "UXIa",
+  "title": "User Experience a návrh uživatelských rozhraní",
+  "summary": "Konceptuální model a návrh zaměřený na uživatele",
+  "branches": [
+    {
+      "id": "model",
+      "label": "Konceptuální model",
+      "hue": 285,
+      "summary": "Popis funkčnosti a jeho ověření",
+      "clusters": [
+        {
+          "id": "cm",
+          "label": "Model funkčnosti",
+          "leaves": [
+            {
+              "ref": "domenovy-model"
+            },
+            {
+              "ref": "verifikace-validace"
+            },
+            {
+              "ref": "prototypovani-fidelity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ucd",
+      "label": "User Centered Design",
+      "hue": 130,
+      "summary": "Návrh kolem potřeb uživatele",
+      "clusters": [
+        {
+          "id": "u",
+          "label": "UCD",
+          "leaves": [
+            {
+              "ref": "ucd-pojmy"
+            },
+            {
+              "ref": "ucd-proces-iso"
+            },
+            {
+              "ref": "evaluace-metody"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

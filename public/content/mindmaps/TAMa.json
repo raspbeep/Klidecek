@@ -1,0 +1,85 @@
+{
+  "courseId": "TAMa",
+  "title": "Tvorba aplikací pro mobilní zařízení",
+  "summary": "UI, architektura a vývoj mobilních aplikací",
+  "branches": [
+    {
+      "id": "ui",
+      "label": "Uživatelské rozhraní",
+      "hue": 5,
+      "summary": "Specifika mobilního UI",
+      "clusters": [
+        {
+          "id": "mui",
+          "label": "UI mobilů",
+          "leaves": [
+            {
+              "ref": "odlisnosti-desktop"
+            },
+            {
+              "ref": "ergonomie-thumb-zone"
+            },
+            {
+              "ref": "principy-navrhu"
+            },
+            {
+              "ref": "mobilni-formulare"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arch",
+      "label": "Architektura aplikace",
+      "hue": 264,
+      "summary": "Jak mobilní aplikace funguje",
+      "clusters": [
+        {
+          "id": "app",
+          "label": "Architektury a běh",
+          "leaves": [
+            {
+              "ref": "mvc-mvvm-mvi"
+            },
+            {
+              "ref": "deklarativni-ui"
+            },
+            {
+              "ref": "paralelismus"
+            },
+            {
+              "ref": "zivotni-cyklus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proces",
+      "label": "Vývoj a provoz",
+      "hue": 142,
+      "summary": "Od návrhu po distribuci",
+      "clusters": [
+        {
+          "id": "proc",
+          "label": "Vývojový proces",
+          "leaves": [
+            {
+              "ref": "sdlc-mvp"
+            },
+            {
+              "ref": "technologicke-pristupy"
+            },
+            {
+              "ref": "offline-bezpecnost"
+            },
+            {
+              "ref": "devops-distribuce"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

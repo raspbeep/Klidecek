@@ -26,7 +26,7 @@
       "name": "Paralelní a distribuované algoritmy",
       "credits": 5,
       "semester": "Winter",
-      "specializations": ["NSEN", "NISY"],
+      "specializations": ["NADE", "NSEN", "NISY"],
       "blurb": "Paralelní architektury (Flynn, dataflow, redukční), PRAM model, paralelní algoritmy, distribuované systémy a konsensus. VUT FIT — Zbořil ml., Hanáček.",
       "resources": [
         { "title": "JáJá — An Introduction to Parallel Algorithms", "url": "https://www.pearson.com/en-us/subject-catalog/p/an-introduction-to-parallel-algorithms/P200000005887", "kind": "book", "note": "Standard PRAM reference: prefix sum, list ranking, tree contraction." },
@@ -275,6 +275,54 @@
             { "id": "sdn-uvod",         "src": "content/courses/PDS/sdn/sdn-uvod.md" },
             { "id": "openflow-nfv-p4",  "src": "content/courses/PDS/sdn/openflow-nfv-p4.md" }
           ]
+        },
+        {
+          "id": "reputace",
+          "title": "Důvěra a reputace",
+          "subtopics": [
+            {
+              "id": "duvera-reputace",
+              "src": "content/courses/PDS/reputace/duvera-reputace.md"
+            },
+            {
+              "id": "architektura-reputace",
+              "src": "content/courses/PDS/reputace/architektura-reputace.md"
+            },
+            {
+              "id": "vypocet-skore",
+              "src": "content/courses/PDS/reputace/vypocet-skore.md"
+            },
+            {
+              "id": "sitovy-system",
+              "src": "content/courses/PDS/reputace/sitovy-system.md"
+            },
+            {
+              "id": "priklady-rizika",
+              "src": "content/courses/PDS/reputace/priklady-rizika.md"
+            }
+          ]
+        },
+        {
+          "id": "anonymita",
+          "title": "Anonymita na Internetu",
+          "subtopics": [
+            {
+              "id": "identifikace-uzivatele",
+              "src": "content/courses/PDS/anonymita/identifikace-uzivatele.md"
+            },
+            {
+              "id": "ip-geolokace",
+              "src": "content/courses/PDS/anonymita/ip-geolokace.md"
+            },
+            {
+              "id": "vpn-proxy",
+              "src": "content/courses/PDS/anonymita/vpn-proxy.md"
+            },
+            {
+              "id": "onion-tor",
+              "src": "content/courses/PDS/anonymita/onion-tor.md"
+            }
+          ]
         }
       ]
     },
@@ -283,7 +331,7 @@
       "name": "Teoretická informatika",
       "credits": 5,
       "semester": "Winter",
-      "specializations": ["NSEN", "NMAL", "NISY"],
+      "specializations": ["NADE", "NSEN", "NMAL", "NISY"],
       "blurb": "Formální jazyky a Chomského hierarchie, konečné a zásobníkové automaty, Turingovy stroje, rozhodnutelnost, P/NP a NP-úplnost, amortizovaná analýza, výroková a predikátová logika, Gödelovy věty.",
       "resources": [
         { "title": "Sipser — Introduction to the Theory of Computation (3rd ed.)", "url": "https://www.cengage.com/c/introduction-to-the-theory-of-computation-3e-sipser/9781133187790/", "kind": "book", "note": "Standard textbook for automata, computability, complexity." },
@@ -874,7 +922,7 @@
       "name": "Funkcionální a logické programování",
       "credits": 5,
       "semester": "Summer",
-      "specializations": ["NSEN"],
+      "specializations": ["NADE", "NSEN"],
       "blurb": "Lambda kalkul, funkcionální programování (Haskell), moderní paradigm (Rust od 2026/27) a logické programování (Prolog, legacy do 2025/26). Vyučující: Dušan Kolář.",
       "resources": [
         { "title": "Hutton — Programming in Haskell (2nd ed.)", "url": "https://www.cambridge.org/core/books/programming-in-haskell/", "kind": "book", "note": "Standard introductory Haskell textbook." },
@@ -940,7 +988,7 @@
       "name": "Strojové učení a umělá inteligence",
       "credits": 5,
       "semester": "Winter",
-      "specializations": ["NMAL", "NISY"],
+      "specializations": ["NADE", "NMAL", "NISY"],
       "blurb": "Základy strojového učení a umělé inteligence: pravděpodobnostní modely, regrese, klasifikace, inteligentní agenti, prohledávání, hry, CSP, neuronové sítě, CNN, RNN, transformery, LLM a posilované učení.",
       "resources": [
         { "title": "Russell & Norvig — Artificial Intelligence: A Modern Approach (4th ed.)", "url": "https://aima.cs.berkeley.edu/", "kind": "book", "note": "Canonical AI textbook: search, CSP, planning, adversarial." },
@@ -1057,7 +1105,7 @@
       "name": "Statistika a pravděpodobnost",
       "credits": 6,
       "semester": "Winter",
-      "specializations": ["NVIZ", "NMAL", "NSEN", "NSEC", "NISD", "NISY"],
+      "specializations": ["NADE", "NVIZ", "NMAL", "NSEN", "NSEC", "NISD", "NISY"],
       "blurb": "Pravděpodobnostní modely v informatice (DTMC, MDP), randomizované algoritmy, bodový a intervalový odhad parametrů, Fisherova informace, testování hypotéz, lineární model + ANOVA, lineární regrese, kategoriální data, neparametrické testy, GLM.",
       "resources": [
         { "title": "Wasserman — All of Statistics (Springer, free PDF)", "url": "https://www.stat.cmu.edu/~larry/all-of-statistics/", "kind": "book", "note": "Compact rigorous treatment, perfect for CS students." },
@@ -1181,7 +1229,7 @@
       "name": "Ukládání a příprava dat",
       "credits": 5,
       "semester": "Winter",
-      "specializations": ["NISD", "NMAL"],
+      "specializations": ["NADE", "NISD", "NMAL"],
       "blurb": "Objektově-relační databáze, NoSQL (CAP, BASE, MongoDB/Cassandra/Neo4j/InfluxDB), NewSQL, XML/JSON v DB, sémantický web (RDF, OWL, SPARQL), web scraping, CRISP-DM, čištění a transformace dat, in-memory sloupcové DB (SAP HANA), prostorové databáze (R-tree, k-D tree).",
       "resources": [
         { "title": "Kleppmann — Designing Data-Intensive Applications", "url": "https://dataintensive.net/", "kind": "book", "note": "Modern definitive reference for NoSQL, replication, MapReduce." },
@@ -1305,7 +1353,7 @@
       "name": "Architektury výpočetních systémů",
       "credits": 5,
       "semester": "Winter",
-      "specializations": ["NSEN", "NMAL"],
+      "specializations": ["NADE", "NSEN", "NMAL"],
       "blurb": "Pipelining, superskalární CPU (Scoreboard, Tomasulo, ROB), cache hierarchie + virtuální paměť, predikce skoků a prefetch, datový paralelismus (SIMD/AVX), SMT/Hyper-Threading, OpenMP, koherence cache (MESI/MOESI), NUMA, řízení spotřeby a GPGPU (CUDA, SIMT).",
       "resources": [
         { "title": "Hennessy & Patterson — Computer Architecture: A Quantitative Approach (6th ed.)", "url": "https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1", "kind": "book", "note": "The definitive reference for ILP, superscalar, cache, NUMA, GPUs." },
@@ -1534,6 +1582,801 @@
           ]
         }
       ]
+    },
+    {
+      "id": "AIS",
+      "name": "Analýza a návrh informačních systémů",
+      "credits": 5,
+      "semester": "Winter",
+      "specializations": [
+        "NADE",
+        "NISD",
+        "NSEN"
+      ],
+      "blurb": "Životní cyklus SW (UP, agile, MDA), modelování v UML, získávání požadavků (FURPS+), objektově orientovaný návrh (GRASP, SOLID), návrhové vzory a kvalita kódu (TDD, refaktorizace, správa kódu).",
+      "resources": [
+        {
+          "title": "Larman — Applying UML and Patterns (3rd ed.)",
+          "url": "https://www.craiglarman.com/wiki/index.php?title=Books_by_Craig_Larman",
+          "kind": "book",
+          "note": "Kanonický zdroj pro GRASP, Unified Process a OOA/D."
+        },
+        {
+          "title": "Gamma, Helm, Johnson, Vlissides — Design Patterns (GoF)",
+          "url": "https://www.oreilly.com/library/view/design-patterns-elements/0201633612/",
+          "kind": "book",
+          "note": "Původní katalog 23 návrhových vzorů."
+        },
+        {
+          "title": "Robert C. Martin — Design Principles and Design Patterns (SOLID)",
+          "url": "https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf",
+          "kind": "paper",
+          "note": "Původní formulace principů SOLID."
+        },
+        {
+          "title": "Fowler — Refactoring (2nd ed.)",
+          "url": "https://refactoring.com/",
+          "kind": "book",
+          "note": "Refaktorizace, code smells, katalog úprav."
+        },
+        {
+          "title": "OMG — Unified Modeling Language 2.5.1",
+          "url": "https://www.omg.org/spec/UML/2.5.1/",
+          "kind": "spec",
+          "note": "Oficiální specifikace UML."
+        },
+        {
+          "title": "Manifesto for Agile Software Development",
+          "url": "https://agilemanifesto.org/",
+          "kind": "spec",
+          "note": "Čtyři hodnoty agilního vývoje."
+        }
+      ],
+      "topics": [
+        {
+          "id": "zivotni-cyklus",
+          "title": "Životní cyklus a metodiky vývoje SW",
+          "subtopics": [
+            {
+              "id": "vodopad-iterativni",
+              "src": "content/courses/AIS/zivotni-cyklus/vodopad-iterativni.md"
+            },
+            {
+              "id": "unified-process",
+              "src": "content/courses/AIS/zivotni-cyklus/unified-process.md"
+            },
+            {
+              "id": "agilni-vyvoj",
+              "src": "content/courses/AIS/zivotni-cyklus/agilni-vyvoj.md"
+            },
+            {
+              "id": "mda-agilni-modelovani",
+              "src": "content/courses/AIS/zivotni-cyklus/mda-agilni-modelovani.md"
+            }
+          ]
+        },
+        {
+          "id": "uml",
+          "title": "Modelovací techniky UML",
+          "subtopics": [
+            {
+              "id": "uml-charakteristika-rozsiritelnost",
+              "src": "content/courses/AIS/uml/uml-charakteristika-rozsiritelnost.md"
+            },
+            {
+              "id": "strukturni-diagramy",
+              "src": "content/courses/AIS/uml/strukturni-diagramy.md"
+            },
+            {
+              "id": "diagramy-chovani",
+              "src": "content/courses/AIS/uml/diagramy-chovani.md"
+            }
+          ]
+        },
+        {
+          "id": "pozadavky",
+          "title": "Získávání a modelování požadavků",
+          "subtopics": [
+            {
+              "id": "evoluce-pozadavku",
+              "src": "content/courses/AIS/pozadavky/evoluce-pozadavku.md"
+            },
+            {
+              "id": "furps-plus",
+              "src": "content/courses/AIS/pozadavky/furps-plus.md"
+            },
+            {
+              "id": "techniky-elicitace",
+              "src": "content/courses/AIS/pozadavky/techniky-elicitace.md"
+            },
+            {
+              "id": "use-case-model",
+              "src": "content/courses/AIS/pozadavky/use-case-model.md"
+            }
+          ]
+        },
+        {
+          "id": "oo-navrh",
+          "title": "Objektově orientovaný návrh",
+          "subtopics": [
+            {
+              "id": "oo-podstata",
+              "src": "content/courses/AIS/oo-navrh/oo-podstata.md"
+            },
+            {
+              "id": "rdd-crc",
+              "src": "content/courses/AIS/oo-navrh/rdd-crc.md"
+            },
+            {
+              "id": "grasp",
+              "src": "content/courses/AIS/oo-navrh/grasp.md"
+            },
+            {
+              "id": "solid",
+              "src": "content/courses/AIS/oo-navrh/solid.md"
+            }
+          ]
+        },
+        {
+          "id": "navrhove-vzory",
+          "title": "Návrhové vzory",
+          "subtopics": [
+            {
+              "id": "vzory-podstata",
+              "src": "content/courses/AIS/navrhove-vzory/vzory-podstata.md"
+            },
+            {
+              "id": "creational-singleton-factory",
+              "src": "content/courses/AIS/navrhove-vzory/creational-singleton-factory.md"
+            },
+            {
+              "id": "structural-composite-facade",
+              "src": "content/courses/AIS/navrhove-vzory/structural-composite-facade.md"
+            },
+            {
+              "id": "behavioral-strategy-observer",
+              "src": "content/courses/AIS/navrhove-vzory/behavioral-strategy-observer.md"
+            },
+            {
+              "id": "anti-vzory",
+              "src": "content/courses/AIS/navrhove-vzory/anti-vzory.md"
+            }
+          ]
+        },
+        {
+          "id": "kvalita-kodu",
+          "title": "TDD, refaktorizace a správa kódu",
+          "subtopics": [
+            {
+              "id": "tdd",
+              "src": "content/courses/AIS/kvalita-kodu/tdd.md"
+            },
+            {
+              "id": "refaktorizace",
+              "src": "content/courses/AIS/kvalita-kodu/refaktorizace.md"
+            },
+            {
+              "id": "vlastnictvi-kodu",
+              "src": "content/courses/AIS/kvalita-kodu/vlastnictvi-kodu.md"
+            },
+            {
+              "id": "vetveni-git",
+              "src": "content/courses/AIS/kvalita-kodu/vetveni-git.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NAV",
+      "name": "Návrh vestavěných systémů",
+      "credits": 5,
+      "semester": "Winter",
+      "specializations": [
+        "NADE",
+        "NCPS",
+        "NEMB"
+      ],
+      "blurb": "Vestavěné vs. univerzální systémy, HW/SW co-design, číslicové vstupy a výstupy (level shifting, debouncing, H-můstek), architektura SW (smyčka, FSM, přerušení), řízení spotřeby a snímání neelektrických veličin.",
+      "resources": [
+        {
+          "title": "White — Making Embedded Systems (O'Reilly)",
+          "url": "https://www.oreilly.com/library/view/making-embedded-systems/9781449308889/",
+          "kind": "book",
+          "note": "Architektura vestavěného SW: super-loop, FSM, přerušení."
+        },
+        {
+          "title": "Yiu — The Definitive Guide to ARM Cortex-M3/M4",
+          "url": "https://www.sciencedirect.com/book/9780124080829/the-definitive-guide-to-arm-cortex-m3-and-cortex-m4-processors",
+          "kind": "book",
+          "note": "Jádro, přerušení, nízkopříkonové režimy."
+        },
+        {
+          "title": "STMicroelectronics — AN4365 / nízkopříkonové režimy STM32",
+          "url": "https://www.st.com/resource/en/application_note/an4365-low-power-modes-and-system-power-consumption-on-stm32-mcus-stmicroelectronics.pdf",
+          "kind": "docs",
+          "note": "Run/Sleep/Stop/Standby/Shutdown a clock/power gating v praxi."
+        },
+        {
+          "title": "Horowitz & Hill — The Art of Electronics (3rd ed.)",
+          "url": "https://artofelectronics.net/",
+          "kind": "book",
+          "note": "Spínání zátěže, MOSFET, H-můstek, úprava analogového signálu."
+        },
+        {
+          "title": "Ganssle — A Guide to Debouncing",
+          "url": "http://www.ganssle.com/debouncing.htm",
+          "kind": "reference",
+          "note": "HW i SW odrušení zákmitů kontaktů."
+        }
+      ],
+      "topics": [
+        {
+          "id": "vestavene-systemy",
+          "title": "Vestavěný vs. univerzální systém",
+          "subtopics": [
+            {
+              "id": "gpcs-vs-embedded",
+              "src": "content/courses/NAV/vestavene-systemy/gpcs-vs-embedded.md"
+            },
+            {
+              "id": "architektura-odlisnosti",
+              "src": "content/courses/NAV/vestavene-systemy/architektura-odlisnosti.md"
+            }
+          ]
+        },
+        {
+          "id": "hw-sw-codesign",
+          "title": "Implementace funkcí SW a HW prostředky",
+          "subtopics": [
+            {
+              "id": "partitioning",
+              "src": "content/courses/NAV/hw-sw-codesign/partitioning.md"
+            },
+            {
+              "id": "sw-vs-hw-implementace",
+              "src": "content/courses/NAV/hw-sw-codesign/sw-vs-hw-implementace.md"
+            }
+          ]
+        },
+        {
+          "id": "gpio",
+          "title": "Číslicové vstupy a výstupy",
+          "subtopics": [
+            {
+              "id": "level-shifting",
+              "src": "content/courses/NAV/gpio/level-shifting.md"
+            },
+            {
+              "id": "debouncing",
+              "src": "content/courses/NAV/gpio/debouncing.md"
+            },
+            {
+              "id": "ovladani-zateze",
+              "src": "content/courses/NAV/gpio/ovladani-zateze.md"
+            },
+            {
+              "id": "h-mustek",
+              "src": "content/courses/NAV/gpio/h-mustek.md"
+            }
+          ]
+        },
+        {
+          "id": "sw-architektura",
+          "title": "Architektura SW pro vestavěné systémy",
+          "subtopics": [
+            {
+              "id": "super-loop",
+              "src": "content/courses/NAV/sw-architektura/super-loop.md"
+            },
+            {
+              "id": "stavovy-automat",
+              "src": "content/courses/NAV/sw-architektura/stavovy-automat.md"
+            },
+            {
+              "id": "preruseni-isr",
+              "src": "content/courses/NAV/sw-architektura/preruseni-isr.md"
+            }
+          ]
+        },
+        {
+          "id": "rizeni-spotreby",
+          "title": "Řízení spotřeby",
+          "subtopics": [
+            {
+              "id": "spotreba-podstata",
+              "src": "content/courses/NAV/rizeni-spotreby/spotreba-podstata.md"
+            },
+            {
+              "id": "rezimy-cinnosti",
+              "src": "content/courses/NAV/rizeni-spotreby/rezimy-cinnosti.md"
+            },
+            {
+              "id": "spotreba-perifierii",
+              "src": "content/courses/NAV/rizeni-spotreby/spotreba-perifierii.md"
+            }
+          ]
+        },
+        {
+          "id": "senzory",
+          "title": "Snímání neelektrických veličin",
+          "subtopics": [
+            {
+              "id": "merici-retezec",
+              "src": "content/courses/NAV/senzory/merici-retezec.md"
+            },
+            {
+              "id": "typy-senzoru",
+              "src": "content/courses/NAV/senzory/typy-senzoru.md"
+            },
+            {
+              "id": "analogove-pripojeni",
+              "src": "content/courses/NAV/senzory/analogove-pripojeni.md"
+            },
+            {
+              "id": "digitalni-rozhrani",
+              "src": "content/courses/NAV/senzory/digitalni-rozhrani.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PDI",
+      "name": "Prostředí distribuovaných aplikací",
+      "credits": 5,
+      "semester": "Summer",
+      "specializations": [
+        "NADE",
+        "NNET"
+      ],
+      "blurb": "Konzistentní globální stav distribuovaného systému (řezy, Chandy–Lamport, vektorové hodiny), distribuované zpracování MapReduce (Hadoop, Spark) a integrace přes Enterprise Service Bus (MOM, EIP).",
+      "resources": [
+        {
+          "title": "Chandy & Lamport — Distributed Snapshots (1985)",
+          "url": "https://lamport.azurewebsites.net/pubs/chandy.pdf",
+          "kind": "paper",
+          "note": "Původní snapshot algoritmus pro globální stav."
+        },
+        {
+          "title": "Dean & Ghemawat — MapReduce (OSDI 2004)",
+          "url": "https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf",
+          "kind": "paper",
+          "note": "Původní paper o MapReduce."
+        },
+        {
+          "title": "Zaharia et al. — Resilient Distributed Datasets (NSDI 2012)",
+          "url": "https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf",
+          "kind": "paper",
+          "note": "Spark RDD, lineage, in-memory výpočet."
+        },
+        {
+          "title": "Hohpe & Woolf — Enterprise Integration Patterns",
+          "url": "https://www.enterpriseintegrationpatterns.com/",
+          "kind": "book",
+          "note": "Katalog EIP: router, filter, splitter, aggregator."
+        },
+        {
+          "title": "Tanenbaum & van Steen — Distributed Systems (3rd ed.)",
+          "url": "https://www.distributed-systems.net/index.php/books/ds3/",
+          "kind": "book",
+          "note": "Logické/vektorové hodiny, globální stav, konsensus."
+        }
+      ],
+      "topics": [
+        {
+          "id": "globalni-stav",
+          "title": "Konzistentní globální stav",
+          "subtopics": [
+            {
+              "id": "konzistentni-rez",
+              "src": "content/courses/PDI/globalni-stav/konzistentni-rez.md"
+            },
+            {
+              "id": "chandy-lamport",
+              "src": "content/courses/PDI/globalni-stav/chandy-lamport.md"
+            },
+            {
+              "id": "vektorove-hodiny",
+              "src": "content/courses/PDI/globalni-stav/vektorove-hodiny.md"
+            }
+          ]
+        },
+        {
+          "id": "mapreduce",
+          "title": "Distribuované zpracování MapReduce",
+          "subtopics": [
+            {
+              "id": "mapreduce-model",
+              "src": "content/courses/PDI/mapreduce/mapreduce-model.md"
+            },
+            {
+              "id": "mapreduce-faze",
+              "src": "content/courses/PDI/mapreduce/mapreduce-faze.md"
+            },
+            {
+              "id": "hadoop-spark",
+              "src": "content/courses/PDI/mapreduce/hadoop-spark.md"
+            }
+          ]
+        },
+        {
+          "id": "esb",
+          "title": "Enterprise Service Bus",
+          "subtopics": [
+            {
+              "id": "esb-kontejner",
+              "src": "content/courses/PDI/esb/esb-kontejner.md"
+            },
+            {
+              "id": "mom",
+              "src": "content/courses/PDI/esb/mom.md"
+            },
+            {
+              "id": "eip-smerovani",
+              "src": "content/courses/PDI/esb/eip-smerovani.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TAMa",
+      "name": "Tvorba aplikací pro mobilní zařízení",
+      "credits": 5,
+      "semester": "Summer",
+      "specializations": [
+        "NADE"
+      ],
+      "blurb": "Specifika uživatelských rozhraní mobilních telefonů, architektury moderních mobilních aplikací (MVC/MVVM/MVI, deklarativní UI, paralelismus, životní cyklus) a proces návrhu, vývoje a distribuce mobilních aplikací.",
+      "resources": [
+        {
+          "title": "Android Developers — Activity lifecycle",
+          "url": "https://developer.android.com/guide/components/activities/activity-lifecycle",
+          "kind": "docs",
+          "note": "Životní cyklus aktivity a obnova stavu."
+        },
+        {
+          "title": "Apple — UIViewController",
+          "url": "https://developer.apple.com/documentation/uikit/uiviewcontroller",
+          "kind": "docs",
+          "note": "Životní cyklus obrazovky v iOS."
+        },
+        {
+          "title": "Kotlin — Coroutines guide",
+          "url": "https://kotlinlang.org/docs/coroutines-overview.html",
+          "kind": "docs",
+          "note": "Strukturovaná asynchronie, suspend, Dispatchers."
+        },
+        {
+          "title": "Nielsen Norman Group — Thumb zone / mobile UX",
+          "url": "https://www.nngroup.com/articles/mobile-ux/",
+          "kind": "reference",
+          "note": "Ergonomie dotyku a mobilní použitelnost."
+        },
+        {
+          "title": "OWASP — Mobile Application Security (MASVS)",
+          "url": "https://mas.owasp.org/MASVS/",
+          "kind": "tool",
+          "note": "Bezpečnostní standard pro mobilní aplikace."
+        }
+      ],
+      "topics": [
+        {
+          "id": "mobilni-ui",
+          "title": "Principy a prvky UI mobilních telefonů",
+          "subtopics": [
+            {
+              "id": "odlisnosti-desktop",
+              "src": "content/courses/TAMa/mobilni-ui/odlisnosti-desktop.md"
+            },
+            {
+              "id": "ergonomie-thumb-zone",
+              "src": "content/courses/TAMa/mobilni-ui/ergonomie-thumb-zone.md"
+            },
+            {
+              "id": "principy-navrhu",
+              "src": "content/courses/TAMa/mobilni-ui/principy-navrhu.md"
+            },
+            {
+              "id": "mobilni-formulare",
+              "src": "content/courses/TAMa/mobilni-ui/mobilni-formulare.md"
+            }
+          ]
+        },
+        {
+          "id": "architektury-aplikaci",
+          "title": "Princip činnosti moderních mobilních aplikací",
+          "subtopics": [
+            {
+              "id": "mvc-mvvm-mvi",
+              "src": "content/courses/TAMa/architektury-aplikaci/mvc-mvvm-mvi.md"
+            },
+            {
+              "id": "deklarativni-ui",
+              "src": "content/courses/TAMa/architektury-aplikaci/deklarativni-ui.md"
+            },
+            {
+              "id": "paralelismus",
+              "src": "content/courses/TAMa/architektury-aplikaci/paralelismus.md"
+            },
+            {
+              "id": "zivotni-cyklus",
+              "src": "content/courses/TAMa/architektury-aplikaci/zivotni-cyklus.md"
+            }
+          ]
+        },
+        {
+          "id": "vyvojovy-proces",
+          "title": "Proces návrhu a vývoje mobilních aplikací",
+          "subtopics": [
+            {
+              "id": "sdlc-mvp",
+              "src": "content/courses/TAMa/vyvojovy-proces/sdlc-mvp.md"
+            },
+            {
+              "id": "technologicke-pristupy",
+              "src": "content/courses/TAMa/vyvojovy-proces/technologicke-pristupy.md"
+            },
+            {
+              "id": "offline-bezpecnost",
+              "src": "content/courses/TAMa/vyvojovy-proces/offline-bezpecnost.md"
+            },
+            {
+              "id": "devops-distribuce",
+              "src": "content/courses/TAMa/vyvojovy-proces/devops-distribuce.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UXIa",
+      "name": "User Experience a návrh uživatelských rozhraní",
+      "credits": 5,
+      "semester": "Winter",
+      "specializations": [
+        "NADE",
+        "NGRI"
+      ],
+      "blurb": "Konceptuální model funkčnosti aplikace (doménový model, verifikace a validace, prototypování) a návrh zaměřený na uživatele (UCD) — proces dle ISO 9241-210, pojmy a metody evaluace použitelnosti.",
+      "resources": [
+        {
+          "title": "ISO 9241-210 — Human-centred design for interactive systems",
+          "url": "https://www.iso.org/standard/77520.html",
+          "kind": "spec",
+          "note": "Norma definující iterativní proces UCD."
+        },
+        {
+          "title": "Nielsen — 10 Usability Heuristics",
+          "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+          "kind": "reference",
+          "note": "Heuristiky pro expertní inspekci rozhraní."
+        },
+        {
+          "title": "ISO 9241-11 — Usability: Definitions and concepts",
+          "url": "https://www.iso.org/standard/63500.html",
+          "kind": "spec",
+          "note": "Definice použitelnosti (efektivnost, účinnost, spokojenost)."
+        },
+        {
+          "title": "Norman — The Design of Everyday Things",
+          "url": "https://mitpress.mit.edu/9780262525671/the-design-of-everyday-things/",
+          "kind": "book",
+          "note": "Mentální modely, afordance, kognitivní zátěž."
+        },
+        {
+          "title": "Brooke — System Usability Scale (SUS)",
+          "url": "https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html",
+          "kind": "reference",
+          "note": "Standardizovaný dotazník použitelnosti."
+        }
+      ],
+      "topics": [
+        {
+          "id": "konceptualni-model",
+          "title": "Konceptuální model funkčnosti",
+          "subtopics": [
+            {
+              "id": "domenovy-model",
+              "src": "content/courses/UXIa/konceptualni-model/domenovy-model.md"
+            },
+            {
+              "id": "verifikace-validace",
+              "src": "content/courses/UXIa/konceptualni-model/verifikace-validace.md"
+            },
+            {
+              "id": "prototypovani-fidelity",
+              "src": "content/courses/UXIa/konceptualni-model/prototypovani-fidelity.md"
+            }
+          ]
+        },
+        {
+          "id": "ucd",
+          "title": "User Centered Design (UCD)",
+          "subtopics": [
+            {
+              "id": "ucd-pojmy",
+              "src": "content/courses/UXIa/ucd/ucd-pojmy.md"
+            },
+            {
+              "id": "ucd-proces-iso",
+              "src": "content/courses/UXIa/ucd/ucd-proces-iso.md"
+            },
+            {
+              "id": "evaluace-metody",
+              "src": "content/courses/UXIa/ucd/evaluace-metody.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WAP",
+      "name": "Internetové aplikace",
+      "credits": 5,
+      "semester": "Summer",
+      "specializations": [
+        "NADE",
+        "NNET"
+      ],
+      "blurb": "Jazyk JavaScript (typy, uzávěry, prototypy) a události, reprezentace dat (MIME, XML, JSON, DOM, validace), přenos webových dat (URI, HTTP/1-3, CDN, proudy), webové služby (XML-RPC, SOAP, REST) a bezpečnost webových aplikací.",
+      "resources": [
+        {
+          "title": "MDN Web Docs",
+          "url": "https://developer.mozilla.org/",
+          "kind": "docs",
+          "note": "Referenční dokumentace pro JS, DOM, HTTP, bezpečnost."
+        },
+        {
+          "title": "ECMAScript Language Specification (TC39)",
+          "url": "https://tc39.es/ecma262/",
+          "kind": "spec",
+          "note": "Oficiální specifikace jazyka JavaScript."
+        },
+        {
+          "title": "WHATWG — HTML Living Standard",
+          "url": "https://html.spec.whatwg.org/multipage/",
+          "kind": "spec",
+          "note": "Smyčka událostí, DOM, parsování."
+        },
+        {
+          "title": "OWASP Top 10 + Cheat Sheet Series",
+          "url": "https://owasp.org/www-project-top-ten/",
+          "kind": "tool",
+          "note": "Webové zranitelnosti a obrany (XSS, CSRF)."
+        },
+        {
+          "title": "RFC 9110 — HTTP Semantics",
+          "url": "https://datatracker.ietf.org/doc/html/rfc9110",
+          "kind": "RFC",
+          "note": "Sémantika metod, stavových kódů a hlaviček HTTP."
+        },
+        {
+          "title": "Fielding — Architectural Styles (REST), Ch. 5",
+          "url": "https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm",
+          "kind": "paper",
+          "note": "Původní definice architektonického stylu REST."
+        }
+      ],
+      "topics": [
+        {
+          "id": "javascript",
+          "title": "Jazyk JavaScript",
+          "subtopics": [
+            {
+              "id": "datove-typy",
+              "src": "content/courses/WAP/javascript/datove-typy.md"
+            },
+            {
+              "id": "scope-uzavery",
+              "src": "content/courses/WAP/javascript/scope-uzavery.md"
+            },
+            {
+              "id": "prototypy-delegace",
+              "src": "content/courses/WAP/javascript/prototypy-delegace.md"
+            }
+          ]
+        },
+        {
+          "id": "udalosti",
+          "title": "Události v JavaScriptu",
+          "subtopics": [
+            {
+              "id": "event-loop",
+              "src": "content/courses/WAP/udalosti/event-loop.md"
+            },
+            {
+              "id": "asynchronni-programovani",
+              "src": "content/courses/WAP/udalosti/asynchronni-programovani.md"
+            },
+            {
+              "id": "dom-events",
+              "src": "content/courses/WAP/udalosti/dom-events.md"
+            }
+          ]
+        },
+        {
+          "id": "reprezentace-dat",
+          "title": "Reprezentace dat",
+          "subtopics": [
+            {
+              "id": "mime-types",
+              "src": "content/courses/WAP/reprezentace-dat/mime-types.md"
+            },
+            {
+              "id": "znackovaci-jazyky",
+              "src": "content/courses/WAP/reprezentace-dat/znackovaci-jazyky.md"
+            },
+            {
+              "id": "validace-dat",
+              "src": "content/courses/WAP/reprezentace-dat/validace-dat.md"
+            }
+          ]
+        },
+        {
+          "id": "http",
+          "title": "Přenos a distribuce webových dat",
+          "subtopics": [
+            {
+              "id": "uri-url-urn",
+              "src": "content/courses/WAP/http/uri-url-urn.md"
+            },
+            {
+              "id": "http-protokol",
+              "src": "content/courses/WAP/http/http-protokol.md"
+            },
+            {
+              "id": "cdn-anycast",
+              "src": "content/courses/WAP/http/cdn-anycast.md"
+            },
+            {
+              "id": "http-streams",
+              "src": "content/courses/WAP/http/http-streams.md"
+            }
+          ]
+        },
+        {
+          "id": "webove-sluzby",
+          "title": "Webová aplikační rozhraní a webové služby",
+          "subtopics": [
+            {
+              "id": "xml-rpc",
+              "src": "content/courses/WAP/webove-sluzby/xml-rpc.md"
+            },
+            {
+              "id": "soap-wsdl-uddi",
+              "src": "content/courses/WAP/webove-sluzby/soap-wsdl-uddi.md"
+            },
+            {
+              "id": "rest",
+              "src": "content/courses/WAP/webove-sluzby/rest.md"
+            }
+          ]
+        },
+        {
+          "id": "bezpecnost",
+          "title": "Bezpečnost webových aplikací",
+          "subtopics": [
+            {
+              "id": "sop-cors",
+              "src": "content/courses/WAP/bezpecnost/sop-cors.md"
+            },
+            {
+              "id": "xss",
+              "src": "content/courses/WAP/bezpecnost/xss.md"
+            },
+            {
+              "id": "csrf",
+              "src": "content/courses/WAP/bezpecnost/csrf.md"
+            },
+            {
+              "id": "bezpecnostni-hlavicky",
+              "src": "content/courses/WAP/bezpecnost/bezpecnostni-hlavicky.md"
+            }
+          ]
+        }
+      ]
     }
   ],
 
@@ -1543,98 +2386,162 @@
         "id": "t01",
         "n": 1,
         "title": "Moderní modely životního cyklu vývoje software (iterativní model životního cyklu; MDA, agilní vývoj; agilní modelování; Unified Process).",
-        "refs": [],
+        "refs": [
+          ["AIS", "zivotni-cyklus", "vodopad-iterativni"],
+          ["AIS", "zivotni-cyklus", "unified-process"],
+          ["AIS", "zivotni-cyklus", "agilni-vyvoj"],
+          ["AIS", "zivotni-cyklus", "mda-agilni-modelovani"]
+        ],
         "sharedWith": ["NSEN"]
       },
       {
         "id": "t02",
         "n": 2,
         "title": "Modelovací techniky UML (charakteristika jazyka UML; rozšiřitelnost jazyka; charakteristika, základní prvky a použití diagramů UML při návrhu a vývoji software).",
-        "refs": [],
+        "refs": [
+          ["AIS", "uml", "uml-charakteristika-rozsiritelnost"],
+          ["AIS", "uml", "strukturni-diagramy"],
+          ["AIS", "uml", "diagramy-chovani"]
+        ],
         "sharedWith": ["NSEN"]
       },
       {
         "id": "t03",
         "n": 3,
         "title": "Získávání a modelování požadavků (evoluce požadavků; model FURPS+; techniky získávání požadavků; artefakty Unified Process související s požadavky; tvorba modelu případů použití).",
-        "refs": [],
+        "refs": [
+          ["AIS", "pozadavky", "evoluce-pozadavku"],
+          ["AIS", "pozadavky", "furps-plus"],
+          ["AIS", "pozadavky", "techniky-elicitace"],
+          ["AIS", "pozadavky", "use-case-model"]
+        ],
         "sharedWith": ["NISD"]
       },
       {
         "id": "t04",
         "n": 4,
         "title": "Objektově orientovaný návrh (podstata OO návrhu; vstupy a výstupy OO návrhu; návrh řízený zodpovědností; principy návrhu GRASP, principy SOLID).",
-        "refs": [],
+        "refs": [
+          ["AIS", "oo-navrh", "oo-podstata"],
+          ["AIS", "oo-navrh", "rdd-crc"],
+          ["AIS", "oo-navrh", "grasp"],
+          ["AIS", "oo-navrh", "solid"]
+        ],
         "sharedWith": ["NISD"]
       },
       {
         "id": "t05",
         "n": 5,
         "title": "Návrhové vzory (podstata a význam návrhových vzorů; vzory Singleton, Abstract Factory, Strategy, Composite, Facade, Observer; podstata a význam návrhových anti-vzorů, příklad návrhového anti-vzoru).",
-        "refs": [],
+        "refs": [
+          ["AIS", "navrhove-vzory", "vzory-podstata"],
+          ["AIS", "navrhove-vzory", "creational-singleton-factory"],
+          ["AIS", "navrhove-vzory", "structural-composite-facade"],
+          ["AIS", "navrhove-vzory", "behavioral-strategy-observer"],
+          ["AIS", "navrhove-vzory", "anti-vzory"]
+        ],
         "sharedWith": ["NISD", "NSEN"]
       },
       {
         "id": "t06",
         "n": 6,
         "title": "Návrh řízený testem, refaktorizace, vlastnictví a správa zdrojového kódu v týmu (motivace, podstata, souvislosti, přínos pro zajištění kvality software; repositáře a větvení zdrojového kódu).",
-        "refs": [],
+        "refs": [
+          ["AIS", "kvalita-kodu", "tdd"],
+          ["AIS", "kvalita-kodu", "refaktorizace"],
+          ["AIS", "kvalita-kodu", "vlastnictvi-kodu"],
+          ["AIS", "kvalita-kodu", "vetveni-git"]
+        ],
         "sharedWith": ["NISD"]
       },
       {
         "id": "t07",
         "n": 7,
         "title": "Vestavěný počítačový systém (shody a odlišnosti s běžným univerzálním počítačovým systémem).",
-        "refs": [],
+        "refs": [
+          ["NAV", "vestavene-systemy", "gpcs-vs-embedded"],
+          ["NAV", "vestavene-systemy", "architektura-odlisnosti"]
+        ],
         "sharedWith": ["NCPS"]
       },
       {
         "id": "t08",
         "n": 8,
         "title": "Implementace funkcí vestavěného systému SW a HW prostředky (výhody a nevýhody - dopady SW a HW implementace konkrétní funkce na vlastnosti systému, příklad).",
-        "refs": [],
+        "refs": [
+          ["NAV", "hw-sw-codesign", "partitioning"],
+          ["NAV", "hw-sw-codesign", "sw-vs-hw-implementace"]
+        ],
         "sharedWith": ["NCPS", "NEMB"]
       },
       {
         "id": "t09",
         "n": 9,
         "title": "Číslicové vstupy a výstupy vestavěných systémů (problémy a jejich řešení, přizpůsobení napěťových úrovní, snímání stavu mechanického kontaktu, ovládání zátěže, posílení výstupu, H-můstek).",
-        "refs": [],
+        "refs": [
+          ["NAV", "gpio", "level-shifting"],
+          ["NAV", "gpio", "debouncing"],
+          ["NAV", "gpio", "ovladani-zateze"],
+          ["NAV", "gpio", "h-mustek"]
+        ],
         "sharedWith": ["NCPS", "NEMB"]
       },
       {
         "id": "t10",
         "n": 10,
         "title": "Architektura SW pro vestavěné systémy (hlavní smyčka, implementace stavového automatu, obsluha přerušení).",
-        "refs": [],
+        "refs": [
+          ["NAV", "sw-architektura", "super-loop"],
+          ["NAV", "sw-architektura", "stavovy-automat"],
+          ["NAV", "sw-architektura", "preruseni-isr"]
+        ],
         "sharedWith": ["NCPS", "NEMB"]
       },
       {
         "id": "t11",
         "n": 11,
         "title": "Řízení spotřeby u vestavěných systémů (spotřeba jádra mikrokontroléru a způsoby jejího řízení, typické režimy činnosti, řízení spotřeby ostatních modulů na čipu).",
-        "refs": [],
+        "refs": [
+          ["NAV", "rizeni-spotreby", "spotreba-podstata"],
+          ["NAV", "rizeni-spotreby", "rezimy-cinnosti"],
+          ["NAV", "rizeni-spotreby", "spotreba-perifierii"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t12",
         "n": 12,
         "title": "Snímání neelektrických veličin, senzory (analogové vstupy, připojení senzorů k mikrokontroléru analogovým nebo číslicovým rozhraním, prvky řetězce snímání neelektrické veličiny mikrokontrolérem).",
-        "refs": [],
+        "refs": [
+          ["NAV", "senzory", "merici-retezec"],
+          ["NAV", "senzory", "typy-senzoru"],
+          ["NAV", "senzory", "analogove-pripojeni"],
+          ["NAV", "senzory", "digitalni-rozhrani"]
+        ],
         "sharedWith": ["NCPS", "NEMB"]
       },
       {
         "id": "t13",
         "n": 13,
         "title": "Podmínky konzistentního globálního stavu distribuovaného systému.",
-        "refs": [ ["PRL", "synchronizace", "logicky-cas"] ],
+        "refs": [
+          ["PRL", "synchronizace", "logicky-cas"],
+          ["PDI", "globalni-stav", "konzistentni-rez"],
+          ["PDI", "globalni-stav", "chandy-lamport"],
+          ["PDI", "globalni-stav", "vektorove-hodiny"]
+        ],
         "sharedWith": ["NNET"]
       },
       {
         "id": "t14",
         "n": 14,
         "title": "Principy distribuovaného zpracování MapReduce, průběh a jednotlivé operace distribuovaného výpočtu pomocí MapReduce, jeho implementace v Apache Hadoop a Apache Spark.",
-        "refs": [ ["UPA", "nosql-dotazovani", "mapreduce"] ],
+        "refs": [
+          ["UPA", "nosql-dotazovani", "mapreduce"],
+          ["PDI", "mapreduce", "mapreduce-model"],
+          ["PDI", "mapreduce", "mapreduce-faze"],
+          ["PDI", "mapreduce", "hadoop-spark"]
+        ],
         "sharedWith": ["NNET"],
         "resources": [
           { "title": "Dean & Ghemawat — MapReduce: Simplified Data Processing (OSDI 2004)", "url": "https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf", "kind": "paper", "note": "The original Google paper." },
@@ -1646,84 +2553,138 @@
         "id": "t15",
         "n": 15,
         "title": "Enterprise Service Bus (ESB kontejner, principy MOM, komunikace a směrování zpráv)",
-        "refs": [],
+        "refs": [
+          ["PDI", "esb", "esb-kontejner"],
+          ["PDI", "esb", "mom"],
+          ["PDI", "esb", "eip-smerovani"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t16",
         "n": 16,
         "title": "Principy a prvky uživatelských rozhraní mobilních telefonů, odlišnosti od \"konvenčních\" uživatelských rozhraní.",
-        "refs": [],
+        "refs": [
+          ["TAMa", "mobilni-ui", "odlisnosti-desktop"],
+          ["TAMa", "mobilni-ui", "ergonomie-thumb-zone"],
+          ["TAMa", "mobilni-ui", "principy-navrhu"],
+          ["TAMa", "mobilni-ui", "mobilni-formulare"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t17",
         "n": 17,
         "title": "Princip činnosti moderních mobilních aplikací – architektury, návrhové vzory, prezentace dat, ovládání, paralelismus, životní cyklus aktivit a aplikací.",
-        "refs": [],
+        "refs": [
+          ["TAMa", "architektury-aplikaci", "mvc-mvvm-mvi"],
+          ["TAMa", "architektury-aplikaci", "deklarativni-ui"],
+          ["TAMa", "architektury-aplikaci", "paralelismus"],
+          ["TAMa", "architektury-aplikaci", "zivotni-cyklus"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t18",
         "n": 18,
         "title": "Proces návrhu a vývoje mobilních aplikací.",
-        "refs": [],
+        "refs": [
+          ["TAMa", "vyvojovy-proces", "sdlc-mvp"],
+          ["TAMa", "vyvojovy-proces", "technologicke-pristupy"],
+          ["TAMa", "vyvojovy-proces", "offline-bezpecnost"],
+          ["TAMa", "vyvojovy-proces", "devops-distribuce"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t19",
         "n": 19,
         "title": "Konceptuální model funkčnosti aplikace nebo služby, jeho testování, návrh.",
-        "refs": [],
+        "refs": [
+          ["UXIa", "konceptualni-model", "domenovy-model"],
+          ["UXIa", "konceptualni-model", "verifikace-validace"],
+          ["UXIa", "konceptualni-model", "prototypovani-fidelity"]
+        ],
         "sharedWith": ["NGRI"]
       },
       {
         "id": "t20",
         "n": 20,
         "title": "Návrh zaměřený na uživatele (User Centered Design, UCD) – proces, testování, pojmy.",
-        "refs": [],
+        "refs": [
+          ["UXIa", "ucd", "ucd-pojmy"],
+          ["UXIa", "ucd", "ucd-proces-iso"],
+          ["UXIa", "ucd", "evaluace-metody"]
+        ],
         "sharedWith": ["NGRI"]
       },
       {
         "id": "t21",
         "n": 21,
         "title": "Jazyk JavaScript (datové typy, rozsahy platnosti proměnných a uzávěry, prototypy a delegace volání).",
-        "refs": [],
+        "refs": [
+          ["WAP", "javascript", "datove-typy"],
+          ["WAP", "javascript", "scope-uzavery"],
+          ["WAP", "javascript", "prototypy-delegace"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t22",
         "n": 22,
         "title": "Události v JavaScriptu (smyčka událostí, asynchronní programování, klientské události, obsluha událostí).",
-        "refs": [],
+        "refs": [
+          ["WAP", "udalosti", "event-loop"],
+          ["WAP", "udalosti", "asynchronni-programovani"],
+          ["WAP", "udalosti", "dom-events"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t23",
         "n": 23,
         "title": "Reprezentace dat (Media types/MIME, JSON, XML, HTML, DOM) a validace dat značkovacích jazyků.",
-        "refs": [],
+        "refs": [
+          ["WAP", "reprezentace-dat", "mime-types"],
+          ["WAP", "reprezentace-dat", "znackovaci-jazyky"],
+          ["WAP", "reprezentace-dat", "validace-dat"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t24",
         "n": 24,
         "title": "Přenos a distribuce webových dat (URI, protokol HTTP, proudy HTTP, CDN, XHR).",
-        "refs": [],
+        "refs": [
+          ["WAP", "http", "uri-url-urn"],
+          ["WAP", "http", "http-protokol"],
+          ["WAP", "http", "cdn-anycast"],
+          ["WAP", "http", "http-streams"]
+        ],
         "sharedWith": ["NNET"]
       },
       {
         "id": "t25",
         "n": 25,
         "title": "Webová aplikační rozhraní a webové služby (XML-RPC, web services, REST).",
-        "refs": [],
+        "refs": [
+          ["WAP", "webove-sluzby", "xml-rpc"],
+          ["WAP", "webove-sluzby", "soap-wsdl-uddi"],
+          ["WAP", "webove-sluzby", "rest"]
+        ],
         "sharedWith": ["NNET"]
       },
       {
         "id": "t26",
         "n": 26,
         "title": "Bezpečnost webových aplikací (SOP, XSS, CSRF, bezpečnostní hlavičky HTTP).",
-        "refs": [ ["BIS", "sw-zranitelnosti", "injekce-utoky"] ],
+        "refs": [
+          ["BIS", "sw-zranitelnosti", "injekce-utoky"],
+          ["WAP", "bezpecnost", "sop-cors"],
+          ["WAP", "bezpecnost", "xss"],
+          ["WAP", "bezpecnost", "csrf"],
+          ["WAP", "bezpecnost", "bezpecnostni-hlavicky"]
+        ],
         "sharedWith": ["NNET"],
         "resources": [
           { "title": "OWASP Top 10", "url": "https://owasp.org/www-project-top-ten/", "kind": "tool", "note": "Canonical web-app risk list." },
@@ -11693,7 +12654,13 @@
         "id": "t54",
         "n": 54,
         "title": "Důvěra a reputace. Architektura síťového reputačního systému. Výpočet reputačního skóre. Příklady reputačních systémů.",
-        "refs": [],
+        "refs": [
+          ["PDS", "reputace", "duvera-reputace"],
+          ["PDS", "reputace", "architektura-reputace"],
+          ["PDS", "reputace", "vypocet-skore"],
+          ["PDS", "reputace", "sitovy-system"],
+          ["PDS", "reputace", "priklady-rizika"]
+        ],
         "sharedWith": ["NSEC"],
         "resources": [
           { "title": "Resnick et al. — Reputation Systems (CACM 2000)", "url": "https://presnick.people.si.umich.edu/papers/cacm00/reputations.pdf", "kind": "paper", "note": "Foundational survey: why online reputation matters, basic mechanism designs." },
@@ -11706,7 +12673,12 @@
         "id": "t55",
         "n": 55,
         "title": "Anonymita na Internetu: identifikace uživatele. Otisky aplikací a OS. Geolokace IP adres. Sítě VPN, aplikační proxy servery. Architektura a použití sítě Tor.",
-        "refs": [],
+        "refs": [
+          ["PDS", "anonymita", "identifikace-uzivatele"],
+          ["PDS", "anonymita", "ip-geolokace"],
+          ["PDS", "anonymita", "vpn-proxy"],
+          ["PDS", "anonymita", "onion-tor"]
+        ],
         "sharedWith": ["NSEC"],
         "resources": [
           { "title": "Dingledine, Mathewson, Syverson — Tor: The Second-Generation Onion Router (USENIX Sec 2004)", "url": "https://svn.torproject.org/svn/projects/design-paper/tor-design.pdf", "kind": "paper", "note": "Definitive Tor design paper — cells, circuits, directory servers, hidden services." },
@@ -12700,7 +13672,13 @@
         "id": "t56",
         "n": 56,
         "title": "Důvěra a reputace. Architektura síťového reputačního systému. Výpočet reputačního skóre. Příklady reputačních systémů.",
-        "refs": [],
+        "refs": [
+          ["PDS", "reputace", "duvera-reputace"],
+          ["PDS", "reputace", "architektura-reputace"],
+          ["PDS", "reputace", "vypocet-skore"],
+          ["PDS", "reputace", "sitovy-system"],
+          ["PDS", "reputace", "priklady-rizika"]
+        ],
         "sharedWith": ["NNET"],
         "resources": [
           { "title": "Resnick et al. — Reputation Systems (CACM 2000)", "url": "https://presnick.people.si.umich.edu/papers/cacm00/reputations.pdf", "kind": "paper", "note": "Foundational survey: why online reputation matters, basic mechanism designs." },
@@ -12713,7 +13691,12 @@
         "id": "t57",
         "n": 57,
         "title": "Anonymita na Internetu: identifikace uživatele. Otisky aplikací a OS. Geolokace IP adres. Sítě VPN, aplikační proxy servery. Architektura a použití sítě Tor.",
-        "refs": [],
+        "refs": [
+          ["PDS", "anonymita", "identifikace-uzivatele"],
+          ["PDS", "anonymita", "ip-geolokace"],
+          ["PDS", "anonymita", "vpn-proxy"],
+          ["PDS", "anonymita", "onion-tor"]
+        ],
         "sharedWith": ["NNET"],
         "resources": [
           { "title": "Dingledine, Mathewson, Syverson — Tor: The Second-Generation Onion Router (USENIX Sec 2004)", "url": "https://svn.torproject.org/svn/projects/design-paper/tor-design.pdf", "kind": "paper", "note": "Definitive Tor design paper — cells, circuits, directory servers, hidden services." },

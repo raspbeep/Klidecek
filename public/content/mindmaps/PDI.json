@@ -1,0 +1,76 @@
+{
+  "courseId": "PDI",
+  "title": "Prostředí distribuovaných aplikací",
+  "summary": "Globální stav, distribuované zpracování a integrace",
+  "branches": [
+    {
+      "id": "stav",
+      "label": "Globální stav",
+      "hue": 215,
+      "summary": "Snímek běžícího distribuovaného výpočtu",
+      "clusters": [
+        {
+          "id": "gs",
+          "label": "Konzistentní stav",
+          "leaves": [
+            {
+              "ref": "konzistentni-rez"
+            },
+            {
+              "ref": "chandy-lamport"
+            },
+            {
+              "ref": "vektorove-hodiny"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zpracovani",
+      "label": "Distribuované zpracování",
+      "hue": 142,
+      "summary": "Paralelní výpočet nad velkými daty",
+      "clusters": [
+        {
+          "id": "mr",
+          "label": "MapReduce",
+          "leaves": [
+            {
+              "ref": "mapreduce-model"
+            },
+            {
+              "ref": "mapreduce-faze"
+            },
+            {
+              "ref": "hadoop-spark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "integrace",
+      "label": "Integrace systémů",
+      "hue": 22,
+      "summary": "Propojení heterogenních aplikací",
+      "clusters": [
+        {
+          "id": "esb",
+          "label": "ESB a MOM",
+          "leaves": [
+            {
+              "ref": "esb-kontejner"
+            },
+            {
+              "ref": "mom"
+            },
+            {
+              "ref": "eip-smerovani"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
