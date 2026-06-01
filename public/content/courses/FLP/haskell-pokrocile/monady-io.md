@@ -431,4 +431,9 @@ processInput input = do
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=t1e8gqXLbsU" "What is a Monad? - Computerphile" "Computerphile"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (Kolář). Externí reference: Wadler, P.: *Monads for Functional Programming* (Marktoberdorf 1995); Hutton, G.: *Programming in Haskell* (Cambridge 2016), kap. 12; Peyton Jones, S.: *Tackling the Awkward Squad: monadic input/output, concurrency, exceptions, and foreign-language calls in Haskell* (NATO 2001); Lipovača, M.: *Learn You a Haskell for Great Good!* — [learnyouahaskell.com](http://learnyouahaskell.com/).*

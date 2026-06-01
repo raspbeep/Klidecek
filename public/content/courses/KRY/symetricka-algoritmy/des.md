@@ -163,4 +163,9 @@ DES je dnes *zakázaný* pro nové aplikace, ale jeho stopa zůstává:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Rk0NIQfEXBA" "Modes of Operation - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 3 — Symetrické algoritmy. Externí reference: FIPS PUB 46-3: Data Encryption Standard (NIST, 1999); Biham, E., Shamir, A.: *Differential Cryptanalysis of the Data Encryption Standard* (Springer 1993); Matsui, M.: "Linear Cryptanalysis Method for DES Cipher", EUROCRYPT 1993; Coppersmith, D.: "The Data Encryption Standard (DES) and its strength against attacks", IBM J. Res. Develop. 38(3), 1994.*

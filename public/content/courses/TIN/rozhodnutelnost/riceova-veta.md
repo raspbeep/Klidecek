@@ -184,4 +184,12 @@ Obě jsou důsledky **diagonalizace** a "fixed-point" konstrukcí (programy / fo
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=amrvv9Lgrww" "Teoretická informatika: Nerozhodnutelnost" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=Iz9RFd5ENIU" "SZZ: Nerozhodnutelnost" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Rice, H.G.: *Classes of Recursively Enumerable Sets and Their Decision Problems* (Trans. AMS, 1953); Kozen, D.C.: *Automata and Computability* (Springer 1997), kap. 34; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), problem 5.28; Soare, R.: *Recursively Enumerable Sets and Degrees* (Springer 1987), kap. III.*

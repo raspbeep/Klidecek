@@ -69,4 +69,9 @@ I když SOP zabrání přímému *přečtení* cross-origin odpovědi, útoční
 ::: link "web.dev — XS-Leaks a izolace stránek" "https://web.dev/articles/xs-leaks"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=4KHiSt0oLJ0" "CORS in 100 Seconds" "Fireship"
+:::
+
 *Zdroj: SZZ NADE — předmět Internetové aplikace, VUT FIT. Externí reference: MDN Web Docs (Same-origin policy, CORS), WHATWG Fetch, web.dev (XS-Leaks).*

@@ -198,4 +198,9 @@ Konkrétní příklady nasazení v [[nosql-priklady]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=GAe5oB742dw" "ACID Properties in Databases With Examples" "ByteByteGo"
+:::
+
 *Zdroj: UPA přednáška *NoSQL databáze* (Rychlý, 23. září 2025). Externí reference: Sadalage, P. J., Fowler, M.: *NoSQL Distilled*, Addison-Wesley 2012; Cattell, R.: *Scalable SQL and NoSQL Data Stores*, ACM SIGMOD Record 2010; Bradberry, R., Lubow, E.: *Practical Cassandra*, Addison-Wesley 2014; Robinson, I., Webber, J., Eifrem, E.: *Graph Databases*, 2nd ed., O'Reilly 2015.*

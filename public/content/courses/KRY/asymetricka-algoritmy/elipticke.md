@@ -222,4 +222,9 @@ Hacking group fail0verflow (2010) extrahovala Sony privátní klíč → jailbre
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=NF1pwjL9-DE" "Elliptic Curves - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 4 — Asymetrické algoritmy. Externí reference: Koblitz, N.: "Elliptic curve cryptosystems", Mathematics of Computation 48(177), 1987; Miller, V. S.: "Use of elliptic curves in cryptography", CRYPTO 1985; Bernstein, D. J.: "Curve25519: new Diffie-Hellman speed records", PKC 2006; Bernstein, D. J., Duif, N., Lange, T. a kol.: "High-speed high-security signatures", CHES 2011; RFC 7748: Elliptic Curves for Security (2016); RFC 8032: EdDSA Signature Algorithm (2017); SafeCurves: https://safecurves.cr.yp.to/.*

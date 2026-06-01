@@ -167,4 +167,9 @@ V těchto aplikacích *nevadí* lineárnost; rychlost a jednoduchost jsou výhod
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Ks1pw1X22y4" "Random Numbers with LFSR (Linear Feedback Shift Register) - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BZA přednášky 2025/26, BZA 03 — LFSR. Externí reference: Golomb, S. W.: *Shift Register Sequences* (Aegean Park Press, 1982); Menezes, A., van Oorschot, P., Vanstone, S.: *Handbook of Applied Cryptography* (CRC Press 1996), kap. 6 — [PDF](http://cacr.uwaterloo.ca/hac/); Schneier, B.: *Applied Cryptography* (Wiley 1996), kap. 16.*

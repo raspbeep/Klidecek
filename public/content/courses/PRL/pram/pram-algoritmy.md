@@ -228,4 +228,9 @@ Topic [[broadcast-redukce]] formálně rozebere *broadcast operaci* — distribu
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=xLnQet8cIVA" "SZZ: Model PRAM, suma prefixů" "Tomáš Kocourek"
+:::
+
 *Zdroj: PRL přednášky 2025/26, Ing. František Zbořil ml., Ph.D., a doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Akl, S.G.: *The Design and Analysis of Parallel Algorithms* (Prentice Hall 1989), kap. 5 (Searching); JáJá, J.: *An Introduction to Parallel Algorithms* (Addison-Wesley 1992), kap. 2–3; Reif, J.: *Synthesis of Parallel Algorithms* (Morgan Kaufmann 1993); Brent, R.P.: „The Parallel Evaluation of General Arithmetic Expressions" (J. ACM 21(2), 1974, [DOI 10.1145/321812.321815](https://doi.org/10.1145/321812.321815)); cp-algorithms — [Parallel computation primitives](https://cp-algorithms.com/) (referenční implementace).*

@@ -247,4 +247,9 @@ Minimalizace je dnes standardní krok v:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=uQF-vwjvVyY" "Teoretická informatika: Regulární jazyky II" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Myhill, J.: *Finite Automata and the Representation of Events* (WADC TR-57-624, 1957); Nerode, A.: *Linear Automaton Transformations* (Proc. AMS, 1958); Hopcroft, J.E.: *An n log n Algorithm for Minimizing States in a Finite Automaton* (Stanford, 1971); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §4.4.*

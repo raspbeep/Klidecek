@@ -175,4 +175,15 @@ Praktický význam: **každý funkcionální jazyk** je nakonec *překládán* (
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=8Z_sosW2dgU" "SZZ : Lambda kalkul - úvod" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=Eo6FVosifWk" "SZZ: Lambda kalkul - definice pravdivostních hodnot a přirozených čísel" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=eis11j_iGMs" "Lambda Calculus - Computerphile" "Computerphile"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (Kolář). Externí reference: Church, A.: *The Calculi of Lambda Conversion* (Princeton 1941); Barendregt, H. P.: *The Lambda Calculus: Its Syntax and Semantics* (Elsevier 1984) — kanonická reference; Pierce, B. C.: *Types and Programming Languages* (MIT Press 2002); Parkinson, M.: *Foundations of functional programming* (Cambridge Lent 2009).*

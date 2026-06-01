@@ -129,4 +129,9 @@ Pro velké stavové prostory (`> 10⁶`) se používá *Krylovovy podprostory* n
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=XP3qg7Qv2So" "SZZ: Markovské řetězce a jejich analýza" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Markov Chains — Transient Analysis* (Češka). Externí reference: Baier, C., Katoen, J.-P.: *Principles of Model Checking* (MIT Press 2008), kap. 10.1.2; Stewart, W. J.: *Probability, Markov Chains, Queues, and Simulation* (Princeton 2009), kap. 9; Norris, J. R.: *Markov Chains* (Cambridge 1997), kap. 1.7.*

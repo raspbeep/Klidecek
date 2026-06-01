@@ -236,4 +236,9 @@ Pick framework matching organization.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=0oeD2Wf25wY" "Mastering AI Risk: NIST’s Risk Management Framework Explained" "IBM Technology"
+:::
+
 *Zdroj: BIS přednášky 2025/26, Ing. Kamil Malinka, Ph.D., FIT VUT v Brně. Externí reference: NIST SP 800-30 Rev 1 — Guide for Conducting Risk Assessments ([nvlpubs.nist.gov](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf)); ISO/IEC 27005:2022 — Information Security Risk Management; Open FAIR Standard ([opengroup.org](https://www.opengroup.org/forum/security/openfair)); Whitman, M.E., Mattord, H.J.: „Management of Information Security" (5th ed., Cengage 2017), §4-5.*

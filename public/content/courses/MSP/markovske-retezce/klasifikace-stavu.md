@@ -157,4 +157,9 @@ Algoritmus na hledání SCC (Tarjan, Kosaraju) běží v `O(|S| + |edges|)`.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=XP3qg7Qv2So" "SZZ: Markovské řetězce a jejich analýza" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Markov Chains* (Češka). Externí reference: Norris, J. R.: *Markov Chains* (Cambridge 1997), kap. 1.4–1.7; Baier, C., Katoen, J.-P.: *Principles of Model Checking* (MIT Press 2008), kap. 10.1; Levin, D., Peres, Y., Wilmer, E.: *Markov Chains and Mixing Times* (AMS 2017), kap. 1.*

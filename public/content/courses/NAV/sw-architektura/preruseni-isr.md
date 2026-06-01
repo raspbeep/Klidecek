@@ -112,4 +112,9 @@ Kritickou sekci je třeba držet **co nejkratší** — po dobu jejího trvání
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=DlEa8kd7n3Q" "Hardware interrupts" "Ben Eater"
+:::
+
 *Zdroj: SZZ NADE — předmět Návrh vestavěných systémů, VUT FIT. Externí reference: Arm Developer & Memfault Interrupt (Cortex-M exception handling), mbedded.ninja (volatile v embedded C).*

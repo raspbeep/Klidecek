@@ -376,4 +376,9 @@ print(response.choices[0].message.content)
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=zjkBMFhNj_g" "[1hr Talk] Intro to Large Language Models" "Andrej Karpathy"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Language models* (Hradiš). Externí reference: Vaswani, A. et al.: *Attention Is All You Need* (NeurIPS 2017); Radford, A. et al.: *GPT papers* (OpenAI 2018-2023); Brown, T. et al.: *GPT-3* (NeurIPS 2020); Hoffmann, J. et al.: *Chinchilla* (2022); Touvron, H. et al.: *LLaMA* (2023, 2024); Kaplan, J. et al.: *Scaling Laws for Neural Language Models* (2020).*

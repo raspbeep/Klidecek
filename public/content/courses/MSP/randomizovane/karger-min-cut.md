@@ -171,4 +171,9 @@ Háček: *neznáme* ground-truth min-cut! Můžeme ale spočítat menší řez d
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=zhuOFLxyJdw" "SZZ: Randomizované algoritmy" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Randomized Algorithms — Karger Min-Cut* (Češka). Externí reference: Karger, D.: *Global Min-cuts in RNC, and Other Ramifications of a Simple Min-Cut Algorithm*, SODA 1993; Mitzenmacher, M., Upfal, E.: *Probability and Computing* (Cambridge 2017), kap. 1.5; Motwani, R., Raghavan, P.: *Randomized Algorithms* (Cambridge 1995), kap. 1.1.*

@@ -168,4 +168,9 @@ Z hlavního klíče $K$ se musí odvodit $n$ kolových klíčů $K_1, \dots, K_n
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=FGhj3CGxl8I" "Feistel Cipher - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 3 — Symetrické algoritmy. Externí reference: Feistel, H.: "Cryptography and Computer Privacy", Scientific American 228(5), 1973; Luby, M., Rackoff, C.: "How to Construct Pseudorandom Permutations from Pseudorandom Functions", SIAM J. Comput. 17(2), 1988; Daemen, J., Rijmen, V.: *The Design of Rijndael* (Springer 2002); Biryukov, A., Khovratovich, D.: "Related-Key Cryptanalysis of the Full AES-192 and AES-256", ASIACRYPT 2009.*

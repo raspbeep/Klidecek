@@ -286,4 +286,15 @@ Trojice **NKA, DKA, RKA** je *ekvivalentní* — všechny tři přijímají prá
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=g8md4gN8PK0" "Teoretická informatika - Regulární jazyky I" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=5dxN6kG7wz4" "SZZ: Konečné automaty" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=hOzc4BUIXRk" "Minimization of Deterministic Finite Automata (DFA)" "Neso Academy"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), kap. 2; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), kap. 1; Kozen, D.C.: *Automata and Computability* (Springer 1997), kap. 3.*

@@ -319,4 +319,9 @@ Open Liberty: feature **`mpTelemetry-2.0`**.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=CAQ_a2-9UOI" "Observability vs. APM vs. Monitoring" "IBM Technology"
+:::
+
 *Zdroj: přednášky PIS — doc. R. Burget, prof. T. Hruška, VUT FIT, část „Sběr metrik, distribuované logování, OpenTelemetry" v přednášce „Alternativní technologie a architektury" (slidy 115–124).*

@@ -143,4 +143,9 @@ Více o specifické filozofii [[acid-base]]; konkrétní implementace v [[nosql-
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=BHqjEjzAicA" "CAP Theorem Simplified" "ByteByteGo"
+:::
+
 *Zdroj: UPA přednáška *NoSQL databáze* (Rychlý, 23. září 2025). Externí reference: Brewer, E. A.: *Towards Robust Distributed Systems*, PODC 2000; Gilbert, S., Lynch, N.: *Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services*, SIGACT News 2002; Brewer, E. A.: *CAP Twelve Years Later — How the Rules Have Changed*, IEEE Computer 2012; Abadi, D.: *Consistency Tradeoffs in Modern Distributed Database System Design — CAP is Only Part of the Story*, IEEE Computer 2012.*

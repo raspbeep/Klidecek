@@ -131,4 +131,9 @@ process.nextTick(() => console.log("nextTick"));
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=lkIFF4maKMU" "100+ JavaScript Concepts you Need to Know" "Fireship"
+:::
+
 *Zdroj: SZZ NADE — předmět WAP — Internetové aplikace, VUT FIT. Externí reference: WHATWG HTML Living Standard, MDN Web Docs, Node.js docs (libuv).*

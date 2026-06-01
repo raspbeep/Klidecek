@@ -167,4 +167,9 @@ ANOVA říká *zda* se skupiny liší. Pokud ano, *které*?
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=NF5_btOaCig" "Using Linear Models for t-tests and ANOVA, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Linear Model — One-way ANOVA* (Hrabec). Externí reference: Zvára, K.: *Regrese* (Matfyzpress 2019); Faraway, J.: *Linear Models with R* (CRC 2014), kap. 4; Fisher, R. A.: *Statistical Methods for Research Workers* (1925).*

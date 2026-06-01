@@ -312,4 +312,9 @@ V Haskellu *není* "premature optimization" — defaultně psát líně, optimal
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=ELvZpu3NDF8" "SZZ: Haskell - typy v jazyce a líné vyhodnocování" "Tomáš Kocourek"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (Kolář). Externí reference: Hudak, P., Hughes, J., Peyton Jones, S., Wadler, P.: *A History of Haskell: Being Lazy with Class* (HOPL III 2007); Marlow, S.: *Parallel and Concurrent Programming in Haskell* (O'Reilly 2013); Bird, R.: *Thinking Functionally with Haskell* (Cambridge 2014); Hughes, J.: *Why Functional Programming Matters* (Computer Journal 1989).*

@@ -129,4 +129,9 @@ V principu lze použít libovolnou technologii — jediným kontaktním bodem je
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=lTAcCNbJ7KE" "What Are Microservices Really All About? (And When Not To Use It)" "ByteByteGo"
+:::
+
 *Zdroj: přednášky PIS — prof. T. Hruška a doc. R. Burget, VUT FIT, část „Distribuované architektury — mikroslužby". Pro hlubší studium doporučuji článek Lewis & Fowler a knihu Sama Newmana.*

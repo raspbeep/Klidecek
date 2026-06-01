@@ -144,4 +144,9 @@ Robustnější příklad: pro `N(μ, σ²)` lze `σ` odhadnout přes *interquart
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=jEUhyGfDGmo" "SZZ: Bodové a intervalové odhady, statistické testy" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Advanced Statistics — Method of Moments* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (4th ed., Pearson 2012), kap. 7.6.3; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 7.2.1; Hansen, L.: *Large Sample Properties of Generalized Method of Moments Estimators*, Econometrica 50 (1982).*

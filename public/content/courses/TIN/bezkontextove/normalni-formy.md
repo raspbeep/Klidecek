@@ -203,4 +203,9 @@ Po převodu do CNF můžeme vyslovit *pumping lemma pro bezkontextové jazyky*, 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Vp_oBaNiIFg" "Teoretická informatika: Bezkontextové jazyky" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Chomsky, N.: *On the Notion "Rule of Grammar"* (Proc. Symp. Applied Math., 1961); Greibach, S.A.: *A New Normal Form Theorem for Context-Free Phrase Structure Grammars* (J. ACM, 1965); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §7.1.*

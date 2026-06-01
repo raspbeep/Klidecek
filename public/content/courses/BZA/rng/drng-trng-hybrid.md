@@ -122,4 +122,9 @@ Lekce: i správný DRNG s krátkým výstupem (24 bitů) selže narozeninovou pr
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=aEJB8IAMMpA" "True Random Numbers - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BZA přednášky 2025/26, BZA 02 — Generátory náhodných čísel. Externí reference: NIST SP 800-90A Rev. 1 — *Recommendation for Random Number Generation Using Deterministic Random Bit Generators* (2015) — [PDF](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf); Koc, Ç. K.: *Cryptographic Engineering* (Springer 2008), kap. 2; Killmann, W., Schindler, W.: *A Proposal for Functionality Classes for Random Number Generators*, BSI AIS-31 (2011) — [PDF](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Zertifizierung/Interpretationen/AIS_31_Functionality_classes_for_random_number_generators_e.pdf).*

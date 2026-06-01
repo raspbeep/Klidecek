@@ -282,4 +282,9 @@ NIST SP 800-207 standardizuje.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=kDEX1HXybrU" "What is a Firewall?" "PowerCert Animated Videos"
+:::
+
 *Zdroj: BIS přednášky 2025/26, doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Cheswick, W.R., Bellovin, S.M., Rubin, A.D.: „Firewalls and Internet Security" (2nd ed., Addison-Wesley 2003); NIST SP 800-41 — Guidelines on Firewalls and Firewall Policy; [Linux netfilter](https://netfilter.org/); [nftables Wiki](https://wiki.nftables.org/); Zwicky, E., Cooper, S., Chapman, D.B.: „Building Internet Firewalls" (2nd ed., O'Reilly 2000).*

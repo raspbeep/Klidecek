@@ -76,4 +76,9 @@ Princip „jedna IP rozprostřená přes mnoho uzlů" je zároveň zásadní pro
 ::: link "MDN — Content delivery network (CDN)" "https://developer.mozilla.org/en-US/docs/Glossary/CDN"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=RI9np1LWzqw" "What Is A CDN? How Does It Work?" "ByteByteGo"
+:::
+
 *Zdroj: SZZ NADE — předmět WAP — Internetové aplikace, VUT FIT. Externí reference: Cloudflare Learning Center, MDN Web Docs, RFC 4271 (BGP-4).*

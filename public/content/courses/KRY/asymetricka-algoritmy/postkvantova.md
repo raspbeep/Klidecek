@@ -165,4 +165,9 @@ PQC je relativně mladá oblast — sledujte NIST, IETF (CFRG), akademickou lite
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=_MoRcYLN-7U" "Post Quantum Cryptography - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 4 — Asymetrické algoritmy. Externí reference: Shor, P.: "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer", SIAM J. Comput. 26(5), 1997; NIST FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard (2024); NIST FIPS 204: Module-Lattice-Based Digital Signature Standard (2024); NIST FIPS 205: Stateless Hash-Based Digital Signature Standard (2024); Regev, O.: "On lattices, learning with errors, random linear codes, and cryptography", STOC 2005; Castryck, W., Decru, T.: "An Efficient Key Recovery Attack on SIDH", EUROCRYPT 2023.*

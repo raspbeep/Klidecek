@@ -292,4 +292,9 @@ Prolog *zůstává* hodnotný akademicky, ale praktická aplikace v moderním in
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Pp6tEZLkASI" "SZZ: Prolog - Unifikace a vyhodnocování" "Tomáš Kocourek"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (legacy materiál, Kolář). Externí reference: Bratko, I.: *Prolog Programming for Artificial Intelligence* (4th ed., Pearson 2011) — kanonická reference; Clocksin, W. F., Mellish, C. S.: *Programming in Prolog* (5th ed., Springer 2003); SWI-Prolog — [swi-prolog.org](https://www.swi-prolog.org/); Sterling, L., Shapiro, E.: *The Art of Prolog* (2nd ed., MIT Press 1994).*

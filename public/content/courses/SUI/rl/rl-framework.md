@@ -272,4 +272,12 @@ Strategie:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=XP3qg7Qv2So" "SZZ: Markovské řetězce a jejich analýza" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=0iqz4tcKN58" "Q-Learning: Model Free Reinforcement Learning and Temporal Difference Learning" "Steve Brunton"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Reinforcement learning* (Hradiš). Externí reference: Sutton, R. S., Barto, A. G.: *Reinforcement Learning — An Introduction* (MIT Press, 2nd ed. 2018) — [free PDF](http://incompleteideas.net/book/the-book-2nd.html); Russell & Norvig: *AIMA* (4. vyd., 2020), kap. 22-23; OpenAI: *Spinning Up in Deep RL* — [docs](https://spinningup.openai.com/).*

@@ -284,4 +284,9 @@ Pro $T(n) = T(\sqrt{n}) + 1$: substituce $m = \log_2 n$, pak $T(2^m) = T(2^{m/2}
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Q_1M2JaijjQ" "What Is Big O Notation?" "Reducible"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Cormen, T.H., Leiserson, C.E., Rivest, R.L., Stein, C.: *Introduction to Algorithms (CLRS)* (3rd ed., MIT Press 2009), kap. 4; Bentley, J.L., Haken, D., Saxe, J.B.: *A General Method for Solving Divide-and-Conquer Recurrences* (SIGACT News, 1980); Sedgewick, R., Flajolet, P.: *An Introduction to the Analysis of Algorithms* (2nd ed., Addison-Wesley 2013).*

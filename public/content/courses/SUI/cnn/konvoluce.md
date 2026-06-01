@@ -291,4 +291,9 @@ h = pool(h)                          # h: [32, 64, 112, 112]
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=KuXjwB4LzSA" "But what is a convolution?" "3Blue1Brown"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Neural networks for structured data* (Hradiš). Externí reference: Goodfellow, I., Bengio, Y., Courville, A.: *Deep Learning* (MIT 2016), kap. 9; LeCun, Y. et al.: *Gradient-Based Learning Applied to Document Recognition* (Proc. IEEE 86, 1998); Krizhevsky, A., Sutskever, I., Hinton, G.: *ImageNet Classification with Deep CNNs* (NeurIPS 2012); Stanford CS231n.*

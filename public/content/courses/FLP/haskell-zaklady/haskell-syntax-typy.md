@@ -343,4 +343,12 @@ Haskell je *blízko* matematice:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=ELvZpu3NDF8" "SZZ: Haskell - typy v jazyce a líné vyhodnocování" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=fCOSrHTsslU" "FLP: Příprava k půlsemestrální zkoušce" "Tomáš Kocourek"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (Kolář). Externí reference: O'Sullivan, B., Goerzen, J., Stewart, D.: *Real World Haskell* (O'Reilly 2008) — [book.realworldhaskell.org](http://book.realworldhaskell.org/); Hutton, G.: *Programming in Haskell* (2nd ed., Cambridge 2016); Lipovača, M.: *Learn You a Haskell for Great Good!* — [learnyouahaskell.com](http://learnyouahaskell.com/); GHC documentation — [haskell.org/ghc](https://www.haskell.org/ghc/).*

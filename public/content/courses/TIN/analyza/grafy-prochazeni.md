@@ -251,4 +251,15 @@ Pomocí Tarjana spočítáme SCC v $O(V + E)$ a ověříme kritérium.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=VMQghxb5aSk" "SZZ: Prohledávání grafů do hloubky a jeho aplikace" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=i9xUB0qRs2U" "SZZ: Grafy a jejich prohledávání do šířky" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=oDqjPvD54Ss" "Breadth First Search Algorithm | Shortest Path | Graph Theory" "WilliamFiset"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Tarjan, R.E.: *Depth-First Search and Linear Graph Algorithms* (SIAM J. Comput., 1972); Cormen, T.H. et al.: *Introduction to Algorithms (CLRS)* (3rd ed., MIT Press 2009), kap. 22; Aspvall, B., Plass, M.F., Tarjan, R.E.: *A Linear-Time Algorithm for Testing the Truth of Certain Quantified Boolean Formulas* (IPL, 1979) — 2-SAT přes SCC.*

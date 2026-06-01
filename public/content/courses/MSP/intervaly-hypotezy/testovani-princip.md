@@ -184,4 +184,12 @@ Doporučení (ASA Statement 2016): hlásit *effect sizes a CI* spolu s p-hodnota
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=jEUhyGfDGmo" "SZZ: Bodové a intervalové odhady, statistické testy" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=0oc49DyA3hU" "Hypothesis Testing and The Null Hypothesis, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Hypothesis Testing — Principles* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (Pearson 2012), kap. 9; Lehmann, E. L., Romano, J. P.: *Testing Statistical Hypotheses* (Springer 2005); Wasserman, L.: *All of Statistics* (Springer 2004), kap. 10.*

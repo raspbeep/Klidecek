@@ -279,4 +279,9 @@ ZTNA growing rapidly in enterprises.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=R-JUOpCgTZc" "VPN (Virtual Private Network) Explained" "PowerCert Animated Videos"
+:::
+
 *Zdroj: BIS přednášky 2025/26, doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: RFC 4301 — Security Architecture for IP; RFC 7296 — IKEv2; Donenfeld, J.A.: „WireGuard: Next Generation Kernel Network Tunnel" (NDSS 2017, [PDF](https://www.wireguard.com/papers/wireguard.pdf)); [WireGuard official site](https://www.wireguard.com/); NIST SP 800-77 Rev 1 — Guide to IPsec VPNs; [Tailscale docs](https://tailscale.com/kb/); NIST SP 800-207 — Zero Trust Architecture.*

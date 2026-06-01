@@ -227,4 +227,12 @@ Klíčové komponenty:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=2_U-A9tZhb4" "SZZ: Regresní analýza" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=nk2CQITm_eo" "Linear Regression, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Linear Regression — Introduction* (Hrabec). Externí reference: Zvára, K.: *Regrese* (Matfyzpress 2019, 2. vyd.); Faraway, J.: *Linear Models with R* (CRC 2014); Hastie, T., Tibshirani, R., Friedman, J.: *Elements of Statistical Learning* (Springer 2009), kap. 3.*

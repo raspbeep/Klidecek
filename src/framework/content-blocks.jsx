@@ -510,6 +510,72 @@ function SvgBlock({ block, figIndex }) {
   );
 }
 
+// YouTube embed. Renders a lightweight facade (thumbnail + play button + title)
+// and only loads the privacy-mode iframe once the reader clicks play — so a page
+// with many videos stays fast and makes no third-party request until asked.
+function EmbedBlock({ block }) {
+  const [playing, setPlaying] = useState(false);
+  const id = block.videoId;
+  if (!id) {
+    return (
+      <div className="block-embed block-embed-bad">
+        Nelze vložit video: neznámé YouTube ID ({block.src || "?"}).
+      </div>
+    );
+  }
+  const thumb = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  const watch = `https://www.youtube.com/watch?v=${id}`;
+  const ytGlyph = (
+    <svg className="embed-yt-icon" width="18" height="13" viewBox="0 0 24 17" fill="currentColor" aria-hidden="true">
+      <path d="M23.5 2.6a3 3 0 00-2.1-2.1C19.5 0 12 0 12 0S4.5 0 2.6.5A3 3 0 00.5 2.6 31 31 0 000 8.5a31 31 0 00.5 5.9 3 3 0 002.1 2.1C4.5 17 12 17 12 17s7.5 0 9.4-.5a3 3 0 002.1-2.1 31 31 0 00.5-5.9 31 31 0 00-.5-5.9z"/>
+      <path d="M9.5 12.2 15.8 8.5 9.5 4.8z" fill="var(--bg-soft)"/>
+    </svg>
+  );
+  return (
+    <figure className="block-embed">
+      {playing ? (
+        <div className="embed-frame">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+            title={block.title || "YouTube video"}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      ) : (
+        <button
+          type="button"
+          className="embed-facade"
+          style={{ backgroundImage: `url("${thumb}")` }}
+          onClick={() => setPlaying(true)}
+          aria-label={`Přehrát video${block.title ? ": " + block.title : ""}`}
+        >
+          <span className="embed-scrim" />
+          <span className="embed-play" aria-hidden="true">
+            <svg viewBox="0 0 68 48" width="60" height="42">
+              <path className="embed-play-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"/>
+              <path d="M45 24 27 14v20z" fill="#fff"/>
+            </svg>
+          </span>
+          {(block.title || block.channel) && (
+            <span className="embed-meta">
+              {block.title && <span className="embed-title">{block.title}</span>}
+              {block.channel && <span className="embed-channel">{block.channel}</span>}
+            </span>
+          )}
+        </button>
+      )}
+      <figcaption className="embed-cap">
+        {ytGlyph}
+        <a href={watch} target="_blank" rel="noopener noreferrer">
+          {block.channel ? `${block.channel} · YouTube` : "Otevřít na YouTube"}
+        </a>
+      </figcaption>
+    </figure>
+  );
+}
+
 function QuizBlock({ block }) {
   const [picked, setPicked] = useState(null);
   return (
@@ -584,6 +650,7 @@ export function Block({ block, figIndex }) {
     case "svg":     return <SvgBlock block={block} figIndex={figIndex} />;
     case "viz":     return <VizBlock block={block} figIndex={figIndex} />;
     case "quiz":    return <QuizBlock block={block} />;
+    case "embed":   return <EmbedBlock block={block} />;
     case "table":   return <TableBlock block={block} />;
     case "list":    return <ListBlock block={block} />;
     case "quote":   return <QuoteBlock block={block} />;

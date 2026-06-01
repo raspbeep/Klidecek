@@ -133,4 +133,9 @@ V C# lze vlákno *natvrdo zablokovat* do vyřešení úkolu zavoláním `.Wait()
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=vn3tm0quoqE" "The Async Await Episode I Promised" "Fireship"
+:::
+
 *Zdroj: SZZ NADE — předmět WAP — Internetové aplikace, VUT FIT. Externí reference: MDN Web Docs, ECMAScript Language Specification, Microsoft Learn (.NET TPL).*

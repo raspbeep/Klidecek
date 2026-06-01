@@ -109,4 +109,9 @@ Hlavní motor vývoje HTTP byla snaha **paralelizovat přenos** mnoha zdrojů je
 ::: link "RFC 9114 — HTTP/3" "https://www.rfc-editor.org/rfc/rfc9114"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=j9QmMEWmcfo" "SSL, TLS, HTTPS Explained" "ByteByteGo"
+:::
+
 *Zdroj: SZZ NADE — předmět WAP — Internetové aplikace, VUT FIT. Externí reference: MDN Web Docs, RFC 9110 (HTTP Semantics), RFC 9113 (HTTP/2), RFC 9114 (HTTP/3), RFC 9000 (QUIC).*

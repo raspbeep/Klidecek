@@ -88,4 +88,9 @@ Sklad sám o sobě je *fyzické úložiště*. Co OLAP server prezentuje *na vý
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=k4tK2ttdSDg" "What is a Data Warehouse?" "IBM Technology"
+:::
+
 *Zdroj: PIS přednáška 8, prof. Ing. Tomáš Hruška, CSc., FIT VUT v Brně. Externí reference: Inmon, W.H.: *Building the Data Warehouse* (4. vyd., Wiley 2005); Kimball, R., Ross, M.: *The Data Warehouse Toolkit* (3. vyd., Wiley 2013); [dbt docs](https://docs.getdbt.com/) — moderní ELT framework; [Apache Airflow](https://airflow.apache.org/) — orchestrace ETL pipeline.*

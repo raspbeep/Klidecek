@@ -268,4 +268,9 @@ S IP adresami v ruce ukážeme **konkrétní průchod paketu sítí** — od apl
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=ThdO9beHhpA" "IP Address - IPv4 vs IPv6 Tutorial" "PowerCert Animated Videos"
+:::
+
 *Zdroj: PDS přednáška 1 (Networker's Handbook, part 1), Ing. Vladimír Veselý, Ph.D., FIT VUT v Brně. Externí reference: [RFC 791 — IPv4](https://www.rfc-editor.org/rfc/rfc791); [RFC 8200 — IPv6](https://www.rfc-editor.org/rfc/rfc8200); [RFC 4291 — IPv6 Addressing Architecture](https://www.rfc-editor.org/rfc/rfc4291); [RFC 1918 — Private Address Space](https://www.rfc-editor.org/rfc/rfc1918); [RFC 5952 — IPv6 Address Text Representation](https://www.rfc-editor.org/rfc/rfc5952).*

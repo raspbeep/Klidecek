@@ -250,4 +250,9 @@ Bez popisných statistik bychom slepě modelovali jako kdyby data byla "rozumně
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=SzZ6GpcfoQY" "Calculating the Mean, Variance and Standard Deviation, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: UPA přednáška *Porozumění datům* (Burgetová). Externí reference: Tukey, J. W.: *Exploratory Data Analysis*, Addison-Wesley 1977; Han, J., Kamber, M., Pei, J.: *Data Mining — Concepts and Techniques*, 3rd ed., Morgan Kaufmann 2012, kap. 2; Zendulka, J. et al.: *Získávání znalostí z databází — studijní opora*, FIT VUT 2009.*

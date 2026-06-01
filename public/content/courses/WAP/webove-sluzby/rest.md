@@ -91,4 +91,9 @@ V REST se naplno využívá sémantika HTTP — význam operace nese *sloveso* (
 ::: link "MDN — HTTP request methods" "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=-mN3VyJuCjM" "What Is REST API? Examples And How To Use It: Crash Course System Design #3" "ByteByteGo"
+:::
+
 *Zdroj: SZZ NADE — předmět WAP — Internetové aplikace, VUT FIT. Externí reference: Fielding (disertace 2000), RFC 9110, MDN Web Docs.*

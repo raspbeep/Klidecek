@@ -219,4 +219,12 @@ V kapitole o bezkontextových jazycích ([[cfg-derivace]] a dále) uvidíme *dru
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=uQF-vwjvVyY" "Teoretická informatika: Regulární jazyky II" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=dikEDuepOtI" "Pumping Lemma (For Regular Languages)" "Neso Academy"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Bar-Hillel, Y., Perles, M., Shamir, E.: *On Formal Properties of Simple Phrase Structure Grammars* (Z. Phonetik. Sprachwiss. Kommunikat., 1961); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §4.1–4.3; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §1.4.*

@@ -236,4 +236,9 @@ NP-úplnost slouží jako **standardní důkaz nemožnosti rychlého algoritmu**
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=lz4UNeNWM-Q" "Teoretická informatika: Složitost" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Karp, R.M.: *Reducibility Among Combinatorial Problems* (Plenum, 1972); Garey, M.R., Johnson, D.S.: *Computers and Intractability* (Freeman, 1979); Vazirani, V.: *Approximation Algorithms* (Springer, 2003); Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §7.5; Arora, S., Barak, B.: *Computational Complexity* (Cambridge 2009), kap. 2.7.*

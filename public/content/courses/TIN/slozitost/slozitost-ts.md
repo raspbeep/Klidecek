@@ -231,4 +231,12 @@ Všechny "běžné" polynomiální, logaritmické, exponenciální funkce jsou z
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=lz4UNeNWM-Q" "Teoretická informatika: Složitost" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=luqobVkniB4" "SZZ: Časová a prostorová složitost" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Hartmanis, J., Stearns, R.E.: *On the Computational Complexity of Algorithms* (Trans. AMS, 1965); Cobham, A.: *The Intrinsic Computational Difficulty of Functions* (Proc. 1964 Cong. Logic, Methodology, and Philosophy of Science); Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §7.1; Arora, S., Barak, B.: *Computational Complexity — A Modern Approach* (Cambridge 2009), kap. 1.*

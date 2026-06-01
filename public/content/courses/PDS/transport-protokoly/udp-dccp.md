@@ -159,4 +159,9 @@ Jiné protokoly, které řeší *jiné* problémy než UDP/TCP: **SCTP** ([[sctp
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=qqRYkcta6IE" "TCP vs UDP Crash Course" "Hussein Nasser"
+:::
+
 *Zdroj: PDS přednáška 2 (Transportní protokoly), Ing. Vladimír Veselý, Ph.D., FIT VUT v Brně. Externí reference: [RFC 768 — UDP](https://www.rfc-editor.org/rfc/rfc768); [RFC 3828 — UDP-Lite](https://www.rfc-editor.org/rfc/rfc3828); [RFC 4340 — DCCP](https://www.rfc-editor.org/rfc/rfc4340); [RFC 4341 — DCCP CCID 2 (TCP-like)](https://www.rfc-editor.org/rfc/rfc4341); [RFC 4342 — DCCP CCID 3 (TFRC)](https://www.rfc-editor.org/rfc/rfc4342); Handley, M., Floyd, S., Padhye, J., Widmer, J.: „TFRC: Equation-Based Congestion Control for Unicast Applications" (ACM SIGCOMM 2000).*

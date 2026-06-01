@@ -219,4 +219,9 @@ Pro full understanding je nutné kombinovat s [[dynamicka-analyza]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=CgGha_zLqlo" "Reversing Statically-Linked Binaries with Function Signatures - bin 0x2D" "LiveOverflow"
+:::
+
 *Zdroj: BZA přednášky 2025/26, BZA 11 — Reverzní inženýrství (Mazura). Externí reference: Eilam, E.: *Reversing: Secrets of Reverse Engineering* (Wiley 2005), kap. 4–6; Eagle, C.: *The IDA Pro Book* (2nd ed., No Starch Press 2011); Ghidra documentation — [ghidra-sre.org](https://ghidra-sre.org/); Radare2 documentation — [radare.org](https://www.radare.org/r/).*

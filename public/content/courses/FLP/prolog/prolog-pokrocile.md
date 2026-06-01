@@ -399,4 +399,9 @@ Prolog *zůstává* relevantní v *specifických* nikách (logic puzzles, theore
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=NxhjsWteUSU" "SZZ: Prolog - Změna programu za běhu" "Tomáš Kocourek"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (legacy materiál, Kolář). Externí reference: Bratko, I.: *Prolog Programming for Artificial Intelligence* (4th ed., Pearson 2011); Sterling, L., Shapiro, E.: *The Art of Prolog* (2nd ed., MIT Press 1994); SWI-Prolog manual — [swi-prolog.org/pldoc/](https://www.swi-prolog.org/pldoc/); CLP(FD) tutorial — [swi-prolog.org/man/clpfd.html](https://www.swi-prolog.org/man/clpfd.html).*

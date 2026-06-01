@@ -110,4 +110,9 @@ Cílem celé AVS je *intuice*, jak se dnešní paralelní HW chová — abyste r
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=X8v1BB0UaDs" "Is it the End for Moore's Law? - Computerphile" "Computerphile"
+:::
+
 *Zdroj: AVS přednášky 2025/26, doc. Ing. Jiří Jaroš, Ph.D., FIT VUT v Brně. Externí reference: Moore, G.E.: „Cramming more components onto integrated circuits" (Electronics 38(8), 1965); Hennessy, J.L., Patterson, D.A.: „Computer Architecture: A Quantitative Approach" (6th ed., Morgan Kaufmann 2017), §1; Amdahl, G.M.: „Validity of the single processor approach…" (AFIPS 1967, [DOI 10.1145/1465482.1465560](https://doi.org/10.1145/1465482.1465560)); Hill, M.D., Marty, M.R.: „Amdahl's Law in the Multicore Era" (IEEE Computer 41(7), 2008).*

@@ -223,4 +223,9 @@ For **edge devices** (mobile, IoT): MobileFaceNet preferred. For **server-side**
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=BCBZPtZCI7w" "Geometric Face Recognition - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIO přednášky 2025/26, BIO — Rozpoznávání obličeje. Externí reference: Taigman, Y. et al.: *DeepFace: Closing the Gap to Human-Level Performance in Face Verification* (CVPR 2014) — [PDF](https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf); Schroff, F., Kalenichenko, D., Philbin, J.: *FaceNet: A Unified Embedding for Face Recognition and Clustering* (CVPR 2015) — [arXiv](https://arxiv.org/abs/1503.03832); Deng, J. et al.: *ArcFace: Additive Angular Margin Loss for Deep Face Recognition* (CVPR 2019) — [arXiv](https://arxiv.org/abs/1801.07698); NIST FRVT Ongoing — [pages.nist.gov/frvt](https://pages.nist.gov/frvt/).*

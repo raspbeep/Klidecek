@@ -322,4 +322,9 @@ Aktivní výzkum řeší kvadratickou složitost:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=eMlx5fFNoYc" "Attention in transformers, step-by-step | Deep Learning Chapter 6" "3Blue1Brown"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Attention mechanism* (Hradiš). Externí reference: Vaswani, A. et al.: *Attention Is All You Need* (NeurIPS 2017); Bahdanau, D. et al.: *Neural Machine Translation by Jointly Learning to Align and Translate* (ICLR 2015); Luong, M. T. et al.: *Effective Approaches to Attention-based NMT* (EMNLP 2015); Dao, T. et al.: *FlashAttention* (NeurIPS 2022).*

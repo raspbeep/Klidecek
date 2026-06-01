@@ -238,4 +238,9 @@ Topic 6 (Kontrakce stromu) je teď kompletní. Topic 7 (Distribuované systémy 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=4mSQXGi0zSk" "SZZ: Paralelní algoritmy nad seznamy a stromy" "Tomáš Kocourek"
+:::
+
 *Zdroj: PRL přednášky 2025/26, Ing. František Zbořil ml., Ph.D., a doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Miller, G.L., Reif, J.H.: „Parallel tree contraction and its application" (FOCS 1985); JáJá, J.: *An Introduction to Parallel Algorithms* (Addison-Wesley 1992), kap. 3.8.3 (Expression evaluation); Reif, J. (ed.): *Synthesis of Parallel Algorithms* (Morgan Kaufmann 1993), kap. 9; Cook, S.A.: „A taxonomy of problems with fast parallel algorithms" (Inform. Control 64(1–3), 1985, [DOI 10.1016/S0019-9958(85)80041-3](https://doi.org/10.1016/S0019-9958(85)80041-3)) — Cook's class NC; Brent, R.P.: „The parallel evaluation of general arithmetic expressions" (J. ACM 21(2), 1974, [DOI 10.1145/321812.321815](https://doi.org/10.1145/321812.321815)) — klasický předchůdce tree contraction.*

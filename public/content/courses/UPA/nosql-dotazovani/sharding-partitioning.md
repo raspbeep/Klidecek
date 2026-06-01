@@ -212,4 +212,9 @@ Více o roli klíčů v dotazování viz [[dotazovani-nosql]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=aXD4tWbkoJo" "Avoid premature Database Sharding" "Hussein Nasser"
+:::
+
 *Zdroj: UPA přednáška *NoSQL Databases 2* (Rychlý, 30. září 2025). Externí reference: Karger, D., Lehman, E., Leighton, F., Levine, M., Lewin, D., Panigrahy, R.: *Consistent Hashing and Random Trees*, STOC 1997; DeCandia, G. et al.: *Dynamo — Amazon's Highly Available Key-value Store*, SOSP 2007; Kleppmann, M.: *Designing Data-Intensive Applications*, O'Reilly 2017, kap. 6.*

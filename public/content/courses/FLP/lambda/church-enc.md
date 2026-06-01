@@ -253,4 +253,12 @@ toInt n = n (+1) 0
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Eo6FVosifWk" "SZZ: Lambda kalkul - definice pravdivostních hodnot a přirozených čísel" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=eis11j_iGMs" "Lambda Calculus - Computerphile" "Computerphile"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (Kolář). Externí reference: Church, A.: *The Calculi of Lambda Conversion* (Princeton 1941); Barendregt, H. P.: *Lambda Calculi with Types* (Handbook of Logic in CS, 1992); Pierce, B. C.: *Types and Programming Languages* (MIT Press 2002), kap. 5, 23.*

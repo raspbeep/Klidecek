@@ -499,6 +499,9 @@ E[(y − f̂(x))²] = (Bias[f̂])² + Var[f̂] + σ²
 ::: link "PBRT v4 — BVHs" "https://pbr-book.org/4ed/..."
 :::
 
+::: youtube "https://www.youtube.com/watch?v=bpT5AV6j9N0" "Teoretická informatika: Turingovy stroje" "Tomáš Kocourek"
+:::
+
 ::: viz rasterize "Drag the vertices to see which pixels light up."
 :::
 
@@ -535,7 +538,15 @@ yields args `["rasterize", "Drag the vertices."]`.
 | `svg`       | optional `"caption"`                         | raw inline SVG markup                 |
 | `link`      | `"label" "url"`                              | empty (or `[label](url)` instead)     |
 | `viz`       | `<id>` then optional `"caption"`             | empty                                 |
+| `youtube`   | `"url-or-id"` (optional `"title"`, `"channel"`) | empty (or the url instead of the 1st arg) — alias `video` |
 | `quiz`      | `"question"`                                 | a list of `- [x] / - [ ]` choices, each optionally followed by an indented `> reason` line |
+
+The `youtube` fence accepts a full watch/`youtu.be`/`/embed/`/`/shorts/` URL or a
+bare 11-char id. It renders a click-to-load facade (thumbnail + play button +
+title); the privacy-mode (`youtube-nocookie.com`) iframe is only mounted when the
+reader clicks, so a page with many videos makes no third-party request until asked.
+Place videos at the end of a subtopic (with a `### Videa` heading), after the
+`::: link` references — see any subtopic touched by `tools/video-integrate.mjs`.
 
 ### Standalone link line
 

@@ -146,4 +146,12 @@ CLT je *zdroj univerzálnosti normálního rozdělení* ve statistice — vysvě
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=KgY0rQZghTg" "SZZ: Náhodné veličiny, významná rozdělení pravděpodobnosti" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=OSPr6G6Ka-U" "Expected Values for Continuous Variables!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Probability in Computer Science* (Češka). Externí reference: Ross, S.: *A First Course in Probability* (Pearson 2019), kap. 7–8; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 2–5; Mitzenmacher, M., Upfal, E.: *Probability and Computing* (Cambridge 2017), kap. 3–4.*

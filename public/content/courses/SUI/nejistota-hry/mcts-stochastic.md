@@ -245,4 +245,9 @@ Pro hry s *neúplnou* informací (poker, bridge):
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=BEFY7IHs0HM" "Monte Carlo Tree Search - Computerphile" "Computerphile"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Adversarial search — pokračování* (Šůstek). Externí reference: Russell, S. & Norvig, P.: *AIMA* (4. vyd., 2020), kap. 5.4–5.5; Kocsis, L. & Szepesvári, C.: *Bandit based Monte-Carlo Planning* (ECML 2006); Silver, D. et al.: *Mastering the game of Go with deep neural networks and tree search* (Nature 529, 2016); Silver, D. et al.: *AlphaZero* (Science 362, 2018); Browne, C. et al.: *A Survey of Monte Carlo Tree Search Methods* (IEEE TCIAIG 4(1), 2012).*

@@ -233,4 +233,9 @@ Z tranzitivnosti redukce ([[redukce]]) plyne, že *všechny* NP problémy se red
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=lz4UNeNWM-Q" "Teoretická informatika: Složitost" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Cook, S.A.: *The Complexity of Theorem-Proving Procedures* (Proc. 3rd STOC, 1971) — Cookova věta; Levin, L.A.: *Universal Sequential Search Problems* (Probl. Inf. Trans., 1973) — Levinova věta; Karp, R.M.: *Reducibility Among Combinatorial Problems* (1972) — 21 klasických NP-úplných problémů; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §7.4; Garey, M.R., Johnson, D.S.: *Computers and Intractability* (Freeman 1979).*

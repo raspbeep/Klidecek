@@ -237,4 +237,12 @@ Všechny tyto problémy patří do třídy *"ani parciálně rozhodnutelné"*.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=amrvv9Lgrww" "Teoretická informatika: Nerozhodnutelnost" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=Iz9RFd5ENIU" "SZZ: Nerozhodnutelnost" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Post, E.: *Recursively Enumerable Sets of Positive Integers and Their Decision Problems* (Bull. AMS, 1944); Rogers, H.: *Theory of Recursive Functions and Effective Computability* (MIT Press, 1987); Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §5.1–5.3.*

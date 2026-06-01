@@ -184,4 +184,9 @@ To je důvod, proč PCA *funguje* — pokud variance koreluje s diskriminační 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=BCBZPtZCI7w" "Geometric Face Recognition - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIO přednášky 2025/26, BIO — Rozpoznávání obličeje (Drahanský). Externí reference: Turk, M., Pentland, A.: *Eigenfaces for Recognition* (Journal of Cognitive Neuroscience 1991) — [PDF](https://www.face-rec.org/algorithms/PCA/jcn.pdf); Belhumeur, P. N., Hespanha, J. P., Kriegman, D. J.: *Eigenfaces vs. Fisherfaces: Recognition Using Class Specific Linear Projection* (IEEE PAMI 1997); Li, S. Z., Jain, A. K.: *Handbook of Face Recognition* (2nd ed., Springer 2011), kap. 3.*

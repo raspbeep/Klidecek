@@ -215,4 +215,9 @@ Spojení:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=HeQX2HjkcNo" "Math's Fundamental Flaw" "Veritasium"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Gödel, K.: *Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I* (Monatshefte Math. Phys., 1931) — originální práce; Tarski, A.: *Der Wahrheitsbegriff in den formalisierten Sprachen* (Studia Philosophica, 1936); Smullyan, R.: *Gödel's Incompleteness Theorems* (Oxford, 1991); Hofstadter, D.: *Gödel, Escher, Bach* (Basic Books, 1979) — populární expozice.*

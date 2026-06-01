@@ -184,4 +184,9 @@ Konvence: `d = 0,2` small, `0,5` medium, `0,8` large effect. Důležitější pr
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=jEUhyGfDGmo" "SZZ: Bodové a intervalové odhady, statistické testy" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *t-tests* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (4th ed., Pearson 2012), kap. 9.2 a 9.6; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 8.3; Welch, B. L.: *The Generalization of "Student's" Problem when Several Different Population Variances are Involved*, Biometrika 34 (1947).*

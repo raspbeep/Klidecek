@@ -229,4 +229,9 @@ Více o dictionary encoding viz [[dictionary-encoding]], o kompresi [[komprese]]
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Vw1fCeD06YI" "Column vs Row Oriented Databases Explained" "Hussein Nasser"
+:::
+
 *Zdroj: UPA přednáška *Introduction to In-memory Column-based Databases* (Benek, SAP). Externí reference: Stonebraker, M. et al.: *C-Store — A Column-oriented DBMS*, VLDB 2005; Plattner, H., Zeier, A.: *In-Memory Data Management*, 2nd ed., Springer 2012; Abadi, D. J., Madden, S. R., Hachem, N.: *Column-Stores vs. Row-Stores*, SIGMOD 2008; SAP HANA documentation.*

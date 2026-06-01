@@ -154,4 +154,9 @@ S přehledem zařízení a domén v hlavě se podíváme na **adresování** —
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=1z0ULvg_pW8" "Hub, Switch, & Router Explained - What's the difference?" "PowerCert Animated Videos"
+:::
+
 *Zdroj: PDS přednáška 1 (Networker's Handbook, part 1), Ing. Vladimír Veselý, Ph.D., FIT VUT v Brně. Externí reference: Cisco Networking Academy — [Switching and Routing Concepts](https://www.netacad.com); [RFC 1191 — Path MTU Discovery (IPv4)](https://www.rfc-editor.org/rfc/rfc1191); [RFC 8201 — Path MTU Discovery (IPv6)](https://www.rfc-editor.org/rfc/rfc8201).*

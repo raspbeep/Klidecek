@@ -242,4 +242,9 @@ V 2024 je 95+% webového provozu HTTPS (Google Transparency Report). Chrome zobr
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=86cQJ0MMses" "TLS Handshake Explained - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 5 — Asymetrická správa klíčů. Externí reference: RFC 8446: TLS 1.3 (2018); RFC 8996: Deprecating TLSv1.0 and TLSv1.1 (2021); Bhargavan, K. a kol.: "A Messy State of the Union: Taming the Composite State Machines of TLS", IEEE S&P 2015; Aviram, N. a kol.: "DROWN: Breaking TLS Using SSLv2", USENIX Security 2016; Cloudflare: "TLS 1.3 and the Future of Encrypted Communications" (2018).*

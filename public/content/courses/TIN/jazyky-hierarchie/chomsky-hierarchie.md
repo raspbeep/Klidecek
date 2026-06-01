@@ -157,4 +157,9 @@ Důkazy $\mathcal{L}_3 \subsetneq \mathcal{L}_2$ a $\mathcal{L}_2 \subsetneq \ma
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=m-uP64Cq9Kc" "SZZ: Chomského hierarchie a vlastnosti jazyků" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Chomsky, N.: *Three Models for the Description of Language* (IRE Trans. Inf. Theory, 1956); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), kap. 9; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), kap. 3; [Stanford Encyclopedia of Philosophy — Chomsky Hierarchy](https://plato.stanford.edu/entries/chomsky/).*

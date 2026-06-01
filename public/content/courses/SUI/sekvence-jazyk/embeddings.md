@@ -319,4 +319,9 @@ Toto je *etický problém*. **Debiasing** technik existuje, ale problém je *sys
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=gQddtTdmG_8" "Vectoring Words (Word Embeddings) - Computerphile" "Computerphile"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Sequences and language* (Hradiš). Externí reference: Mikolov, T. et al.: *Word2Vec* (ICLR 2013); Pennington, J. et al.: *GloVe* (EMNLP 2014); Bojanowski, P. et al.: *FastText* (TACL 2017); Bolukbasi, T. et al.: *Man is to Computer Programmer as Woman is to Homemaker?* (NeurIPS 2016) — bias paper.*

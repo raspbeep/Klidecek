@@ -152,4 +152,12 @@ Při změně `push` na priority s `f = g + h` dostaneme **A***.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=i9xUB0qRs2U" "SZZ: Grafy a jejich prohledávání do šířky" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=VMQghxb5aSk" "SZZ: Prohledávání grafů do hloubky a jeho aplikace" "Tomáš Kocourek"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Řešení problémů prohledáváním* (Šůstek). Externí reference: Russell, S. & Norvig, P.: *AIMA* (4. vyd., 2020), kap. 3.4; Korf, R.: *Depth-First Iterative-Deepening: An Optimal Admissible Tree Search* (Artificial Intelligence, 1985); Dijkstra, E. W.: *A note on two problems in connexion with graphs* (Numerische Mathematik, 1959).*

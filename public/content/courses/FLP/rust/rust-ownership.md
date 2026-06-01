@@ -424,4 +424,9 @@ fn main() {
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=5C_HPTJg5ek" "Rust in 100 Seconds" "Fireship"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (Kolář). Externí reference: Klabnik, S., Nichols, C.: *The Rust Programming Language* (2nd ed., No Starch Press 2023) — [doc.rust-lang.org/book/](https://doc.rust-lang.org/book/); Blandy, J., Orendorff, J., Tindall, L. F. S.: *Programming Rust* (2nd ed., O'Reilly 2021); Rust reference — [doc.rust-lang.org/reference/](https://doc.rust-lang.org/reference/); Rust by example — [doc.rust-lang.org/rust-by-example/](https://doc.rust-lang.org/rust-by-example/).*

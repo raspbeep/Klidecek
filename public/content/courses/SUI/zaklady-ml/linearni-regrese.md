@@ -206,4 +206,12 @@ Volba `λ` se ladí na **validační** množině.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=2_U-A9tZhb4" "SZZ: Regresní analýza" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=nk2CQITm_eo" "Linear Regression, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Basics in Machine Learning* (Burget). Externí reference: Bishop, C.: *PRML* (Springer 2006), kap. 3; Hastie, Tibshirani, Friedman: *The Elements of Statistical Learning* (Springer 2009), kap. 3 — [free PDF](https://hastie.su.domains/ElemStatLearn/); Murphy, K.: *Probabilistic ML* (MIT 2022), kap. 11.*

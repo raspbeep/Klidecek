@@ -92,4 +92,9 @@ Tomuto napětí se v praxi říká **congestion collapse risk** — když všich
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=qqRYkcta6IE" "TCP vs UDP Crash Course" "Hussein Nasser"
+:::
+
 *Zdroj: PDS přednáška 2 (Transportní protokoly), Ing. Vladimír Veselý, Ph.D., FIT VUT v Brně. Externí reference: Tanenbaum, A.S., Wetherall, D.J.: *Computer Networks* (5. vyd., Pearson 2010), kap. 6; Kurose, J.F., Ross, K.W.: *Computer Networking: A Top-Down Approach* (8. vyd., Pearson 2021), kap. 3.*

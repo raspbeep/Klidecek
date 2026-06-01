@@ -173,4 +173,12 @@ Po determinizaci přijde [[minimalizace]] — algoritmus, který z libovolného 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=g8md4gN8PK0" "Teoretická informatika - Regulární jazyky I" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=5dxN6kG7wz4" "SZZ: Konečné automaty" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Rabin, M.O., Scott, D.: *Finite Automata and Their Decision Problems* (IBM J. Res. Dev., 1959) — původní podmnožinová konstrukce; Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §2.3; [Cornell CS 4814 — Subset construction](https://courses.cs.cornell.edu/cs4810/2017fa/lectures.html).*

@@ -115,4 +115,9 @@ Přejdeme k **definici P2P sítí** — co je *overlay*, jak vypadá architektur
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=TcxZSmzPw8k" "The Science of Six Degrees of Separation" "Veritasium"
+:::
+
 *Zdroj: PDS přednáška 7 (Sítě peer-to-peer), doc. Ing. Petr Matoušek, Ph.D., M.A., FIT VUT v Brně. Externí reference: Milgram, S.: „The Small World Problem" (Psychology Today, 67(1):61–67, 1967); Kleinberg, J.: „The Small-world Phenomenon: An Algorithmic Perspective" (STOC 2000, [DOI 10.1145/335305.335325](https://doi.org/10.1145/335305.335325)); Guare, J.: *Six Degrees of Separation* (drama, 1990).*

@@ -201,4 +201,9 @@ Ostrý kontrast s regulárními jazyky, kde *všechny* tyto problémy byly rozho
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Vp_oBaNiIFg" "Teoretická informatika: Bezkontextové jazyky" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Bar-Hillel, Y., Perles, M., Shamir, E.: *On Formal Properties of Simple Phrase Structure Grammars* (Z. Phon. Sprachwiss., 1961) — pumping lemma; Ginsburg, S., Rose, G.F.: *Operations Which Preserve Definability* (J. ACM, 1963); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §7.2–7.4.*

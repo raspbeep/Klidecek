@@ -67,6 +67,19 @@ function parseArgs(s) {
   return out;
 }
 
+// Pull an 11-char YouTube video id out of a bare id or any common URL form
+// (watch?v=, youtu.be/, /embed/, /shorts/, /live/). Returns "" if none found.
+export function parseYouTubeId(s) {
+  if (!s) return "";
+  const t = s.trim();
+  if (/^[\w-]{11}$/.test(t)) return t;
+  const m =
+    t.match(/[?&]v=([\w-]{11})/) ||
+    t.match(/youtu\.be\/([\w-]{11})/) ||
+    t.match(/\/(?:embed|shorts|live|v)\/([\w-]{11})/);
+  return m ? m[1] : "";
+}
+
 function parseTableRow(line) {
   // Split on unescaped `|` outside of inline math (`$…$`) and wikilinks (`[[…|…]]`).
   // Math uses pandoc-style rules so currency like `$50` stays literal:
@@ -366,6 +379,16 @@ function makeTypedBlock(kind, args, body) {
     }
     case "quiz":
       return parseQuiz(args, body);
+    case "youtube":
+    case "video":
+    case "embed": {
+      // ::: youtube "<url-or-id>" "Title?" "Channel?"   (body may hold the url too)
+      const raw = (args[0] || body.trim()).trim();
+      const videoId = parseYouTubeId(raw);
+      const title = args[1] || "";
+      const channel = args[2] || "";
+      return { kind: "embed", provider: "youtube", videoId, src: raw, title, channel };
+    }
     default:
       return { kind: "text", body: body.trim() };
   }

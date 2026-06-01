@@ -58,4 +58,9 @@ Z těchto dvou problémů vyrůstají všechny pokročilé modely v této předn
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=GAe5oB742dw" "ACID Properties in Databases With Examples" "ByteByteGo"
+:::
+
 *Zdroj: PIS přednáška 6, doc. Ing. Radek Burget, Ph.D., FIT VUT v Brně. Externí reference: Gray, J., Reuter, A.: *Transaction Processing: Concepts and Techniques* (Morgan Kaufmann, 1992) — kanonická monografie o transakčních modelech.*

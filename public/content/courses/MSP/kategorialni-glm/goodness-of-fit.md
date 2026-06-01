@@ -212,4 +212,9 @@ Pro normality test: **doporučení** Shapiro-Wilk (`n ≤ 5000`), pak Q-Q plot.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=cPeqgx8sx4Y" "SZZ: Vícevýběrové testy, testy o rozdělení" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Goodness-of-Fit Tests* (Hrabec). Externí reference: Anděl, J.: *Základy matematické statistiky* (Matfyzpress 2011); Stephens, M. A.: *EDF Statistics for Goodness of Fit* (JASA 1974); D'Agostino, R., Stephens, M.: *Goodness-of-Fit Techniques* (Marcel Dekker 1986).*

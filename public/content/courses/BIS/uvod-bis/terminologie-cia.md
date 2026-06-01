@@ -175,4 +175,9 @@ Princip: *více vrstev* ochrany. Útočník musí překonat *všechny* vrstvy.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=kPPFNrlN3zo" "What is the CIA Triad" "IBM Technology"
+:::
+
 *Zdroj: BIS přednášky 2025/26, doc. Ing. Petr Hanáček, Ph.D., Ing. Kamil Malinka, Ph.D., FIT VUT v Brně. Externí reference: Stallings, W.: „Computer Security: Principles and Practice" (4th ed., Pearson 2018), §1; ISO/IEC 27000:2018 — Information Security Management Systems Overview; [NIST SP 800-12](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-12r1.pdf) — Introduction to Information Security; Bishop, M.: „Computer Security: Art and Science" (2nd ed., Addison-Wesley 2018), §1.*

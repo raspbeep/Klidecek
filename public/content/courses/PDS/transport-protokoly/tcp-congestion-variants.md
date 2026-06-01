@@ -171,4 +171,9 @@ TCP je *typický* L4 protokol. Existují *jiné* — UDP (jednoduchý best-effor
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=r9kbjAN2788" "Slow Start vs Congestion Avoidance in TCP" "Hussein Nasser"
+:::
+
 *Zdroj: PDS přednáška 2 (Transportní protokoly), Ing. Vladimír Veselý, Ph.D., FIT VUT v Brně. Externí reference: Jacobson, V.: „Congestion Avoidance and Control" (ACM SIGCOMM 1988, [DOI 10.1145/52324.52356](https://doi.org/10.1145/52324.52356)); [RFC 5681 — TCP Congestion Control](https://www.rfc-editor.org/rfc/rfc5681); [RFC 6582 — NewReno](https://www.rfc-editor.org/rfc/rfc6582); Ha, S., Rhee, I., Xu, L.: „CUBIC: a new TCP-friendly high-speed TCP variant" (ACM SIGOPS 2008); Cardwell, N. et al.: „BBR: Congestion-Based Congestion Control" (ACM Queue 2016, [DOI 10.1145/3012426.3022184](https://doi.org/10.1145/3012426.3022184)); [Linux Kernel — Congestion control documentation](https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt).*

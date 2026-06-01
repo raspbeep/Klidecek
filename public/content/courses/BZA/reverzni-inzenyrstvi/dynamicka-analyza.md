@@ -209,4 +209,9 @@ Komerční tools (IDA Pro, Binary Ninja) podporují *integrated workflow* — de
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=y69uIxU0eI8" "Scripting radare2 with python for dynamic analysis - TUMCTF 2016 Zwiebel part 2" "LiveOverflow"
+:::
+
 *Zdroj: BZA přednášky 2025/26, BZA 11 — Reverzní inženýrství (Mazura). Externí reference: Eilam, E.: *Reversing: Secrets of Reverse Engineering* (Wiley 2005), kap. 5; Sikorski, M., Honig, A.: *Practical Malware Analysis* (No Starch Press 2012), kap. 6–12; Frida documentation — [frida.re](https://frida.re/docs/home/); Cuckoo Sandbox — [cuckoosandbox.org](https://cuckoosandbox.org/); AFL++ — [aflplus.plus](https://aflplus.plus/).*

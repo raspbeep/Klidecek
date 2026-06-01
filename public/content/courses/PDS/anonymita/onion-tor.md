@@ -120,4 +120,9 @@ Argument „kdo nic nezákonného nedělá, nemá co skrývat" je zavádějící
 ::: link "I2P — Garlic Routing and Garlic Terminology" "https://geti2p.net/en/docs/how/garlic-routing"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=QRYzre4bf7I" "How TOR Works- Computerphile" "Computerphile"
+:::
+
 *Zdroj: PDS — přednáška Anonymity, Ing. Matěj Grégr, Ph.D., FIT VUT v Brně. Externí reference: D. Chaum: „Untraceable Electronic Mail, Return Addresses, and Digital Pseudonyms" (CACM 24(2), 1981, [DOI 10.1145/358549.358563](https://dl.acm.org/doi/10.1145/358549.358563)); R. Dingledine, N. Mathewson, P. Syverson: „Tor: The Second-Generation Onion Router" (USENIX Security 2004); [Tor specifications](https://spec.torproject.org/); [I2P — Garlic Routing](https://geti2p.net/en/docs/how/garlic-routing).*

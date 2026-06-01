@@ -214,4 +214,9 @@ Klíčové, že **PCP je dostatečně jednoduchý**, aby šel "ručně" *redukov
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=amrvv9Lgrww" "Teoretická informatika: Nerozhodnutelnost" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Post, E.: *A Variant of a Recursively Unsolvable Problem* (Bull. AMS, 1946); Davis, M.: *Computability and Unsolvability* (McGraw-Hill, 1958); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §9.4–9.5; Kozen, D.C.: *Automata and Computability* (Springer 1997), kap. 33.*

@@ -275,4 +275,9 @@ Saga je *eventually consistent* — během sekvence je systém v *přechodném* 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=W4_aGb_MOls" "What is a Message Queue and When should you use Messaging Queue Systems Like RabbitMQ and Kafka" "Hussein Nasser"
+:::
+
 *Zdroj: přednášky PIS — doc. R. Burget, prof. T. Hruška, VUT FIT, část „Synchronní a asynchronní komunikace, message queues, pub/sub" v přednášce „Alternativní technologie a architektury" (slidy 127–130).*

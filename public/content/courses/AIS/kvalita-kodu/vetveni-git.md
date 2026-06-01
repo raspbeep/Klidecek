@@ -70,4 +70,9 @@ Proto jsou TBD a kontinuální integrace prakticky neoddělitelné — TBD je do
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=ecK3EnyGD8o" "13 Advanced (but useful) Git Techniques and Shortcuts" "Fireship"
+:::
+
 *Zdroj: SZZ NADE — předmět Analýza a návrh informačních systémů, VUT FIT. Externí reference: trunkbaseddevelopment.com (Paul Hammant), Atlassian, Martin Fowler.*

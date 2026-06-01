@@ -232,4 +232,9 @@ Business logika *není v klientovi* — tam je jen prezentace a koordinace volá
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=-mN3VyJuCjM" "What Is REST API? Examples And How To Use It: Crash Course System Design #3" "ByteByteGo"
+:::
+
 *Zdroj: přednášky PIS — doc. R. Burget, VUT FIT, část „Webové API — REST rozhraní pomocí JAX-RS" v přednášce „Business vrstva a API" (slidy 11–23).*

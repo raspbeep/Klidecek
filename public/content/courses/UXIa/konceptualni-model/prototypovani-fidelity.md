@@ -88,4 +88,9 @@ A pozor na další běžnou záměnu: **PoC ověřuje technickou proveditelnost*
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=OlbdIXLunt4" "Paper Prototyping: How to Create & Usability-Test Simple UI Prototypes (40 min tutorial)" "NNgroup"
+:::
+
 *Zdroj: SZZ NADE — předmět UXIa (User Experience a návrh uživatelských rozhraní), VUT FIT. Externí reference: Stanford d.school / IxDF (Design Thinking), Nielsen Norman Group, E. Ries — The Lean Startup (MVP).*

@@ -266,4 +266,9 @@ Praktický postup:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=RoGHVI-w9bE" "DeepFake Detector AIs Are Good Too!" "Two Minute Papers"
+:::
+
 *Zdroj: BIO přednášky 2025/26, BIO 13 — Biometrické systémy v praxi. Externí reference: Mirsky, Y., Lee, W.: *The Creation and Detection of Deepfakes: A Survey* (ACM Computing Surveys 2021); C2PA — [c2pa.org](https://c2pa.org/); Verdoliva, L.: *Media Forensics and DeepFakes: an overview* (IEEE J-STSP 2020); EU AI Act — Regulation 2024/1689; DeepFaceLab — [github.com/iperov/DeepFaceLab](https://github.com/iperov/DeepFaceLab).*

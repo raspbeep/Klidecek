@@ -186,4 +186,9 @@ Datové konflikty řeší forwarding (RAW) a přejmenování (WAR/WAW). [[ridici
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=cMKn19y4_9E" "L-4.9: What is Read After Write(RAW) Hazards| Data Hazard in Pipelining with Example in Hindi | COA" "Gate Smashers"
+:::
+
 *Zdroj: AVS přednášky 2025/26, doc. Ing. Jiří Jaroš, Ph.D., FIT VUT v Brně. Externí reference: Hennessy, J.L., Patterson, D.A.: „Computer Architecture: A Quantitative Approach" (6th ed., Morgan Kaufmann 2017), §C.2, str. 147-162; Patterson, D.A., Hennessy, J.L.: „Computer Organization and Design: RISC-V Edition" (Morgan Kaufmann 2017), §4.7.*

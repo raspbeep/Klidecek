@@ -171,4 +171,9 @@ Detaily [[hash-utoky]], [[el-podpis]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=b4b8ktEV4Bg" "Hashing Algorithms and Security - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIS přednášky 2025/26, doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: NIST FIPS 180-4 — Secure Hash Standard ([nvlpubs.nist.gov](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf)); NIST FIPS 202 — SHA-3 Standard; RFC 2104 — HMAC; RFC 6979 — Deterministic ECDSA; RFC 8032 — EdDSA; Bernstein, D.J. et al.: „High-speed high-security signatures" (CHES 2011, [DOI 10.1007/978-3-642-23951-9_9](https://doi.org/10.1007/978-3-642-23951-9_9)).*

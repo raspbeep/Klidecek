@@ -202,4 +202,9 @@ Prediction interval pro *individuální* `Y(x₀)` (širší, započítává `σ
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=2_U-A9tZhb4" "SZZ: Regresní analýza" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Linear Model — Definition* (Hrabec). Externí reference: Zvára, K.: *Regrese* (Matfyzpress 2019, 2. vyd.); DeGroot, M., Schervish, M.: *Probability and Statistics* (Pearson 2012), kap. 11; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 12.*

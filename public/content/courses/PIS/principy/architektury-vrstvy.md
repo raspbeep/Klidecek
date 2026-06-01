@@ -144,4 +144,9 @@ Principy zůstávají stejné napříč platformami: oddělení vrstev, DI, ORM/
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=O4N81weRolg" "Vlog - Client/Server Programming Languages" "Hussein Nasser"
+:::
+
 *Zdroj: přednášky PIS — prof. T. Hruška a doc. R. Burget, VUT FIT, část „Architektury informačních systémů".*

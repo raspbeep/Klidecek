@@ -363,4 +363,9 @@ length([_|T], N) :- length(T, M), N is M + 1.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Pp6tEZLkASI" "SZZ: Prolog - Unifikace a vyhodnocování" "Tomáš Kocourek"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (legacy materiál, Kolář). Externí reference: Bratko, I.: *Prolog Programming for Artificial Intelligence* (4th ed., Pearson 2011), kap. 3; Sterling, L., Shapiro, E.: *The Art of Prolog* (2nd ed., MIT Press 1994); Clocksin, W. F., Mellish, C. S.: *Programming in Prolog* (5th ed., Springer 2003); SWI-Prolog manual — [swi-prolog.org/pldoc/](https://www.swi-prolog.org/pldoc/).*

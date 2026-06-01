@@ -7,6 +7,8 @@ dist
 .vite
 .env
 .env.local
+# yt-dlp response cache for the video-curation pipeline (regenerable, bulky)
+tools/video-data/cache/
 # Local design handoff bundle (kept locally only)
 school-helper-design/
 school helper-handoff.zip

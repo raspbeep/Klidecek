@@ -182,4 +182,12 @@ Nižší = lepší. AIC tends k vybrat *více* parametrů než BIC.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=2_U-A9tZhb4" "SZZ: Regresní analýza" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=2AQKmw14mHM" "R-squared, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Linear Regression — Model Quality* (Hrabec). Externí reference: Zvára, K.: *Regrese* (Matfyzpress 2019); Faraway, J.: *Linear Models with R* (CRC 2014), kap. 3; Hastie, T., Tibshirani, R., Friedman, J.: *Elements of Statistical Learning* (Springer 2009), kap. 7.*

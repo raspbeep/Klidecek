@@ -176,4 +176,9 @@ Shorův algoritmus (1994) faktorizuje $n$ v *polynomiálním* čase na kvantové
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=-ShwJqAalOk" "Breaking RSA - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 4 — Asymetrické algoritmy. Externí reference: Rivest, R. L., Shamir, A., Adleman, L.: "A Method for Obtaining Digital Signatures and Public-Key Cryptosystems", Communications of the ACM 21(2), 1978; RFC 8017: PKCS #1 v2.2 — RSA Cryptography Specifications (2016); Bellare, M., Rogaway, P.: "Optimal Asymmetric Encryption", EUROCRYPT 1994; Boneh, D., Shoup, V.: *A Graduate Course in Applied Cryptography*, kap. 13.*

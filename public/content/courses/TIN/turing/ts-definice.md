@@ -212,4 +212,15 @@ Všechny tyto modifikace probereme v [[ts-modifikace]] a důkazy jejich ekvivale
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=bpT5AV6j9N0" "Teoretická informatika: Turingovy stroje" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=cjJXMGlk7xE" "SZZ: Turingovy stroje a vyčíslitelné funkce" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=dNRDvLACg5Q" "Turing Machines Explained - Computerphile" "Computerphile"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Turing, A.M.: *On Computable Numbers, With an Application to the Entscheidungsproblem* (Proc. London Math. Soc., 1936); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §8.1–8.2; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §3.1.*

@@ -113,4 +113,9 @@ Past ve výpočtu: položky se **střídají** kladné (liché: 1, 3, 5, 7, 9) a
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=RhgUirqki50" "Usability Testing w. 5 Users: Design Process (video 1 of 3)" "NNgroup"
+:::
+
 *Zdroj: SZZ NADE — předmět User Experience a návrh uživatelských rozhraní, VUT FIT. Externí reference: J. Nielsen (10 Usability Heuristics, 1994; Heuristic Evaluation), J. Brooke (System Usability Scale, 1986), Nielsen Norman Group, MeasuringU.*

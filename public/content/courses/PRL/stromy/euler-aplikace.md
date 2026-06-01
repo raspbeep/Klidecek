@@ -186,4 +186,9 @@ Detaily jsou složité; pro praktické účely stačí pointer jumping s log ove
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=4mSQXGi0zSk" "SZZ: Paralelní algoritmy nad seznamy a stromy" "Tomáš Kocourek"
+:::
+
 *Zdroj: PRL přednášky 2025/26, Ing. František Zbořil ml., Ph.D., a doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Tarjan, R.E., Vishkin, U.: „An efficient parallel biconnectivity algorithm" (SIAM J. Comput. 14(4), 1985); JáJá, J.: *An Introduction to Parallel Algorithms* (Addison-Wesley 1992), kap. 3.6 (Tree computations via Euler tour); Reif, J. (ed.): *Synthesis of Parallel Algorithms* (Morgan Kaufmann 1993), kap. 8; Cole, R., Vishkin, U.: „Deterministic coin tossing with applications to optimal parallel list ranking" (Inform. Control 70(1), 1986, [DOI 10.1016/S0019-9958(86)80023-7](https://doi.org/10.1016/S0019-9958(86)80023-7)).*

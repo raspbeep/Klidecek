@@ -181,4 +181,9 @@ Detaily v [[staticka-analyza]] a [[dynamicka-analyza]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=gPsYkV7-yJk" "Self-Learning Reverse Engineering in 2022" "LiveOverflow"
+:::
+
 *Zdroj: BZA přednášky 2025/26, BZA 11 — Reverzní inženýrství (Mazura). Externí reference: Eilam, E.: *Reversing: Secrets of Reverse Engineering* (Wiley 2005) — kanonická reference; Sikorski, M., Honig, A.: *Practical Malware Analysis* (No Starch Press 2012); Schneier, B.: *Secrets and Lies* (Wiley 2000); Hutchins, M.: *How to Accidentally Stop a Global Cyber Attacks* (MalwareTech blog 2017) — [archive](https://malwaretech.com/blog/2017/05/how-to-accidentally-stop-a-global-cyber-attacks).*

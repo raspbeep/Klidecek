@@ -135,4 +135,9 @@ ROB + spekulace + recovery = back-end OoO CPU dokončen. Topic 3 nasaďí *cache
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=I5mRwzVvFGE" "Spectre & Meltdown - Computerphile" "Computerphile"
+:::
+
 *Zdroj: AVS přednášky 2025/26, doc. Ing. Jiří Jaroš, Ph.D., FIT VUT v Brně. Externí reference: Smith, J.E., Pleszkun, A.R.: „Implementation of Precise Interrupts in Pipelined Processors" (ISCA 1985); Kocher, P. et al.: „Spectre Attacks: Exploiting Speculative Execution" (S&P 2019, [arXiv:1801.01203](https://arxiv.org/abs/1801.01203)); Lipp, M. et al.: „Meltdown: Reading Kernel Memory from User Space" (USENIX Sec 2018, [arXiv:1801.01207](https://arxiv.org/abs/1801.01207)); Hennessy, J.L., Patterson, D.A.: „Computer Architecture: A Quantitative Approach" (6th ed., Morgan Kaufmann 2017), §3.10.*

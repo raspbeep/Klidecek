@@ -104,4 +104,9 @@ Handler(Looper.getMainLooper()).post {
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=ShNhJ3wMpvQ" "WHAT IS A COROUTINE? - Kotlin Coroutines" "Philipp Lackner"
+:::
+
 *Zdroj: SZZ NADE — předmět Tvorba aplikací pro mobilní zařízení, VUT FIT. Externí reference: Kotlin coroutines (kotlinlang.org), Apple Developer Documentation (Swift Concurrency), Android Developers (Kotlin coroutines on Android).*

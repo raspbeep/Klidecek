@@ -226,4 +226,12 @@ Vzhledem k tomu, že zpětné reference rozšiřují sílu výrazů mimo třídu
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=g8md4gN8PK0" "Teoretická informatika - Regulární jazyky I" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=uQF-vwjvVyY" "Teoretická informatika: Regulární jazyky II" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Kleene, S.C.: *Representation of Events in Nerve Nets and Finite Automata* (RAND, 1951) — originální Kleeneho věta; Thompson, K.: *Regular expression search algorithm* (CACM, 1968); Cox, R.: [*Regular Expression Matching Can Be Simple And Fast*](https://swtch.com/~rsc/regexp/regexp1.html); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §3.1–3.2.*

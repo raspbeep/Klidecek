@@ -225,4 +225,9 @@ Post-Spectre era: CPU vendors *compete* on security characteristics, not just pe
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=I5mRwzVvFGE" "Spectre & Meltdown - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIS přednášky 2025/26, Ing. Martin Očenáš, FIT VUT v Brně. Externí reference: Kocher, P. et al.: „Spectre Attacks: Exploiting Speculative Execution" (S&P 2019, [arXiv:1801.01203](https://arxiv.org/abs/1801.01203)); Lipp, M. et al.: „Meltdown: Reading Kernel Memory from User Space" (USENIX Security 2018); Kim, Y. et al.: „Flipping Bits in Memory Without Accessing Them" (ISCA 2014); Frigo, P. et al.: „TRRespass: Exploiting the Many Sides of Target Row Refresh" (S&P 2020); [Spectre & Meltdown info](https://meltdownattack.com/).*

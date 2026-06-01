@@ -173,4 +173,9 @@ Pro AES-128: $4 \cdot 11 = 44$ slov (kolové klíče po 4 slovech).
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=O4xNJsjtN6E" "AES Explained (Advanced Encryption Standard) - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 3 — Symetrické algoritmy. Externí reference: FIPS PUB 197: Advanced Encryption Standard (NIST 2001); Daemen, J., Rijmen, V.: *The Design of Rijndael* (Springer 2002); NIST SP 800-67 Rev. 2: Recommendation for the Triple Data Encryption Algorithm (2017); Bhargavan, K., Leurent, G.: "On the Practical (In-)Security of 64-bit Block Ciphers — Collision Attacks on HTTP over TLS and OpenVPN", CCS 2016; Bogdanov, A., Khovratovich, D., Rechberger, C.: "Biclique Cryptanalysis of the Full AES", ASIACRYPT 2011.*

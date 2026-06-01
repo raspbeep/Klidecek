@@ -170,4 +170,9 @@ Pro „čistá" normální data je `X̄` nejlepší. Při outliers je *medián* 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=jEUhyGfDGmo" "SZZ: Bodové a intervalové odhady, statistické testy" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Advanced Statistics — Properties of Estimators* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (4th ed., Pearson 2012), kap. 7.7–7.9; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 7.3.1; Lehmann, E. L., Casella, G.: *Theory of Point Estimation* (Springer 1998).*

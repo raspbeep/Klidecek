@@ -149,4 +149,9 @@ Pro **nezávislé** `X_i` se kovariance vynulují a součet rozptylů je analogi
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=zhuOFLxyJdw" "SZZ: Randomizované algoritmy" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Randomized Algorithms — Indicator Variables* (Češka). Externí reference: Cormen, T. H. et al.: *Introduction to Algorithms* (3rd ed., MIT Press 2009), kap. 5.2; Mitzenmacher, M., Upfal, E.: *Probability and Computing* (Cambridge 2017), kap. 2; Motwani, R., Raghavan, P.: *Randomized Algorithms* (Cambridge 1995), kap. 1.*

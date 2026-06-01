@@ -124,4 +124,9 @@ Enigma byla *bezpečnostně dobře navržena* na svou dobu — problém byl v *i
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=RzWB5jL5RX0" "Cracking Enigma in 2021 - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 2 — Rotorové stroje. Externí reference: Hinsley, F. H.: *British Intelligence in the Second World War*, sv. 1–3 (HMSO 1979–88); Welchman, G.: *The Hut Six Story* (M&M Baldwin 1997); Hodges, A.: *Alan Turing: The Enigma* (Princeton UP 2014); Copeland, B. J. (ed.): *Colossus: The Secrets of Bletchley Park's Codebreaking Computers* (Oxford UP 2006); Rejewski, M.: "How Polish Mathematicians Deciphered the Enigma", Annals of the History of Computing 3(3), 1981.*

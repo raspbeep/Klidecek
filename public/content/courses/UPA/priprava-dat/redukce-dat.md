@@ -221,4 +221,9 @@ Více o normalizaci a kódování viz [[normalizace-diskretizace]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=FgakZw6K1QQ" "StatQuest: Principal Component Analysis (PCA), Step-by-Step" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: UPA přednáška *Příprava dat* (Burgetová). Externí reference: Han, J., Kamber, M., Pei, J.: *Data Mining*, 3rd ed., Morgan Kaufmann 2012, kap. 3; Chawla, N. V., Bowyer, K. W., Hall, L. O., Kegelmeyer, W. P.: *SMOTE — Synthetic Minority Over-sampling Technique*, JAIR 2002; Guo, X. et al.: *On the Class Imbalance Problem*, ICNC 2008; Pearson, K.: *On Lines and Planes of Closest Fit*, Philosophical Magazine 1901.*

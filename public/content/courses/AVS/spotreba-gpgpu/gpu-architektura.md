@@ -252,4 +252,9 @@ NVIDIA A100 vs Intel Xeon Platinum 8260 (24-core):
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=h9Z4oGN89MU" "How do Graphics Cards Work? Exploring GPU Architecture" "Branch Education"
+:::
+
 *Zdroj: AVS přednášky 2025/26, doc. Ing. Jiří Jaroš, Ph.D., FIT VUT v Brně. Externí reference: NVIDIA: „CUDA C Programming Guide" ([docs.nvidia.com/cuda](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)); NVIDIA: „A100 Whitepaper" ([nvidia.com/A100](https://www.nvidia.com/en-us/data-center/a100/)); Lindholm, E. et al.: „NVIDIA Tesla: A Unified Graphics and Computing Architecture" (IEEE Micro 28(2), 2008); Cheng, J., Grossman, M., McKercher, T.: „Professional CUDA C Programming" (Wrox 2014).*

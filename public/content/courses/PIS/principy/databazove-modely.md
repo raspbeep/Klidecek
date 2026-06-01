@@ -84,4 +84,9 @@ V *objektovém* modelu se vztah vytvoří přímo *odkazem* (referencí) — vla
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=W2Z7fbCLSTw" "7 Database Paradigms" "Fireship"
+:::
+
 *Zdroj: přednášky PIS — prof. T. Hruška a doc. R. Burget, VUT FIT, část „Datové modelování".*

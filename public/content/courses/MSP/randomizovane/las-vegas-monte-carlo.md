@@ -134,4 +134,9 @@ E[X] = \sum_{k=1}^{\infty} k \cdot \tfrac{1}{2^k} = 2.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=zhuOFLxyJdw" "SZZ: Randomizované algoritmy" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Lecture 3: Randomized Algorithms* (Češka). Externí reference: Cormen, T. H. et al.: *Introduction to Algorithms* (3rd ed., MIT Press 2009), kap. 5; Mitzenmacher, M., Upfal, E.: *Probability and Computing* (Cambridge 2017), kap. 1, 7; Motwani, R., Raghavan, P.: *Randomized Algorithms* (Cambridge 1995).*

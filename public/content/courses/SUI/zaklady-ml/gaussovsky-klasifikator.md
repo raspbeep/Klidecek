@@ -164,4 +164,9 @@ Každý `p(x_d | c)` má vlastní 1D model — jen `O(D)` parametrů. Naivně, p
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=KgY0rQZghTg" "SZZ: Náhodné veličiny, významná rozdělení pravděpodobnosti" "Tomáš Kocourek"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Basics in Machine Learning* (Burget). Externí reference: Bishop, C.: *PRML* (Springer 2006), kap. 4 + 9; Murphy, K.: *Probabilistic ML: An Introduction*, [Kap. 4 + 11](https://probml.github.io/pml-book/book1.html); Hastie, Tibshirani, Friedman: *The Elements of Statistical Learning* (Springer, 2. vyd. 2009) — [free PDF](https://hastie.su.domains/ElemStatLearn/).*

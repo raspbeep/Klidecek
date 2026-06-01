@@ -187,4 +187,9 @@ Standards evolve. Implementation lags.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=mYtvjijATa4" "Krack Attacks (WiFi WPA2 Vulnerability) - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIS přednášky 2025/26, Ing. Matej Kačic, FIT VUT v Brně. Externí reference: Vanhoef, M., Piessens, F.: „Key Reinstallation Attacks" (CCS 2017); Vanhoef, M.: „Fragment and Forge: Breaking Wi-Fi Through Frame Aggregation and Fragmentation" (USENIX Security 2021, [fragattacks.com](https://www.fragattacks.com/)); Vanhoef, M., Ronen, E.: „Dragonblood" (S&P 2020); [Aircrack-ng Tutorials](https://www.aircrack-ng.org/doku.php?id=tutorial); [Wireshark Wi-Fi capture](https://wiki.wireshark.org/CaptureSetup/WLAN); Hak5 — WiFi Pineapple documentation.*

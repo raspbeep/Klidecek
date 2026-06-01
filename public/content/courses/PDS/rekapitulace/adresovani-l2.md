@@ -117,4 +117,9 @@ L2 adresování umožňuje *hop-by-hop* doručení na lokálním segmentu. Pro d
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=TIiQiw7fpsU" "MAC Address Explained" "PowerCert Animated Videos"
+:::
+
 *Zdroj: PDS přednáška 1 (Networker's Handbook, part 1), Ing. Vladimír Veselý, Ph.D., FIT VUT v Brně. Externí reference: [IEEE 802.3 Ethernet standard](https://standards.ieee.org/ieee/802.3/); [RFC 826 — Address Resolution Protocol](https://www.rfc-editor.org/rfc/rfc826); [IEEE OUI Registration Authority](https://standards.ieee.org/products-programs/regauth/).*

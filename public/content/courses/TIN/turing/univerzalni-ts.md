@@ -124,4 +124,15 @@ Třída $\mathcal{L}_1$ je tedy *přísně mezi* $\mathcal{L}_2$ a $\text{R}$ �
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=bpT5AV6j9N0" "Teoretická informatika: Turingovy stroje" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=cjJXMGlk7xE" "SZZ: Turingovy stroje a vyčíslitelné funkce" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=dNRDvLACg5Q" "Turing Machines Explained - Computerphile" "Computerphile"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Turing, A.M.: *On Computable Numbers* (Proc. London Math. Soc., 1936); Church, A.: *An Unsolvable Problem of Elementary Number Theory* (Amer. J. Math., 1936); Kuroda, S.-Y.: *Classes of Languages and Linear-Bounded Automata* (Inf. and Control, 1964); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §8.3, §9.3.*

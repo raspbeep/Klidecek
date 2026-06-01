@@ -345,4 +345,9 @@ Praktický doporučovací strom:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=gnchfOojMk4" "What is RPC? gRPC Introduction." "ByteByteGo"
+:::
+
 *Zdroj: přednášky PIS — doc. R. Burget, prof. T. Hruška, VUT FIT, část „JSON-RPC a gRPC" v přednášce „Alternativní technologie a architektury" (slidy 64–81).*

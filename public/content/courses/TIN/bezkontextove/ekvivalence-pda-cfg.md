@@ -146,4 +146,12 @@ Pro deterministické podtřídy CFG existují *efektivní* parsery — algoritmy
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Vp_oBaNiIFg" "Teoretická informatika: Bezkontextové jazyky" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=MRJrzmimB0w" "SZZ: Zásobníkové automaty" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Chomsky, N.: *Context-Free Grammars and Pushdown Storage* (MIT QPR 65, 1962); Schützenberger, M.-P.: *On Context-Free Languages and Push-Down Automata* (Inf. and Control, 1963); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §6.3.*

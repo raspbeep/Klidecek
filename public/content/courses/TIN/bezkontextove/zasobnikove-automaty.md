@@ -229,4 +229,12 @@ Stavový + vrcholový symbol tvoří *řádek* tabulky; vstupní symbol *sloupec
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Vp_oBaNiIFg" "Teoretická informatika: Bezkontextové jazyky" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=MRJrzmimB0w" "SZZ: Zásobníkové automaty" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Chomsky, N.: *Context-Free Grammars and Pushdown Storage* (Quart. Prog. Rep. 65, MIT, 1962); Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §6.1–6.2; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §2.2.*

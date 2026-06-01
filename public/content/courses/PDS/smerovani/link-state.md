@@ -213,4 +213,9 @@ OSPF a IS-IS jsou *interior gateway protocols* (IGP) — uvnitř jednoho adminis
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=EFg3u_E6eHU" "How Dijkstra's Algorithm Works" "Spanning Tree"
+:::
+
 *Zdroj: PDS přednáška 3 (Směrování), Ing. Vladimír Veselý, Ph.D., FIT VUT v Brně. Externí reference: Dijkstra, E.W.: „A Note on Two Problems in Connexion with Graphs" (Numerische Mathematik 1, 1959, [DOI 10.1007/BF01386390](https://doi.org/10.1007/BF01386390)); [RFC 2328 — OSPFv2](https://www.rfc-editor.org/rfc/rfc2328); [RFC 5340 — OSPFv3](https://www.rfc-editor.org/rfc/rfc5340); [RFC 1195 — IS-IS for IP and OSI](https://www.rfc-editor.org/rfc/rfc1195); Moy, J.: *OSPF: Anatomy of an Internet Routing Protocol* (Addison-Wesley 1998); Doyle, J., Carroll, J.: *Routing TCP/IP, Vol. I* (Cisco Press 2005), kap. 8–10.*

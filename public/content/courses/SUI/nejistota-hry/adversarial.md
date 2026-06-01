@@ -276,4 +276,9 @@ Multi-player není zero-sum (`Σ U` *nemusí být* konstanta) — z toho plynou 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=U4ogK0MIzqk" "Coding Adventure: Chess" "Sebastian Lague"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Adversarial search* (Šůstek). Externí reference: Russell, S. & Norvig, P.: *AIMA* (4. vyd., 2020), kap. 5; Knuth, D. & Moore, R.: *An Analysis of Alpha-Beta Pruning* (AI Journal 6, 1975); Stockfish team: *NNUE — Efficiently Updatable Neural Network* (2018).*

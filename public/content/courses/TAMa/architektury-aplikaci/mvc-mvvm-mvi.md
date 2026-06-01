@@ -134,4 +134,9 @@ extension Screen: UITableViewDelegate {
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=8YPXv7xKh2w" "How to Make a Clean Architecture Note App (MVVM / CRUD / Jetpack Compose) - Android Studio Tutorial" "Philipp Lackner"
+:::
+
 *Zdroj: SZZ NADE — předmět Tvorba aplikací pro mobilní zařízení, VUT FIT. Externí reference: Android Developers (Guide to app architecture), Apple Developer Documentation (SwiftUI data flow), Kotlin coroutines StateFlow.*

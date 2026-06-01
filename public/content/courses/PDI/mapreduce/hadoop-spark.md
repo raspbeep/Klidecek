@@ -120,4 +120,9 @@ Shuffle ve Sparku je tedy pojmově totéž jako shuffle v MapReduce (viz [[mapre
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=VZ7EHLdrVo0" "What Is Apache Spark?" "IBM Technology"
+:::
+
 *Zdroj: SZZ NADE — předmět Prostředí distribuovaných aplikací, VUT FIT. Externí reference: Apache Hadoop dokumentace (HDFS, YARN); Apache Spark RDD Programming Guide; Zaharia, M. et al.: Apache Spark — A Unified Engine for Big Data Processing, CACM 2016.*

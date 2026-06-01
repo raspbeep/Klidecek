@@ -241,4 +241,9 @@ Mozilla rewrote parts of Firefox in Rust → reduced memory safety bugs signific
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=1S0aBV-Waeo" "Running a Buffer Overflow Attack - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIS přednášky 2025/26, Ing. Martin Očenáš, FIT VUT v Brně. Externí reference: One, A.: „Smashing The Stack For Fun And Profit" (Phrack 49, 1996, [phrack.org/issues/49/14.html](http://phrack.org/issues/49/14.html)); Shacham, H.: „The Geometry of Innocent Flesh on the Bone: Return-into-libc without Function Calls" (CCS 2007); Anderson, R.: „Security Engineering" (3rd ed., Wiley 2020), §6; [CWE-119](https://cwe.mitre.org/data/definitions/119.html); [CWE-787](https://cwe.mitre.org/data/definitions/787.html); [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow).*

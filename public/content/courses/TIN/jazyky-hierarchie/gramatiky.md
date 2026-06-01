@@ -203,4 +203,9 @@ Tuto čtyřúrovňovou stratifikaci představuje [[chomsky-hierarchie]] a její 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=m-uP64Cq9Kc" "SZZ: Chomského hierarchie a vlastnosti jazyků" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), kap. 5; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), kap. 2; [Stanford CS154 lecture notes — Grammars](https://web.stanford.edu/class/cs154/).*

@@ -150,4 +150,12 @@ Cíl statistiky: zkonstruovat odhady, které jsou *konzistentní* (sampling erro
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=jEUhyGfDGmo" "SZZ: Bodové a intervalové odhady, statistické testy" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=pYxNSUDSFH4" "In Statistics, Probability is not Likelihood." "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Advanced Statistics — Likelihood and likelihood estimators* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (4th ed., Pearson 2012), kap. 7.1–7.5; Anděl, J.: *Základy matematické statistiky* (Matfyzpress 2011, 3. vyd.); Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 6–7.*

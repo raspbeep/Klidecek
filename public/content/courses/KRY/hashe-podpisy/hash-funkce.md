@@ -262,4 +262,9 @@ Bitcoin/Ethereum: najdi $n$ takové, že $H(\mathrm{block} \| n) < \mathrm{targe
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=b4b8ktEV4Bg" "Hashing Algorithms and Security - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 4 — Asymetrické algoritmy. Externí reference: FIPS PUB 180-4: Secure Hash Standard SHS (NIST 2015); FIPS PUB 202: SHA-3 Standard — Keccak (NIST 2015); Stevens, M. a kol.: "The first collision for full SHA-1", CRYPTO 2017; Aumasson, J.-P., Neves, S., Wilcox-O'Hearn, Z., Winnerlein, C.: "BLAKE2: Simpler, Smaller, Fast as MD5", ACNS 2013; Bertoni, G., Daemen, J., Peeters, M., Van Assche, G.: "Keccak Specifications", NIST 2008.*

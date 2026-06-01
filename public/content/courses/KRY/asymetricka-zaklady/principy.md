@@ -126,4 +126,9 @@ Naivní použití RSA (textbook RSA = jen umocnění) je *zranitelné* — viz [
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=wXB-V_Keiu8" "Public Key Cryptography: RSA Encryption" "Art of the Problem"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 4 — Asymetrické algoritmy. Externí reference: Diffie, W., Hellman, M.: "New Directions in Cryptography", IEEE Trans. Inf. Theory IT-22(6), 1976; Stallings, W.: *Cryptography and Network Security* (8th ed., Pearson 2022), kap. 9; Boneh, D., Shoup, V.: *A Graduate Course in Applied Cryptography* (v0.6, 2023), kap. 10; Heninger, N. a kol.: "Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices", USENIX Security 2012.*

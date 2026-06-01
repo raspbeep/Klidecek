@@ -196,4 +196,9 @@ Detaily AEAD a padding — viz [[padding-aead]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Rk0NIQfEXBA" "Modes of Operation - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 3 — Symetrické algoritmy. Externí reference: NIST SP 800-38A: Recommendation for Block Cipher Modes of Operation (2001); NIST SP 800-38D: Recommendation for GCM and GMAC (2007); Vaudenay, S.: "Security Flaws Induced by CBC Padding — Applications to SSL, IPSEC, WTLS …", EUROCRYPT 2002; Joux, A.: "Authentication Failures in NIST Version of GCM", 2006; Bernstein, D. J.: "ChaCha, a variant of Salsa20", SASC 2008.*

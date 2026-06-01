@@ -123,4 +123,9 @@ Detail [[rezimy]], [[padding-aead]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=O4xNJsjtN6E" "AES Explained (Advanced Encryption Standard) - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIS přednášky 2025/26, doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: NIST FIPS 197 — AES Standard ([nvlpubs.nist.gov](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf)); NIST SP 800-38D — Recommendation for GCM; RFC 8439 — ChaCha20 and Poly1305; Schneier, B.: „Applied Cryptography" (2nd ed., Wiley 1996), §12.*

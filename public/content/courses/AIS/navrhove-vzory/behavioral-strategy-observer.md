@@ -138,4 +138,9 @@ Klíčový přínos: subjekt a pozorovatelé jsou **volně provázáni** — sub
 ::: link "Refactoring.guru — Observer" "https://refactoring.guru/design-patterns/observer"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=WQ8bNdxREHU" "The Strategy Pattern: Write BETTER PYTHON CODE Part 3" "ArjanCodes"
+:::
+
 *Zdroj: SZZ NADE — předmět Analýza a návrh informačních systémů, VUT FIT. Externí reference: Design Patterns (GoF, 1994), Refactoring.guru.*

@@ -242,4 +242,9 @@ Often *combined* — ISO 27001 + CIS Controls + GDPR.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Ula3TG8QS7g" "Building a Cybersecurity Framework" "IBM Technology"
+:::
+
 *Zdroj: BIS přednášky 2025/26, Ing. Kamil Malinka, Ph.D., FIT VUT v Brně. Externí reference: NIST CSF 2.0 (2024) ([nvlpubs.nist.gov](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf)); NIST SP 800-53 Rev 5 — Security and Privacy Controls; [CIS Controls v8](https://www.cisecurity.org/controls/v8); NIST SP 800-171 Rev 3 — Protecting CUI; [FedRAMP](https://www.fedramp.gov/).*

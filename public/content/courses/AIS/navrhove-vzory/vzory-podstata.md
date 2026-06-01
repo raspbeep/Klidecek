@@ -72,4 +72,9 @@ Vztah vzorů k principům: vzory jsou *aplikací* obecnějších návrhových pr
 ::: link "Design Patterns (GoF, 1994) — přehled na Wikipedii" "https://en.wikipedia.org/wiki/Design_Patterns"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=tv-_1er1mWI" "10 Design Patterns Explained in 10 Minutes" "Fireship"
+:::
+
 *Zdroj: SZZ NADE — předmět Analýza a návrh informačních systémů, VUT FIT. Externí reference: Gamma, Helm, Johnson, Vlissides — Design Patterns (GoF, 1994), Refactoring.guru.*

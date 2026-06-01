@@ -1,0 +1,2893 @@
+{
+  "koco": [
+    {
+      "course": "TIN",
+      "maps": [
+        {
+          "topic": "regularni",
+          "sub": "konecne-automaty",
+          "videoId": "g8md4gN8PK0",
+          "why": "Komplexní přednáška o regulárních jazycích a konečných automatech (NKA, DKA)."
+        },
+        {
+          "topic": "regularni",
+          "sub": "determinizace",
+          "videoId": "g8md4gN8PK0",
+          "why": "Pokrývá převod nedeterministických automatů na deterministické."
+        },
+        {
+          "topic": "regularni",
+          "sub": "regularni-vyrazy",
+          "videoId": "g8md4gN8PK0",
+          "why": "Obsahuje regulární výrazy a jejich vztah k automatům."
+        },
+        {
+          "topic": "regularni",
+          "sub": "minimalizace",
+          "videoId": "uQF-vwjvVyY",
+          "why": "Druhá část regulárních jazyků zahrnuje minimalizaci DKA."
+        },
+        {
+          "topic": "regularni",
+          "sub": "pumping-uzaver",
+          "videoId": "uQF-vwjvVyY",
+          "why": "Pokrývá pumping lemma a uzávěrové vlastnosti regulárních jazyků."
+        },
+        {
+          "topic": "regularni",
+          "sub": "regularni-vyrazy",
+          "videoId": "uQF-vwjvVyY",
+          "why": "Pokračování tématu regulárních výrazů a množin."
+        },
+        {
+          "topic": "regularni",
+          "sub": "konecne-automaty",
+          "videoId": "5dxN6kG7wz4",
+          "why": "Přednáška věnovaná přímo konečným automatům (NKA, DKA, RKA)."
+        },
+        {
+          "topic": "regularni",
+          "sub": "determinizace",
+          "videoId": "5dxN6kG7wz4",
+          "why": "Obsahuje determinizaci konečných automatů."
+        },
+        {
+          "topic": "regularni",
+          "sub": "regularni-vyrazy",
+          "videoId": "YGEvSiS9ppg",
+          "why": "Přednáška o regulárních množinách a regulárních výrazech."
+        },
+        {
+          "topic": "jazyky-hierarchie",
+          "sub": "chomsky-hierarchie",
+          "videoId": "m-uP64Cq9Kc",
+          "why": "Přímo pokrývá Chomského hierarchii a vlastnosti jazyků."
+        },
+        {
+          "topic": "jazyky-hierarchie",
+          "sub": "jazyky-automaty",
+          "videoId": "m-uP64Cq9Kc",
+          "why": "Vztah tříd jazyků a odpovídajících výpočetních modelů."
+        },
+        {
+          "topic": "jazyky-hierarchie",
+          "sub": "gramatiky",
+          "videoId": "m-uP64Cq9Kc",
+          "why": "Zahrnuje gramatiky jednotlivých tříd Chomského hierarchie."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "cfg-derivace",
+          "videoId": "Vp_oBaNiIFg",
+          "why": "Komplexní přednáška o bezkontextových jazycích a derivačních stromech."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "normalni-formy",
+          "videoId": "Vp_oBaNiIFg",
+          "why": "Pokrývá normální formy bezkontextových gramatik."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "zasobnikove-automaty",
+          "videoId": "Vp_oBaNiIFg",
+          "why": "Obsahuje zásobníkové automaty (PDA)."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "ekvivalence-pda-cfg",
+          "videoId": "Vp_oBaNiIFg",
+          "why": "Zahrnuje ekvivalenci PDA a bezkontextových gramatik."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "vlastnosti-bkj",
+          "videoId": "Vp_oBaNiIFg",
+          "why": "Pokrývá pumping lemma a uzávěrové vlastnosti BKJ."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "zasobnikove-automaty",
+          "videoId": "MRJrzmimB0w",
+          "why": "Přednáška věnovaná přímo zásobníkovým automatům."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "ekvivalence-pda-cfg",
+          "videoId": "MRJrzmimB0w",
+          "why": "Obsahuje vztah PDA a bezkontextových gramatik."
+        },
+        {
+          "topic": "bezkontextove",
+          "sub": "cfg-derivace",
+          "videoId": "m-uP64Cq9Kc",
+          "why": "V rámci hierarchie probírá bezkontextové gramatiky a derivace."
+        },
+        {
+          "topic": "turing",
+          "sub": "ts-definice",
+          "videoId": "bpT5AV6j9N0",
+          "why": "Komplexní přednáška o Turingových strojích a jejich definici."
+        },
+        {
+          "topic": "turing",
+          "sub": "ts-modifikace",
+          "videoId": "bpT5AV6j9N0",
+          "why": "Pokrývá modifikace TS (vícepáskový, nedeterministický)."
+        },
+        {
+          "topic": "turing",
+          "sub": "rekurzivni-jazyky",
+          "videoId": "bpT5AV6j9N0",
+          "why": "Zahrnuje rekurzivní a rekurzivně vyčíslitelné jazyky."
+        },
+        {
+          "topic": "turing",
+          "sub": "univerzalni-ts",
+          "videoId": "bpT5AV6j9N0",
+          "why": "Obsahuje univerzální TS a Church-Turingovu tezi."
+        },
+        {
+          "topic": "turing",
+          "sub": "ts-definice",
+          "videoId": "cjJXMGlk7xE",
+          "why": "Přednáška o Turingových strojích a vyčíslitelných funkcích."
+        },
+        {
+          "topic": "turing",
+          "sub": "rekurzivni-jazyky",
+          "videoId": "cjJXMGlk7xE",
+          "why": "Pokrývá vyčíslitelné funkce a rekurzivní jazyky."
+        },
+        {
+          "topic": "turing",
+          "sub": "univerzalni-ts",
+          "videoId": "cjJXMGlk7xE",
+          "why": "Obsahuje Church-Turingovu tezi a vyčíslitelnost."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "problem-zastaveni",
+          "videoId": "amrvv9Lgrww",
+          "why": "Komplexní přednáška o nerozhodnutelnosti včetně problému zastavení."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "redukce",
+          "videoId": "amrvv9Lgrww",
+          "why": "Pokrývá redukce mezi nerozhodnutelnými problémy."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "riceova-veta",
+          "videoId": "amrvv9Lgrww",
+          "why": "Zahrnuje Riceovu větu o nerozhodnutelnosti."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "pcp-jazyky",
+          "videoId": "amrvv9Lgrww",
+          "why": "Obsahuje Postův korespondenční problém a nerozhodnutelnost v gramatikách."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "problem-zastaveni",
+          "videoId": "Iz9RFd5ENIU",
+          "why": "SZZ přednáška o nerozhodnutelnosti a problému zastavení."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "redukce",
+          "videoId": "Iz9RFd5ENIU",
+          "why": "Pokrývá redukce mezi problémy."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "riceova-veta",
+          "videoId": "Iz9RFd5ENIU",
+          "why": "Zahrnuje Riceovu větu a nerozhodnutelnost vlastností."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "slozitost-ts",
+          "videoId": "lz4UNeNWM-Q",
+          "why": "Komplexní přednáška o složitosti, časové i prostorové na TS."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "tridy-p-np",
+          "videoId": "lz4UNeNWM-Q",
+          "why": "Pokrývá třídy P a NP a polynomiální čas."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "savitch-prostor",
+          "videoId": "lz4UNeNWM-Q",
+          "why": "Zahrnuje prostorovou složitost a Savitchovu větu."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "cook-levin",
+          "videoId": "lz4UNeNWM-Q",
+          "why": "Obsahuje Cook-Levinovu větu o NP-úplnosti SAT."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "np-uplne-problemy",
+          "videoId": "lz4UNeNWM-Q",
+          "why": "Pokrývá klasické NP-úplné problémy."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "slozitost-ts",
+          "videoId": "luqobVkniB4",
+          "why": "SZZ přednáška o časové a prostorové složitosti TS."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "tridy-p-np",
+          "videoId": "luqobVkniB4",
+          "why": "Pokrývá třídy P a NP."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "savitch-prostor",
+          "videoId": "luqobVkniB4",
+          "why": "Zahrnuje prostorovou složitost."
+        },
+        {
+          "topic": "analyza",
+          "sub": "grafy-prochazeni",
+          "videoId": "VMQghxb5aSk",
+          "why": "Přednáška o prohledávání grafů do hloubky (DFS) a aplikacích."
+        },
+        {
+          "topic": "analyza",
+          "sub": "grafy-prochazeni",
+          "videoId": "i9xUB0qRs2U",
+          "why": "Pokrývá prohledávání grafů do šířky (BFS)."
+        }
+      ]
+    },
+    {
+      "course": "FLP",
+      "maps": [
+        {
+          "topic": "lambda",
+          "sub": "lambda-syntax",
+          "videoId": "8Z_sosW2dgU",
+          "why": "Úvod do lambda kalkulu — syntaxe a základní pojmy."
+        },
+        {
+          "topic": "lambda",
+          "sub": "lambda-redukce",
+          "videoId": "8Z_sosW2dgU",
+          "why": "Úvodní výklad lambda kalkulu zahrnuje beta redukci."
+        },
+        {
+          "topic": "lambda",
+          "sub": "church-enc",
+          "videoId": "Eo6FVosifWk",
+          "why": "Church encoding — definice pravdivostních hodnot a přirozených čísel."
+        },
+        {
+          "topic": "lambda",
+          "sub": "lambda-syntax",
+          "videoId": "Eo6FVosifWk",
+          "why": "Lambda kalkul a kódování datových struktur."
+        },
+        {
+          "topic": "haskell-zaklady",
+          "sub": "haskell-syntax-typy",
+          "videoId": "ELvZpu3NDF8",
+          "why": "Haskell — typy v jazyce a typový systém."
+        },
+        {
+          "topic": "haskell-zaklady",
+          "sub": "lazy-evaluation",
+          "videoId": "ELvZpu3NDF8",
+          "why": "Líné vyhodnocování v Haskellu."
+        },
+        {
+          "topic": "haskell-zaklady",
+          "sub": "haskell-syntax-typy",
+          "videoId": "fCOSrHTsslU",
+          "why": "Příprava k FLP zkoušce pokrývá základy Haskellu a typy."
+        },
+        {
+          "topic": "lambda",
+          "sub": "lambda-syntax",
+          "videoId": "fCOSrHTsslU",
+          "why": "Půlsemestrální příprava FLP zahrnuje lambda kalkul."
+        },
+        {
+          "topic": "prolog",
+          "sub": "unifikace-backtrack",
+          "videoId": "Pp6tEZLkASI",
+          "why": "Prolog — unifikace a vyhodnocování (backtracking)."
+        },
+        {
+          "topic": "prolog",
+          "sub": "prolog-zaklady",
+          "videoId": "Pp6tEZLkASI",
+          "why": "Základy vyhodnocování programů v Prologu."
+        },
+        {
+          "topic": "prolog",
+          "sub": "prolog-pokrocile",
+          "videoId": "NxhjsWteUSU",
+          "why": "Prolog — pokročilá technika změny programu za běhu (assert/retract)."
+        }
+      ]
+    },
+    {
+      "course": "PRL",
+      "maps": [
+        {
+          "topic": "pram",
+          "sub": "pram-uvod",
+          "videoId": "xLnQet8cIVA",
+          "why": "Přednáška přímo zavádí model PRAM jako model paralelního výpočtu."
+        },
+        {
+          "topic": "pram",
+          "sub": "pram-algoritmy",
+          "videoId": "xLnQet8cIVA",
+          "why": "Probírá základní PRAM algoritmy včetně redukce a sumy."
+        },
+        {
+          "topic": "komunikace",
+          "sub": "prefix-sum-uvod",
+          "videoId": "xLnQet8cIVA",
+          "why": "Vysvětluje definici a použití sumy prefixů (scan)."
+        },
+        {
+          "topic": "komunikace",
+          "sub": "prefix-sum-algoritmus",
+          "videoId": "xLnQet8cIVA",
+          "why": "Odvozuje paralelní algoritmus výpočtu sumy prefixů."
+        },
+        {
+          "topic": "stromy",
+          "sub": "euler-tour",
+          "videoId": "4mSQXGi0zSk",
+          "why": "Přednáška o paralelních algoritmech nad stromy zahrnuje Euler tour."
+        },
+        {
+          "topic": "stromy",
+          "sub": "euler-aplikace",
+          "videoId": "4mSQXGi0zSk",
+          "why": "Ukazuje aplikace průchodu stromem (hloubky, potomci, listy)."
+        },
+        {
+          "topic": "stromy",
+          "sub": "kontrakce-uvod",
+          "videoId": "4mSQXGi0zSk",
+          "why": "Zabývá se paralelní kontrakcí stromu (Rake + Compress)."
+        },
+        {
+          "topic": "stromy",
+          "sub": "expression-eval",
+          "videoId": "4mSQXGi0zSk",
+          "why": "Demonstruje vyhodnocení výrazu pomocí kontrakce stromu."
+        }
+      ]
+    },
+    {
+      "course": "MSP — Statistika a pravděpodobnost",
+      "maps": [
+        {
+          "topic": "pravdepodobnost-zaklady",
+          "sub": "pravdepodobnostni-prostor",
+          "videoId": "Vg8w9YMAqZU",
+          "why": "Pokrývá základy pravděpodobnosti a pravděpodobnostní prostor."
+        },
+        {
+          "topic": "pravdepodobnost-zaklady",
+          "sub": "nahodne-veliciny",
+          "videoId": "KgY0rQZghTg",
+          "why": "Přednáška o náhodných veličinách a jejich rozděleních."
+        },
+        {
+          "topic": "pravdepodobnost-zaklady",
+          "sub": "charakteristiky",
+          "videoId": "KgY0rQZghTg",
+          "why": "Zahrnuje charakteristiky náhodných veličin jako střední hodnota a rozptyl."
+        },
+        {
+          "topic": "pravdepodobnost-zaklady",
+          "sub": "dulezita-rozdeleni",
+          "videoId": "KgY0rQZghTg",
+          "why": "Probírá významná rozdělení pravděpodobnosti."
+        },
+        {
+          "topic": "markovske-retezce",
+          "sub": "dtmc-definice",
+          "videoId": "XP3qg7Qv2So",
+          "why": "Definuje Markovské řetězce a matici přechodu."
+        },
+        {
+          "topic": "markovske-retezce",
+          "sub": "klasifikace-stavu",
+          "videoId": "XP3qg7Qv2So",
+          "why": "Probírá klasifikaci stavů Markovských řetězců."
+        },
+        {
+          "topic": "markovske-retezce",
+          "sub": "transient-analyza",
+          "videoId": "XP3qg7Qv2So",
+          "why": "Zahrnuje tranzientní analýzu řetězců."
+        },
+        {
+          "topic": "markovske-retezce",
+          "sub": "reachability",
+          "videoId": "XP3qg7Qv2So",
+          "why": "Analýza dosažitelnosti stavů v řetězci."
+        },
+        {
+          "topic": "markovske-retezce",
+          "sub": "steady-state",
+          "videoId": "XP3qg7Qv2So",
+          "why": "Probírá stacionární distribuci řetězců."
+        },
+        {
+          "topic": "randomizovane",
+          "sub": "las-vegas-monte-carlo",
+          "videoId": "zhuOFLxyJdw",
+          "why": "Přednáška o randomizovaných algoritmech rozlišuje Las Vegas a Monte Carlo."
+        },
+        {
+          "topic": "randomizovane",
+          "sub": "indikatorove-veliciny",
+          "videoId": "zhuOFLxyJdw",
+          "why": "Pokrývá indikátorové veličiny v analýze randomizovaných algoritmů."
+        },
+        {
+          "topic": "randomizovane",
+          "sub": "quicksort-analyza",
+          "videoId": "zhuOFLxyJdw",
+          "why": "Analýza randomizovaného QuickSortu."
+        },
+        {
+          "topic": "randomizovane",
+          "sub": "karger-min-cut",
+          "videoId": "zhuOFLxyJdw",
+          "why": "Zahrnuje Kargerův algoritmus pro minimální řez."
+        },
+        {
+          "topic": "bodovy-odhad",
+          "sub": "statisticka-inference",
+          "videoId": "jEUhyGfDGmo",
+          "why": "Úvod do statistické inference a bodových odhadů."
+        },
+        {
+          "topic": "bodovy-odhad",
+          "sub": "mle",
+          "videoId": "jEUhyGfDGmo",
+          "why": "Probírá metodu maximální věrohodnosti."
+        },
+        {
+          "topic": "bodovy-odhad",
+          "sub": "metoda-momentu",
+          "videoId": "jEUhyGfDGmo",
+          "why": "Zahrnuje metodu momentů pro odhad parametrů."
+        },
+        {
+          "topic": "bodovy-odhad",
+          "sub": "vlastnosti-odhadu",
+          "videoId": "jEUhyGfDGmo",
+          "why": "Vlastnosti bodových odhadů jako nestrannost a konzistence."
+        },
+        {
+          "topic": "intervaly-hypotezy",
+          "sub": "intervaly-spolehlivosti",
+          "videoId": "jEUhyGfDGmo",
+          "why": "Pokrývá intervalové odhady a intervaly spolehlivosti."
+        },
+        {
+          "topic": "intervaly-hypotezy",
+          "sub": "testovani-princip",
+          "videoId": "jEUhyGfDGmo",
+          "why": "Princip testování statistických hypotéz."
+        },
+        {
+          "topic": "intervaly-hypotezy",
+          "sub": "t-test",
+          "videoId": "jEUhyGfDGmo",
+          "why": "Zahrnuje t-testy v rámci statistických testů."
+        },
+        {
+          "topic": "intervaly-hypotezy",
+          "sub": "dulezita-rozdeleni-testy",
+          "videoId": "cPeqgx8sx4Y",
+          "why": "Probírá testy o rozdělení a příslušná rozdělení."
+        },
+        {
+          "topic": "kategorialni-glm",
+          "sub": "kategorialni-data",
+          "videoId": "cPeqgx8sx4Y",
+          "why": "Vícevýběrové testy a testy o rozdělení zahrnují χ² testy."
+        },
+        {
+          "topic": "kategorialni-glm",
+          "sub": "goodness-of-fit",
+          "videoId": "cPeqgx8sx4Y",
+          "why": "Testy o rozdělení odpovídají goodness-of-fit testům."
+        },
+        {
+          "topic": "linearni-regrese-msp",
+          "sub": "regrese-intro",
+          "videoId": "2_U-A9tZhb4",
+          "why": "Úvod do regresní analýzy a lineární regrese."
+        },
+        {
+          "topic": "linearni-regrese-msp",
+          "sub": "kvalita-modelu",
+          "videoId": "2_U-A9tZhb4",
+          "why": "Hodnocení kvality regresního modelu."
+        },
+        {
+          "topic": "linearni-model-anova",
+          "sub": "linearni-model",
+          "videoId": "2_U-A9tZhb4",
+          "why": "Regresní analýza definuje lineární model."
+        }
+      ]
+    },
+    {
+      "course": "SUI",
+      "maps": [
+        {
+          "topic": "zaklady-ml",
+          "sub": "linearni-regrese",
+          "videoId": "2_U-A9tZhb4",
+          "why": "Regresní analýza přímo pokrývá lineární regresi a odhad parametrů."
+        },
+        {
+          "topic": "zaklady-ml",
+          "sub": "pravdepodobnost-bayes",
+          "videoId": "Vg8w9YMAqZU",
+          "why": "Přednáška o pravděpodobnosti je základem pro Bayesovo pravidlo."
+        },
+        {
+          "topic": "zaklady-ml",
+          "sub": "pravdepodobnost-bayes",
+          "videoId": "KgY0rQZghTg",
+          "why": "Náhodné veličiny a rozdělení tvoří pravděpodobnostní základ klasifikace."
+        },
+        {
+          "topic": "zaklady-ml",
+          "sub": "gaussovsky-klasifikator",
+          "videoId": "KgY0rQZghTg",
+          "why": "Významná rozdělení včetně normálního jsou základem Gaussovského klasifikátoru."
+        },
+        {
+          "topic": "rl",
+          "sub": "rl-framework",
+          "videoId": "XP3qg7Qv2So",
+          "why": "Markovské řetězce jsou základem markovských rozhodovacích procesů (MDP)."
+        },
+        {
+          "topic": "prohledavani",
+          "sub": "neinformovane",
+          "videoId": "i9xUB0qRs2U",
+          "why": "Prohledávání do šířky (BFS) je kanonická neinformovaná strategie."
+        },
+        {
+          "topic": "prohledavani",
+          "sub": "neinformovane",
+          "videoId": "VMQghxb5aSk",
+          "why": "Prohledávání do hloubky (DFS) je základní neinformovaná strategie."
+        }
+      ]
+    },
+    {
+      "course": "AVS",
+      "maps": []
+    },
+    {
+      "course": "UPA — Ukládání a příprava dat",
+      "maps": []
+    }
+  ],
+  "rel": [
+    {
+      "course": "PRL — Paralelní a distribuované algoritmy",
+      "picks": [
+        {
+          "topic": "zaklady",
+          "sub": "amdahl-gustafson",
+          "query": "Gary Explains Amdahl's law parallel computing",
+          "channel": "Gary Explains",
+          "keywords": [
+            "amdahl",
+            "law"
+          ],
+          "why": "Amdahl's law speedup limit is a classic, well-explained short topic."
+        },
+        {
+          "topic": "zaklady",
+          "sub": "flynn-klasifikace",
+          "query": "Neso Academy Flynn's classification SISD SIMD MISD MIMD",
+          "channel": "Neso Academy",
+          "keywords": [
+            "flynn",
+            "sisd",
+            "simd"
+          ],
+          "why": "Flynn's taxonomy is a standard computer-architecture lecture topic Neso covers."
+        },
+        {
+          "topic": "komunikace",
+          "sub": "prefix-sum-algoritmus",
+          "query": "WilliamFiset parallel prefix sum scan algorithm",
+          "channel": "WilliamFiset",
+          "keywords": [
+            "prefix",
+            "sum"
+          ],
+          "why": "Up-sweep/down-sweep parallel scan is a well-known algorithm-visualization topic."
+        },
+        {
+          "topic": "synchronizace",
+          "sub": "logicky-cas",
+          "query": "Lamport logical clocks vector clocks distributed systems Gaurav Sen",
+          "channel": "Gaurav Sen",
+          "keywords": [
+            "clocks",
+            "distributed"
+          ],
+          "why": "Lamport and vector clocks are a staple distributed-systems explainer topic."
+        },
+        {
+          "topic": "synchronizace",
+          "sub": "fyzicky-cas",
+          "query": "Hussein Nasser clock synchronization NTP distributed systems",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "clock",
+            "synchronization"
+          ],
+          "why": "Physical clock sync / NTP is commonly covered in distributed-systems channels."
+        },
+        {
+          "topic": "konsensus",
+          "sub": "paxos",
+          "query": "Paxos consensus algorithm explained ByteByteGo",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "paxos",
+            "consensus"
+          ],
+          "why": "Paxos is the canonical consensus algorithm with strong mainstream explainers."
+        },
+        {
+          "topic": "konsensus",
+          "sub": "byzantium",
+          "query": "Computerphile Byzantine Generals Problem consensus",
+          "channel": "Computerphile",
+          "keywords": [
+            "byzantine",
+            "generals"
+          ],
+          "why": "Byzantine Generals Problem is a famous, widely-explained distributed fault-tolerance topic."
+        },
+        {
+          "topic": "konsensus",
+          "sub": "raft-praxe",
+          "query": "Raft consensus algorithm explained ByteByteGo",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "raft",
+            "consensus"
+          ],
+          "why": "Raft is the practical leader-based consensus algorithm with excellent visual explainers."
+        },
+        {
+          "topic": "konsensus",
+          "sub": "failure-modely",
+          "query": "Gaurav Sen FLP impossibility consensus distributed systems",
+          "channel": "Gaurav Sen",
+          "keywords": [
+            "consensus",
+            "distributed"
+          ],
+          "why": "FLP impossibility and failure models are core distributed-systems consensus theory."
+        }
+      ]
+    },
+    {
+      "course": "PDS — Přenos dat, počítačové sítě a protokoly",
+      "picks": [
+        {
+          "topic": "rekapitulace",
+          "sub": "vrstvene-modely",
+          "query": "PowerCert OSI model explained 7 layers",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "osi",
+            "model",
+            "layers"
+          ],
+          "why": "Canonical animated explainer of the OSI layered model."
+        },
+        {
+          "topic": "rekapitulace",
+          "sub": "sitove-zarizeni",
+          "query": "PowerCert hub switch router difference",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "hub",
+            "switch",
+            "router"
+          ],
+          "why": "Widely-watched comparison of core network devices."
+        },
+        {
+          "topic": "rekapitulace",
+          "sub": "adresovani-l2",
+          "query": "PowerCert MAC address explained",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "mac",
+            "address"
+          ],
+          "why": "Clear animated intro to L2 MAC addressing."
+        },
+        {
+          "topic": "rekapitulace",
+          "sub": "adresovani-l3",
+          "query": "PowerCert IP address subnet explained",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "ip",
+            "address"
+          ],
+          "why": "Popular explainer of IP/L3 addressing."
+        },
+        {
+          "topic": "transport",
+          "sub": "transport-uvod",
+          "query": "Hussein Nasser TCP vs UDP transport layer",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "tcp",
+            "udp"
+          ],
+          "why": "Solid networking-backend intro to transport layer protocols."
+        },
+        {
+          "topic": "transport",
+          "sub": "rizeni-toku-zahlceni",
+          "query": "ByteByteGo TCP flow control congestion control",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "flow",
+            "control",
+            "congestion"
+          ],
+          "why": "Animated explainer distinguishing flow vs congestion control."
+        },
+        {
+          "topic": "transport-protokoly",
+          "sub": "tcp-spojeni-hlavicka",
+          "query": "ByteByteGo TCP handshake connection three-way",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "tcp",
+            "handshake"
+          ],
+          "why": "Clear visualization of TCP connection establishment and states."
+        },
+        {
+          "topic": "transport-protokoly",
+          "sub": "tcp-congestion-variants",
+          "query": "Hussein Nasser TCP congestion control",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "tcp",
+            "congestion",
+            "control"
+          ],
+          "why": "Covers TCP congestion control mechanisms and variants."
+        },
+        {
+          "topic": "transport-protokoly",
+          "sub": "udp-dccp",
+          "query": "Hussein Nasser UDP explained protocol",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "udp"
+          ],
+          "why": "Best-effort UDP transport deep dive."
+        },
+        {
+          "topic": "transport-protokoly",
+          "sub": "quic",
+          "query": "ByteByteGo QUIC HTTP/3 explained",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "quic"
+          ],
+          "why": "Popular animated explainer of QUIC and HTTP/3."
+        },
+        {
+          "topic": "smerovani",
+          "sub": "smerovani-uvod",
+          "query": "Spanning Tree how routing works internet",
+          "channel": "Spanning Tree",
+          "keywords": [
+            "routing"
+          ],
+          "why": "Animated conceptual intro to packet routing."
+        },
+        {
+          "topic": "smerovani",
+          "sub": "distance-vector",
+          "query": "Spanning Tree distance vector routing Bellman-Ford",
+          "channel": "Spanning Tree",
+          "keywords": [
+            "distance",
+            "vector",
+            "routing"
+          ],
+          "why": "Visual explanation of distance-vector routing."
+        },
+        {
+          "topic": "smerovani",
+          "sub": "link-state",
+          "query": "Spanning Tree Dijkstra shortest path algorithm",
+          "channel": "Spanning Tree",
+          "keywords": [
+            "dijkstra",
+            "shortest",
+            "path"
+          ],
+          "why": "Dijkstra is the core of link-state (OSPF) routing."
+        },
+        {
+          "topic": "smerovani",
+          "sub": "bgp-zaklady",
+          "query": "ByteByteGo BGP border gateway protocol explained",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "bgp"
+          ],
+          "why": "Clear explainer of inter-AS BGP path vector routing."
+        },
+        {
+          "topic": "smerovani",
+          "sub": "mpls",
+          "query": "Practical Networking MPLS fundamentals label switching",
+          "channel": "Practical Networking",
+          "keywords": [
+            "mpls"
+          ],
+          "why": "Well-regarded MPLS fundamentals series."
+        },
+        {
+          "topic": "p2p",
+          "sub": "maly-svet",
+          "query": "Veritasium six degrees small world network",
+          "channel": "Veritasium",
+          "keywords": [
+            "degrees"
+          ],
+          "why": "Small-world / six-degrees phenomenon explained."
+        },
+        {
+          "topic": "p2p",
+          "sub": "strukturovane-site",
+          "query": "Spanning Tree distributed hash table consistent hashing",
+          "channel": "Spanning Tree",
+          "keywords": [
+            "hash"
+          ],
+          "why": "DHT / consistent hashing underpins structured P2P overlays."
+        },
+        {
+          "topic": "zpracovani-paketu",
+          "sub": "ebpf-xdp",
+          "query": "IBM Technology eBPF explained",
+          "channel": "IBM Technology",
+          "keywords": [
+            "ebpf"
+          ],
+          "why": "Concise explainer of eBPF programmable kernel."
+        },
+        {
+          "topic": "sdn",
+          "sub": "sdn-uvod",
+          "query": "IBM Technology software defined networking SDN explained",
+          "channel": "IBM Technology",
+          "keywords": [
+            "sdn"
+          ],
+          "why": "Clear intro to SDN control/data plane separation."
+        },
+        {
+          "topic": "anonymita",
+          "sub": "onion-tor",
+          "query": "Computerphile Tor onion routing explained",
+          "channel": "Computerphile",
+          "keywords": [
+            "tor",
+            "onion"
+          ],
+          "why": "Computerphile's well-known Tor/onion routing explainer."
+        },
+        {
+          "topic": "anonymita",
+          "sub": "vpn-proxy",
+          "query": "PowerCert VPN explained how it works",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "vpn"
+          ],
+          "why": "Popular animated VPN explainer."
+        },
+        {
+          "topic": "anonymita",
+          "sub": "identifikace-uzivatele",
+          "query": "Computerphile browser fingerprinting tracking",
+          "channel": "Computerphile",
+          "keywords": [
+            "fingerprint"
+          ],
+          "why": "Computerphile covers browser fingerprinting and tracking."
+        }
+      ]
+    },
+    {
+      "course": "TIN — Teoretická informatika",
+      "picks": [
+        {
+          "topic": "regularni",
+          "sub": "konecne-automaty",
+          "query": "Neso Academy finite automata DFA NFA",
+          "channel": "Neso Academy",
+          "keywords": [
+            "finite",
+            "automata",
+            "dfa"
+          ],
+          "why": "Neso Academy has a canonical, widely-watched theory-of-computation series covering DFA/NFA construction."
+        },
+        {
+          "topic": "regularni",
+          "sub": "pumping-uzaver",
+          "query": "Neso Academy pumping lemma regular languages",
+          "channel": "Neso Academy",
+          "keywords": [
+            "pumping",
+            "lemma",
+            "regular"
+          ],
+          "why": "Pumping lemma for regular languages is a staple Neso Academy explainer used widely for exam prep."
+        },
+        {
+          "topic": "turing",
+          "sub": "ts-definice",
+          "query": "Computerphile Turing machine primer",
+          "channel": "Computerphile",
+          "keywords": [
+            "turing",
+            "machine"
+          ],
+          "why": "Computerphile's Turing Machine Primer is a classic, accessible intro to the TM model and its computation."
+        },
+        {
+          "topic": "turing",
+          "sub": "univerzalni-ts",
+          "query": "Computerphile universal Turing machine Church Turing",
+          "channel": "Computerphile",
+          "keywords": [
+            "turing"
+          ],
+          "why": "Computerphile covers the universal Turing machine and the Church-Turing thesis in well-known episodes."
+        },
+        {
+          "topic": "rozhodnutelnost",
+          "sub": "problem-zastaveni",
+          "query": "Computerphile halting problem",
+          "channel": "Computerphile",
+          "keywords": [
+            "halting",
+            "problem"
+          ],
+          "why": "Computerphile's halting problem video is the definitive popular explainer with a clean diagonalization argument."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "tridy-p-np",
+          "query": "Computerphile P vs NP P versus NP",
+          "channel": "Computerphile",
+          "keywords": [
+            "np"
+          ],
+          "why": "Computerphile's P vs NP episode is a well-known introduction to polynomial-time classes and verification."
+        },
+        {
+          "topic": "slozitost",
+          "sub": "np-uplne-problemy",
+          "query": "Reducible NP-complete problems traveling salesman",
+          "channel": "Reducible",
+          "keywords": [
+            "np"
+          ],
+          "why": "Reducible produces high-quality algorithm/complexity explainers touching classic NP-complete problems."
+        },
+        {
+          "topic": "analyza",
+          "sub": "grafy-prochazeni",
+          "query": "WilliamFiset breadth first search BFS graph",
+          "channel": "WilliamFiset",
+          "keywords": [
+            "breadth",
+            "first",
+            "search"
+          ],
+          "why": "WilliamFiset's graph-theory series has definitive BFS/DFS/SCC explainers used widely for algorithm study."
+        },
+        {
+          "topic": "analyza",
+          "sub": "asymptotika-rekurence",
+          "query": "Reducible big O notation asymptotic analysis",
+          "channel": "Reducible",
+          "keywords": [
+            "big"
+          ],
+          "why": "Reducible's asymptotic-analysis explainer covers Big-O and recurrence intuition with strong visuals."
+        },
+        {
+          "topic": "logika",
+          "sub": "vyrokova-logika",
+          "query": "Computerphile propositional logic boolean",
+          "channel": "Computerphile",
+          "keywords": [
+            "logic"
+          ],
+          "why": "Computerphile covers propositional/boolean logic syntax and semantics accessibly."
+        },
+        {
+          "topic": "godel",
+          "sub": "godel-neuplnost",
+          "query": "Veritasium Godel incompleteness theorem math has a fatal flaw",
+          "channel": "Veritasium",
+          "keywords": [
+            "math",
+            "flaw"
+          ],
+          "why": "Veritasium's 'Math Has a Fatal Flaw' is the landmark popular explainer of Godel incompleteness and undecidability."
+        }
+      ]
+    },
+    {
+      "course": "KRY — Kryptografie",
+      "picks": [
+        {
+          "topic": "klasicke",
+          "sub": "one-time-pad",
+          "query": "Art of the Problem one-time pad perfect secrecy",
+          "channel": "Art of the Problem",
+          "keywords": [
+            "one-time",
+            "pad"
+          ],
+          "why": "Art of the Problem covers the one-time pad and perfect secrecy as part of its cryptography series."
+        },
+        {
+          "topic": "rotorove",
+          "sub": "enigma",
+          "query": "Computerphile Enigma machine explained",
+          "channel": "Computerphile",
+          "keywords": [
+            "enigma"
+          ],
+          "why": "Computerphile has a well-known Enigma machine demonstration explaining its construction with a real machine."
+        },
+        {
+          "topic": "rotorove",
+          "sub": "enigma-utok",
+          "query": "Computerphile cracking Enigma flaw Turing Bombe",
+          "channel": "Computerphile",
+          "keywords": [
+            "enigma"
+          ],
+          "why": "Computerphile has multiple videos on the cryptographic flaw that allowed breaking Enigma at Bletchley Park."
+        },
+        {
+          "topic": "symetricka-zaklady",
+          "sub": "feistel-spn",
+          "query": "Computerphile Feistel cipher network",
+          "channel": "Computerphile",
+          "keywords": [
+            "feistel"
+          ],
+          "why": "Computerphile explains Feistel network structure used in DES and block cipher design."
+        },
+        {
+          "topic": "symetricka-zaklady",
+          "sub": "rezimy",
+          "query": "Computerphile AES block cipher modes ECB CBC",
+          "channel": "Computerphile",
+          "keywords": [
+            "block",
+            "cipher",
+            "modes"
+          ],
+          "why": "Computerphile covers block cipher modes of operation including the ECB penguin example."
+        },
+        {
+          "topic": "symetricka-algoritmy",
+          "sub": "des",
+          "query": "Computerphile DES Data Encryption Standard",
+          "channel": "Computerphile",
+          "keywords": [
+            "des"
+          ],
+          "why": "Computerphile explains the DES algorithm and its history as the original encryption standard."
+        },
+        {
+          "topic": "symetricka-algoritmy",
+          "sub": "3des-aes",
+          "query": "Computerphile AES advanced encryption standard explained",
+          "channel": "Computerphile",
+          "keywords": [
+            "aes"
+          ],
+          "why": "Computerphile has a clear explanation of AES, the modern symmetric standard."
+        },
+        {
+          "topic": "asymetricka-zaklady",
+          "sub": "principy",
+          "query": "Art of the Problem public key cryptography asymmetric",
+          "channel": "Art of the Problem",
+          "keywords": [
+            "public",
+            "key"
+          ],
+          "why": "Art of the Problem explains the core idea of public key (asymmetric) cryptography intuitively."
+        },
+        {
+          "topic": "asymetricka-algoritmy",
+          "sub": "rsa",
+          "query": "Computerphile RSA encryption public key",
+          "channel": "Computerphile",
+          "keywords": [
+            "rsa"
+          ],
+          "why": "Computerphile has a canonical, widely-cited explanation of RSA encryption."
+        },
+        {
+          "topic": "asymetricka-algoritmy",
+          "sub": "dh-elgamal",
+          "query": "Computerphile Diffie Hellman key exchange",
+          "channel": "Computerphile",
+          "keywords": [
+            "diffie",
+            "hellman"
+          ],
+          "why": "Computerphile's Diffie-Hellman explanation, including the paint-mixing analogy, is a classic."
+        },
+        {
+          "topic": "asymetricka-algoritmy",
+          "sub": "elipticke",
+          "query": "Computerphile elliptic curve cryptography ECC",
+          "channel": "Computerphile",
+          "keywords": [
+            "elliptic",
+            "curve"
+          ],
+          "why": "Computerphile explains elliptic curve cryptography and why it is used."
+        },
+        {
+          "topic": "asymetricka-algoritmy",
+          "sub": "postkvantova",
+          "query": "Computerphile post quantum cryptography lattice",
+          "channel": "Computerphile",
+          "keywords": [
+            "quantum",
+            "cryptography"
+          ],
+          "why": "Computerphile covers post-quantum cryptography and the threat quantum computers pose to RSA/ECC."
+        },
+        {
+          "topic": "hashe-podpisy",
+          "sub": "hash-funkce",
+          "query": "Computerphile hashing algorithms SHA explained",
+          "channel": "Computerphile",
+          "keywords": [
+            "hashing"
+          ],
+          "why": "Computerphile explains cryptographic hash functions and their properties."
+        },
+        {
+          "topic": "hashe-podpisy",
+          "sub": "el-podpis",
+          "query": "Computerphile digital signatures explained",
+          "channel": "Computerphile",
+          "keywords": [
+            "digital",
+            "signatures"
+          ],
+          "why": "Computerphile explains digital signatures and how they provide authenticity."
+        },
+        {
+          "topic": "klice-asymetricka",
+          "sub": "tls-aplikace",
+          "query": "Computerphile TLS HTTPS handshake transport layer security",
+          "channel": "Computerphile",
+          "keywords": [
+            "tls"
+          ],
+          "why": "Computerphile explains TLS/HTTPS as the practical application of PKI and key exchange."
+        }
+      ]
+    },
+    {
+      "course": "PIS — Pokročilé informační systémy",
+      "picks": [
+        {
+          "topic": "principy",
+          "sub": "databazove-modely",
+          "query": "Fireship 7 database paradigms SQL NoSQL graph",
+          "channel": "Fireship",
+          "keywords": [
+            "database",
+            "paradigms"
+          ],
+          "why": "Surveys relational, NoSQL, graph and other database models concisely."
+        },
+        {
+          "topic": "principy",
+          "sub": "mikrosluzby",
+          "query": "ByteByteGo monolith vs microservices architecture",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "microservices",
+            "monolith"
+          ],
+          "why": "Directly contrasts monolith and microservices architecture."
+        },
+        {
+          "topic": "principy",
+          "sub": "architektury-vrstvy",
+          "query": "Hussein Nasser client server architecture three tier",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "client",
+            "server"
+          ],
+          "why": "Explains client-server and multi-tier application architecture."
+        },
+        {
+          "topic": "business-api",
+          "sub": "rest-design",
+          "query": "ByteByteGo REST API design best practices HTTP methods",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "api",
+            "design"
+          ],
+          "why": "Covers REST endpoint and HTTP method design conventions."
+        },
+        {
+          "topic": "business-api",
+          "sub": "rest-autentizace",
+          "query": "Hussein Nasser JWT JSON Web Token authentication",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "jwt"
+          ],
+          "why": "Explains JWT-based authentication used in REST APIs."
+        },
+        {
+          "topic": "business-api",
+          "sub": "graphql",
+          "query": "Fireship GraphQL explained in 100 seconds",
+          "channel": "Fireship",
+          "keywords": [
+            "graphql"
+          ],
+          "why": "Introduces typed GraphQL API querying concisely."
+        },
+        {
+          "topic": "business-api",
+          "sub": "identita-oauth2",
+          "query": "Hussein Nasser OAuth 2.0 explained authorization flow",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "oauth"
+          ],
+          "why": "Explains OAuth 2.0 identity and authorization flow."
+        },
+        {
+          "topic": "business-api",
+          "sub": "oidc-saml",
+          "query": "IBM Technology OpenID Connect OIDC explained",
+          "channel": "IBM Technology",
+          "keywords": [
+            "openid",
+            "connect"
+          ],
+          "why": "Explains OpenID Connect authentication layer over OAuth."
+        },
+        {
+          "topic": "alt-technologie",
+          "sub": "json-rpc-grpc",
+          "query": "ByteByteGo gRPC vs REST API explained",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "grpc"
+          ],
+          "why": "Explains gRPC as modern RPC over HTTP versus REST."
+        },
+        {
+          "topic": "alt-technologie",
+          "sub": "mcp-protocol",
+          "query": "Fireship Model Context Protocol MCP explained",
+          "channel": "Fireship",
+          "keywords": [
+            "mcp"
+          ],
+          "why": "Introduces Model Context Protocol for AI tool APIs."
+        },
+        {
+          "topic": "alt-technologie",
+          "sub": "observabilita",
+          "query": "IBM Technology observability logs metrics traces OpenTelemetry",
+          "channel": "IBM Technology",
+          "keywords": [
+            "observability"
+          ],
+          "why": "Explains observability pillars: logs, metrics, traces."
+        },
+        {
+          "topic": "alt-technologie",
+          "sub": "messaging-fault-tolerance",
+          "query": "Hussein Nasser message queue pub sub explained",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "message",
+            "queue"
+          ],
+          "why": "Explains asynchronous message queues and pub/sub."
+        },
+        {
+          "topic": "procesy",
+          "sub": "transakce-acid",
+          "query": "ByteByteGo ACID database transactions explained",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "acid"
+          ],
+          "why": "Explains ACID properties of database transactions."
+        },
+        {
+          "topic": "procesy",
+          "sub": "distribuovane-transakce",
+          "query": "ByteByteGo distributed transactions saga two phase commit",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "distributed",
+            "transactions"
+          ],
+          "why": "Explains distributed transactions, saga and 2PC patterns."
+        },
+        {
+          "topic": "bi-olap",
+          "sub": "datovy-sklad",
+          "query": "IBM Technology data warehouse explained",
+          "channel": "IBM Technology",
+          "keywords": [
+            "data",
+            "warehouse"
+          ],
+          "why": "Explains the data warehouse concept underpinning BI."
+        }
+      ]
+    },
+    {
+      "course": "BZA",
+      "picks": [
+        {
+          "topic": "uvod",
+          "sub": "kerckhoff-sto",
+          "query": "Computerphile security through obscurity Kerckhoffs",
+          "channel": "Computerphile",
+          "keywords": [
+            "obscurity",
+            "security"
+          ],
+          "why": "Computerphile covers why security through obscurity fails and Kerckhoffs' principle in cryptography design."
+        },
+        {
+          "topic": "rng",
+          "sub": "drng-trng-hybrid",
+          "query": "Computerphile true random numbers TRNG",
+          "channel": "Computerphile",
+          "keywords": [
+            "random",
+            "numbers"
+          ],
+          "why": "Computerphile explains true vs pseudo random number generation, core to DRNG/TRNG distinction."
+        },
+        {
+          "topic": "rng",
+          "sub": "puf",
+          "query": "Asianometry physical unclonable functions PUF chips",
+          "channel": "Asianometry",
+          "keywords": [
+            "unclonable"
+          ],
+          "why": "Asianometry covers silicon-level hardware security including PUF fingerprinting of chips."
+        },
+        {
+          "topic": "lfsr",
+          "sub": "lfsr-princip",
+          "query": "Computerphile linear feedback shift register pseudo random",
+          "channel": "Computerphile",
+          "keywords": [
+            "random",
+            "numbers"
+          ],
+          "why": "Computerphile demonstrates LFSR-based pseudo-random generation and its properties."
+        },
+        {
+          "topic": "lfsr",
+          "sub": "mifare-crypto1",
+          "query": "LiveOverflow Mifare Classic Crypto-1 RFID hacking",
+          "channel": "LiveOverflow",
+          "keywords": [
+            "mifare",
+            "rfid"
+          ],
+          "why": "LiveOverflow analyzes RFID/Mifare card security and the broken Crypto-1 cipher in practical hacking videos."
+        },
+        {
+          "topic": "postranni-kanaly",
+          "sub": "casova-analyza",
+          "query": "Computerphile timing attack side channel",
+          "channel": "Computerphile",
+          "keywords": [
+            "timing",
+            "attack"
+          ],
+          "why": "Computerphile explains timing attacks as a side-channel that leaks secrets via execution time."
+        },
+        {
+          "topic": "postranni-kanaly",
+          "sub": "spa-dpa",
+          "query": "Computerphile power analysis side channel attack",
+          "channel": "Computerphile",
+          "keywords": [
+            "power",
+            "side channel"
+          ],
+          "why": "Computerphile covers power-analysis side channels extracting keys from device power consumption."
+        },
+        {
+          "topic": "postranni-kanaly",
+          "sub": "padding-oracle",
+          "query": "Computerphile padding oracle attack CBC",
+          "channel": "Computerphile",
+          "keywords": [
+            "padding",
+            "oracle"
+          ],
+          "why": "Computerphile explains the padding oracle attack against CBC-mode encryption."
+        },
+        {
+          "topic": "chybova-analyza",
+          "sub": "glitch-utoky",
+          "query": "LiveOverflow fault injection glitch attack hardware",
+          "channel": "LiveOverflow",
+          "keywords": [
+            "fault",
+            "injection"
+          ],
+          "why": "LiveOverflow demonstrates voltage/clock glitching fault-injection attacks on hardware."
+        },
+        {
+          "topic": "iot",
+          "sub": "ble-bluetooth",
+          "query": "Computerphile Bluetooth Low Energy security",
+          "channel": "Computerphile",
+          "keywords": [
+            "bluetooth"
+          ],
+          "why": "Computerphile discusses Bluetooth/BLE protocol and its security considerations."
+        },
+        {
+          "topic": "hsm",
+          "sub": "hsm-definice",
+          "query": "Computerphile hardware security module HSM key storage",
+          "channel": "Computerphile",
+          "keywords": [
+            "security",
+            "key"
+          ],
+          "why": "Computerphile explains hardware-based key protection relevant to HSM definition and applications."
+        },
+        {
+          "topic": "reverzni-inzenyrstvi",
+          "sub": "ri-uvod-motivace",
+          "query": "LiveOverflow reverse engineering introduction binary",
+          "channel": "LiveOverflow",
+          "keywords": [
+            "reverse",
+            "engineering"
+          ],
+          "why": "LiveOverflow's reverse-engineering series introduces motivation and methodology for RE."
+        },
+        {
+          "topic": "reverzni-inzenyrstvi",
+          "sub": "staticka-analyza",
+          "query": "LiveOverflow static analysis Ghidra reverse engineering",
+          "channel": "LiveOverflow",
+          "keywords": [
+            "static",
+            "analysis"
+          ],
+          "why": "LiveOverflow demonstrates static binary analysis with disassemblers like Ghidra."
+        },
+        {
+          "topic": "reverzni-inzenyrstvi",
+          "sub": "dynamicka-analyza",
+          "query": "LiveOverflow dynamic analysis debugger reverse engineering",
+          "channel": "LiveOverflow",
+          "keywords": [
+            "dynamic",
+            "analysis"
+          ],
+          "why": "LiveOverflow shows dynamic analysis via debugging and runtime instrumentation."
+        }
+      ]
+    },
+    {
+      "course": "BIO",
+      "picks": [
+        {
+          "topic": "otisky",
+          "sub": "snimani-otisku",
+          "query": "Branch Education how fingerprint sensor works",
+          "channel": "Branch Education",
+          "keywords": [
+            "fingerprint",
+            "sensor",
+            "works"
+          ],
+          "why": "Branch Education has a detailed animated explainer on how fingerprint scanner sensor technology works, matching the senzory subtopic."
+        },
+        {
+          "topic": "oblicej",
+          "sub": "eigenfaces-pca",
+          "query": "Computerphile face recognition eigenfaces",
+          "channel": "Computerphile",
+          "keywords": [
+            "face",
+            "recognition"
+          ],
+          "why": "Computerphile covers face recognition and the eigenface/PCA approach directly."
+        },
+        {
+          "topic": "oblicej",
+          "sub": "deep-learning-face",
+          "query": "Computerphile deep learning face recognition neural network",
+          "channel": "Computerphile",
+          "keywords": [
+            "face",
+            "recognition",
+            "neural"
+          ],
+          "why": "Computerphile has explainers on neural-network-based face recognition, squarely on topic."
+        },
+        {
+          "topic": "duhovka-sitnice",
+          "sub": "daugman",
+          "query": "Computerphile iris recognition scanning",
+          "channel": "Computerphile",
+          "keywords": [
+            "iris",
+            "recognition"
+          ],
+          "why": "Computerphile covers iris recognition, which is the domain of the Daugman algorithm."
+        },
+        {
+          "topic": "dynamicke",
+          "sub": "hlas-rec",
+          "query": "Computerphile speaker recognition voice identification",
+          "channel": "Computerphile",
+          "keywords": [
+            "voice",
+            "recognition"
+          ],
+          "why": "Computerphile has speaker/voice recognition content fitting speaker recognition."
+        },
+        {
+          "topic": "dna",
+          "sub": "str-profil",
+          "query": "Computerphile DNA fingerprinting profiling",
+          "channel": "Computerphile",
+          "keywords": [
+            "dna",
+            "profiling"
+          ],
+          "why": "Computerphile explains DNA profiling, directly relevant to STR profiles."
+        },
+        {
+          "topic": "utoky",
+          "sub": "deepfakes",
+          "query": "Two Minute Papers deepfake face",
+          "channel": "Two Minute Papers",
+          "keywords": [
+            "deepfake"
+          ],
+          "why": "Two Minute Papers has well-known deepfake explainer videos relevant to biometric spoofing."
+        },
+        {
+          "topic": "utoky",
+          "sub": "etika-gdpr",
+          "query": "Computerphile facial recognition privacy surveillance",
+          "channel": "Computerphile",
+          "keywords": [
+            "facial",
+            "recognition",
+            "privacy"
+          ],
+          "why": "Computerphile discusses facial recognition privacy and ethical concerns, fitting biometrics ethics/GDPR."
+        }
+      ]
+    },
+    {
+      "course": "FLP — Funkcionální a logické programování",
+      "picks": [
+        {
+          "topic": "lambda",
+          "sub": "lambda-syntax",
+          "query": "Computerphile lambda calculus",
+          "channel": "Computerphile",
+          "keywords": [
+            "lambda",
+            "calculus"
+          ],
+          "why": "Computerphile's lambda calculus video introduces syntax and semantics of untyped lambda calculus."
+        },
+        {
+          "topic": "lambda",
+          "sub": "church-enc",
+          "query": "Computerphile essence of programming languages Church encoding lambda calculus",
+          "channel": "Computerphile",
+          "keywords": [
+            "lambda",
+            "calculus"
+          ],
+          "why": "Computerphile covers encoding booleans and numbers (Church numerals) in lambda calculus."
+        },
+        {
+          "topic": "haskell-zaklady",
+          "sub": "lazy-evaluation",
+          "query": "Computerphile lazy evaluation Haskell",
+          "channel": "Computerphile",
+          "keywords": [
+            "lazy",
+            "evaluation"
+          ],
+          "why": "Computerphile explains lazy evaluation, the defining feature of Haskell's evaluation model."
+        },
+        {
+          "topic": "haskell-pokrocile",
+          "sub": "monady-io",
+          "query": "Computerphile what is a monad Haskell",
+          "channel": "Computerphile",
+          "keywords": [
+            "monad"
+          ],
+          "why": "Computerphile's monad explainer (Graham Hutton) directly covers monads and IO in Haskell."
+        },
+        {
+          "topic": "rust",
+          "sub": "rust-ownership",
+          "query": "Fireship Rust in 100 seconds ownership",
+          "channel": "Fireship",
+          "keywords": [
+            "rust"
+          ],
+          "why": "Fireship's Rust overview introduces the ownership/borrowing model concisely."
+        }
+      ]
+    },
+    {
+      "course": "SUI — Strojové učení a umělá inteligence",
+      "picks": [
+        {
+          "topic": "zaklady-ml",
+          "sub": "pravdepodobnost-bayes",
+          "query": "3Blue1Brown Bayes theorem",
+          "channel": "3Blue1Brown",
+          "keywords": [
+            "bayes",
+            "theorem"
+          ],
+          "why": "Canonical visual explainer of Bayes' rule, exactly the probability foundation needed."
+        },
+        {
+          "topic": "zaklady-ml",
+          "sub": "linearni-regrese",
+          "query": "StatQuest linear regression",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "linear",
+            "regression"
+          ],
+          "why": "StatQuest's clear walkthrough of fitting a line, residuals and least squares."
+        },
+        {
+          "topic": "zaklady-ml",
+          "sub": "logisticka-regrese",
+          "query": "StatQuest logistic regression",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "logistic",
+            "regression"
+          ],
+          "why": "Definitive intro to logistic regression and the sigmoid/odds intuition."
+        },
+        {
+          "topic": "prohledavani",
+          "sub": "informovane",
+          "query": "Computerphile A* search algorithm",
+          "channel": "Computerphile",
+          "keywords": [
+            "a*",
+            "search"
+          ],
+          "why": "Computerphile explains A* and admissible heuristics for informed search."
+        },
+        {
+          "topic": "nejistota-hry",
+          "sub": "adversarial",
+          "query": "Sebastian Lague algorithms explained minimax alpha-beta",
+          "channel": "Sebastian Lague",
+          "keywords": [
+            "minimax",
+            "chess"
+          ],
+          "why": "Sebastian Lague's minimax and alpha-beta pruning walkthrough for game trees."
+        },
+        {
+          "topic": "nejistota-hry",
+          "sub": "mcts-stochastic",
+          "query": "Computerphile Monte Carlo tree search AlphaGo",
+          "channel": "Computerphile",
+          "keywords": [
+            "monte",
+            "carlo",
+            "tree"
+          ],
+          "why": "Covers Monte Carlo Tree Search as used in AlphaGo, matching the MCTS subtopic."
+        },
+        {
+          "topic": "nn-zaklady",
+          "sub": "neuron-vrstvy",
+          "query": "3Blue1Brown but what is a neural network",
+          "channel": "3Blue1Brown",
+          "keywords": [
+            "neural",
+            "network"
+          ],
+          "why": "The canonical visual intro to neurons, layers and the network as a function."
+        },
+        {
+          "topic": "nn-zaklady",
+          "sub": "gradient-descent",
+          "query": "3Blue1Brown gradient descent how neural networks learn",
+          "channel": "3Blue1Brown",
+          "keywords": [
+            "gradient",
+            "descent",
+            "learn"
+          ],
+          "why": "Gold-standard explainer of gradient descent and backpropagation intuition."
+        },
+        {
+          "topic": "cnn",
+          "sub": "konvoluce",
+          "query": "3Blue1Brown but what is a convolution",
+          "channel": "3Blue1Brown",
+          "keywords": [
+            "convolution"
+          ],
+          "why": "Visual explanation of convolution operation underpinning CNNs."
+        },
+        {
+          "topic": "sekvence-jazyk",
+          "sub": "embeddings",
+          "query": "Computerphile word embeddings vectors",
+          "channel": "Computerphile",
+          "keywords": [
+            "word",
+            "embeddings"
+          ],
+          "why": "Computerphile explains word vector embeddings (Word2Vec-style) clearly."
+        },
+        {
+          "topic": "sekvence-jazyk",
+          "sub": "attention",
+          "query": "3Blue1Brown attention in transformers visually explained",
+          "channel": "3Blue1Brown",
+          "keywords": [
+            "attention",
+            "transformers"
+          ],
+          "why": "3Blue1Brown's deep-dive on the attention mechanism, the core of the subtopic."
+        },
+        {
+          "topic": "sekvence-jazyk",
+          "sub": "transformer-bert",
+          "query": "3Blue1Brown transformers explained how LLMs work",
+          "channel": "3Blue1Brown",
+          "keywords": [
+            "transformers"
+          ],
+          "why": "Authoritative visual explainer of transformer architecture."
+        },
+        {
+          "topic": "sekvence-jazyk",
+          "sub": "llm",
+          "query": "Andrej Karpathy intro to large language models",
+          "channel": "Andrej Karpathy",
+          "keywords": [
+            "large",
+            "language",
+            "models"
+          ],
+          "why": "Karpathy's 1-hour intro to LLMs, the definitive accessible overview."
+        },
+        {
+          "topic": "rl",
+          "sub": "rl-framework",
+          "query": "Steve Brunton reinforcement learning overview MDP",
+          "channel": "Steve Brunton",
+          "keywords": [
+            "reinforcement",
+            "learning"
+          ],
+          "why": "Brunton's RL overview frames agents, rewards and MDPs cleanly."
+        },
+        {
+          "topic": "rl",
+          "sub": "rl-llm-rlhf",
+          "query": "Computerphile reinforcement learning human feedback RLHF ChatGPT",
+          "channel": "Computerphile",
+          "keywords": [
+            "reinforcement",
+            "human",
+            "feedback"
+          ],
+          "why": "Computerphile explains RLHF used to align ChatGPT-style LLMs."
+        }
+      ]
+    },
+    {
+      "course": "MSP — Statistika a pravděpodobnost",
+      "picks": [
+        {
+          "topic": "pravdepodobnost-zaklady",
+          "sub": "nahodne-veliciny",
+          "query": "StatQuest probability mass function PMF probability density function PDF",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "probability",
+            "density",
+            "mass"
+          ],
+          "why": "StatQuest has clear canonical explainers of PMF vs PDF and distributions."
+        },
+        {
+          "topic": "pravdepodobnost-zaklady",
+          "sub": "charakteristiky",
+          "query": "StatQuest expected value variance population parameters",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "expected",
+            "value",
+            "variance"
+          ],
+          "why": "Mean/variance/expectation are core StatQuest content for random variable characteristics."
+        },
+        {
+          "topic": "pravdepodobnost-zaklady",
+          "sub": "dulezita-rozdeleni",
+          "query": "StatQuest binomial normal poisson distributions clearly explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "distribution",
+            "clearly",
+            "explained"
+          ],
+          "why": "StatQuest covers the key distributions (normal, binomial, Poisson) used in this section."
+        },
+        {
+          "topic": "markovske-retezce",
+          "sub": "dtmc-definice",
+          "query": "Normalized Nerd Markov chains clearly explained transition matrix",
+          "channel": "Visually Explained",
+          "keywords": [
+            "markov",
+            "chains",
+            "transition"
+          ],
+          "why": "Markov chain definition and transition matrices are a well-covered visual topic."
+        },
+        {
+          "topic": "markovske-retezce",
+          "sub": "steady-state",
+          "query": "Visually Explained markov chain stationary distribution steady state",
+          "channel": "Visually Explained",
+          "keywords": [
+            "markov",
+            "stationary",
+            "distribution"
+          ],
+          "why": "Stationary/steady-state distribution of Markov chains has clear visual explainers."
+        },
+        {
+          "topic": "randomizovane",
+          "sub": "quicksort-analyza",
+          "query": "Reducible quicksort algorithm analysis pivot partition",
+          "channel": "Reducible",
+          "keywords": [
+            "quicksort",
+            "algorithm"
+          ],
+          "why": "Reducible has a high-quality QuickSort visualization relevant to randomized pivot analysis."
+        },
+        {
+          "topic": "bodovy-odhad",
+          "sub": "statisticka-inference",
+          "query": "StatQuest maximum likelihood statistical inference probability vs likelihood",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "likelihood",
+            "probability"
+          ],
+          "why": "StatQuest clearly distinguishes probability vs likelihood, core to inference."
+        },
+        {
+          "topic": "bodovy-odhad",
+          "sub": "mle",
+          "query": "StatQuest maximum likelihood estimation clearly explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "maximum",
+            "likelihood"
+          ],
+          "why": "StatQuest's MLE explainer is a canonical, widely-used introduction."
+        },
+        {
+          "topic": "bodovy-odhad",
+          "sub": "bayesovsky-odhad",
+          "query": "3Blue1Brown Bayes theorem prior posterior visual",
+          "channel": "3Blue1Brown",
+          "keywords": [
+            "bayes",
+            "theorem"
+          ],
+          "why": "3Blue1Brown's Bayes' theorem video underpins prior/posterior/MAP estimation."
+        },
+        {
+          "topic": "mle-vlastnosti",
+          "sub": "fisherova-informace",
+          "query": "ritvikmath Fisher information explained",
+          "channel": "ritvikmath",
+          "keywords": [
+            "fisher",
+            "information"
+          ],
+          "why": "ritvikmath has a focused Fisher information explainer matching MLE asymptotics."
+        },
+        {
+          "topic": "intervaly-hypotezy",
+          "sub": "intervaly-spolehlivosti",
+          "query": "StatQuest confidence intervals clearly explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "confidence",
+            "intervals"
+          ],
+          "why": "StatQuest's confidence interval explainer is a canonical reference."
+        },
+        {
+          "topic": "intervaly-hypotezy",
+          "sub": "testovani-princip",
+          "query": "StatQuest hypothesis testing null hypothesis p-values clearly explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "hypothesis",
+            "testing"
+          ],
+          "why": "StatQuest explains hypothesis testing and p-values, the principle of this subtopic."
+        },
+        {
+          "topic": "intervaly-hypotezy",
+          "sub": "t-test",
+          "query": "StatQuest t-test explained one-sample two-sample paired",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "t-test"
+          ],
+          "why": "StatQuest has direct coverage of t-tests including paired and two-sample."
+        },
+        {
+          "topic": "linearni-model-anova",
+          "sub": "one-way-anova",
+          "query": "StatQuest one-way ANOVA clearly explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "anova"
+          ],
+          "why": "StatQuest's ANOVA explainer directly matches one-way ANOVA."
+        },
+        {
+          "topic": "linearni-regrese-msp",
+          "sub": "regrese-intro",
+          "query": "StatQuest linear regression clearly explained least squares",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "linear",
+            "regression"
+          ],
+          "why": "StatQuest's linear regression intro is a canonical least-squares explainer."
+        },
+        {
+          "topic": "linearni-regrese-msp",
+          "sub": "kvalita-modelu",
+          "query": "StatQuest R-squared clearly explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "r-squared"
+          ],
+          "why": "StatQuest's R-squared video covers the model-quality metric for this subtopic."
+        },
+        {
+          "topic": "kategorialni-glm",
+          "sub": "kategorialni-data",
+          "query": "StatQuest chi-square test clearly explained categorical data",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "chi-square"
+          ],
+          "why": "StatQuest covers chi-square tests for categorical data."
+        },
+        {
+          "topic": "kategorialni-glm",
+          "sub": "logisticka-regrese-msp",
+          "query": "StatQuest logistic regression clearly explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "logistic",
+            "regression"
+          ],
+          "why": "StatQuest's logistic regression series is a canonical explainer."
+        }
+      ]
+    },
+    {
+      "course": "UPA — Ukládání a příprava dat",
+      "picks": [
+        {
+          "topic": "NoSQL databáze — úvod a CAP",
+          "sub": "cap-teorem",
+          "query": "ByteByteGo CAP theorem",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "cap",
+            "theorem"
+          ],
+          "why": "CAP theorem is a flagship distributed-systems explainer topic on ByteByteGo."
+        },
+        {
+          "topic": "NoSQL databáze — úvod a CAP",
+          "sub": "acid-base",
+          "query": "Hussein Nasser ACID database transactions",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "acid"
+          ],
+          "why": "Hussein Nasser has a well-known deep dive on ACID transaction properties."
+        },
+        {
+          "topic": "NoSQL databáze — úvod a CAP",
+          "sub": "typy-nosql",
+          "query": "ByteByteGo types of NoSQL databases",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "nosql",
+            "databases"
+          ],
+          "why": "ByteByteGo's overview of NoSQL database types (key-value, document, column, graph) is a canonical explainer."
+        },
+        {
+          "topic": "NoSQL — dotazování, agregace, NewSQL",
+          "sub": "sharding-partitioning",
+          "query": "Hussein Nasser database sharding partitioning",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "sharding"
+          ],
+          "why": "Database sharding/horizontal partitioning is a core, well-known Hussein Nasser topic."
+        },
+        {
+          "topic": "NoSQL — dotazování, agregace, NewSQL",
+          "sub": "mapreduce",
+          "query": "ByteByteGo MapReduce explained",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "mapreduce"
+          ],
+          "why": "MapReduce is a classic distributed-data explainer well covered by ByteByteGo."
+        },
+        {
+          "topic": "Sémantický web a ontologie",
+          "sub": "semanticky-web",
+          "query": "Computerphile semantic web",
+          "channel": "Computerphile",
+          "keywords": [
+            "semantic",
+            "web"
+          ],
+          "why": "Computerphile has a well-known explainer on the Semantic Web concept and stack."
+        },
+        {
+          "topic": "CRISP-DM a porozumění datům",
+          "sub": "popisne-charakteristiky",
+          "query": "StatQuest measures of central tendency variance",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "mean",
+            "variance"
+          ],
+          "why": "StatQuest's clear explanations of location/variability measures (mean, variance, std) fit descriptive statistics."
+        },
+        {
+          "topic": "CRISP-DM a porozumění datům",
+          "sub": "vizualizace-korelace",
+          "query": "StatQuest correlation Pearson explained",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "correlation"
+          ],
+          "why": "StatQuest's correlation video is a canonical, highly-watched explainer of correlation analysis."
+        },
+        {
+          "topic": "Příprava dat — čištění, integrace, transformace",
+          "sub": "redukce-dat",
+          "query": "StatQuest PCA principal component analysis step by step",
+          "channel": "StatQuest with Josh Starmer",
+          "keywords": [
+            "pca",
+            "principal"
+          ],
+          "why": "StatQuest's PCA explainer is the definitive accessible video for dimensionality reduction."
+        },
+        {
+          "topic": "In-memory sloupcové databáze (SAP HANA)",
+          "sub": "row-vs-column",
+          "query": "Hussein Nasser row store vs column store database",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "column"
+          ],
+          "why": "Row vs column storage and columnar databases is a well-known Hussein Nasser explainer."
+        },
+        {
+          "topic": "Prostorové databáze",
+          "sub": "indexovani-bodu",
+          "query": "Reducible k-d tree nearest neighbor",
+          "channel": "Reducible",
+          "keywords": [
+            "k-d",
+            "tree"
+          ],
+          "why": "Reducible has a high-quality visual explainer on k-d trees for spatial point indexing."
+        }
+      ]
+    },
+    {
+      "course": "AVS — Architektury výpočetních systémů",
+      "picks": [
+        {
+          "topic": "pipelining",
+          "sub": "moorov-zakon-amdahl",
+          "query": "Computerphile Moore's Law",
+          "channel": "Computerphile",
+          "keywords": [
+            "moore's",
+            "law"
+          ],
+          "why": "Moore's Law motivation for parallelism, a classic Computerphile explainer."
+        },
+        {
+          "topic": "pipelining",
+          "sub": "pipelining-faze",
+          "query": "Gate Smashers pipelining computer architecture stages",
+          "channel": "Gate Smashers",
+          "keywords": [
+            "pipelining",
+            "computer",
+            "architecture"
+          ],
+          "why": "Instruction pipeline stages (IF/ID/EX/MEM/WB) explained clearly."
+        },
+        {
+          "topic": "pipelining",
+          "sub": "datove-konflikty-forwarding",
+          "query": "Gate Smashers data hazards forwarding pipeline",
+          "channel": "Gate Smashers",
+          "keywords": [
+            "data",
+            "hazard"
+          ],
+          "why": "Data hazards and operand forwarding in pipelined CPUs."
+        },
+        {
+          "topic": "superskalar",
+          "sub": "spekulace-vyjimky",
+          "query": "Computerphile Spectre Meltdown speculative execution",
+          "channel": "Computerphile",
+          "keywords": [
+            "spectre",
+            "meltdown"
+          ],
+          "why": "Speculation and Spectre vulnerability explained by Computerphile."
+        },
+        {
+          "topic": "cache",
+          "sub": "pamet-hierarchie",
+          "query": "Gate Smashers memory hierarchy locality",
+          "channel": "Gate Smashers",
+          "keywords": [
+            "memory",
+            "hierarchy"
+          ],
+          "why": "Memory hierarchy and locality of reference fundamentals."
+        },
+        {
+          "topic": "cache",
+          "sub": "cache-mapovani",
+          "query": "Gate Smashers cache mapping direct associative",
+          "channel": "Gate Smashers",
+          "keywords": [
+            "cache",
+            "mapping"
+          ],
+          "why": "Direct, set-associative and fully-associative cache mapping."
+        },
+        {
+          "topic": "predikce-skoku",
+          "sub": "bht-2bit",
+          "query": "Gate Smashers branch prediction 2 bit predictor",
+          "channel": "Gate Smashers",
+          "keywords": [
+            "branch",
+            "prediction"
+          ],
+          "why": "Branch history table and 2-bit saturating counter prediction."
+        },
+        {
+          "topic": "smt",
+          "sub": "hyperthreading",
+          "query": "Gary Explains hyperthreading SMT explained",
+          "channel": "Gary Explains",
+          "keywords": [
+            "hyperthreading"
+          ],
+          "why": "Intel Hyper-Threading / SMT implementation explained accessibly."
+        },
+        {
+          "topic": "spotreba-gpgpu",
+          "sub": "gpu-architektura",
+          "query": "Branch Education how do GPU work graphics card",
+          "channel": "Branch Education",
+          "keywords": [
+            "gpu"
+          ],
+          "why": "GPU architecture (SMs, warps, SIMT) visualized by Branch Education."
+        },
+        {
+          "topic": "koherence-numa",
+          "sub": "msi-mesi-moesi",
+          "query": "Gate Smashers MESI cache coherence protocol",
+          "channel": "Gate Smashers",
+          "keywords": [
+            "mesi",
+            "cache",
+            "coherence"
+          ],
+          "why": "MESI cache coherence protocol states and transitions."
+        }
+      ]
+    },
+    {
+      "course": "BIS — Bezpečnost informačních systémů",
+      "picks": [
+        {
+          "topic": "uvod-bis",
+          "sub": "terminologie-cia",
+          "query": "IBM Technology CIA triad confidentiality integrity availability",
+          "channel": "IBM Technology",
+          "keywords": [
+            "cia",
+            "triad",
+            "confidentiality"
+          ],
+          "why": "Canonical explainer of the CIA triad, the core terminology of this subtopic."
+        },
+        {
+          "topic": "kryptografie-bis",
+          "sub": "asymetrika-v-is",
+          "query": "Computerphile public key cryptography RSA",
+          "channel": "Computerphile",
+          "keywords": [
+            "public",
+            "key",
+            "cryptography"
+          ],
+          "why": "Classic Computerphile explainer on asymmetric/public-key crypto used in IS."
+        },
+        {
+          "topic": "kryptografie-bis",
+          "sub": "hash-podpis-v-is",
+          "query": "Computerphile hashing algorithms and security",
+          "channel": "Computerphile",
+          "keywords": [
+            "hashing",
+            "security"
+          ],
+          "why": "Well-known Computerphile coverage of hashing relevant to MAC/signatures."
+        },
+        {
+          "topic": "kryptografie-bis",
+          "sub": "symetrika-v-is",
+          "query": "Computerphile AES explained advanced encryption standard",
+          "channel": "Computerphile",
+          "keywords": [
+            "aes",
+            "encryption"
+          ],
+          "why": "Computerphile AES video covers symmetric encryption used in IS."
+        },
+        {
+          "topic": "politiky-bis",
+          "sub": "risk-analyza",
+          "query": "IBM Technology cybersecurity risk management",
+          "channel": "IBM Technology",
+          "keywords": [
+            "risk",
+            "management"
+          ],
+          "why": "IBM Technology overview of risk management directly maps to risk analysis."
+        },
+        {
+          "topic": "politiky-bis",
+          "sub": "nist-csf",
+          "query": "IBM Technology NIST Cybersecurity Framework",
+          "channel": "IBM Technology",
+          "keywords": [
+            "nist",
+            "cybersecurity",
+            "framework"
+          ],
+          "why": "IBM Technology explainer on the NIST CSF, the exact subtopic."
+        },
+        {
+          "topic": "sw-zranitelnosti",
+          "sub": "buffer-overflow",
+          "query": "Computerphile buffer overflow attack",
+          "channel": "Computerphile",
+          "keywords": [
+            "buffer",
+            "overflow"
+          ],
+          "why": "Computerphile's well-known buffer overflow explainer with demo."
+        },
+        {
+          "topic": "sw-zranitelnosti",
+          "sub": "injekce-utoky",
+          "query": "PwnFunction cross site scripting XSS explained",
+          "channel": "PwnFunction",
+          "keywords": [
+            "xss",
+            "cross",
+            "site",
+            "scripting"
+          ],
+          "why": "PwnFunction's animated XSS video is a top injection-attack explainer."
+        },
+        {
+          "topic": "sw-zranitelnosti",
+          "sub": "hw-zranitelnosti",
+          "query": "Computerphile Spectre Meltdown attack",
+          "channel": "Computerphile",
+          "keywords": [
+            "spectre",
+            "meltdown"
+          ],
+          "why": "Computerphile explains Spectre/Meltdown speculative-execution hardware flaws."
+        },
+        {
+          "topic": "sw-zranitelnosti",
+          "sub": "social-engineering",
+          "query": "Computerphile social engineering attack",
+          "channel": "Computerphile",
+          "keywords": [
+            "social",
+            "engineering"
+          ],
+          "why": "Computerphile covers social engineering and human-factor attacks."
+        },
+        {
+          "topic": "sitova-bezpecnost",
+          "sub": "sitove-utoky",
+          "query": "PowerCert Animated Videos DDoS attack explained",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "ddos",
+            "attack"
+          ],
+          "why": "PowerCert animated DDoS explainer fits network-attack subtopic."
+        },
+        {
+          "topic": "sitova-bezpecnost",
+          "sub": "firewall",
+          "query": "PowerCert Animated Videos firewall explained",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "firewall"
+          ],
+          "why": "PowerCert animated firewall video clearly covers packet filtering."
+        },
+        {
+          "topic": "sitova-bezpecnost",
+          "sub": "vpn-ipsec",
+          "query": "PowerCert Animated Videos VPN explained",
+          "channel": "PowerCert Animated Videos",
+          "keywords": [
+            "vpn"
+          ],
+          "why": "PowerCert animated VPN explainer matches VPN tunnel subtopic."
+        },
+        {
+          "topic": "wifi-bezpecnost",
+          "sub": "wifi-utoky",
+          "query": "Computerphile KRACK WPA2 attack",
+          "channel": "Computerphile",
+          "keywords": [
+            "krack",
+            "wpa2"
+          ],
+          "why": "Computerphile's KRACK attack video squarely covers WiFi attacks."
+        },
+        {
+          "topic": "sec-ops",
+          "sub": "gdpr-nukib",
+          "query": "IBM Technology GDPR data protection explained",
+          "channel": "IBM Technology",
+          "keywords": [
+            "gdpr"
+          ],
+          "why": "IBM Technology GDPR explainer covers the data-protection regulation part."
+        }
+      ]
+    },
+    {
+      "course": "AIS — Analýza a návrh informačních systémů",
+      "picks": [
+        {
+          "topic": "zivotni-cyklus",
+          "sub": "agilni-vyvoj",
+          "query": "Continuous Delivery what is scrum agile",
+          "channel": "Continuous Delivery",
+          "keywords": [
+            "scrum",
+            "agile"
+          ],
+          "why": "Dave Farley explains Scrum/agile process clearly, matching the agile development subtopic."
+        },
+        {
+          "topic": "oo-navrh",
+          "sub": "solid",
+          "query": "ArjanCodes SOLID principles Python",
+          "channel": "ArjanCodes",
+          "keywords": [
+            "solid",
+            "principles"
+          ],
+          "why": "ArjanCodes has a well-known clear walkthrough of all five SOLID principles."
+        },
+        {
+          "topic": "navrhove-vzory",
+          "sub": "vzory-podstata",
+          "query": "Fireship design patterns 10 in 100 seconds",
+          "channel": "Fireship",
+          "keywords": [
+            "design",
+            "patterns"
+          ],
+          "why": "Fireship's popular overview introduces categories of design patterns concisely."
+        },
+        {
+          "topic": "navrhove-vzory",
+          "sub": "behavioral-strategy-observer",
+          "query": "ArjanCodes strategy pattern Python",
+          "channel": "ArjanCodes",
+          "keywords": [
+            "strategy",
+            "pattern"
+          ],
+          "why": "ArjanCodes has a definitive explainer on the Strategy behavioral pattern."
+        },
+        {
+          "topic": "navrhove-vzory",
+          "sub": "creational-singleton-factory",
+          "query": "CodeAesthetic singleton pattern",
+          "channel": "CodeAesthetic",
+          "keywords": [
+            "singleton"
+          ],
+          "why": "CodeAesthetic critically explains the Singleton creational pattern and its tradeoffs."
+        },
+        {
+          "topic": "kvalita-kodu",
+          "sub": "tdd",
+          "query": "Continuous Delivery what is TDD test driven development",
+          "channel": "Continuous Delivery",
+          "keywords": [
+            "tdd"
+          ],
+          "why": "Dave Farley is an authority on TDD; clear conceptual explanation of test-driven design."
+        },
+        {
+          "topic": "kvalita-kodu",
+          "sub": "refaktorizace",
+          "query": "CodeAesthetic refactoring code",
+          "channel": "CodeAesthetic",
+          "keywords": [
+            "refactoring"
+          ],
+          "why": "CodeAesthetic demonstrates refactoring techniques and clean-code reasoning visually."
+        },
+        {
+          "topic": "kvalita-kodu",
+          "sub": "vetveni-git",
+          "query": "Fireship git and github branching crash course",
+          "channel": "Fireship",
+          "keywords": [
+            "git"
+          ],
+          "why": "Fireship's Git overview covers repositories and branching for the version-control subtopic."
+        }
+      ]
+    },
+    {
+      "course": "NAV — Návrh vestavěných systémů",
+      "picks": [
+        {
+          "topic": "gpio",
+          "sub": "debouncing",
+          "query": "EEVblog switch bounce debouncing",
+          "channel": "EEVblog",
+          "keywords": [
+            "debounce",
+            "switch",
+            "bounce"
+          ],
+          "why": "Dave Jones has a well-known fundamentals episode on mechanical switch bounce and debouncing, squarely on this subtopic."
+        },
+        {
+          "topic": "gpio",
+          "sub": "h-mustek",
+          "query": "Branch Education how H-bridge motor driver works animated",
+          "channel": "Branch Education",
+          "keywords": [
+            "h-bridge",
+            "motor"
+          ],
+          "why": "Animated explainer of H-bridge topology for driving DC motors in both directions, directly matching the subtopic."
+        },
+        {
+          "topic": "sw-architektura",
+          "sub": "preruseni-isr",
+          "query": "Ben Eater interrupts 6502 hardware interrupt handling",
+          "channel": "Ben Eater",
+          "keywords": [
+            "interrupt"
+          ],
+          "why": "Ben Eater's hardware-level interrupt/ISR series is a canonical explainer of interrupt servicing on a microprocessor."
+        }
+      ]
+    },
+    {
+      "course": "PDI — Prostředí distribuovaných aplikací",
+      "picks": [
+        {
+          "topic": "mapreduce",
+          "sub": "mapreduce-model",
+          "query": "ByteByteGo MapReduce explained",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "mapreduce"
+          ],
+          "why": "ByteByteGo has a clear animated explainer on the MapReduce programming model for big data processing."
+        },
+        {
+          "topic": "mapreduce",
+          "sub": "hadoop-spark",
+          "query": "IBM Technology Hadoop vs Spark",
+          "channel": "IBM Technology",
+          "keywords": [
+            "hadoop",
+            "spark"
+          ],
+          "why": "IBM Technology has a concise comparison of Hadoop and Spark for distributed data processing."
+        },
+        {
+          "topic": "esb",
+          "sub": "mom",
+          "query": "Hussein Nasser message queue message broker explained",
+          "channel": "Hussein Nasser",
+          "keywords": [
+            "message",
+            "queue"
+          ],
+          "why": "Hussein Nasser explains message-oriented middleware / message brokers (MOM) at depth for backend systems."
+        }
+      ]
+    },
+    {
+      "course": "TAMa — Tvorba aplikací pro mobilní zařízení",
+      "picks": [
+        {
+          "topic": "mobilni-ui",
+          "sub": "ergonomie-thumb-zone",
+          "query": "NNgroup Fitts's Law UX design",
+          "channel": "Nielsen Norman Group",
+          "keywords": [
+            "fitts",
+            "law"
+          ],
+          "why": "NNgroup is the authority on Fitts's Law and touch-target/thumb-zone ergonomics for UI."
+        },
+        {
+          "topic": "mobilni-ui",
+          "sub": "principy-navrhu",
+          "query": "NNgroup mobile UX design principles",
+          "channel": "Nielsen Norman Group",
+          "keywords": [
+            "mobile",
+            "ux"
+          ],
+          "why": "NNgroup has canonical explainers on mobile UI design heuristics and principles."
+        },
+        {
+          "topic": "mobilni-ui",
+          "sub": "mobilni-formulare",
+          "query": "NNgroup form design usability",
+          "channel": "Nielsen Norman Group",
+          "keywords": [
+            "form",
+            "design"
+          ],
+          "why": "NNgroup produces definitive guidance on form design and usability, applicable to mobile forms."
+        },
+        {
+          "topic": "architektury-aplikaci",
+          "sub": "mvc-mvvm-mvi",
+          "query": "Philipp Lackner MVVM Android architecture",
+          "channel": "Philipp Lackner",
+          "keywords": [
+            "mvvm",
+            "architecture"
+          ],
+          "why": "Philipp Lackner has well-known Android MVVM/MVI architecture explainers central to this subtopic."
+        },
+        {
+          "topic": "architektury-aplikaci",
+          "sub": "deklarativni-ui",
+          "query": "Fireship imperative vs declarative UI Jetpack Compose",
+          "channel": "Fireship",
+          "keywords": [
+            "declarative",
+            "ui"
+          ],
+          "why": "Fireship clearly contrasts imperative vs declarative UI, the core of this subtopic."
+        },
+        {
+          "topic": "architektury-aplikaci",
+          "sub": "paralelismus",
+          "query": "Philipp Lackner Kotlin coroutines async",
+          "channel": "Philipp Lackner",
+          "keywords": [
+            "coroutines"
+          ],
+          "why": "Philipp Lackner's coroutines explainer covers mobile parallelism and asynchronous processing."
+        },
+        {
+          "topic": "architektury-aplikaci",
+          "sub": "zivotni-cyklus",
+          "query": "Android Developers activity lifecycle",
+          "channel": "Android Developers",
+          "keywords": [
+            "activity",
+            "lifecycle"
+          ],
+          "why": "Official Android Developers channel has the canonical activity lifecycle explainer."
+        },
+        {
+          "topic": "vyvojovy-proces",
+          "sub": "technologicke-pristupy",
+          "query": "Fireship native vs cross platform app development",
+          "channel": "Fireship",
+          "keywords": [
+            "app",
+            "development"
+          ],
+          "why": "Fireship's native vs cross-platform/hybrid overview maps directly to technological approaches."
+        }
+      ]
+    },
+    {
+      "course": "UXIa — User Experience a návrh uživatelských rozhraní",
+      "picks": [
+        {
+          "topic": "konceptualni-model",
+          "sub": "prototypovani-fidelity",
+          "query": "NNgroup low-fidelity vs high-fidelity prototyping",
+          "channel": "NNgroup",
+          "keywords": [
+            "fidelity",
+            "prototyping",
+            "prototypes"
+          ],
+          "why": "NNgroup is the canonical UX source explaining the low- to high-fidelity prototyping ladder."
+        },
+        {
+          "topic": "ucd",
+          "sub": "ucd-pojmy",
+          "query": "NNgroup user centered design UCD",
+          "channel": "NNgroup",
+          "keywords": [
+            "user",
+            "centered",
+            "design"
+          ],
+          "why": "NNgroup defines the core concepts and vocabulary of User-Centered Design."
+        },
+        {
+          "topic": "ucd",
+          "sub": "evaluace-metody",
+          "query": "NNgroup usability testing how many users",
+          "channel": "NNgroup",
+          "keywords": [
+            "usability",
+            "testing",
+            "users"
+          ],
+          "why": "NNgroup's usability-testing guidance (incl. how many test users) is the standard reference for UCD evaluation."
+        }
+      ]
+    },
+    {
+      "course": "WAP — Internetové aplikace",
+      "picks": [
+        {
+          "topic": "udalosti",
+          "sub": "event-loop",
+          "query": "Fireship JavaScript event loop visualized",
+          "channel": "Fireship",
+          "keywords": [
+            "event",
+            "loop",
+            "javascript"
+          ],
+          "why": "Event loop is a flagship JS-explainer topic with well-known animated breakdowns."
+        },
+        {
+          "topic": "udalosti",
+          "sub": "asynchronni-programovani",
+          "query": "Fireship async await JavaScript explained",
+          "channel": "Fireship",
+          "keywords": [
+            "async",
+            "await",
+            "javascript"
+          ],
+          "why": "Asynchronous JS (promises/async-await) is a canonical short-explainer subject."
+        },
+        {
+          "topic": "http",
+          "sub": "http-protokol",
+          "query": "ByteByteGo HTTP 1 2 3 protocol evolution",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "http"
+          ],
+          "why": "HTTP/1.1 vs HTTP/2 vs HTTP/3 evolution is a signature ByteByteGo system-design topic."
+        },
+        {
+          "topic": "http",
+          "sub": "cdn-anycast",
+          "query": "ByteByteGo what is a CDN content delivery network",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "cdn"
+          ],
+          "why": "CDN fundamentals are a core ByteByteGo networking/system-design explainer."
+        },
+        {
+          "topic": "webove-sluzby",
+          "sub": "rest",
+          "query": "ByteByteGo REST API explained",
+          "channel": "ByteByteGo",
+          "keywords": [
+            "rest",
+            "api"
+          ],
+          "why": "REST architectural style is a flagship API-design explainer on ByteByteGo."
+        },
+        {
+          "topic": "bezpecnost",
+          "sub": "sop-cors",
+          "query": "Fireship CORS explained in 100 seconds",
+          "channel": "Fireship",
+          "keywords": [
+            "cors"
+          ],
+          "why": "Fireship's CORS 'in 100 seconds' is a widely-known authoritative short explainer."
+        },
+        {
+          "topic": "bezpecnost",
+          "sub": "xss",
+          "query": "PwnFunction cross site scripting XSS explained",
+          "channel": "PwnFunction",
+          "keywords": [
+            "xss"
+          ],
+          "why": "PwnFunction's animated XSS video is a renowned web-security explainer."
+        },
+        {
+          "topic": "bezpecnost",
+          "sub": "csrf",
+          "query": "PwnFunction cross site request forgery CSRF explained",
+          "channel": "PwnFunction",
+          "keywords": [
+            "csrf"
+          ],
+          "why": "PwnFunction's CSRF animation is a well-known, accurate web-security explainer."
+        }
+      ]
+    }
+  ]
+}

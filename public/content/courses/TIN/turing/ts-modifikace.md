@@ -199,4 +199,9 @@ Modifikace *nezvyšují* sílu, ale *liší se časovou / prostorovou cenou*:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=bpT5AV6j9N0" "Teoretická informatika: Turingovy stroje" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §8.4–8.5; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §3.2; Arora, S., Barak, B.: *Computational Complexity — A Modern Approach* (Cambridge 2009), kap. 1.*

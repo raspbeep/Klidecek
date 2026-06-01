@@ -161,4 +161,12 @@ Trénování klasifikátoru přes cross-entropy *je* maximum likelihood estimati
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=jEUhyGfDGmo" "SZZ: Bodové a intervalové odhady, statistické testy" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=XepXtl9YKwc" "Maximum Likelihood, clearly explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Advanced Statistics — MLE* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (4th ed., Pearson 2012), kap. 7.5–7.6; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 7.2; Cox, D. R., Hinkley, D. V.: *Theoretical Statistics* (Chapman & Hall 1974), kap. 9.*

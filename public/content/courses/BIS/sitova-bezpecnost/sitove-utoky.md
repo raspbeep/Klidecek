@@ -276,4 +276,9 @@ Compromise of one zone → limited blast radius.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=ilhGh9CEIwM" "DDoS Attack Explained" "PowerCert Animated Videos"
+:::
+
 *Zdroj: BIS přednášky 2025/26, doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Stallings, W.: „Cryptography and Network Security" (8th ed., Pearson 2020), §15-17; Bejtlich, R.: „The Practice of Network Security Monitoring" (No Starch 2013); [Wireshark Documentation](https://www.wireshark.org/docs/); [NMAP Reference Guide](https://nmap.org/book/man.html); [SANS Reading Room — Network Security](https://www.sans.org/white-papers/category/network-security/).*

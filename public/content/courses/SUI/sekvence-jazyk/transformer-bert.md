@@ -306,4 +306,9 @@ Transformery snadno *kombinují* různé modality:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=wjZofJX0v4M" "Transformers, the tech behind LLMs | Deep Learning Chapter 5" "3Blue1Brown"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Transformers and BERT* (Hradiš). Externí reference: Vaswani, A. et al.: *Attention Is All You Need* (NeurIPS 2017); Devlin, J. et al.: *BERT* (NAACL 2019); Radford, A. et al.: *Improving Language Understanding by Generative Pre-Training* (OpenAI 2018); Liu, Y. et al.: *RoBERTa* (2019); Carion, N. et al.: *DETR* (ECCV 2020).*

@@ -279,4 +279,9 @@ State-of-the-art detectors use:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=mJx30g3bzQo" "Sound Recognition - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIO přednášky 2025/26, BIO 12 — Dynamické biometrické vlastnosti. Externí reference: Reynolds, D. A.: *An overview of automatic speaker recognition technology* (ICASSP 2002); Snyder, D. et al.: *X-vectors: Robust DNN Embeddings for Speaker Recognition* (ICASSP 2018); ASVspoof Challenge — [asvspoof.org](https://www.asvspoof.org/); NIST SRE — [nist.gov/itl/iad/mig/speaker-recognition-evaluation-2020](https://www.nist.gov/itl/iad/mig/speaker-recognition-evaluation-2020).*

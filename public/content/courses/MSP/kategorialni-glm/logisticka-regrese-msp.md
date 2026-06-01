@@ -193,4 +193,9 @@ Logistická regrese predikuje `P(Y = 1 | x) ∈ (0, 1)` pro libovolné `x` (nikd
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=yIYKR4sgzI8" "StatQuest: Logistic Regression" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Logistic Regression — GLM intro* (Hrabec). Externí reference: Agresti, A.: *Categorical Data Analysis* (Wiley 2013, 3rd ed.); Hosmer, D., Lemeshow, S., Sturdivant, R.: *Applied Logistic Regression* (Wiley 2013, 3rd ed.); James, G., Witten, D., Hastie, T., Tibshirani, R.: *An Introduction to Statistical Learning* (Springer 2021), kap. 4.*

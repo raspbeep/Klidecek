@@ -175,4 +175,15 @@ Nikdy nemůže nastat "oba jsou RE, ale jen jeden je R" — to by porušilo tvrz
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=amrvv9Lgrww" "Teoretická informatika: Nerozhodnutelnost" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=Iz9RFd5ENIU" "SZZ: Nerozhodnutelnost" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=macM_MtS_w4" "Turing & The Halting Problem - Computerphile" "Computerphile"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Turing, A.M.: *On Computable Numbers, With an Application to the Entscheidungsproblem* (Proc. London Math. Soc., 1936); Davis, M.: *The Undecidable* (Raven Press, 1965); Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §4.2; Hopcroft, Motwani, Ullman: *Introduction to Automata Theory, Languages, and Computation* (2nd ed., Addison-Wesley 2001), §9.2.*

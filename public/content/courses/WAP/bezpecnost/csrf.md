@@ -68,4 +68,9 @@ Sec-Fetch-Mode: cors
 ::: link "MDN — Sec-Fetch-Site (Fetch Metadata)" "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=eWEgUcHPle0" "Cross-Site Request Forgery (CSRF) Explained" "PwnFunction"
+:::
+
 *Zdroj: SZZ NADE — předmět Internetové aplikace, VUT FIT. Externí reference: OWASP (CSRF Prevention Cheat Sheet), MDN Web Docs (SameSite, Fetch Metadata).*

@@ -63,4 +63,9 @@ Poslední vrstvou je **[[bezpecnostni-hlavicky|Content-Security-Policy]]** jako 
 ::: link "MDN — Trusted Types API" "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=EoaDgUgS6QA" "Cross-Site Scripting (XSS) Explained" "PwnFunction"
+:::
+
 *Zdroj: SZZ NADE — předmět Internetové aplikace, VUT FIT. Externí reference: OWASP (Top 10, XSS Cheat Sheet), MDN Web Docs (Trusted Types, CSP).*

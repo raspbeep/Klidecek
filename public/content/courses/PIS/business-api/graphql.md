@@ -400,4 +400,9 @@ Mnohé moderní systémy provozují *obě* — REST pro veřejné a server-serve
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=eIQh02xuVw4" "GraphQL Explained in 100 Seconds" "Fireship"
+:::
+
 *Zdroj: přednášky PIS — doc. R. Burget, VUT FIT, část „GraphQL — typovaná aplikační rozhraní" v přednášce „Business vrstva a API" (slidy 33–44).*

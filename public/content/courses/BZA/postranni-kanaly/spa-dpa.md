@@ -182,4 +182,9 @@ Výstup: identifikace **kterou instrukci** zařízení provádí (XOR, AND, OR, 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=vXe8pe18MNk" "Power LED Attack - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BZA přednášky 2025/26, BZA 05 — Postranní kanály (Malinka). Externí reference: Kocher, P., Jaffe, J., Jun, B.: *Differential Power Analysis* (CRYPTO 1999) — [PDF](https://www.paulkocher.com/doc/DifferentialPowerAnalysis.pdf); Brier, E., Clavier, C., Olivier, F.: *Correlation Power Analysis with a Leakage Model* (CHES 2004); Mangard, S., Oswald, E., Popp, T.: *Power Analysis Attacks: Revealing the Secrets of Smart Cards* (Springer 2007); Ledger Donjon: *Side-channel attacks on Trezor One* (2019) — [blog](https://blog.ledger.com/Tu-Sais-Pas-Mon-Numero-Si-Tu-Ne-Sais-Pas-Mon-PIN/).*

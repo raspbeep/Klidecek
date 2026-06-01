@@ -226,4 +226,9 @@ V přednášce odkazované demo: [DIFS-Teaching/rest-auth](https://github.com/DI
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=T0k-3Ze4NLo" "JWT - JSON Web Token Crash Course (NodeJS & Postgres)" "Hussein Nasser"
+:::
+
 *Zdroj: přednášky PIS — doc. R. Burget, VUT FIT, část „Autentizace v REST, JWT" v přednášce „Business vrstva a API" (slidy 24–32). Doplněno o OWASP doporučení a praktiky bezpečnosti.*

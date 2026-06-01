@@ -292,4 +292,9 @@ Toto dá **náhled do dat** za 5 minut. Bez toho je modelování slepé.
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=xZ_z8KWkhXE" "Pearson's Correlation, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: UPA přednáška *Porozumění datům* (Burgetová). Externí reference: Anscombe, F. J.: *Graphs in Statistical Analysis*, The American Statistician 1973; Wilke, C. O.: *Fundamentals of Data Visualization*, O'Reilly 2019; Cleveland, W. S.: *Visualizing Data*, Hobart Press 1993; Tukey, J. W.: *Exploratory Data Analysis*, Addison-Wesley 1977.*

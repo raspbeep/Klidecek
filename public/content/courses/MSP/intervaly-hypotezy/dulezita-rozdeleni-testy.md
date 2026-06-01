@@ -182,4 +182,9 @@ Pro extrémní odchylky od normality použij [[rank-testy|neparametrické testy]
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=cPeqgx8sx4Y" "SZZ: Vícevýběrové testy, testy o rozdělení" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Important Distributions for Testing* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (Pearson 2012), kap. 5.7; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 5.4; Anděl, J.: *Základy matematické statistiky* (Matfyzpress 2011), kap. 3.*

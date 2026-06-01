@@ -290,4 +290,9 @@ y = layer(x)
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=aircAruvnKk" "But what is a neural network? | Deep learning chapter 1" "3Blue1Brown"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Neural networks* (Hradiš). Externí reference: Goodfellow, I., Bengio, Y., Courville, A.: *Deep Learning* (MIT 2016), kap. 6 — [free book](https://www.deeplearningbook.org/); Nielsen, M.: *Neural Networks and Deep Learning* — [free book](http://neuralnetworksanddeeplearning.com/); Stanford CS231n materials.*

@@ -257,4 +257,9 @@ Moderní schémata (RSA-PSS, EdDSA, ECDSA s deterministickým nonce) splňují E
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=s22eJ1eVLTU" "What are Digital Signatures? - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 4 — Asymetrické algoritmy. Externí reference: Diffie, W., Hellman, M.: "New Directions in Cryptography", IEEE Trans. Inf. Theory IT-22(6), 1976; FIPS 186-5: Digital Signature Standard (DSS) (NIST 2023); Bernstein, D. J. a kol.: "High-speed high-security signatures", CHES 2011; RFC 8032: EdDSA Signature Algorithm (2017); RFC 6979: Deterministic ECDSA (2013); Rivest, R., Shamir, A., Tauman, Y.: "How to Leak a Secret", ASIACRYPT 2001.*

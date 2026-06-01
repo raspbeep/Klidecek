@@ -151,4 +151,9 @@ Nepoužívá se v enterprise — hierarchická CA dominantní. Web of Trust v PG
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=GSIDS_lvRv4" "Public Key Cryptography - Computerphile" "Computerphile"
+:::
+
 *Zdroj: BIS přednášky 2025/26, doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Diffie, W., Hellman, M.E.: „New Directions in Cryptography" (IEEE Trans. IT 22(6), 1976); Rivest, R.L., Shamir, A., Adleman, L.: „A Method for Obtaining Digital Signatures and Public-Key Cryptosystems" (Comm. ACM 21(2), 1978); NIST PQC Standards 2024 ([csrc.nist.gov/projects/post-quantum-cryptography](https://csrc.nist.gov/projects/post-quantum-cryptography)); Bernstein, D.J., Lange, T.: „Post-quantum cryptography" (Nature 549, 2017).*

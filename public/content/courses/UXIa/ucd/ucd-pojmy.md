@@ -130,4 +130,9 @@ Pravidlo: čím dříve ve vývoji, tím nižší věrnost — levné papírové
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=LnaLPPmY3_Q" "Explain UX with User-Centered Design" "NNgroup"
+:::
+
 *Zdroj: SZZ NADE — předmět User Experience a návrh uživatelských rozhraní, VUT FIT. Externí reference: ISO 9241-11:2018, ISO 9241-210:2019, Nielsen Norman Group, D. Norman (The Design of Everyday Things).*

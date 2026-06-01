@@ -307,4 +307,9 @@ Sumu prefixů jsme teď ovládli — slouží jako *stavební blok* pro většin
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=xLnQet8cIVA" "SZZ: Model PRAM, suma prefixů" "Tomáš Kocourek"
+:::
+
 *Zdroj: PRL přednášky 2025/26, Ing. František Zbořil ml., Ph.D., a doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Blelloch, G.E.: „Prefix Sums and Their Applications" v Reif (ed.) *Synthesis of Parallel Algorithms* (Morgan Kaufmann 1993, [CMU PDF](https://www.cs.cmu.edu/~guyb/papers/Ble93.pdf)); Blelloch, G.E.: *Vector Models for Data-Parallel Computing* (MIT Press 1990); Hillis, W.D., Steele, G.L.: „Data parallel algorithms" (Comm. ACM 29(12), 1986); Sengupta, S., Harris, M., Garland, M.: „Efficient parallel scan algorithms for GPUs" (NVIDIA Technical Report NVR-2008-003, 2008); NVIDIA CUB knihovna ([dokumentace](https://nvlabs.github.io/cub/)); Wikipedia: [Prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) (sekce „Parallel algorithms").*

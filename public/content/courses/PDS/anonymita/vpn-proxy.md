@@ -78,4 +78,9 @@ VPN a proxy tedy poskytují *pseudoanonymitu* vůči koncovému webu a soukromí
 ::: link "RFC 1928 — SOCKS Protocol Version 5" "https://www.rfc-editor.org/rfc/rfc1928"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=R-JUOpCgTZc" "VPN (Virtual Private Network) Explained" "PowerCert Animated Videos"
+:::
+
 *Zdroj: PDS — přednáška Anonymity, Ing. Matěj Grégr, Ph.D., FIT VUT v Brně. Externí reference: [RFC 1928 — SOCKS5](https://www.rfc-editor.org/rfc/rfc1928); [RFC 8446 — TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446); [Mozilla — What is a VPN](https://www.mozilla.org/en-US/products/vpn/more/what-is-a-vpn/).*

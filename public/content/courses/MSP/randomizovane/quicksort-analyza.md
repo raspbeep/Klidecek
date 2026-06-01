@@ -173,4 +173,9 @@ Důkaz: opět přes indikátory, `E[T(n)] = O(n)`. Existuje i deterministická v
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=zhuOFLxyJdw" "SZZ: Randomizované algoritmy" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Randomized Algorithms — QuickSort* (Češka). Externí reference: Cormen, T. H. et al.: *Introduction to Algorithms* (3rd ed., MIT Press 2009), kap. 5.4, 7.4; Sedgewick, R., Wayne, K.: *Algorithms* (4th ed., Addison-Wesley 2011), kap. 2.3; Motwani, R., Raghavan, P.: *Randomized Algorithms* (Cambridge 1995), kap. 1.*

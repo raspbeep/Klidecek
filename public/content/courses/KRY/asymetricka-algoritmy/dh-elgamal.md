@@ -187,4 +187,9 @@ DSA s 2048-bit $p$ a 256-bit $q$ má bezpečnost 112–128 bitů a podpis ~512 b
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=NmM9HA2MQGI" "Secret Key Exchange (Diffie-Hellman) - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 4 — Asymetrické algoritmy. Externí reference: Diffie, W., Hellman, M.: "New Directions in Cryptography", IEEE Trans. Inf. Theory IT-22(6), 1976; ElGamal, T.: "A Public-Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms", IEEE Trans. Inf. Theory 31(4), 1985; Adrian, D. a kol.: "Imperfect Forward Secrecy: How Diffie-Hellman Fails in Practice" (Logjam), CCS 2015; RFC 7919: Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for TLS (2016).*

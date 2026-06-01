@@ -337,4 +337,9 @@ A03 Injection moved from #1 (2017) to #3 (2021) — better awareness + framework
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=EoaDgUgS6QA" "Cross-Site Scripting (XSS) Explained" "PwnFunction"
+:::
+
 *Zdroj: BIS přednášky 2025/26, Ing. Martin Očenáš, FIT VUT v Brně. Externí reference: OWASP Top 10:2021 ([owasp.org/Top10](https://owasp.org/Top10/)); OWASP Testing Guide; Spett, K.: „SQL Injection: Are Your Web Applications Vulnerable?" (SPI Dynamics, 2002); Stuttard, D., Pinto, M.: „The Web Application Hacker's Handbook" (2nd ed., Wiley 2011); [PortSwigger Web Security Academy](https://portswigger.net/web-security).*

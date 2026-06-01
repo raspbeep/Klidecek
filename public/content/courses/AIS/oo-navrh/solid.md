@@ -140,4 +140,9 @@ DIP je technický základ *dependency injection* a přímo realizuje GRASP *Prot
 ::: link "Wikipedia — Liskov substitution principle" "https://en.wikipedia.org/wiki/Liskov_substitution_principle"
 :::
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=pTB30aXS77U" "Uncle Bob’s SOLID Principles Made Easy 🍀 - In Python!" "ArjanCodes"
+:::
+
 *Zdroj: SZZ NADE — předmět Analýza a návrh informačních systémů, VUT FIT. Externí reference: Robert C. Martin (Design Principles and Design Patterns; Clean Architecture), Liskov & Wing (behavioral subtyping), Wikipedia.*

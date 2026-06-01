@@ -159,4 +159,9 @@ V praxi se přístupy *míchají*: Bayesovští autoři používají frekventist
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=HZGCoVF3YvM" "Bayes theorem, the geometry of changing beliefs" "3Blue1Brown"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Advanced Statistics — Bayesian Estimation* (Hrabec). Externí reference: DeGroot, M., Schervish, M.: *Probability and Statistics* (4th ed., Pearson 2012), kap. 7.2; Gelman, A. et al.: *Bayesian Data Analysis* (3rd ed., CRC 2013), kap. 1–3; Murphy, K. P.: *Probabilistic Machine Learning* (MIT 2022), kap. 4.6.*

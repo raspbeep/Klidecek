@@ -91,4 +91,9 @@ PWA běží přímo **v prohlížeči**, ale díky moderním webovým API (*serv
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=X8ipUgXH6jw" "React Native vs Flutter - I built the same chat app with both" "Fireship"
+:::
+
 *Zdroj: SZZ NADE — předmět Tvorba aplikací pro mobilní zařízení, VUT FIT. Externí reference: oficiální dokumentace React Native, Flutter, Kotlin Multiplatform, .NET MAUI a Apache Cordova; web.dev (PWA).*

@@ -199,4 +199,9 @@ Pravidlo praxe: **2PC pro klasické Jakarta EE aplikace** (např. DB + JMS broke
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=nH4qjmP2KEE" "Top 7 Most-Used Distributed System Patterns" "ByteByteGo"
+:::
+
 *Zdroj: PIS přednáška 6, doc. Ing. Radek Burget, Ph.D., FIT VUT v Brně. Externí reference: The Open Group [XA Specification](https://pubs.opengroup.org/onlinepubs/009680699/toc.pdf); García-Molina, H., Salem, K.: „Sagas” ([ACM SIGMOD 1987](https://dl.acm.org/doi/10.1145/38713.38742)); Richardson, C.: *Microservices Patterns* (Manning 2018), kap. 4 (Managing transactions with sagas).*

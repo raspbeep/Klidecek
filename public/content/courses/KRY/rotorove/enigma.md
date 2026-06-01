@@ -133,4 +133,9 @@ Detaily kryptoanalýzy viz [[enigma-utok]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=RzWB5jL5RX0" "Cracking Enigma in 2021 - Computerphile" "Computerphile"
+:::
+
 *Zdroj: KRY přednášky 2025/26, KRY 2 — Rotorové stroje. Externí reference: Welchman, G.: *The Hut Six Story* (M&M Baldwin 1997); Sebag-Montefiore, H.: *Enigma: The Battle for the Code* (Wiley 2000); Bauer, F. L.: *Decrypted Secrets* (4th ed., Springer 2007), kap. 8; Imperial War Museum & Bletchley Park, Buckinghamshire — sbírka rotorových strojů.*

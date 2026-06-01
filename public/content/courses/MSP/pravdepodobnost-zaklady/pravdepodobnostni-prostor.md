@@ -131,4 +131,9 @@ Bez korektní formalizace prostoru `(Ω, A, P)` jsou všechna tato použití na 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=Vg8w9YMAqZU" "SZZ: Pravděpodobnost" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Probability in Computer Science* (Češka, Andriushchenko). Externí reference: Baier, C., Katoen, J.-P.: *Principles of Model Checking* (MIT Press 2008), kap. 10; Mitzenmacher, M., Upfal, E.: *Probability and Computing* (Cambridge 2017), kap. 1; Ross, S.: *A First Course in Probability* (Pearson, 10th ed., 2019).*

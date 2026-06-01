@@ -124,4 +124,9 @@ V neurónových sítích pro hry (AlphaZero, MuZero) je *naučená evaluation* `
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=ySN5Wnu88nE" "A* (A Star) Search Algorithm - Computerphile" "Computerphile"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Řešení problémů prohledáváním* (Šůstek). Externí reference: Russell, S. & Norvig, P.: *AIMA* (4. vyd., 2020), kap. 3.5–3.6; Hart, P. E., Nilsson, N. J., Raphael, B.: *A Formal Basis for the Heuristic Determination of Minimum Cost Paths* (IEEE 1968); Korf, R. E.: *Depth-First Iterative-Deepening* (AI Journal, 1985); Pearl, J.: *Heuristics* (Addison-Wesley, 1984).*

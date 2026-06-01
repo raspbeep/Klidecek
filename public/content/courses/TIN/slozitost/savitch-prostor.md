@@ -245,4 +245,12 @@ Otevřené:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=lz4UNeNWM-Q" "Teoretická informatika: Složitost" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=luqobVkniB4" "SZZ: Časová a prostorová složitost" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Savitch, W.J.: *Relationships Between Nondeterministic and Deterministic Tape Complexities* (J. Comput. Sys. Sci., 1970); Immerman, N.: *Nondeterministic Space is Closed Under Complementation* (SIAM J. Comput., 1988); Szelepcsényi, R.: nezávisle, 1987; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §8.1–8.4; Arora, S., Barak, B.: *Computational Complexity* (Cambridge 2009), kap. 4.*

@@ -149,4 +149,9 @@ DTMC pokrývá *fully observable, discrete time* — viz [[mdp-definice]] pro ge
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=XP3qg7Qv2So" "SZZ: Markovské řetězce a jejich analýza" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Probability in Computer Science — Lecture 1: Markov Chains* (Češka). Externí reference: Baier, C., Katoen, J.-P.: *Principles of Model Checking* (MIT Press 2008), kap. 10.1; Kwiatkowska, M., Norman, G., Parker, D.: *Stochastic Model Checking* (LNCS 2007); Norris, J. R.: *Markov Chains* (Cambridge 1997), kap. 1.*

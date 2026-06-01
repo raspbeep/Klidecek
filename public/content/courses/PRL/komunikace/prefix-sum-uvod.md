@@ -254,4 +254,9 @@ Segmentovaný scan je *klíčový* pro paralelní quicksort, BFS, sparse matrix 
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=xLnQet8cIVA" "SZZ: Model PRAM, suma prefixů" "Tomáš Kocourek"
+:::
+
 *Zdroj: PRL přednášky 2025/26, Ing. František Zbořil ml., Ph.D., a doc. Ing. Petr Hanáček, Ph.D., FIT VUT v Brně. Externí reference: Blelloch, G.E.: „Prefix Sums and Their Applications" in *Synthesis of Parallel Algorithms* (Morgan Kaufmann 1993, Reif ed.), kap. 1 ([online verze CMU](https://www.cs.cmu.edu/~guyb/papers/Ble93.pdf)); Blelloch, G.E.: *Vector Models for Data-Parallel Computing* (MIT Press 1990); Sengupta, S., Harris, M., Garland, M.: „Efficient parallel scan algorithms for GPUs" (NVIDIA Tech. Report NVR-2008-003, 2008); Hillis, W.D., Steele, G.L.: „Data parallel algorithms" (Comm. ACM 29(12), 1986, [DOI 10.1145/7902.7903](https://doi.org/10.1145/7902.7903)); Wikipedia: [Prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) (reference s odkazy na hardware podporu AVX).*

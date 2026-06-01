@@ -235,4 +235,9 @@ Testuje *symetrii* — pravděpodobnost změny v jednom směru = pravděpodobnos
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=cPeqgx8sx4Y" "SZZ: Vícevýběrové testy, testy o rozdělení" "Tomáš Kocourek"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Categorical Data — Chi-Square Tests* (Hrabec). Externí reference: Agresti, A.: *Categorical Data Analysis* (Wiley 2013, 3rd ed.); DeGroot, M., Schervish, M.: *Probability and Statistics* (Pearson 2012), kap. 10; Anděl, J.: *Základy matematické statistiky* (Matfyzpress 2011).*

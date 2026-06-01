@@ -132,4 +132,9 @@ Pamatovat — *konzistence není zdarma*. Silná konzistence v distribuovaném s
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=pomxJOFVcQs" "Relational Database ACID Transactions (Explained by Example)" "Hussein Nasser"
+:::
+
 *Zdroj: UPA přednáška *NoSQL databáze* (Rychlý, 23. září 2025). Externí reference: Pritchett, D.: *BASE — An ACID Alternative*, ACM Queue 2008; Vogels, W.: *Eventually Consistent — Revisited*, CACM 2009; Strauch, C.: *NoSQL Databases*, Stuttgart 2011; Bailis, P., Ghodsi, A.: *Eventual Consistency Today — Limitations, Extensions, and Beyond*, CACM 2013.*

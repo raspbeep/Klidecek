@@ -146,4 +146,12 @@ Tento součin je *likelihood* — viz [[mle]].
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=KgY0rQZghTg" "SZZ: Náhodné veličiny, významná rozdělení pravděpodobnosti" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=oI3hZJqXJuc" "The Main Ideas behind Probability Distributions" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Probability in Computer Science* (Češka). Externí reference: Ross, S.: *A First Course in Probability* (Pearson 2019), kap. 4–5; Wasserman, L.: *All of Statistics* (Springer 2004), kap. 2; Grinstead, C., Snell, L.: *Introduction to Probability* (AMS 1997), kap. 4–5 — [free PDF](https://math.dartmouth.edu/~prob/prob/prob.pdf).*

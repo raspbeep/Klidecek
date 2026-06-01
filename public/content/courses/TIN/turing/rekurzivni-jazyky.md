@@ -172,4 +172,12 @@ Striktnost každé inkluze je dokazována *separačními jazyky*:
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=bpT5AV6j9N0" "Teoretická informatika: Turingovy stroje" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=cjJXMGlk7xE" "SZZ: Turingovy stroje a vyčíslitelné funkce" "Tomáš Kocourek"
+:::
+
 *Zdroj: TIN přednášky 2025/26, doc. RNDr. Milan Češka, Ph.D., FIT VUT v Brně. Externí reference: Turing, A.M.: *On Computable Numbers* (Proc. London Math. Soc., 1936); Post, E.: *Recursive Unsolvability of a Problem of Thue* (J. Symbolic Logic, 1947); Kozen, D.C.: *Automata and Computability* (Springer 1997), kap. 24–26; Sipser, M.: *Introduction to the Theory of Computation* (3rd ed., Cengage 2013), §3.3, §4.1.*

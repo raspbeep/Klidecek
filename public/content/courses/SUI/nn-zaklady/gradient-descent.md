@@ -293,4 +293,9 @@ Pět řádků pokrývá *všechno* podstatné. Reálné `train` smyčky mají na
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=IHZwWFHWa-w" "Gradient descent, how neural networks learn | Deep Learning Chapter 2" "3Blue1Brown"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Neural networks* (Hradiš). Externí reference: Goodfellow, I., Bengio, Y., Courville, A.: *Deep Learning* (MIT 2016), kap. 6.5 + 8; Rumelhart, D., Hinton, G., Williams, R.: *Learning representations by back-propagating errors* (Nature 323, 1986); Kingma, D. & Ba, J.: *Adam — A Method for Stochastic Optimization* (ICLR 2015); Bottou, L.: *Stochastic Gradient Descent Tricks* (2012).*

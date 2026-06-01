@@ -192,4 +192,9 @@ GHC's Core jazyk je **rozšířený typovaný λ-kalkul** s ADTs, case expressio
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=8Z_sosW2dgU" "SZZ : Lambda kalkul - úvod" "Tomáš Kocourek"
+:::
+
 *Zdroj: FLP přednášky 2025/26 (Kolář). Externí reference: Barendregt, H. P.: *The Lambda Calculus* (Elsevier 1984); Hindley, J. R., Seldin, J. P.: *Lambda-Calculus and Combinators: An Introduction* (Cambridge 2008); Pierce, B. C.: *Types and Programming Languages* (MIT Press 2002), kap. 5; Church, A.: *An unsolvable problem of elementary number theory* (1936).*

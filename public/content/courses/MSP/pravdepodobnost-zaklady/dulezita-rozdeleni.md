@@ -222,4 +222,12 @@ Klíčová pro testování hypotéz a CI ([[dulezita-rozdeleni-testy]]):
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=KgY0rQZghTg" "SZZ: Náhodné veličiny, významná rozdělení pravděpodobnosti" "Tomáš Kocourek"
+:::
+
+::: youtube "https://www.youtube.com/watch?v=rzFX5NWojp0" "The Normal Distribution, Clearly Explained!!!" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: MSP přednášky 2025/26, *Probability in Computer Science* (Češka). Externí reference: Ross, S.: *A First Course in Probability* (Pearson 2019), kap. 4–6; Mitzenmacher, M., Upfal, E.: *Probability and Computing* (Cambridge 2017), kap. 1–4; Casella, G., Berger, R.: *Statistical Inference* (Cengage 2002), kap. 3.*

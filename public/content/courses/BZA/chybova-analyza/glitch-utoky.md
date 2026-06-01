@@ -182,4 +182,9 @@ Open-source vybavení (CW-Lite $250) umožňuje plnohodnotnou laboratoř za $100
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=6Pf3pY3GxBM" "Hardware Power Glitch Attack (Fault Injection) - rhme2 Fiesta (FI 100)" "LiveOverflow"
+:::
+
 *Zdroj: BZA přednášky 2025/26, BZA 06 — Chybová analýza. Externí reference: Anderson, R. J., Kuhn, M.: *Tamper Resistance — a Cautionary Note* (USENIX 1996) — [PDF](https://www.cl.cam.ac.uk/~mgk25/tamper.pdf); Bar-El, H., Choukri, H., Naccache, D., Tunstall, M., Whelan, C.: *The Sorcerer's Apprentice Guide to Fault Attacks* (Proc. IEEE 2006) — [PDF](https://eprint.iacr.org/2004/100.pdf); Joye, M., Tunstall, M. (eds.): *Fault Analysis in Cryptography* (Springer 2012); Skorobogatov, S.: *Optical Fault Induction Attacks* (CHES 2002).*

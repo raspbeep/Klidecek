@@ -160,4 +160,9 @@ Tedy logistická regrese modeluje **logaritmus poměru pravděpodobností** jako
 
 ---
 
+### Videa
+
+::: youtube "https://www.youtube.com/watch?v=yIYKR4sgzI8" "StatQuest: Logistic Regression" "StatQuest with Josh Starmer"
+:::
+
 *Zdroj: SUI přednášky 2025/26, *Basics in Machine Learning* (Burget). Externí reference: Bishop, C.: *PRML* (Springer 2006), kap. 4; Hastie, Tibshirani, Friedman: *The Elements of Statistical Learning* (Springer 2009), kap. 4; Ng, A. & Jordan, M.: *On Discriminative vs. Generative classifiers*, NeurIPS 2002 — [PDF](https://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf).*
