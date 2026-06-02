@@ -70,8 +70,12 @@ Singleton je oblíbený, ale **kontroverzní**: zavádí globální stav, ztěž
   <text x="91" y="131" text-anchor="middle" font-size="11" fill="var(--text)">WindowsFactory</text>
   <rect x="16" y="156" width="150" height="34" rx="4" fill="var(--bg-card)" stroke="oklch(0.62 0.14 264)"/>
   <text x="91" y="177" text-anchor="middle" font-size="11" fill="var(--text)">MacFactory</text>
-  <line x1="91" y1="110" x2="91" y2="54" stroke="oklch(0.62 0.14 264)" stroke-width="1.2" marker-end="url(#abf-tri)"/>
-  <line x1="91" y1="156" x2="91" y2="144" stroke="oklch(0.62 0.14 264)" stroke-width="1.2"/>
+  <!-- WindowsFactory riser to shared bus -->
+  <polyline points="91,110 91,90 140,90" fill="none" stroke="oklch(0.62 0.14 264)" stroke-width="1.2"/>
+  <!-- MacFactory riser to shared bus (routed around the right of WindowsFactory) -->
+  <polyline points="166,173 178,173 178,90 140,90" fill="none" stroke="oklch(0.62 0.14 264)" stroke-width="1.2"/>
+  <!-- single shared generalization into UiFactory -->
+  <line x1="140" y1="90" x2="140" y2="54" stroke="oklch(0.62 0.14 264)" stroke-width="1.2" marker-end="url(#abf-tri)"/>
   <!-- product interface -->
   <rect x="374" y="14" width="150" height="40" rx="4" fill="oklch(0.62 0.14 142 / 0.12)" stroke="oklch(0.62 0.14 142)"/>
   <text x="449" y="29" text-anchor="middle" font-size="9.5" font-style="italic" fill="var(--text-muted)">«interface»</text>
@@ -81,8 +85,12 @@ Singleton je oblíbený, ale **kontroverzní**: zavádí globální stav, ztěž
   <text x="449" y="131" text-anchor="middle" font-size="11" fill="var(--text)">WindowsButton</text>
   <rect x="374" y="156" width="150" height="34" rx="4" fill="var(--bg-card)" stroke="oklch(0.62 0.14 142)"/>
   <text x="449" y="177" text-anchor="middle" font-size="11" fill="var(--text)">MacButton</text>
-  <line x1="449" y1="110" x2="449" y2="54" stroke="oklch(0.62 0.14 142)" stroke-width="1.2" marker-end="url(#abf-tri2)"/>
-  <line x1="449" y1="156" x2="449" y2="144" stroke="oklch(0.62 0.14 142)" stroke-width="1.2"/>
+  <!-- WindowsButton riser to shared bus -->
+  <polyline points="449,110 449,90 400,90" fill="none" stroke="oklch(0.62 0.14 142)" stroke-width="1.2"/>
+  <!-- MacButton riser to shared bus (routed around the left of WindowsButton) -->
+  <polyline points="374,173 362,173 362,90 400,90" fill="none" stroke="oklch(0.62 0.14 142)" stroke-width="1.2"/>
+  <!-- single shared generalization into Button -->
+  <line x1="400" y1="90" x2="400" y2="54" stroke="oklch(0.62 0.14 142)" stroke-width="1.2" marker-end="url(#abf-tri2)"/>
   <!-- creates dependency -->
   <line x1="166" y1="34" x2="374" y2="34" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#abf-open)"/>
   <text x="270" y="27" text-anchor="middle" font-size="10" fill="var(--text-muted)" font-style="italic">«create»</text>

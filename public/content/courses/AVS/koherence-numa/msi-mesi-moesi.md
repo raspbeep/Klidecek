@@ -100,7 +100,6 @@ MSI by každý write generoval BusUpgrade. MESI nic.
   <g stroke="var(--text)" fill="none" stroke-width="1">
     <path d="M155,60 L385,60" marker-end="url(#mesi-ar)"/>
     <path d="M120,95 L120,145" marker-end="url(#mesi-ar)"/>
-    <path d="M155,180 L385,180" marker-end="url(#mesi-ar)"/>
     <path d="M420,145 L420,95" marker-end="url(#mesi-ar)"/>
     <path d="M155,75 Q270,150 385,165" marker-end="url(#mesi-ar)"/>
     <path d="M155,180 Q270,120 385,80" marker-end="url(#mesi-ar)"/>
@@ -108,7 +107,7 @@ MSI by každý write generoval BusUpgrade. MESI nic.
   <g fill="var(--text)" text-anchor="middle" font-size="9">
     <text x="270" y="55">core write (no sharers)</text>
     <text x="100" y="125">load w/ sharers</text>
-    <text x="270" y="175">core write</text>
+    <text x="300" y="108">core write (BusUpgrade)</text>
     <text x="445" y="125">core write (silent!)</text>
     <text x="190" y="135">load (none)</text>
     <text x="350" y="135">→ E</text>

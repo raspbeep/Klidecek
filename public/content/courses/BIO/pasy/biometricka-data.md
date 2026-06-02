@@ -75,19 +75,20 @@ Many countries have *photo booth standards* and check tools.
   <g fill="rgba(255,200,150,0.4)" stroke="var(--accent)" stroke-width="1">
     <rect x="40" y="60" width="100" height="100" rx="3"/>
     <rect x="160" y="60" width="100" height="100" rx="3"/>
-    <rect x="280" y="60" width="100" height="100" rx="3"/>
   </g>
   <g fill="var(--text)" text-anchor="middle" font-size="11">
     <text x="90" y="115">left index</text>
     <text x="90" y="130" font-size="9" fill="var(--text-muted)">WSQ, 500 dpi</text>
     <text x="210" y="115">right index</text>
     <text x="210" y="130" font-size="9" fill="var(--text-muted)">WSQ, 500 dpi</text>
-    <text x="330" y="115">EAC-protected</text>
-    <text x="330" y="130" font-size="9" fill="var(--text-muted)">10–20 KB each</text>
+  </g>
+  <path d="M40 166 H260" stroke="var(--text-muted)" stroke-width="0.8" fill="none"/>
+  <g fill="var(--text-muted)" text-anchor="middle" font-size="9">
+    <text x="150" y="176">EAC-protected · ~10–20 KB / image</text>
   </g>
   <g fill="var(--text-muted)" text-anchor="middle" font-size="10">
-    <text x="455" y="115">Required EU</text>
-    <text x="455" y="130">since 2009</text>
+    <text x="400" y="115">Required EU</text>
+    <text x="400" y="130">since 2009</text>
   </g>
 </svg>
 :::

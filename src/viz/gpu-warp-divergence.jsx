@@ -55,7 +55,7 @@ export default function GpuWarpDivergence() {
           </label>
         )}
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
-          <input type="checkbox" checked={sortFirst} onChange={e => setSortFirst(e.target.checked)} /> sort data first
+          <input type="checkbox" checked={sortFirst} onChange={e => setSortFirst(e.target.checked)} /> sort data first (jen přeskupí lanes — tento 1 warp zůstává 2×)
         </label>
       </div>
 
@@ -110,7 +110,7 @@ export default function GpuWarpDivergence() {
         </text>
 
         <text x={20} y={H - 12} fontSize="9.5" fill="var(--text-faint)">
-          Mitigace: 1) seřaď data před launch — divergující thready se sjednotí; 2) přepiš if-else na arithmetic (ternar bez branche).
+          Mitigace: 1) řazení pomáhá napříč warpy (sníží počet divergujících warpů) — uvnitř jednoho warpu divergenci neodstraní; 2) přepiš if-else na arithmetic (ternar bez branche).
         </text>
       </svg>
     </div>

@@ -10,7 +10,7 @@ title: Krevní řečiště — vein biometrics
 
 Žíly obsahují **deoxygenovaný hemoglobin** (deoxyhemoglobin, deoxy-Hb). Tato složka *absorbuje* near-infrared (NIR) světlo (peak absorption ~760 nm).
 
-::: svg "Princip vein imaging: NIR LED osvětluje ruku, deoxy-Hb v žilách absorbuje světlo (tmavé linky), kosti + okolní tkáň reflektují (světlé), kamera zachytí kontrastní obraz vein pattern."
+::: svg "Princip finger-vein transillumination: NIR LED osvětluje ruku, deoxy-Hb v žilách absorbuje světlo (tmavé linky), kosti + okolní tkáň propouštějí světlo (světlé), kamera na protilehlé straně zachytí kontrastní obraz vein pattern."
 <svg viewBox="0 0 540 200" font-family="ui-sans-serif, system-ui" font-size="11">
   <g fill="var(--bg-card)" stroke="var(--accent)" stroke-width="1.3">
     <rect x="40" y="40" width="160" height="120" rx="60"/>
@@ -33,7 +33,7 @@ title: Krevní řečiště — vein biometrics
   <g fill="var(--accent)" text-anchor="start" font-size="10">
     <text x="240" y="80">deoxy-Hb absorb. NIR (760 nm)</text>
     <text x="240" y="100">→ veins appear DARK</text>
-    <text x="240" y="120">muscle + bones reflect NIR</text>
+    <text x="240" y="120">muscle + bones transmit NIR</text>
     <text x="240" y="140">→ background appears LIGHT</text>
   </g>
   <g stroke="rgb(255,200,0)" stroke-width="1" stroke-dasharray="2 2" fill="none">

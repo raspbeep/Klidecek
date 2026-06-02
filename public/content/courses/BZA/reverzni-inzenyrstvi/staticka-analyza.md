@@ -8,7 +8,7 @@ title: Statická analýza
 
 ## Workflow
 
-::: svg "Statická analýza workflow: binárka → disassembler → assembly → decompiler → pseudo-C → manuální analýza."
+::: svg "Statická analýza workflow: binárka → disassembler → assembly → decompiler → pseudo-C."
 <svg viewBox="0 0 540 200" font-family="ui-sans-serif, system-ui" font-size="11">
   <defs>
     <marker id="aSA1" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">

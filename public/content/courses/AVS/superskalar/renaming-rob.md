@@ -119,7 +119,7 @@ Pokud `i2` Execute vrátí *taken* (predikce selhala):
 
 Pokuta: ~10-20 taktů (hloubka pipeline + rollback). Recovery z ROB je rychlá, protože nikdy nedošlo k *commit* spekulativních instrukcí.
 
-::: viz rob-precise-exceptions "Zaškrtni 'mispredict i1' nebo 'page fault i2'. Sleduj ROB jak alokuje, čeká na commit, a squashne za událostí. Architectural state = jen retired."
+::: viz rob-precise-exceptions "Zaškrtni 'mispredict i1' nebo 'page fault i2'. Sleduj ROB jak alokuje, čeká na commit, a squashne za událostí. Architectural state = jen retired. (Pozn.: viz čísluje od i0 — i1 = branch, i2 = faulting load; v textu výše jsou to i2/i3.)"
 :::
 
 ## Precise exceptions

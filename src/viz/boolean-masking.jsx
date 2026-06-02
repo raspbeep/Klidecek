@@ -82,7 +82,7 @@ export default function BooleanMasking() {
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
-        d-th order masking je <b>provably secure</b> proti utocnikovi s d−1 probe; <b>d+1</b> probe ho zlomi.
+        d-th order masking je <b>provably secure</b> proti utocnikovi s d probe; <b>d+1</b> probe ho zlomi.
         Cena: AES s 1. radem ≈ 5× pomalejsi, s 2. radem ≈ 25× pomalejsi.
         Linearni operace (XOR, AddRoundKey) jsou snadne; nelinearni (S-box) vyzaduji <i>masked S-box</i> (tabulky × shares).
       </div>

@@ -1,5 +1,5 @@
-// superpipelining-depth — explore CPI vs pipeline depth with branch
-// misprediction cost; reveals the U-curve and Pentium 4 cautionary point.
+// superpipelining-depth — explore performance vs pipeline depth with branch
+// misprediction cost; reveals the performance peak and Pentium 4 cautionary point.
 import { useState } from "react";
 
 const W = 540, H = 280;
@@ -8,10 +8,11 @@ function compute(depth, mispred, branchFreq) {
   const idealCPI = 1;
   const stallsPerBranch = depth - 1;
   const effectiveCPI = idealCPI + branchFreq * mispred * stallsPerBranch;
-  const baseFreq = 1;
-  const freqGain = Math.sqrt(depth);
+  const tdRatio = 0.2; // podíl latch/režie na stupeň (t_d/t_1) — Hartstein–Puzak
+  const freqGain = depth / (1 + depth * tdRatio); // perioda hodin = t_1/depth + t_d → saturuje
   const ipc = 1 / effectiveCPI;
-  const perfRel = (ipc * freqGain) / (1 / (1 + 0 * 4) * Math.sqrt(5));
+  const base = 1 / (1 + tdRatio); // normalizace na d = 1
+  const perfRel = (ipc * freqGain) / base;
   return { effectiveCPI, freqGain, ipc, perfRel };
 }
 
@@ -25,7 +26,7 @@ const REF_POINTS = [
 
 export default function SuperpipeliningDepth() {
   const [depth, setDepth] = useState(14);
-  const [mispred, setMispred] = useState(0.05);
+  const [mispred, setMispred] = useState(0.08);
   const [branchFreq, setBranchFreq] = useState(0.2);
 
   const points = Array.from({ length: 32 }, (_, i) => {
@@ -93,7 +94,7 @@ export default function SuperpipeliningDepth() {
         <g fontSize="10" fill="var(--text)">
           <text x={padX} y={H - 30}>CPI = {cur.effectiveCPI.toFixed(2)} | freq gain ≈ {cur.freqGain.toFixed(2)}× | rel.výkon = {cur.perfRel.toFixed(2)}</text>
           <text x={padX} y={H - 14} fill="var(--text-faint)" fontSize="9">
-            U-křivka: hluboká pipeline zvyšuje frekvenci, ale stoupá náklad za mispredict ({(branchFreq * mispred * 100).toFixed(2)}% × hloubka).
+            Křivka s vrcholem: hloubka zvyšuje frekvenci (ale se sytí kvůli latch režii), zatímco stoupá náklad za mispredict ({(branchFreq * mispred * 100).toFixed(2)}% × hloubka).
           </text>
         </g>
       </svg>

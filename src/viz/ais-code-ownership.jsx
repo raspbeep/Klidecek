@@ -32,7 +32,7 @@ const MODELS = {
   collective: {
     label: "Kolektivní (CCO)",
     hue: 142,
-    note: "Kód patří celému týmu. Každý smí (a má) vylepšit jakoukoli část. Vyžaduje standardy, testy, CI a CCO.",
+    note: "Kód patří celému týmu. Každý smí (a má) vylepšit jakoukoli část. Vyžaduje standardy, testy, CI a párové programování.",
     edits: { A: ["M1", "M2", "M3"], B: ["M1", "M2", "M3"], C: ["M1", "M2", "M3"] },
     weak: {},
   },

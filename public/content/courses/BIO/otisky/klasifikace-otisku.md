@@ -33,9 +33,10 @@ Tři základní (a jejich kombinace) — **Galton class** (1892):
     <path d="M480,160 C470,140 460,130 455,128"/>
   </g>
   <g fill="var(--accent)" font-size="11" text-anchor="middle">
-    <circle cx="105" cy="80" r="3" fill="var(--accent)"/>
     <circle cx="280" cy="90" r="3" fill="var(--accent)"/>
-    <text x="295" y="100">δ</text>
+    <text x="298" y="86">core</text>
+    <circle cx="248" cy="135" r="3" fill="var(--accent)"/>
+    <text x="236" y="138">δ</text>
   </g>
   <g fill="var(--text)" font-size="12" text-anchor="middle">
     <text x="105" y="65">Arch (oblouk)</text>

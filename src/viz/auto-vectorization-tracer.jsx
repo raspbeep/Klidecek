@@ -39,17 +39,17 @@ const SNIPS = [
     id: "fcall",
     label: "(e) funkce uvnitř",
     src: "for (int i=0;i<N;i++)\n  c[i] = sqrtf(a[i]);",
-    ok: true,
-    reason: "intrinsic-friendly funkce — vektorizováno přes SVML",
-    asm: "vsqrtps ymm0, [a+i]\nvmovups [c+i], ymm0",
+    ok: false,
+    reason: "skalární call sqrtf (errno) — vektorizace jen s -fno-math-errno + libmvec (-mveclibabi)",
+    asm: "// gcc -O3 -mavx2: call sqrtf (skalární)\n// + libmvec/-ffast-math: vsqrtps ymm0,[a+i]",
   },
   {
     id: "reduce",
     label: "(f) redukce",
     src: "float s=0;\nfor (int i=0;i<N;i++) s+=a[i];",
-    ok: true,
-    reason: "horizontální add tree (potřeba -ffast-math pro float)",
-    asm: "vaddps ymm_acc, ymm_acc, [a+i]\n// pak vhaddps + vextract",
+    ok: false,
+    reason: "float reasociace zakázána → potřeba -ffast-math (pak horizontální add tree)",
+    asm: "// jen s -ffast-math:\nvaddps ymm_acc, ymm_acc, [a+i]\n// pak vhaddps + vextract",
   },
 ];
 

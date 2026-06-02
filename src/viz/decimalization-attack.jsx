@@ -35,7 +35,7 @@ export default function DecimalizationAttack() {
   const diagnostics = useMemo(() => {
     const out = [];
     for (let i = 0; i < 10; i++) {
-      const di = STANDARD_DT.split("").map((c, j) => (HEX_CHARS[j].toLowerCase() === STANDARD_DT[j] && parseInt(c, 10) === i) ? "1" : "0").join("");
+      const di = STANDARD_DT.split("").map((c) => (parseInt(c, 10) === i) ? "1" : "0").join("");
       const pin = applyDT(hex, di);
       out.push({ i, di, pin, contains: pin !== "0000" });
     }
@@ -112,7 +112,7 @@ export default function DecimalizationAttack() {
             </div>
           ))}
           <div style={{ marginTop: 6, color: "var(--accent)" }}>
-            Z teto tabulky odhali utocnik, jake digity jsou v PIN — pak max 4! = 24 permutaci na full recovery.
+            Z teto tabulky odhali utocnik, jake digity jsou v PIN (jen mnozinu, ne poradi/opakovani). Zbyva usporadat do 4 pozic: worst case 6⁴ = 1296 kandidatu (4! = 24 jen kdyz jsou vsechny 4 digity ruzne).
           </div>
         </div>
       </details>

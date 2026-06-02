@@ -91,11 +91,11 @@ Nejznámější design (Lim, Devadas, MIT 2004):
   <g stroke="var(--accent)" stroke-width="1.1" fill="none">
     <path d="M20,80 L50,80"/>
     <path d="M20,140 L50,140"/>
-    <path d="M110,80 L160,80"/><path d="M110,140 L160,80" stroke-dasharray="2 2"/>
-    <path d="M110,140 L160,140"/><path d="M110,80 L160,140" stroke-dasharray="2 2"/>
+    <path d="M110,80 L160,80" stroke-dasharray="2 2"/><path d="M110,140 L160,80"/>
+    <path d="M110,140 L160,140" stroke-dasharray="2 2"/><path d="M110,80 L160,140"/>
     <path d="M220,80 L270,80"/><path d="M220,140 L270,140"/>
-    <path d="M330,80 L380,80"/><path d="M330,140 L380,80" stroke-dasharray="2 2"/>
-    <path d="M330,140 L380,140"/><path d="M330,80 L380,140" stroke-dasharray="2 2"/>
+    <path d="M330,80 L380,80" stroke-dasharray="2 2"/><path d="M330,140 L380,80"/>
+    <path d="M330,140 L380,140" stroke-dasharray="2 2"/><path d="M330,80 L380,140"/>
     <path d="M440,80 L470,95" marker-end="url(#aPUF1)"/>
     <path d="M440,140 L470,125" marker-end="url(#aPUF1)"/>
     <path d="M530,110 L560,110" marker-end="url(#aPUF1)"/>

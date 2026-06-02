@@ -43,7 +43,7 @@ Test může selhat dvojím způsobem:
   <g>
     <line x1="40" y1="160" x2="500" y2="160" stroke="var(--line-strong)"/>
     <path d="M 40 160 Q 110 158 170 140 Q 200 35 230 140 Q 290 158 360 160" stroke="var(--accent)" stroke-width="2" fill="none"/>
-    <path d="M 200 35 Q 230 140 290 158 Q 320 160 360 160 L 360 160 L 290 160 L 200 160 Z" fill="var(--accent)" fill-opacity="0.15"/>
+    <path d="M 290 154 Q 320 160 360 160 L 360 160 L 290 160 Z" fill="var(--accent)" fill-opacity="0.15"/>
     <text x="200" y="25" text-anchor="middle" fill="var(--accent)">f(T | H₀)</text>
 
     <path d="M 200 160 Q 270 158 320 130 Q 360 30 400 130 Q 450 158 500 160" stroke="var(--accent-line)" stroke-width="2" fill="none"/>

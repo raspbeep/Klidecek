@@ -26,7 +26,7 @@ const QUERIES = {
     raw: ["bob", "liz"],
   },
   "dups-test": {
-    goal: "Y, parent(X, Y), Result",
+    goal: "Y, X^parent(X, Y), Result",
     raw: ["bob", "liz", "ann", "pat", "mary", "ann"],
   },
 };

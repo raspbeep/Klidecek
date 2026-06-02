@@ -41,10 +41,10 @@ const SCENARIOS = {
     ],
     legitimate: "Spravne se decrementuje counter pred overovani (write-then-verify pattern).",
     glitches: {
-      2: "Skip counter-- → counter se nikdy nesnizi, brute-force PIN do nekonecna.",
-      7: "Skip 'store counter' → counter v RAM, ale EEPROM nezapsana. Po reboot countera nepodporen.",
-      3: "Skip 'if entered==correct' → auth_ok zustane stary (z minulé iterace).",
-      5: "Skip 'auth_ok = 1' → auth nepride OK, ale dalsi krok muze byt prozradi mezistav.",
+      3: "Skip counter-- → counter se nikdy nesnizi, brute-force PIN do nekonecna.",
+      4: "Skip 'if entered==correct' → auth_ok zustane stary (z minulé iterace).",
+      6: "Skip 'auth_ok = 1' → auth nepride OK, ale dalsi krok muze byt prozradi mezistav.",
+      9: "Skip 'store counter' → counter v RAM, ale EEPROM nezapsana. Po reboot countera nepodporen.",
     },
   },
 };

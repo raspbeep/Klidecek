@@ -48,7 +48,7 @@ OoO CPU má *desítky* in-flight load/store. Klasické "1 load = 1 stall" nesta�
     <path d="M330,50 L360,50"/>
     <path d="M330,50 L460,50"/>
     <path d="M270,70 L270,100"/>
-    <path d="M455,135 L455,165"/>
+    <path d="M455,135 L455,150 L370,150 L370,165"/>
     <path d="M270,135 L270,165"/>
   </g>
 </svg>

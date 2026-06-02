@@ -40,9 +40,9 @@ Sapphire Rapids (2023): UPI 2.0, 16 GT/s, 64 GB/s.
 
 Dvou-socket: 2-3 UPI links full bandwidth.
 
-Čtyř-socket: 2 UPI per socket → form *ring* (4-node), nebo *mesh* (8-node).
+Čtyř-socket: *full mesh* (3 UPI per socket, Platinum) → každý socket 1 hop od ostatních; levnější SKU s 2 UPI per socket tvoří *ring* (2 hops pro protilehlé sockety). Pro 8-socket: hybrid mesh + routing.
 
-::: svg "Intel 4-socket UPI ring + mesh"
+::: svg "Intel 4-socket UPI full mesh"
 <svg viewBox="0 0 540 200" font-family="ui-sans-serif, system-ui" font-size="10">
   <g fill="var(--bg-inset)" stroke="var(--line)">
     <rect x="60" y="40" width="80" height="50" rx="4"/>

@@ -64,7 +64,7 @@ Zachycuje **nahraditelné fyzické části softwaru** (moduly, knihovny, služby
   <line x1="174" y1="75" x2="214" y2="75" stroke="var(--accent)" strokeWidth="1.6"/>
   <circle cx="222" cy="75" r="8" fill="var(--bg-inset)" stroke="var(--accent)" strokeWidth="1.6"/>
   <!-- zásuvka (požadované rozhraní) -->
-  <path d="M252 60 A 15 15 0 0 0 252 90" fill="none" stroke="var(--accent)" strokeWidth="1.6"/>
+  <path d="M252 60 A 15 15 0 0 1 252 90" fill="none" stroke="var(--accent)" strokeWidth="1.6"/>
   <line x1="252" y1="75" x2="286" y2="75" stroke="var(--accent)" strokeWidth="1.6"/>
   <!-- komponenta B: vyžaduje -->
   <rect x="286" y="44" width="150" height="62" rx="3" fill="var(--bg-inset)" stroke="var(--line-strong)"/>

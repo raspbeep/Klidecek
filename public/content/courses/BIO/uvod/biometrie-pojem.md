@@ -15,7 +15,7 @@ title: Pojem biometrie
 
 ## Klasifikace biometrik
 
-::: svg "Klasifikace biometrik: fyziologické (statické — anatomie) vs. behaviorální (dynamické — chování), překryv v multimodálních systémech."
+::: svg "Klasifikace biometrik: fyziologické (statické — anatomie) vs. behaviorální (dynamické — chování)."
 <svg viewBox="0 0 540 220" font-family="ui-sans-serif, system-ui" font-size="11">
   <g fill="var(--bg-card)" stroke="var(--accent)" stroke-width="1.3">
     <rect x="20" y="40" width="240" height="160" rx="8"/>

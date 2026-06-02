@@ -134,7 +134,7 @@ Použij `OMP_SCHEDULE` env var. Praktické pro tuning bez recompile.
   <g fill="var(--accent)" opacity="0.4">
     <rect x="20" y="30" width="40" height="22"/>
     <rect x="145" y="30" width="120" height="22"/>
-    <rect x="270" y="30" width="50" height="22"/>
+    <rect x="270" y="30" width="60" height="22"/>
     <rect x="395" y="30" width="80" height="22"/>
   </g>
   <text x="270" y="68" text-anchor="middle" fill="var(--text-muted)" font-size="9">work time: T1 = full, T0 = ⅓, T2 ≈ ½, T3 = ⅔ → wasted parallelism</text>

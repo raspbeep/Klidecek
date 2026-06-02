@@ -9,7 +9,7 @@ Vedle povrchových (otisky, [[geometrie-ruky|geometrie]]) a vnitřních ([[krevn
 ## Anatomie ruky — kosti
 
 ::: svg "Kostra ruky: phalanges (3 v každém prstu, 2 v palci), metacarpals (5 kostí dlaně), carpals (8 kostí zápěstí)."
-<svg viewBox="0 0 540 240" font-family="ui-sans-serif, system-ui" font-size="10">
+<svg viewBox="0 0 540 270" font-family="ui-sans-serif, system-ui" font-size="10">
   <g fill="rgba(255,255,220,0.7)" stroke="var(--accent)" stroke-width="1.3">
     <ellipse cx="180" cy="40" rx="8" ry="20"/>
     <ellipse cx="220" cy="30" rx="8" ry="22"/>
@@ -25,20 +25,35 @@ Vedle povrchových (otisky, [[geometrie-ruky|geometrie]]) a vnitřních ([[krevn
     <ellipse cx="260" cy="155" rx="9" ry="35"/>
     <ellipse cx="295" cy="160" rx="9" ry="30"/>
     <ellipse cx="160" cy="125" rx="10" ry="25"/>
-    <ellipse cx="220" cy="210" rx="40" ry="15"/>
+    <!-- metacarpals (5) -->
+    <ellipse cx="160" cy="205" rx="7" ry="20"/>
+    <ellipse cx="180" cy="208" rx="7" ry="22"/>
+    <ellipse cx="220" cy="205" rx="7" ry="24"/>
+    <ellipse cx="260" cy="208" rx="7" ry="22"/>
+    <ellipse cx="295" cy="210" rx="7" ry="20"/>
+    <!-- carpals (8) -->
+    <ellipse cx="195" cy="245" rx="6" ry="6"/>
+    <ellipse cx="212" cy="243" rx="6" ry="6"/>
+    <ellipse cx="229" cy="245" rx="6" ry="6"/>
+    <ellipse cx="246" cy="243" rx="6" ry="6"/>
+    <ellipse cx="200" cy="257" rx="6" ry="6"/>
+    <ellipse cx="217" cy="258" rx="6" ry="6"/>
+    <ellipse cx="234" cy="258" rx="6" ry="6"/>
+    <ellipse cx="251" cy="256" rx="6" ry="6"/>
   </g>
   <g fill="var(--text)" text-anchor="start" font-size="10">
     <text x="350" y="40">distal phalanx</text>
     <text x="350" y="90">middle phalanx</text>
     <text x="350" y="160">proximal phalanx</text>
     <text x="350" y="210">metacarpals</text>
-    <text x="350" y="230">carpals (zápěstí)</text>
+    <text x="350" y="250">carpals (zápěstí)</text>
   </g>
   <g stroke="var(--text-muted)" stroke-width="0.7" fill="none">
     <path d="M310,40 L345,40"/>
     <path d="M310,95 L345,90"/>
     <path d="M310,155 L345,155"/>
-    <path d="M270,210 L345,210"/>
+    <path d="M305,205 L345,210"/>
+    <path d="M260,250 L345,250"/>
   </g>
 </svg>
 :::

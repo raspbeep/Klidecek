@@ -108,7 +108,7 @@ Family of *angular margin* losses. Best modern face recognition.
 
 ArcFace explicitly enforces *angular separation* between classes — clean geometric interpretation. **99.83 %** on LFW.
 
-::: viz arcface-margin "2D angular embedding s class centers; posuňte margin m a scale s, sledujte rozhodovací hranice."
+::: viz arcface-margin "2D angular embedding: šedé čáry jsou pevné hranice mezi centry tříd; posuňte margin m (ArcFace) a sledujte barevný čárkovaný margin oblouk a logity v tabulce."
 :::
 
 ## Standardní benchmarks

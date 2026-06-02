@@ -19,10 +19,15 @@ import { VerifiedBadge } from "./framework/pages.jsx";
 // Import viz registry side-effects — every component self-registers
 import "./viz/index.js";
 
-/* ─── Hash router ─────────────────────────────────────────── */
-function parseHash(hash) {
-  const raw = (hash || "").replace(/^#/, "").replace(/^\/+/, "");
-  const parts = raw.split("/").filter(Boolean);
+/* ─── Router (clean paths via the History API) ─────────────────
+ * Served under BASE_URL ("/" locally, "/<repo>/" on GitHub Pages). Hard loads of
+ * deep links work because the build also emits 404.html (a copy of index.html) —
+ * see vite.config.js. Legacy "#/..." links are still parsed and get rewritten to
+ * a clean path on load, so old shared/bookmarked URLs keep working. */
+const BASE = import.meta.env.BASE_URL || "/";
+
+function parseRoute(raw) {
+  const parts = (raw || "").replace(/^\/+/, "").split("/").filter(Boolean);
   if (parts.length === 0) return { mode: "home" };
   const [head, ...rest] = parts;
   if (head === "c") {
@@ -46,21 +51,49 @@ function parseHash(hash) {
   return { mode: "home" };
 }
 
-function useHashRoute() {
-  const [route, setRoute] = useState(() => parseHash(location.hash));
+// Route string for the current URL: a legacy "#/..." hash wins (old links),
+// otherwise the pathname with the base prefix stripped.
+function currentRouteRaw() {
+  if (location.hash && location.hash.length > 1) return location.hash.replace(/^#/, "");
+  let p = location.pathname || "/";
+  if (BASE !== "/" && p.startsWith(BASE)) p = p.slice(BASE.length);
+  else if (BASE !== "/" && p === BASE.replace(/\/$/, "")) p = "";
+  return p;
+}
+
+// "/c/AVS" -> "<BASE>c/AVS"
+function toUrl(path) {
+  return BASE + String(path).replace(/^\/+/, "");
+}
+
+function useRoute() {
+  const [route, setRoute] = useState(() => parseRoute(currentRouteRaw()));
   useEffect(() => {
-    const onChange = () => setRoute(parseHash(location.hash));
-    window.addEventListener("hashchange", onChange);
-    return () => window.removeEventListener("hashchange", onChange);
+    const sync = () => {
+      // Adopt a legacy "#/…" URL (a fresh load of an old bookmark, or an in-app
+      // hashchange) and rewrite it to the clean path so the redundant "#" doesn't
+      // linger. Keep any query string (e.g. the audit's ?eager=1).
+      if (location.hash && location.hash.length > 1) {
+        const raw = location.hash.replace(/^#/, "");
+        history.replaceState(null, "", toUrl(raw) + location.search);
+        setRoute(parseRoute(raw));
+        return;
+      }
+      setRoute(parseRoute(currentRouteRaw()));
+    };
+    sync(); // normalize the URL on first load
+    window.addEventListener("popstate", sync);    // back / forward
+    window.addEventListener("hashchange", sync);  // legacy hash links
+    return () => {
+      window.removeEventListener("popstate", sync);
+      window.removeEventListener("hashchange", sync);
+    };
   }, []);
   const navigate = useCallback((path, opts = {}) => {
-    const newHash = "#" + (path.startsWith("/") ? path : "/" + path);
-    if (opts.replace) {
-      history.replaceState(null, "", newHash);
-      setRoute(parseHash(newHash));
-    } else {
-      location.hash = newHash;
-    }
+    const url = toUrl(path);
+    if (opts.replace) history.replaceState(null, "", url);
+    else history.pushState(null, "", url);
+    setRoute(parseRoute(String(path)));
   }, []);
   return { route, navigate };
 }
@@ -403,7 +436,7 @@ const TWEAK_DEFAULTS = {
 export function App() {
   const [content, setContent] = useState(null);
   const [bootError, setBootError] = useState(null);
-  const { route, navigate } = useHashRoute();
+  const { route, navigate } = useRoute();
   const [showProgress, setShowProgress] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showSearch, setShowSearch] = useState(false);

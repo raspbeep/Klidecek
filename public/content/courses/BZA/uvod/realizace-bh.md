@@ -42,7 +42,7 @@ Konstrukčně se BH realizuje ve třech fyzických formách, lišících se rozs
     <text x="270" y="180" font-size="10" fill="var(--text-muted)">PCI HSM karta</text>
     <text x="270" y="194" font-size="10" fill="var(--text-muted)">crypto-procesor</text>
     <text x="445" y="32" font-size="11.5">Multi-chip standalone</text>
-    <text x="445" y="200" font-size="10" fill="var(--text-muted)">síťové HSM, payment HSM</text>
+    <text x="445" y="194" font-size="10" fill="var(--text-muted)">síťové HSM, payment HSM</text>
   </g>
   <g fill="var(--text-muted)" text-anchor="middle" font-size="9.5">
     <text x="270" y="93">CPU</text>

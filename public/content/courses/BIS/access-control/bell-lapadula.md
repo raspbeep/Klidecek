@@ -44,30 +44,28 @@ Formally: `L1 dom L2 ↔ L1 ≽ L2` in lattice.
     <circle cx="270" cy="40" r="22"/>
     <circle cx="170" cy="100" r="22"/>
     <circle cx="370" cy="100" r="22"/>
-    <circle cx="70" cy="160" r="22"/>
+    <circle cx="70" cy="130" r="22"/>
     <circle cx="270" cy="160" r="22"/>
-    <circle cx="470" cy="160" r="22"/>
+    <circle cx="470" cy="130" r="22"/>
     <circle cx="270" cy="220" r="22"/>
   </g>
   <g fill="var(--text)" text-anchor="middle" font-size="9">
     <text x="270" y="44">TS,{N,C}</text>
     <text x="170" y="104">TS,{N}</text>
     <text x="370" y="104">TS,{C}</text>
-    <text x="70" y="164">S,{N}</text>
+    <text x="70" y="134">S,{N}</text>
     <text x="270" y="164">S,{}</text>
-    <text x="470" y="164">S,{C}</text>
+    <text x="470" y="134">S,{C}</text>
     <text x="270" y="224">U,{}</text>
   </g>
   <g stroke="var(--text)" fill="none" stroke-width="0.8">
     <line x1="270" y1="62" x2="170" y2="100"/>
     <line x1="270" y1="62" x2="370" y2="100"/>
-    <line x1="170" y1="122" x2="70" y2="160"/>
-    <line x1="170" y1="122" x2="270" y2="160"/>
-    <line x1="370" y1="122" x2="270" y2="160"/>
-    <line x1="370" y1="122" x2="470" y2="160"/>
-    <line x1="70" y1="182" x2="270" y2="220"/>
+    <line x1="170" y1="122" x2="70" y2="130"/>
+    <line x1="370" y1="122" x2="470" y2="130"/>
+    <line x1="70" y1="152" x2="270" y2="160"/>
+    <line x1="470" y1="152" x2="270" y2="160"/>
     <line x1="270" y1="182" x2="270" y2="220"/>
-    <line x1="470" y1="182" x2="270" y2="220"/>
   </g>
   <text x="270" y="15" text-anchor="middle" fill="var(--text-faint)" font-size="9">TS = Top Secret, S = Secret, U = Unclassified; N = NUCLEAR, C = CRYPTO</text>
 </svg>
@@ -113,19 +111,19 @@ TS subject can write TS, *not* S, C, U.
   <g stroke="var(--accent)" stroke-width="1.5" fill="none">
     <path d="M250,60 L130,40" marker-end="url(#bx-ar)"/>
   </g>
-  <text x="155" y="30" fill="var(--accent-line)" font-size="10" font-weight="600">✗ read up</text>
+  <text x="148" y="30" fill="var(--accent-line)" font-size="9.5" font-weight="600">✗ read up (write up ✓)</text>
   <g stroke="var(--accent)" stroke-width="1.5" fill="none">
     <path d="M250,80 L130,80" marker-end="url(#bx-ar)"/>
   </g>
-  <text x="155" y="78" fill="var(--text)" font-size="10">read same</text>
+  <text x="152" y="78" fill="var(--text)" font-size="10">R+W ✓</text>
   <g stroke="var(--accent)" stroke-width="1.5" fill="none">
     <path d="M250,100 L130,120" marker-end="url(#bx-ar)"/>
   </g>
-  <text x="155" y="115" fill="var(--text)" font-size="10">read down ✓</text>
+  <text x="148" y="120" fill="var(--text)" font-size="9.5">read down ✓ (write down ✗)</text>
   <g stroke="var(--accent-line)" stroke-width="1.5" fill="none">
     <path d="M250,110 L130,160" marker-end="url(#bx-ar)"/>
   </g>
-  <text x="160" y="155" fill="var(--accent-line)" font-size="10" font-weight="600">✗ write down</text>
+  <text x="150" y="155" fill="var(--accent-line)" font-size="9.5" font-weight="600">✗ write down (read down ✓)</text>
   <text x="380" y="100" text-anchor="middle" fill="var(--text-faint)" font-size="9">Secret subject:</text>
   <text x="380" y="115" text-anchor="middle" fill="var(--text-faint)" font-size="9">• read Secret + Confidential + Unclassified ✓</text>
   <text x="380" y="130" text-anchor="middle" fill="var(--text-faint)" font-size="9">• write Secret + Top Secret ✓</text>

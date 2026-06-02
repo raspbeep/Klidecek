@@ -19,11 +19,11 @@ const PHISHING_EMAIL = {
     "Account Protection Team",
   ],
   indicators: [
-    { id: "domain",  x: 100, y: 36,  w: 280, label: "spoofed domain", note: "paypaI ≠ paypal — capital I masquerades as lowercase l" },
-    { id: "urgent",  x: 20,  y: 56,  w: 470, label: "false urgency",  note: "'24 hours' creates panic to bypass critical thinking" },
-    { id: "generic", x: 20,  y: 90,  w: 130, label: "generic greeting", note: "real services use your name" },
-    { id: "url",     x: 70,  y: 160, w: 300, label: "lookalike URL",  note: "verifypaypal-account.com is attacker-controlled, not paypal.com" },
-    { id: "consequence", x: 20, y: 195, w: 400, label: "threat consequence", note: "'account closure' pressures compliance" },
+    { id: "domain",  x: 100, y: 19,  w: 280, label: "spoofed domain", note: "paypaI ≠ paypal — capital I masquerades as lowercase l" },
+    { id: "urgent",  x: 20,  y: 37,  w: 470, label: "false urgency",  note: "'24 hours' creates panic to bypass critical thinking" },
+    { id: "generic", x: 20,  y: 69,  w: 130, label: "generic greeting", note: "real services use your name" },
+    { id: "url",     x: 70,  y: 134, w: 300, label: "lookalike URL",  note: "verifypaypal-account.com is attacker-controlled, not paypal.com" },
+    { id: "consequence", x: 20, y: 160, w: 400, label: "threat consequence", note: "'account closure' pressures compliance" },
   ],
 };
 

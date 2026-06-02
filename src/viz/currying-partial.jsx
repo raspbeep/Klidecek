@@ -67,7 +67,7 @@ export default function CurryingPartial() {
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
         <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 4 }}>aktuální typ:</div>
         <code style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--accent)" }}>{cur.expr} :: {cur.type}</code>
-        <div style={{ fontSize: 11, color: "var(--text-muted)", marginTop: 6 }}>hodnota: <code style={{ fontFamily: "var(--font-mono)", color: cur.val.startsWith("&lt;") ? "var(--text-muted)" : "rgb(64,192,87)" }}>{cur.val}</code></div>
+        <div style={{ fontSize: 11, color: "var(--text-muted)", marginTop: 6 }}>hodnota: <code style={{ fontFamily: "var(--font-mono)", color: cur.val.startsWith("<") ? "var(--text-muted)" : "rgb(64,192,87)" }}>{cur.val}</code></div>
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>

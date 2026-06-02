@@ -91,7 +91,7 @@ Pro non-stride patterny (linked list traversal, hash table). Pamatuje *sekvence*
 
 Drahé na HW; jen některé CPU (IBM POWER, Apple M1).
 
-::: viz stride-prefetcher-trace "Vyber stream pattern (stride 1 / 32 / random / mixed). Detektor přijme stride po 2 stejných deltách; sleduj, jak miss rate klesá se zapnutým prefetcherem."
+::: viz stride-prefetcher-trace "Vyber stream pattern (stride 1 / 8 / 32 / random / mixed). Detektor přijme stride po 2 stejných deltách; sleduj, jak miss rate klesá se zapnutým prefetcherem."
 :::
 
 ## Apple M1 prefetcher

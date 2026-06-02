@@ -172,7 +172,8 @@ Pojmenovaný podle [knihy Sybil (1973)](https://en.wikipedia.org/wiki/Sybil_(Sch
   <g stroke="var(--text-muted)" stroke-width="1" fill="none" stroke-dasharray="3 3">
     <path d="M80,110 L198,110"/>
     <path d="M342,110 L460,110"/>
-    <path d="M160,60 L382,60"/>
+    <path d="M154,74 L206,98"/>
+    <path d="M386,74 L334,98"/>
   </g>
   <text x="270" y="138" font-size="10" text-anchor="middle" fill="var(--danger, #d33)">vysokorychlostní tunel</text>
 </svg>

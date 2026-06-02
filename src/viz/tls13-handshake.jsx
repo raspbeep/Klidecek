@@ -45,7 +45,7 @@ const STEPS = [
     encrypted: true,
   },
   {
-    label: "7. Client Finished + 0-RTT data",
+    label: "7. Client Finished + Application data (1-RTT)",
     from: "C", to: "S",
     payload: "Finished + ApplicationData {\n  AEAD encrypted under application_traffic_secret\n}",
     note: "Klient pošle své Finished — ihned může poslat application data ve stejné zprávě (1-RTT). Forward secrecy: sk_C/sk_S se zničí po sessionu.",

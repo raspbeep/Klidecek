@@ -2,7 +2,8 @@
 import { useState } from "react";
 
 const STAGES = ["IF", "ID", "EX", "MA", "WB"];
-const STAGE_COLORS = ["#5b8def", "#7c5bef", "#ef5b8d", "#ef8d5b", "#5befef"];
+// WB uses a deeper teal (not a pale cyan) so the white label keeps enough contrast.
+const STAGE_COLORS = ["#5b8def", "#7c5bef", "#ef5b8d", "#ef8d5b", "#1a8f9e"];
 
 const PROGRAMS = {
   noHazards: {
@@ -36,49 +37,34 @@ const PROGRAMS = {
 
 function simulate(insts, forwarding) {
   const schedule = [];
-  const completion = []; // when each instruction finishes WB
   for (let i = 0; i < insts.length; i++) {
     const inst = insts[i];
-    let startIF;
-    if (i === 0) startIF = 0;
-    else startIF = schedule[i - 1].IF + 1;
-    let startID = startIF + 1;
-    let startEX = startID + 1;
+    const prev = i > 0 ? schedule[i - 1] : null;
 
-    // Hazard detection: scan previous instructions for RAW
+    // Structural constraints of an in-order pipe: one unit per stage, so a
+    // younger instruction can never share a stage with an older one. Fetch when
+    // the predecessor leaves IF (enters ID); decode after our own fetch AND
+    // after the predecessor vacates ID (which happens when it enters EX);
+    // execute after our own decode AND after the predecessor vacates EX.
+    const IF = prev ? prev.ID : 0;
+    const ID = Math.max(IF + 1, prev ? prev.EX : 0);
+    let EX = Math.max(ID + 1, prev ? prev.EX + 1 : 0);
+
+    // Data hazard (RAW): hold in ID until every source operand is ready. Take
+    // the latest over all producers — the closest is usually the binding one,
+    // but scanning all is robust if the programs grow.
     for (let j = i - 1; j >= 0; j--) {
-      const prev = insts[j];
-      if (prev.dst && inst.src.includes(prev.dst)) {
-        // Need value from prev at start of EX
-        let availableAt;
-        if (prev.type === "load") {
-          // load produces value at end of MA
-          availableAt = schedule[j].MA + 1;
-        } else if (forwarding) {
-          // alu: EX→EX bypass, value ready at end of EX
-          availableAt = schedule[j].EX + 1;
-        } else {
-          // no forwarding: must wait for WB
-          availableAt = schedule[j].WB + 1;
-        }
-        if (availableAt > startEX) {
-          // stall: delay EX
-          const delay = availableAt - startEX;
-          startEX += delay;
-          startID += delay;
-        }
-        break; // closest dependency dominates
+      const p = insts[j];
+      if (p.dst && inst.src.includes(p.dst)) {
+        let ready;
+        if (p.type === "load") ready = schedule[j].MA + 1; // load value ready end of MA
+        else if (forwarding) ready = schedule[j].EX + 1; // ALU result forwarded end of EX
+        else ready = schedule[j].WB + 1; // no forwarding: wait for write-back
+        if (ready > EX) EX = ready;
       }
     }
 
-    schedule.push({
-      IF: startIF,
-      ID: startID,
-      EX: startEX,
-      MA: startEX + 1,
-      WB: startEX + 2,
-    });
-    completion.push(startEX + 2);
+    schedule.push({ IF, ID, EX, MA: EX + 1, WB: EX + 2 });
   }
   return schedule;
 }
@@ -96,7 +82,14 @@ export default function PipelineHazards() {
   const W = LABEL_W + maxCycle * CELL + 20;
   const H = prog.insts.length * ROW + 60;
 
-  const cpi = (schedule[schedule.length - 1].WB + 1) / prog.insts.length;
+  const n = prog.insts.length;
+  const totalCycles = schedule[schedule.length - 1].WB + 1;
+  // An ideal (stall-free) 5-stage run of n instructions takes n + 4 cycles
+  // (first WB at cycle 4, then one per cycle). Everything above that is stalls.
+  const stalls = totalCycles - (n + 4);
+  // Pipeline CPI = base CPI (1) + stall cycles per instruction. Steady-state
+  // metric, so "no conflicts" reads as 1.00 regardless of the short sample.
+  const cpi = 1 + stalls / n;
 
   return (
     <div style={{ width: "100%" }}>
@@ -127,7 +120,7 @@ export default function PipelineHazards() {
           Forwarding (bypass)
         </label>
         <span style={{ color: "var(--text-muted)", fontSize: 12 }}>
-          CPI = {cpi.toFixed(2)} (ideál: 1.00)
+          Stall cykly: {stalls} · CPI = {cpi.toFixed(2)} (ideál: 1.00)
         </span>
       </div>
 
@@ -180,39 +173,40 @@ export default function PipelineHazards() {
               >
                 {inst.txt}
               </text>
+              {/* Stall bubbles: every cycle the instruction is held between IF
+                  and EX — waiting in IF behind an older stall, or in ID for an
+                  operand. ID itself is a real stage, so skip it. */}
+              {Array.from({ length: Math.max(0, s.EX - s.IF - 1) }).map((_, k) => {
+                const c = s.IF + 1 + k;
+                if (c === s.ID) return null;
+                return (
+                  <g key={"bubble" + c}>
+                    <rect
+                      x={LABEL_W + c * CELL + 2}
+                      y={25 + i * ROW + 3}
+                      width={CELL - 4}
+                      height={ROW - 6}
+                      fill="var(--bg-inset)"
+                      stroke="var(--text-faint)"
+                      strokeDasharray="2 2"
+                      rx="2"
+                    />
+                    <text
+                      x={LABEL_W + c * CELL + CELL / 2}
+                      y={25 + i * ROW + ROW / 2 + 4}
+                      textAnchor="middle"
+                      fontSize="10"
+                      fill="var(--text-faint)"
+                    >
+                      —
+                    </text>
+                  </g>
+                );
+              })}
               {STAGES.map((stage, si) => {
                 const cyc = s[stage];
-                const stallBefore = stage === "EX" ? s.EX - s.ID - 1 : 0;
                 return (
                   <g key={stage}>
-                    {/* Stall cells before EX */}
-                    {stage === "EX" &&
-                      Array.from({ length: stallBefore }).map((_, k) => (
-                        <rect
-                          key={k}
-                          x={LABEL_W + (s.ID + 1 + k) * CELL + 2}
-                          y={25 + i * ROW + 3}
-                          width={CELL - 4}
-                          height={ROW - 6}
-                          fill="var(--bg-inset)"
-                          stroke="var(--text-faint)"
-                          strokeDasharray="2 2"
-                          rx="2"
-                        />
-                      ))}
-                    {stage === "EX" &&
-                      Array.from({ length: stallBefore }).map((_, k) => (
-                        <text
-                          key={"t" + k}
-                          x={LABEL_W + (s.ID + 1 + k) * CELL + CELL / 2}
-                          y={25 + i * ROW + ROW / 2 + 4}
-                          textAnchor="middle"
-                          fontSize="10"
-                          fill="var(--text-faint)"
-                        >
-                          —
-                        </text>
-                      ))}
                     <rect
                       x={LABEL_W + cyc * CELL + 2}
                       y={25 + i * ROW + 3}

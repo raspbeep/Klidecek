@@ -99,10 +99,10 @@ Establishment of session keys after authentication.
     <text x="470" y="55">AP</text>
   </g>
   <g stroke="var(--accent)" stroke-width="1.2" fill="none">
-    <path d="M100,85 L430,85" marker-end="url(#wpa-ar)"/>
-    <path d="M430,110 L100,110" marker-end="url(#wpa-ar)"/>
-    <path d="M100,135 L430,135" marker-end="url(#wpa-ar)"/>
-    <path d="M430,160 L100,160" marker-end="url(#wpa-ar)"/>
+    <path d="M430,85 L100,85" marker-end="url(#wpa-ar)"/>
+    <path d="M100,110 L430,110" marker-end="url(#wpa-ar)"/>
+    <path d="M430,135 L100,135" marker-end="url(#wpa-ar)"/>
+    <path d="M100,160 L430,160" marker-end="url(#wpa-ar)"/>
   </g>
   <g fill="var(--text)" font-size="9" text-anchor="middle">
     <text x="265" y="80">Msg 1: AP's nonce (ANonce)</text>

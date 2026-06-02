@@ -71,9 +71,9 @@ V podstatě pokročilý **vývojový diagram** — modeluje kroky algoritmu, bus
 
 Modeluje **životní cyklus jednoho reaktivního objektu** — jeho stavy od vzniku po zánik a **přechody** mezi nimi vyvolané přesně definovanými **událostmi**. Přechod má syntaxi `událost [stráž] / akce`. Počáteční pseudo-stav je plný kroužek `●`, koncový stav `◉`.
 
-Vyzkoušejte si to na turniketu: zkuste vyvolat událost, která v daném stavu *nemá* přechod — FSM ji ignoruje:
+Vyzkoušejte si to na turniketu: zkuste vyvolat událost, která v daném stavu *nezmění stav* — FSM ji efektivně ignoruje (přechod sám do sebe):
 
-::: viz ais-state-machine "Vyvolej událost coin/push. Událost bez přechodu v aktuálním stavu se ignoruje."
+::: viz ais-state-machine "Vyvolej událost coin/push. Událost, která v aktuálním stavu nezmění stav (přechod sám do sebe), se efektivně ignoruje."
 :::
 
 Rozdíl od diagramu aktivit, na který se examinátoři ptají: stavový diagram je **řízen událostmi** (event-driven, popisuje *jeden* objekt), zatímco diagram aktivit je **řízen dokončením** kroku (popisuje *tok* napříč objekty/procesy).

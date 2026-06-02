@@ -99,8 +99,8 @@ Pro libovolný obličej $\mathbf{x}$:
 <svg viewBox="0 0 540 220" font-family="ui-sans-serif, system-ui" font-size="10">
   <g fill="rgba(150, 150, 200, 0.5)" stroke="var(--accent)" stroke-width="1">
     <ellipse cx="80" cy="100" rx="40" ry="55"/>
-    <ellipse cx="80" cy="80" rx="6" ry="3" fill="var(--accent)"/>
-    <ellipse cx="80" cy="80" rx="6" ry="3" fill="var(--accent)" transform="translate(15 0)"/>
+    <ellipse cx="72" cy="80" rx="6" ry="3" fill="var(--accent)"/>
+    <ellipse cx="72" cy="80" rx="6" ry="3" fill="var(--accent)" transform="translate(16 0)"/>
   </g>
   <text x="80" y="180" text-anchor="middle" fill="var(--text)">průměrný obličej</text>
   <g fill="rgba(100, 100, 200, 0.5)" stroke="var(--accent)" stroke-width="1">

@@ -43,8 +43,8 @@ Pro hodnocení RNG se testuje **mnoho** nezávislých sekvencí (typicky 1000 se
     <rect x="280" y="30" width="240" height="220" rx="6"/>
   </g>
   <g fill="var(--text)" text-anchor="middle">
-    <text x="140" y="50" font-size="12">Bitové statistiky (frekvenční)</text>
-    <text x="400" y="50" font-size="12">Strukturální statistiky</text>
+    <text x="140" y="50" font-size="12">Testy 1–8</text>
+    <text x="400" y="50" font-size="12">Testy 9–15</text>
   </g>
   <g fill="var(--text)" text-anchor="start" font-size="10.5">
     <text x="32"  y="78">1. Frequency (monobit)</text>
@@ -64,10 +64,10 @@ Pro hodnocení RNG se testuje **mnoho** nezávislých sekvencí (typicky 1000 se
     <text x="292" y="186">15. Random Excursions Variant</text>
   </g>
   <g fill="var(--text-muted)" text-anchor="start" font-size="9.5">
-    <text x="32"  y="225">→ podíl 1/0, periodicita,</text>
-    <text x="32"  y="240">  základní rovnoměrnost</text>
-    <text x="292" y="225">→ kompresibilita, struktura,</text>
-    <text x="292" y="240">  random walks</text>
+    <text x="32"  y="225">→ číslování dle</text>
+    <text x="32"  y="240">  SP 800-22</text>
+    <text x="292" y="225">→ rodiny (frekvenční /</text>
+    <text x="292" y="240">  strukturální) viz níže</text>
   </g>
 </svg>
 :::
@@ -91,7 +91,7 @@ Pro hodnocení RNG se testuje **mnoho** nezávislých sekvencí (typicky 1000 se
 * **Approximate Entropy Test** — Shannon entropie nad $m$-bit a $(m+1)$-bit okny; porovnává.
 * **Random Excursions / Variant** — modeluje sekvenci jako random walk a počítá návštěvy konkrétních stavů. Detekuje strukturu *trajektorií*.
 
-::: viz nist-test-playground "Vyber generator (uniform / vychyleny / LCG / periodicky / AES-like) a sleduj, ktere testy projdou. LCG selze na strukturalnich testech; vychyleny generator na monobit; periodicky na runs/longest-run."
+::: viz nist-test-playground "Vyber generator (uniform / vychyleny / LCG / periodicky / AES-like) a sleduj, ktere testy projdou. LCG (nizky bit) selze na runs/longest-run kvuli periodicite; vychyleny generator na monobit; periodicky na runs/longest-run."
 :::
 
 ## Praktické použití

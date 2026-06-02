@@ -86,36 +86,42 @@ Hluboká pipeline (Pentium 4: 31 stupňů, Intel Skylake: 14-19) má pokutu mnoh
   <text x="230" y="93" text-anchor="middle" fill="white" font-size="9" font-weight="600">cíl skoku</text>
   <text x="200" y="105" fill="var(--accent)" font-size="9" font-weight="600">pokuta = 3 takty (kill IF, ID, EX-slot)</text>
   <g fill="var(--bg-inset)" stroke="var(--line)">
-    <rect x="20" y="135" width="32" height="22" rx="2"/>
-    <rect x="55" y="135" width="32" height="22" rx="2"/>
-    <rect x="90" y="135" width="32" height="22" rx="2"/>
-    <rect x="125" y="135" width="32" height="22" rx="2"/>
-    <rect x="160" y="135" width="32" height="22" rx="2"/>
-    <rect x="195" y="135" width="32" height="22" rx="2"/>
-    <rect x="230" y="135" width="32" height="22" rx="2"/>
-    <rect x="265" y="135" width="32" height="22" rx="2"/>
-    <rect x="300" y="135" width="32" height="22" rx="2"/>
-    <rect x="335" y="135" width="32" height="22" rx="2"/>
-    <rect x="370" y="135" width="32" height="22" rx="2"/>
-    <rect x="405" y="135" width="32" height="22" rx="2"/>
+    <rect x="20" y="135" width="28" height="22" rx="2"/>
+    <rect x="51" y="135" width="28" height="22" rx="2"/>
+    <rect x="82" y="135" width="28" height="22" rx="2"/>
+    <rect x="113" y="135" width="28" height="22" rx="2"/>
+    <rect x="144" y="135" width="28" height="22" rx="2"/>
+    <rect x="175" y="135" width="28" height="22" rx="2"/>
+    <rect x="206" y="135" width="28" height="22" rx="2"/>
+    <rect x="237" y="135" width="28" height="22" rx="2"/>
+    <rect x="268" y="135" width="28" height="22" rx="2"/>
+    <rect x="299" y="135" width="28" height="22" rx="2"/>
+    <rect x="330" y="135" width="28" height="22" rx="2"/>
+    <rect x="361" y="135" width="28" height="22" rx="2"/>
+    <rect x="392" y="135" width="28" height="22" rx="2"/>
+    <rect x="423" y="135" width="28" height="22" rx="2"/>
+    <rect x="454" y="135" width="28" height="22" rx="2"/>
   </g>
   <g fill="var(--text-faint)" text-anchor="middle" font-size="9">
-    <text x="36" y="149">IF</text>
-    <text x="71" y="149">IF</text>
-    <text x="106" y="149">ID</text>
-    <text x="141" y="149">ID</text>
-    <text x="176" y="149">ren</text>
-    <text x="211" y="149">disp</text>
-    <text x="246" y="149">RS</text>
-    <text x="281" y="149">EX</text>
-    <text x="316" y="149">EX</text>
-    <text x="351" y="149">MA</text>
-    <text x="386" y="149">ROB</text>
-    <text x="421" y="149">WB</text>
+    <text x="34" y="149">IF</text>
+    <text x="65" y="149">IF</text>
+    <text x="96" y="149">ID</text>
+    <text x="127" y="149">ID</text>
+    <text x="158" y="149">ren</text>
+    <text x="189" y="149">disp</text>
+    <text x="220" y="149">RS</text>
+    <text x="251" y="149">RS</text>
+    <text x="282" y="149">EX</text>
+    <text x="313" y="149">EX</text>
+    <text x="344" y="149">EX</text>
+    <text x="375" y="149">MA</text>
+    <text x="406" y="149">MA</text>
+    <text x="437" y="149">ROB</text>
+    <text x="468" y="149">WB</text>
   </g>
-  <rect x="265" y="162" width="32" height="14" fill="var(--accent)" opacity="0.6"/>
-  <text x="281" y="173" text-anchor="middle" fill="white" font-size="9">cíl</text>
-  <text x="200" y="190" fill="var(--accent)" font-size="9" font-weight="600">pokuta až 12-19 taktů → nutná spekulace</text>
+  <rect x="361" y="162" width="28" height="14" fill="var(--accent)" opacity="0.6"/>
+  <text x="375" y="173" text-anchor="middle" fill="white" font-size="9">cíl</text>
+  <text x="200" y="190" fill="var(--accent)" font-size="9" font-weight="600">pokuta ~12 taktů → nutná spekulace</text>
 </svg>
 :::
 

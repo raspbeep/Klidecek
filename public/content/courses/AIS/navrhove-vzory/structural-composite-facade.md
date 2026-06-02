@@ -36,7 +36,7 @@ Trojice rolí:
   <line x1="115" y1="120" x2="200" y2="54" stroke="oklch(0.62 0.14 142)" stroke-width="1.2" marker-end="url(#cmp-tri)"/>
   <line x1="345" y1="120" x2="260" y2="54" stroke="oklch(0.62 0.14 142)" stroke-width="1.2" marker-end="url(#cmp-tri2)"/>
   <!-- aggregation diamond from Folder back to Component -->
-  <line x1="345" y1="120" x2="300" y2="48" stroke="oklch(0.62 0.14 22)" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#cmp-dia)"/>
+  <line x1="300" y1="48" x2="345" y2="120" stroke="oklch(0.62 0.14 22)" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#cmp-dia)"/>
   <text x="360" y="92" font-size="10" fill="var(--text-muted)" font-style="italic">0..* dětí</text>
   <defs>
     <marker id="cmp-tri" viewBox="0 0 12 12" refX="6" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="var(--bg-inset)" stroke="oklch(0.62 0.14 142)"/></marker>

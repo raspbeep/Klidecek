@@ -37,8 +37,8 @@ Tři základní cíle bezpečnosti IS:
     <text x="200" y="115">přístupová práva</text>
     <text x="320" y="100">hash, MAC</text>
     <text x="320" y="115">digital signatures</text>
-    <text x="200" y="160">redundance</text>
-    <text x="320" y="160">DoS ochrana</text>
+    <text x="150" y="150">redundance</text>
+    <text x="150" y="162">DoS ochrana</text>
   </g>
 </svg>
 :::

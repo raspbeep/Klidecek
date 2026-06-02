@@ -47,7 +47,9 @@ function simulate(stream, enabled) {
     touch(line);
     let prefLine = null;
     if (enabled) {
-      // Use "PC" = i % 2 to simulate two streams in mixed
+      // PC = i % 2 always splits the stream into two interleaved detector
+      // entries (models the 2-stream "mixed" case; harmless for single-stride
+      // streams, where both entries converge to the same stride).
       const pc = i % 2;
       const d = detector.get(pc) || { lastLine: line, stride: 0, conf: 0 };
       const newStride = line - d.lastLine;

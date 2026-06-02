@@ -1,900 +1,400 @@
-// src/viz/index.js — viz registry barrel.
+// src/viz/index.js — viz registry barrel (code-split).
 //
 // To add a new interactive visualisation:
 //   1. Create a JSX file in this directory that default-exports a React component.
-//   2. Import it here and call `register("<id>", Component)`.
-//   3. Reference it from any markdown file with:  ::: viz <id> "optional caption"
+//   2. Add one line below:  register("<id>", () => import("./your-file.jsx"));
+//   3. Reference it from markdown:  ::: viz <id> "optional caption"
 //
-// The string id is what authors type in markdown. Keep it short, lowercase, stable.
+// Each viz is registered with a DYNAMIC-IMPORT LOADER (not a static import), so
+// Vite splits every viz into its own chunk, fetched only when that viz first
+// scrolls into view. Keep the id short, lowercase, stable.
 
 import { register } from "../framework/viz-registry.js";
 
-import Rasterize from "./rasterize.jsx";
-import Ray from "./ray.jsx";
-import BFS from "./bfs.jsx";
-import BTree from "./btree.jsx";
-import Handshake from "./handshake.jsx";
-import BiasVar from "./biasvar.jsx";
-import PisMonoVsMicro from "./pis-mono-vs-micro.jsx";
-import CdiScopes from "./cdi-scopes.jsx";
-import JpaInheritance from "./jpa-inheritance.jsx";
-import OAuth2Flow from "./oauth2-flow.jsx";
-import Benes from "./benes.jsx";
-import Clos from "./clos.jsx";
-import HolVoq from "./holvoq.jsx";
-import Dijkstra from "./dijkstra.jsx";
-import Kademlia from "./kademlia.jsx";
-import HiCuts from "./hicuts.jsx";
-import CountToInf from "./count-to-inf.jsx";
-import ISlip from "./islip.jsx";
-import AIMD from "./aimd.jsx";
-import P2POverlay from "./p2p-overlay.jsx";
-import OlapCube from "./olap-cube.jsx";
-import JpaLifecycle from "./jpa-lifecycle.jsx";
-import JpaNplus1 from "./jpa-nplus1.jsx";
-import TwoPhaseCommit from "./two-phase-commit.jsx";
-import Saga from "./saga.jsx";
-import WorkflowPatterns from "./workflow-patterns.jsx";
-import RecoverableQueue from "./recoverable-queue.jsx";
-import NfaToDfa from "./nfa-to-dfa.jsx";
-import AmdahlGustafson from "./amdahl-gustafson.jsx";
-import BroadcastRedukce from "./broadcast-redukce.jsx";
-import PrefixSumUvod from "./prefix-sum-uvod.jsx";
-import PrefixSumAlgoritmus from "./prefix-sum-algoritmus.jsx";
-import EulerTour from "./euler-tour.jsx";
-import KontrakceUvod from "./kontrakce-uvod.jsx";
-import TranspositionEnumeration from "./transposition-enumeration.jsx";
-import MergeRadici from "./merge-radici.jsx";
-import NasobeniMaticMesh from "./nasobeni-matic-mesh.jsx";
-import VolbaMaster from "./volba-master.jsx";
-import RaftPraxe from "./raft-praxe.jsx";
-import EnumerationSort from "./enumeration-sort.jsx";
-import MinExtractionSort from "./min-extraction-sort.jsx";
-import MedianSplitting from "./median-splitting.jsx";
-import ListRanking from "./list-ranking.jsx";
-import OmegaNetwork from "./omega-network.jsx";
-import CaesarShift from "./caesar-shift.jsx";
-import TmSimulator from "./tm-simulator.jsx";
-import PdaStack from "./pda-stack.jsx";
-import CfgDerivation from "./cfg-derivation.jsx";
-import CykParsing from "./cyk-parsing.jsx";
-import DfaMinimization from "./dfa-minimization.jsx";
-import PumpingLemma from "./pumping-lemma.jsx";
-import MasterTheorem from "./master-theorem.jsx";
-import ReductionWiring from "./reduction-wiring.jsx";
-import SatClique from "./sat-clique.jsx";
-import ChomskyHierarchy from "./chomsky-hierarchy.jsx";
-import VigenereAttack from "./vigenere-attack.jsx";
-import FreqAnalysis from "./freq-analysis.jsx";
-import Enigma from "./enigma.jsx";
-import EcbTux from "./ecb-tux.jsx";
-import Feistel from "./feistel.jsx";
-import AesRound from "./aes-round.jsx";
-import DhMitm from "./dh-mitm.jsx";
-import EcPointAdd from "./ec-point-add.jsx";
-import RsaToy from "./rsa-toy.jsx";
-import PaddingOracle from "./padding-oracle.jsx";
-import BirthdayParadox from "./birthday-paradox.jsx";
-import MerkleDamgard from "./merkle-damgard.jsx";
-import Sponge from "./sponge.jsx";
-import KerberosViz from "./kerberos.jsx";
-import NeedhamSchroeder from "./needham-schroeder.jsx";
-import EcdsaNonceReuse from "./ecdsa-nonce-reuse.jsx";
-import HillCipher from "./hill-cipher.jsx";
-import Playfair from "./playfair.jsx";
-import RotorPeriod from "./rotor-period.jsx";
-import ColumnarTransposition from "./columnar-transposition.jsx";
-import OtpCribDrag from "./otp-crib-drag.jsx";
-import Tls13Handshake from "./tls13-handshake.jsx";
-import PollardRho from "./pollard-rho.jsx";
-import SquareAndMultiply from "./square-and-multiply.jsx";
-import HmacStructure from "./hmac-structure.jsx";
-import LsbSteganografie from "./lsb-steganografie.jsx";
-import LfsrExplorer from "./lfsr-explorer.jsx";
-import A51Clocking from "./a51-clocking.jsx";
-import NistTestPlayground from "./nist-test-playground.jsx";
-import ArbiterPuf from "./arbiter-puf.jsx";
-import RsaSpaTrace from "./rsa-spa-trace.jsx";
-import DpaAesSbox from "./dpa-aes-sbox.jsx";
-import DfaAesRound from "./dfa-aes-round.jsx";
-import BellcoreRsaCrt from "./bellcore-rsa-crt.jsx";
-import DecimalizationAttack from "./decimalization-attack.jsx";
-import EmvShim from "./emv-shim.jsx";
-import TimingPassword from "./timing-password.jsx";
-import BooleanMasking from "./boolean-masking.jsx";
-import TamperResponse from "./tamper-response.jsx";
-import ApduBuilder from "./apdu-builder.jsx";
-import NfcAnticollision from "./nfc-anticollision.jsx";
-import BacEntropy from "./bac-entropy.jsx";
-import GlitchPin from "./glitch-pin.jsx";
-import Pkcs11Wrap from "./pkcs11-wrap.jsx";
-import LorawanCounter from "./lorawan-counter.jsx";
-import ZigbeeDefaultKey from "./zigbee-default-key.jsx";
-import BleCrackle from "./ble-crackle.jsx";
-import KeeloqWindow from "./keeloq-window.jsx";
-import SinkholeMesh from "./sinkhole-mesh.jsx";
-import WormholeTunnel from "./wormhole-tunnel.jsx";
-import CfgFlatten from "./cfg-flatten.jsx";
-import LinuxRngBoot from "./linux-rng-boot.jsx";
-import SybilQuorum from "./sybil-quorum.jsx";
-import ScoreDistributions from "./score-distributions.jsx";
-import RocDetExplorer from "./roc-det-explorer.jsx";
-import MinutiaeMatching from "./minutiae-matching.jsx";
-import DaugmanIrisCode from "./daugman-iris-code.jsx";
-import EigenfacesRecon from "./eigenfaces-recon.jsx";
-import StrProfileMatch from "./str-profile-match.jsx";
-import KeystrokeRhythm from "./keystroke-rhythm.jsx";
-import EpassportHandshake from "./epassport-handshake.jsx";
-import AttackPoints7 from "./attack-points-7.jsx";
-import VeinNirSpectrum from "./vein-nir-spectrum.jsx";
-import ArcfaceMargin from "./arcface-margin.jsx";
-import ViolaJonesCascade from "./viola-jones-cascade.jsx";
-import HenryPatternClassifier from "./henry-pattern-classifier.jsx";
-import GaborRidgeEnhance from "./gabor-ridge-enhance.jsx";
-import DnaElectropherogram from "./dna-electropherogram.jsx";
-import GaitCycleWalker from "./gait-cycle-walker.jsx";
-import SignatureDynamic from "./signature-dynamic.jsx";
-import VoiceMfcc from "./voice-mfcc.jsx";
-import LivenessPadTradeoff from "./liveness-pad-tradeoff.jsx";
-import DeepfakeDetection from "./deepfake-detection.jsx";
-import IcaoLdsExplorer from "./icao-lds-explorer.jsx";
-import BacPaceKeys from "./bac-pace-keys.jsx";
-
-register("rasterize",         Rasterize);
-register("ray",               Ray);
-register("bfs",               BFS);
-register("btree",             BTree);
-register("handshake",         Handshake);
-register("biasvar",           BiasVar);
-register("pis-mono-vs-micro", PisMonoVsMicro);
-register("cdi-scopes",        CdiScopes);
-register("jpa-inheritance",   JpaInheritance);
-register("oauth2-flow",       OAuth2Flow);
-register("benes",             Benes);
-register("clos",              Clos);
-register("hol-voq",           HolVoq);
-register("dijkstra",          Dijkstra);
-register("kademlia",          Kademlia);
-register("hicuts",            HiCuts);
-register("count-to-inf",      CountToInf);
-register("islip",             ISlip);
-register("aimd",              AIMD);
-register("p2p-overlay",       P2POverlay);
-register("olap-cube",         OlapCube);
-register("jpa-lifecycle",     JpaLifecycle);
-register("jpa-nplus1",        JpaNplus1);
-register("two-phase-commit",  TwoPhaseCommit);
-register("saga",              Saga);
-register("workflow-patterns", WorkflowPatterns);
-register("recoverable-queue", RecoverableQueue);
-register("nfa-to-dfa",        NfaToDfa);
-register("amdahl-gustafson",  AmdahlGustafson);
-register("broadcast-redukce", BroadcastRedukce);
-register("prefix-sum-uvod",   PrefixSumUvod);
-register("prefix-sum-algoritmus", PrefixSumAlgoritmus);
-register("euler-tour",        EulerTour);
-register("kontrakce-uvod",    KontrakceUvod);
-register("transposition-enumeration", TranspositionEnumeration);
-register("merge-radici",      MergeRadici);
-register("nasobeni-matic-mesh", NasobeniMaticMesh);
-register("volba-master",      VolbaMaster);
-register("raft-praxe",        RaftPraxe);
-register("enumeration-sort", EnumerationSort);
-register("min-extraction-sort", MinExtractionSort);
-register("median-splitting", MedianSplitting);
-register("list-ranking", ListRanking);
-register("omega-network", OmegaNetwork);
-register("caesar-shift", CaesarShift);
-register("tm-simulator", TmSimulator);
-register("pda-stack", PdaStack);
-register("cfg-derivation", CfgDerivation);
-register("cyk-parsing", CykParsing);
-register("dfa-minimization", DfaMinimization);
-register("pumping-lemma", PumpingLemma);
-register("master-theorem", MasterTheorem);
-register("reduction-wiring", ReductionWiring);
-register("sat-clique", SatClique);
-register("chomsky-hierarchy", ChomskyHierarchy);
-register("vigenere-attack", VigenereAttack);
-register("freq-analysis", FreqAnalysis);
-register("enigma", Enigma);
-register("ecb-tux", EcbTux);
-register("feistel", Feistel);
-register("aes-round", AesRound);
-register("dh-mitm", DhMitm);
-register("ec-point-add", EcPointAdd);
-register("rsa-toy", RsaToy);
-register("padding-oracle", PaddingOracle);
-register("birthday-paradox", BirthdayParadox);
-register("merkle-damgard", MerkleDamgard);
-register("sponge", Sponge);
-register("kerberos", KerberosViz);
-register("needham-schroeder", NeedhamSchroeder);
-register("ecdsa-nonce-reuse", EcdsaNonceReuse);
-register("hill-cipher", HillCipher);
-register("playfair", Playfair);
-register("rotor-period", RotorPeriod);
-register("columnar-transposition", ColumnarTransposition);
-register("otp-crib-drag", OtpCribDrag);
-register("tls13-handshake", Tls13Handshake);
-register("pollard-rho", PollardRho);
-register("square-and-multiply", SquareAndMultiply);
-register("hmac-structure", HmacStructure);
-register("lsb-steganografie", LsbSteganografie);
-register("lfsr-explorer", LfsrExplorer);
-register("a51-clocking", A51Clocking);
-register("nist-test-playground", NistTestPlayground);
-register("arbiter-puf", ArbiterPuf);
-register("rsa-spa-trace", RsaSpaTrace);
-register("dpa-aes-sbox", DpaAesSbox);
-register("dfa-aes-round", DfaAesRound);
-register("bellcore-rsa-crt", BellcoreRsaCrt);
-register("decimalization-attack", DecimalizationAttack);
-register("emv-shim", EmvShim);
-register("timing-password", TimingPassword);
-register("boolean-masking", BooleanMasking);
-register("tamper-response", TamperResponse);
-register("apdu-builder", ApduBuilder);
-register("nfc-anticollision", NfcAnticollision);
-register("bac-entropy", BacEntropy);
-register("glitch-pin", GlitchPin);
-register("pkcs11-wrap", Pkcs11Wrap);
-register("lorawan-counter", LorawanCounter);
-register("zigbee-default-key", ZigbeeDefaultKey);
-register("ble-crackle", BleCrackle);
-register("keeloq-window", KeeloqWindow);
-register("sinkhole-mesh", SinkholeMesh);
-register("wormhole-tunnel", WormholeTunnel);
-register("cfg-flatten", CfgFlatten);
-register("linux-rng-boot", LinuxRngBoot);
-register("sybil-quorum", SybilQuorum);
-register("score-distributions", ScoreDistributions);
-register("roc-det-explorer", RocDetExplorer);
-register("minutiae-matching", MinutiaeMatching);
-register("daugman-iris-code", DaugmanIrisCode);
-register("eigenfaces-recon", EigenfacesRecon);
-register("str-profile-match", StrProfileMatch);
-register("keystroke-rhythm", KeystrokeRhythm);
-register("epassport-handshake", EpassportHandshake);
-register("attack-points-7", AttackPoints7);
-register("vein-nir-spectrum", VeinNirSpectrum);
-register("arcface-margin", ArcfaceMargin);
-register("viola-jones-cascade", ViolaJonesCascade);
-register("henry-pattern-classifier", HenryPatternClassifier);
-register("gabor-ridge-enhance", GaborRidgeEnhance);
-register("dna-electropherogram", DnaElectropherogram);
-register("gait-cycle-walker", GaitCycleWalker);
-register("signature-dynamic", SignatureDynamic);
-register("voice-mfcc", VoiceMfcc);
-register("liveness-pad-tradeoff", LivenessPadTradeoff);
-register("deepfake-detection", DeepfakeDetection);
-register("icao-lds-explorer", IcaoLdsExplorer);
-register("bac-pace-keys", BacPaceKeys);
-
-// FLP — lambda kalkul
-import LambdaReducer from "./lambda-reducer.jsx";
-import ChurchNumerals from "./church-numerals.jsx";
-import YCombinator from "./y-combinator.jsx";
-import ChurchRosserConverge from "./church-rosser-converge.jsx";
-import EtaPointfree from "./eta-pointfree.jsx";
-
-// FLP — Haskell základy
-import HindleyMilner from "./hindley-milner.jsx";
-import LazyThunkGraph from "./lazy-thunk-graph.jsx";
-import AdtPatternMatch from "./adt-pattern-match.jsx";
-import FunctorApplicativeMonad from "./functor-applicative-monad.jsx";
-import TypeClassDispatch from "./type-class-dispatch.jsx";
-import SieveLazy from "./sieve-lazy.jsx";
-
-// FLP — Haskell pokročilé
-import MonadBindFlow from "./monad-bind-flow.jsx";
-import HofPipeline from "./hof-pipeline.jsx";
-import CurryingPartial from "./currying-partial.jsx";
-import FoldComparison from "./fold-comparison.jsx";
-import MaybeEitherChain from "./maybe-either-chain.jsx";
-
-// FLP — Prolog
-import PrologUnifyTree from "./prolog-unify-tree.jsx";
-import PrologSldTree from "./prolog-sld-tree.jsx";
-import DcgParser from "./dcg-parser.jsx";
-import ClpNqueens from "./clp-nqueens.jsx";
-import PrologFindallBagofSetof from "./prolog-findall-bagof-setof.jsx";
-
-// FLP — Rust
-import OwnershipFlow from "./ownership-flow.jsx";
-import LifetimeVisualizer from "./lifetime-visualizer.jsx";
-import RustIteratorChain from "./rust-iterator-chain.jsx";
-import RustResultChain from "./rust-result-chain.jsx";
-import NllBorrow from "./nll-borrow.jsx";
-import ClosureCaptureModes from "./closure-capture-modes.jsx";
-import RustVsHaskell from "./rust-vs-haskell.jsx";
-import SmartPointerGraph from "./smart-pointer-graph.jsx";
-import TraitMonomorphization from "./trait-monomorphization.jsx";
-
-register("lambda-reducer", LambdaReducer);
-register("church-numerals", ChurchNumerals);
-register("y-combinator", YCombinator);
-register("church-rosser-converge", ChurchRosserConverge);
-register("eta-pointfree", EtaPointfree);
-
-register("hindley-milner", HindleyMilner);
-register("lazy-thunk-graph", LazyThunkGraph);
-register("adt-pattern-match", AdtPatternMatch);
-register("functor-applicative-monad", FunctorApplicativeMonad);
-register("type-class-dispatch", TypeClassDispatch);
-register("sieve-lazy", SieveLazy);
-
-register("monad-bind-flow", MonadBindFlow);
-register("hof-pipeline", HofPipeline);
-register("currying-partial", CurryingPartial);
-register("fold-comparison", FoldComparison);
-register("maybe-either-chain", MaybeEitherChain);
-
-register("prolog-unify-tree", PrologUnifyTree);
-register("prolog-sld-tree", PrologSldTree);
-register("dcg-parser", DcgParser);
-register("clp-nqueens", ClpNqueens);
-register("prolog-findall-bagof-setof", PrologFindallBagofSetof);
-
-register("ownership-flow", OwnershipFlow);
-register("lifetime-visualizer", LifetimeVisualizer);
-register("rust-iterator-chain", RustIteratorChain);
-register("rust-result-chain", RustResultChain);
-register("nll-borrow", NllBorrow);
-register("closure-capture-modes", ClosureCaptureModes);
-register("rust-vs-haskell", RustVsHaskell);
-register("smart-pointer-graph", SmartPointerGraph);
-register("trait-monomorphization", TraitMonomorphization);
-
-// SUI — search / adversarial / CSP
-import AstarExplorer from "./astar-explorer.jsx";
-import MinimaxAlphaBeta from "./minimax-alphabeta.jsx";
-import Mcts4Phase from "./mcts-4phase.jsx";
-import CspAc3 from "./csp-ac3.jsx";
-import CspBacktrackMrv from "./csp-backtrack-mrv.jsx";
-import UninformedCompare from "./uninformed-compare.jsx";
-import IddfsRedundancy from "./iddfs-redundancy.jsx";
-import HillClimbingSa from "./hill-climbing-sa.jsx";
-import NQueensMinConflicts from "./n-queens-min-conflicts.jsx";
-import ExpectiminimaxDice from "./expectiminimax-dice.jsx";
-import AndOrTreePlan from "./and-or-tree-plan.jsx";
-import BeliefStateVacuum from "./belief-state-vacuum.jsx";
-import AgentDecisionFlow from "./agent-decision-flow.jsx";
-
-register("astar-explorer",          AstarExplorer);
-register("minimax-alphabeta",       MinimaxAlphaBeta);
-register("mcts-4phase",             Mcts4Phase);
-register("csp-ac3",                 CspAc3);
-register("csp-backtrack-mrv",       CspBacktrackMrv);
-register("uninformed-compare",      UninformedCompare);
-register("iddfs-redundancy",        IddfsRedundancy);
-register("hill-climbing-sa",        HillClimbingSa);
-register("n-queens-min-conflicts",  NQueensMinConflicts);
-register("expectiminimax-dice",     ExpectiminimaxDice);
-register("and-or-tree-plan",        AndOrTreePlan);
-register("belief-state-vacuum",     BeliefStateVacuum);
-register("agent-decision-flow",     AgentDecisionFlow);
-
-// SUI — ML / NN / regression / classification
-import BayesFromJoint from "./bayes-from-joint.jsx";
-import LinearRegressionFit from "./linear-regression-fit.jsx";
-import LogisticBoundary from "./logistic-boundary.jsx";
-import GradientDescentBowl from "./gradient-descent-bowl.jsx";
-import BackpropChain from "./backprop-chain.jsx";
-import ActivationDerivatives from "./activation-derivatives.jsx";
-import RegularizationL1L2 from "./regularization-l1-l2.jsx";
-import VanishingGradientDepth from "./vanishing-gradient-depth.jsx";
-
-register("bayes-from-joint",        BayesFromJoint);
-register("linear-regression-fit",   LinearRegressionFit);
-register("logistic-boundary",       LogisticBoundary);
-register("gradient-descent-bowl",   GradientDescentBowl);
-register("backprop-chain",          BackpropChain);
-register("activation-derivatives",  ActivationDerivatives);
-register("regularization-l1-l2",    RegularizationL1L2);
-register("vanishing-gradient-depth", VanishingGradientDepth);
-
-// SUI — CNN
-import ConvolutionInteractive from "./convolution-interactive.jsx";
-import CnnArchitecturesStack from "./cnn-architectures-stack.jsx";
-
-register("convolution-interactive", ConvolutionInteractive);
-register("cnn-architectures-stack", CnnArchitecturesStack);
-
-// SUI — sekvence / jazyk
-import AttentionHeatmap from "./attention-heatmap.jsx";
-import TransformerBlockFlow from "./transformer-block-flow.jsx";
-import RnnUnrollBptt from "./rnn-unroll-bptt.jsx";
-import SoftmaxTemperature from "./softmax-temperature.jsx";
-import Word2VecSkipgram from "./word2vec-skipgram.jsx";
-import BertMlmFill from "./bert-mlm-fill.jsx";
-
-register("attention-heatmap",       AttentionHeatmap);
-register("transformer-block-flow",  TransformerBlockFlow);
-register("rnn-unroll-bptt",         RnnUnrollBptt);
-register("softmax-temperature",     SoftmaxTemperature);
-register("word2vec-skipgram",       Word2VecSkipgram);
-register("bert-mlm-fill",           BertMlmFill);
-
-// SUI — RL
-import QLearningGridworld from "./q-learning-gridworld.jsx";
-import PolicyGradientCartpole from "./policy-gradient-cartpole.jsx";
-import RlhfPipelineTrace from "./rlhf-pipeline-trace.jsx";
-
-register("q-learning-gridworld",    QLearningGridworld);
-register("policy-gradient-cartpole",PolicyGradientCartpole);
-register("rlhf-pipeline-trace",     RlhfPipelineTrace);
-
-// MSP — Probability fundamentals
-import DistributionGallery from "./distribution-gallery.jsx";
-import PdfCdfLink from "./pdf-cdf-link.jsx";
-import CltSamplingConverge from "./clt-sampling-converge.jsx";
-import SampleSpaceEvents from "./sample-space-events.jsx";
-import LawOfLargeNumbers from "./law-of-large-numbers.jsx";
-
-register("distribution-gallery",    DistributionGallery);
-register("pdf-cdf-link",            PdfCdfLink);
-register("clt-sampling-converge",   CltSamplingConverge);
-register("sample-space-events",     SampleSpaceEvents);
-register("law-of-large-numbers",    LawOfLargeNumbers);
-
-// MSP — Estimation
-import MleLikelihoodCurve from "./mle-likelihood-curve.jsx";
-import BayesianUpdateBeta from "./bayesian-update-beta.jsx";
-import FisherInfoCurvature from "./fisher-info-curvature.jsx";
-import MomVsMleGamma from "./mom-vs-mle-gamma.jsx";
-import BiasVarianceMse from "./bias-variance-mse.jsx";
-import ExponentialFamilyCanonical from "./exponential-family-canonical.jsx";
-import SufficientStatisticCompress from "./sufficient-statistic-compress.jsx";
-
-register("mle-likelihood-curve",    MleLikelihoodCurve);
-register("bayesian-update-beta",    BayesianUpdateBeta);
-register("fisher-info-curvature",   FisherInfoCurvature);
-register("mom-vs-mle-gamma",        MomVsMleGamma);
-register("bias-variance-mse",       BiasVarianceMse);
-register("exponential-family-canonical", ExponentialFamilyCanonical);
-register("sufficient-statistic-compress", SufficientStatisticCompress);
-
-// MSP — Inference & testing
-import HypothesisTestTradeoff from "./hypothesis-test-tradeoff.jsx";
-import CiRepeatedSampling from "./ci-repeated-sampling.jsx";
-import TTestInteractive from "./t-test-interactive.jsx";
-import ChisqTFGallery from "./chisq-t-f-gallery.jsx";
-import LrWaldScoreTests from "./lr-wald-score-tests.jsx";
-import QqPlotInteractive from "./qq-plot-interactive.jsx";
-import ContingencyChisq from "./contingency-chisq.jsx";
-import RankTestMechanics from "./rank-test-mechanics.jsx";
-
-register("hypothesis-test-tradeoff", HypothesisTestTradeoff);
-register("ci-repeated-sampling",    CiRepeatedSampling);
-register("t-test-interactive",      TTestInteractive);
-register("chisq-t-f-gallery",       ChisqTFGallery);
-register("lr-wald-score-tests",     LrWaldScoreTests);
-register("qq-plot-interactive",     QqPlotInteractive);
-register("contingency-chisq",       ContingencyChisq);
-register("rank-test-mechanics",     RankTestMechanics);
-
-// MSP — Linear model & ANOVA
-import AnovaInteractive from "./anova-interactive.jsx";
-import AnovaInteractionPlot from "./anova-interaction-plot.jsx";
-import GaussMarkovBlueDemo from "./gauss-markov-blue-demo.jsx";
-import HatMatrixProjection from "./hat-matrix-projection.jsx";
-
-register("anova-interactive",       AnovaInteractive);
-register("anova-interaction-plot",  AnovaInteractionPlot);
-register("gauss-markov-blue-demo",  GaussMarkovBlueDemo);
-register("hat-matrix-projection",   HatMatrixProjection);
-
-// MSP — Linear regression
-import RegressionInteractive from "./regression-interactive.jsx";
-import ResidualDiagnostics from "./residual-diagnostics.jsx";
-import R2AdjustedOverfit from "./r2-adjusted-overfit.jsx";
-import PredictionVsConfidenceBand from "./prediction-vs-confidence-band.jsx";
-
-register("regression-interactive",  RegressionInteractive);
-register("residual-diagnostics",    ResidualDiagnostics);
-register("r2-adjusted-overfit",     R2AdjustedOverfit);
-register("prediction-vs-confidence-band", PredictionVsConfidenceBand);
-
-// MSP — Markov chains
-import DtmcSimulator from "./dtmc-simulator.jsx";
-import StationaryPowerIteration from "./stationary-power-iteration.jsx";
-import ReachabilityFixpoint from "./reachability-fixpoint.jsx";
-import McClassification from "./mc-classification.jsx";
-
-register("dtmc-simulator",          DtmcSimulator);
-register("stationary-power-iteration", StationaryPowerIteration);
-register("reachability-fixpoint",   ReachabilityFixpoint);
-register("mc-classification",       McClassification);
-
-// MSP — MDP
-import MdpGridworldPolicy from "./mdp-gridworld-policy.jsx";
-import ValueIterationConverge from "./value-iteration-converge.jsx";
-
-register("mdp-gridworld-policy",    MdpGridworldPolicy);
-register("value-iteration-converge", ValueIterationConverge);
-
-// MSP — Randomized
-import QuicksortSimulation from "./quicksort-simulation.jsx";
-import KargerContractionAnim from "./karger-contraction-anim.jsx";
-import LasVegasVsMc from "./las-vegas-vs-mc.jsx";
-
-register("quicksort-simulation",    QuicksortSimulation);
-register("karger-contraction-anim", KargerContractionAnim);
-register("las-vegas-vs-mc",         LasVegasVsMc);
-
-// UPA — EDA & data prep
-import DistributionExplorer from "./distribution-explorer.jsx";
-import AnscombeAndCorrelation from "./anscombe-and-correlation.jsx";
-import BinningAndOutlierRules from "./binning-and-outlier-rules.jsx";
-import SmoteAndThresholdTuning from "./smote-and-threshold-tuning.jsx";
-import ScalerComparator from "./scaler-comparator.jsx";
-import PcaProjection from "./pca-projection.jsx";
-
-register("distribution-explorer",       DistributionExplorer);
-register("anscombe-and-correlation",    AnscombeAndCorrelation);
-register("binning-and-outlier-rules",   BinningAndOutlierRules);
-register("smote-and-threshold-tuning",  SmoteAndThresholdTuning);
-register("scaler-comparator",           ScalerComparator);
-register("pca-projection",              PcaProjection);
-
-// UPA — distributed systems & query plumbing
-import MapreduceShuffle from "./mapreduce-shuffle.jsx";
-import ConsistentHashingRing from "./consistent-hashing-ring.jsx";
-import SparqlGraphMatcher from "./sparql-graph-matcher.jsx";
-
-register("mapreduce-shuffle",       MapreduceShuffle);
-register("consistent-hashing-ring", ConsistentHashingRing);
-register("sparql-graph-matcher",    SparqlGraphMatcher);
-
-// UPA — spatial indexes
-import MbbFilterRefine from "./mbb-filter-refine.jsx";
-import KdTreeBuilder from "./kd-tree-builder.jsx";
-import RtreeInsertSplit from "./rtree-insert-split.jsx";
-
-register("mbb-filter-refine",   MbbFilterRefine);
-register("kd-tree-builder",     KdTreeBuilder);
-register("rtree-insert-split",  RtreeInsertSplit);
-
-// UPA — semantic & DOM
-import RdfsInference from "./rdfs-inference.jsx";
-import CssXpathPlayground from "./css-xpath-playground.jsx";
-
-register("rdfs-inference",      RdfsInference);
-register("css-xpath-playground", CssXpathPlayground);
-
-// UPA — column-store internals
-import RowVsColumnScan from "./row-vs-column-scan.jsx";
-import DictionaryEncodingBuilder from "./dictionary-encoding-builder.jsx";
-import ColumnCompressionTechniques from "./column-compression-techniques.jsx";
-
-register("row-vs-column-scan",           RowVsColumnScan);
-register("dictionary-encoding-builder",  DictionaryEncodingBuilder);
-register("column-compression-techniques", ColumnCompressionTechniques);
-
-// UPA — Tier 2
-import EventualConsistencyTimeline from "./eventual-consistency-timeline.jsx";
-import CapPartitionSim from "./cap-partition-sim.jsx";
-import RaftLeaderElection from "./raft-leader-election.jsx";
-import RdfGraphBrowser from "./rdf-graph-browser.jsx";
-import RdfFormatSwitcher from "./rdf-format-switcher.jsx";
-import MainDeltaMergeTimeline from "./main-delta-merge-timeline.jsx";
-
-register("eventual-consistency-timeline", EventualConsistencyTimeline);
-register("cap-partition-sim",             CapPartitionSim);
-register("raft-leader-election",          RaftLeaderElection);
-register("rdf-graph-browser",             RdfGraphBrowser);
-register("rdf-format-switcher",           RdfFormatSwitcher);
-register("main-delta-merge-timeline",     MainDeltaMergeTimeline);
-
-// AVS — pipeline + cache
-import PipelineHazards from "./pipeline-hazards.jsx";
-import CacheMapping from "./cache-mapping.jsx";
-
-register("pipeline-hazards", PipelineHazards);
-register("cache-mapping",    CacheMapping);
-
-// AVS — pipelining + branch prediction (Tier 1)
-import PipelineStageTracker from "./pipeline-stage-tracker.jsx";
-import SuperpipeliningDepth from "./superpipelining-depth.jsx";
-import ControlHazardRecovery from "./control-hazard-recovery.jsx";
-import Branch2bitCounter from "./branch-2bit-counter.jsx";
-import GshareCorrelatedBranches from "./gshare-correlated-branches.jsx";
-import BtbRasTraversal from "./btb-ras-traversal.jsx";
-import StridePrefetcherTrace from "./stride-prefetcher-trace.jsx";
-
-register("pipeline-stage-tracker",     PipelineStageTracker);
-register("superpipelining-depth",      SuperpipeliningDepth);
-register("control-hazard-recovery",    ControlHazardRecovery);
-register("branch-2bit-counter",        Branch2bitCounter);
-register("gshare-correlated-branches", GshareCorrelatedBranches);
-register("btb-ras-traversal",          BtbRasTraversal);
-register("stride-prefetcher-trace",    StridePrefetcherTrace);
-
-// AVS — superscalar + OoO (Tier 1)
-import ScoreboardTrace from "./scoreboard-trace.jsx";
-import TomasuloRsCdb from "./tomasulo-rs-cdb.jsx";
-import RobPreciseExceptions from "./rob-precise-exceptions.jsx";
-
-register("scoreboard-trace",       ScoreboardTrace);
-register("tomasulo-rs-cdb",        TomasuloRsCdb);
-register("rob-precise-exceptions", RobPreciseExceptions);
-
-// AVS — cache + coherence (Tier 1)
-import MesiStateMachine from "./mesi-state-machine.jsx";
-import FalseSharingPingpong from "./false-sharing-pingpong.jsx";
-import ReplacementPolicyRace from "./replacement-policy-race.jsx";
-
-register("mesi-state-machine",     MesiStateMachine);
-register("false-sharing-pingpong", FalseSharingPingpong);
-register("replacement-policy-race", ReplacementPolicyRace);
-
-// AVS — SIMD + GPU (Tier 1)
-import SimdLaneExplorer from "./simd-lane-explorer.jsx";
-import AutoVectorizationTracer from "./auto-vectorization-tracer.jsx";
-import GpuWarpDivergence from "./gpu-warp-divergence.jsx";
-import MemoryCoalescingPattern from "./memory-coalescing-pattern.jsx";
-
-register("simd-lane-explorer",        SimdLaneExplorer);
-register("auto-vectorization-tracer", AutoVectorizationTracer);
-register("gpu-warp-divergence",       GpuWarpDivergence);
-register("memory-coalescing-pattern", MemoryCoalescingPattern);
-
-// AVS — Tier 2
-import AmatCacheCalculator from "./amat-cache-calculator.jsx";
-import NumaLatencyMap from "./numa-latency-map.jsx";
-import OmpSchedulingComparator from "./omp-scheduling-comparator.jsx";
-import OpenmpForkJoin from "./openmp-fork-join.jsx";
-import SmtPipelineMixing from "./smt-pipeline-mixing.jsx";
-import DvfsPstateCstateTimeline from "./dvfs-pstate-cstate-timeline.jsx";
-import BankConflictWarp from "./bank-conflict-warp.jsx";
-
-register("amat-cache-calculator",     AmatCacheCalculator);
-register("numa-latency-map",          NumaLatencyMap);
-register("omp-scheduling-comparator", OmpSchedulingComparator);
-register("openmp-fork-join",          OpenmpForkJoin);
-register("smt-pipeline-mixing",       SmtPipelineMixing);
-register("dvfs-pstate-cstate-timeline", DvfsPstateCstateTimeline);
-register("bank-conflict-warp",        BankConflictWarp);
-
-// BIS — intro + incident + risk (Tier 1 + 2)
-import KillChainDefender from "./kill-chain-defender.jsx";
-import AttackTreeTraversal from "./attack-tree-traversal.jsx";
-import RiskMatrixAle from "./risk-matrix-ale.jsx";
-
-register("kill-chain-defender",   KillChainDefender);
-register("attack-tree-traversal", AttackTreeTraversal);
-register("risk-matrix-ale",       RiskMatrixAle);
-
-// BIS — access control (Tier 1)
-import BlpAccessChecker from "./blp-access-checker.jsx";
-import RbacAbacEvaluator from "./rbac-abac-evaluator.jsx";
-
-register("blp-access-checker",   BlpAccessChecker);
-register("rbac-abac-evaluator",  RbacAbacEvaluator);
-
-// BIS — SW vulnerabilities (Tier 1 + 2)
-import StackBofVisualizer from "./stack-bof-visualizer.jsx";
-import SqliInjectionTrace from "./sqli-injection-trace.jsx";
-import ToctouTimeline from "./toctou-timeline.jsx";
-import SpectreCacheTiming from "./spectre-cache-timing.jsx";
-import RowhammerFlip from "./rowhammer-flip.jsx";
-import CsrfSamesite from "./csrf-samesite.jsx";
-import PhishingIndicators from "./phishing-indicators.jsx";
-
-register("stack-bof-visualizer", StackBofVisualizer);
-register("sqli-injection-trace", SqliInjectionTrace);
-register("toctou-timeline",      ToctouTimeline);
-register("spectre-cache-timing", SpectreCacheTiming);
-register("rowhammer-flip",       RowhammerFlip);
-register("csrf-samesite",        CsrfSamesite);
-register("phishing-indicators",  PhishingIndicators);
-
-// BIS — network defenses (Tier 1)
-import FirewallStatefulTrace from "./firewall-stateful-trace.jsx";
-import IdsRocTuner from "./ids-roc-tuner.jsx";
-import ArpPoisonMitm from "./arp-poison-mitm.jsx";
-import DdosAmplification from "./ddos-amplification.jsx";
-
-register("firewall-stateful-trace", FirewallStatefulTrace);
-register("ids-roc-tuner",           IdsRocTuner);
-register("arp-poison-mitm",         ArpPoisonMitm);
-register("ddos-amplification",      DdosAmplification);
-
-// BIS — WiFi (Tier 1 + 2)
-import Wpa2HandshakeKrack from "./wpa2-handshake-krack.jsx";
-import WepFmsCracker from "./wep-fms-cracker.jsx";
-import Wpa3SaeVsPskBrute from "./wpa3-sae-vs-psk-brute.jsx";
-
-register("wpa2-handshake-krack",   Wpa2HandshakeKrack);
-register("wep-fms-cracker",        WepFmsCracker);
-register("wpa3-sae-vs-psk-brute",  Wpa3SaeVsPskBrute);
-
-// BIS — SecOps + policy + standards (Tier 1 + 2)
-import SiemCorrelationTrace from "./siem-correlation-trace.jsx";
-import IrTimelineMetrics from "./ir-timeline-metrics.jsx";
-import GdprRightsFlow from "./gdpr-rights-flow.jsx";
-import PdcaIsms from "./pdca-isms.jsx";
-import CcEalExplorer from "./cc-eal-explorer.jsx";
-
-register("siem-correlation-trace", SiemCorrelationTrace);
-register("ir-timeline-metrics",    IrTimelineMetrics);
-register("gdpr-rights-flow",       GdprRightsFlow);
-register("pdca-isms",              PdcaIsms);
-register("cc-eal-explorer",        CcEalExplorer);
-
-// === NADE specialization viz (AIS, NAV, PDI, TAMa, UXIa, WAP) ===
-import AisAbstractFactory from "./ais-abstract-factory.jsx";
-import AisBranchingStrategy from "./ais-branching-strategy.jsx";
-import AisCodeOwnership from "./ais-code-ownership.jsx";
-import AisCompositeTree from "./ais-composite-tree.jsx";
-import AisCrcCard from "./ais-crc-card.jsx";
-import AisGodObjectRefactor from "./ais-god-object-refactor.jsx";
-import AisGraspAssign from "./ais-grasp-assign.jsx";
-import AisIterVsInkrement from "./ais-iter-vs-inkrement.jsx";
-import AisKanbanWip from "./ais-kanban-wip.jsx";
-import AisMdaLayers from "./ais-mda-layers.jsx";
-import AisObserverNotify from "./ais-observer-notify.jsx";
-import AisPozadavkyEvoluce from "./ais-pozadavky-evoluce.jsx";
-import AisRupHump from "./ais-rup-hump.jsx";
-import AisStateMachine from "./ais-state-machine.jsx";
-import AisTddCycle from "./ais-tdd-cycle.jsx";
-import AisTwoHats from "./ais-two-hats.jsx";
-import AisUmlClassRelations from "./ais-uml-class-relations.jsx";
-import AisUseCaseFormality from "./ais-use-case-formality.jsx";
-import AisUsecaseRelations from "./ais-usecase-relations.jsx";
-import NavDebounceShift from "./nav-debounce-shift.jsx";
-import NavDigitalSbernice from "./nav-digital-sbernice.jsx";
-import NavDvfs from "./nav-dvfs.jsx";
-import NavFsmDispatch from "./nav-fsm-dispatch.jsx";
-import NavGposRtosScheduling from "./nav-gpos-rtos-scheduling.jsx";
-import NavHBridge from "./nav-h-bridge.jsx";
-import NavHspPartition from "./nav-hsp-partition.jsx";
-import NavIsrLatency from "./nav-isr-latency.jsx";
-import NavMericiRetezec from "./nav-merici-retezec.jsx";
-import NavNoiseMargin from "./nav-noise-margin.jsx";
-import NavPowerModes from "./nav-power-modes.jsx";
-import NavProudovaSmycka from "./nav-proudova-smycka.jsx";
-import NavRaceToSleep from "./nav-race-to-sleep.jsx";
-import NavSarAdc from "./nav-sar-adc.jsx";
-import NavSuperLoopTimeline from "./nav-super-loop-timeline.jsx";
-import NavVonneumannHarvard from "./nav-vonneumann-harvard.jsx";
-import PdiChandyLamport from "./pdi-chandy-lamport.jsx";
-import PdiDataLocality from "./pdi-data-locality.jsx";
-import PdiEipChain from "./pdi-eip-chain.jsx";
-import PdiFaultTolerance from "./pdi-fault-tolerance.jsx";
-import PdiKonzistentniRez from "./pdi-konzistentni-rez.jsx";
-import PdiMomModels from "./pdi-mom-models.jsx";
-import PdiSparkStages from "./pdi-spark-stages.jsx";
-import TamaActivityLifecycle from "./tama-activity-lifecycle.jsx";
-import TamaFormKeyboard from "./tama-form-keyboard.jsx";
-import TamaMviCycle from "./tama-mvi-cycle.jsx";
-import TamaNavPatterns from "./tama-nav-patterns.jsx";
-import TamaOfflineSync from "./tama-offline-sync.jsx";
-import TamaRecomposition from "./tama-recomposition.jsx";
-import TamaSdileniKodu from "./tama-sdileni-kodu.jsx";
-import TamaStagedRollout from "./tama-staged-rollout.jsx";
-import TamaThumbZone from "./tama-thumb-zone.jsx";
-import TamaUiThread from "./tama-ui-thread.jsx";
-import TamaVodopadVsAgile from "./tama-vodopad-vs-agile.jsx";
-import UxiDomainIterace from "./uxi-domain-iterace.jsx";
-import UxiFidelityLadder from "./uxi-fidelity-ladder.jsx";
-import UxiVvKlasifikace from "./uxi-vv-klasifikace.jsx";
-import UxiaSusSkore from "./uxia-sus-skore.jsx";
-import UxiaUcdCyklus from "./uxia-ucd-cyklus.jsx";
-import WapAnycast from "./wap-anycast.jsx";
-import WapClosureCounter from "./wap-closure-counter.jsx";
-import WapCspEval from "./wap-csp-eval.jsx";
-import WapCsrfFlow from "./wap-csrf-flow.jsx";
-import WapDebounceThrottle from "./wap-debounce-throttle.jsx";
-import WapDomTree from "./wap-dom-tree.jsx";
-import WapEventLoop from "./wap-event-loop.jsx";
-import WapEventPropagation from "./wap-event-propagation.jsx";
-import WapHttpHol from "./wap-http-hol.jsx";
-import WapJsonSchemaCond from "./wap-json-schema-cond.jsx";
-import WapMicrotaskQueue from "./wap-microtask-queue.jsx";
-import WapMimeSniffing from "./wap-mime-sniffing.jsx";
-import WapOriginCheck from "./wap-origin-check.jsx";
-import WapProtoChain from "./wap-proto-chain.jsx";
-import WapRestVerbs from "./wap-rest-verbs.jsx";
-import WapTypeofCoercion from "./wap-typeof-coercion.jsx";
-import WapXssTypes from "./wap-xss-types.jsx";
-
-register("ais-abstract-factory", AisAbstractFactory);
-register("ais-branching-strategy", AisBranchingStrategy);
-register("ais-code-ownership", AisCodeOwnership);
-register("ais-composite-tree", AisCompositeTree);
-register("ais-crc-card", AisCrcCard);
-register("ais-god-object-refactor", AisGodObjectRefactor);
-register("ais-grasp-assign", AisGraspAssign);
-register("ais-iter-vs-inkrement", AisIterVsInkrement);
-register("ais-kanban-wip", AisKanbanWip);
-register("ais-mda-layers", AisMdaLayers);
-register("ais-observer-notify", AisObserverNotify);
-register("ais-pozadavky-evoluce", AisPozadavkyEvoluce);
-register("ais-rup-hump", AisRupHump);
-register("ais-state-machine", AisStateMachine);
-register("ais-tdd-cycle", AisTddCycle);
-register("ais-two-hats", AisTwoHats);
-register("ais-uml-class-relations", AisUmlClassRelations);
-register("ais-use-case-formality", AisUseCaseFormality);
-register("ais-usecase-relations", AisUsecaseRelations);
-register("nav-debounce-shift", NavDebounceShift);
-register("nav-digital-sbernice", NavDigitalSbernice);
-register("nav-dvfs", NavDvfs);
-register("nav-fsm-dispatch", NavFsmDispatch);
-register("nav-gpos-rtos-scheduling", NavGposRtosScheduling);
-register("nav-h-bridge", NavHBridge);
-register("nav-hsp-partition", NavHspPartition);
-register("nav-isr-latency", NavIsrLatency);
-register("nav-merici-retezec", NavMericiRetezec);
-register("nav-noise-margin", NavNoiseMargin);
-register("nav-power-modes", NavPowerModes);
-register("nav-proudova-smycka", NavProudovaSmycka);
-register("nav-race-to-sleep", NavRaceToSleep);
-register("nav-sar-adc", NavSarAdc);
-register("nav-super-loop-timeline", NavSuperLoopTimeline);
-register("nav-vonneumann-harvard", NavVonneumannHarvard);
-register("pdi-chandy-lamport", PdiChandyLamport);
-register("pdi-data-locality", PdiDataLocality);
-register("pdi-eip-chain", PdiEipChain);
-register("pdi-fault-tolerance", PdiFaultTolerance);
-register("pdi-konzistentni-rez", PdiKonzistentniRez);
-register("pdi-mom-models", PdiMomModels);
-register("pdi-spark-stages", PdiSparkStages);
-register("tama-activity-lifecycle", TamaActivityLifecycle);
-register("tama-form-keyboard", TamaFormKeyboard);
-register("tama-mvi-cycle", TamaMviCycle);
-register("tama-nav-patterns", TamaNavPatterns);
-register("tama-offline-sync", TamaOfflineSync);
-register("tama-recomposition", TamaRecomposition);
-register("tama-sdileni-kodu", TamaSdileniKodu);
-register("tama-staged-rollout", TamaStagedRollout);
-register("tama-thumb-zone", TamaThumbZone);
-register("tama-ui-thread", TamaUiThread);
-register("tama-vodopad-vs-agile", TamaVodopadVsAgile);
-register("uxi-domain-iterace", UxiDomainIterace);
-register("uxi-fidelity-ladder", UxiFidelityLadder);
-register("uxi-vv-klasifikace", UxiVvKlasifikace);
-register("uxia-sus-skore", UxiaSusSkore);
-register("uxia-ucd-cyklus", UxiaUcdCyklus);
-register("wap-anycast", WapAnycast);
-register("wap-closure-counter", WapClosureCounter);
-register("wap-csp-eval", WapCspEval);
-register("wap-csrf-flow", WapCsrfFlow);
-register("wap-debounce-throttle", WapDebounceThrottle);
-register("wap-dom-tree", WapDomTree);
-register("wap-event-loop", WapEventLoop);
-register("wap-event-propagation", WapEventPropagation);
-register("wap-http-hol", WapHttpHol);
-register("wap-json-schema-cond", WapJsonSchemaCond);
-register("wap-microtask-queue", WapMicrotaskQueue);
-register("wap-mime-sniffing", WapMimeSniffing);
-register("wap-origin-check", WapOriginCheck);
-register("wap-proto-chain", WapProtoChain);
-register("wap-rest-verbs", WapRestVerbs);
-register("wap-typeof-coercion", WapTypeofCoercion);
-register("wap-xss-types", WapXssTypes);
-
-// === PDS: Důvěra a reputace + Anonymita ===
-import PdsAnonymityProperties from "./pds-anonymity-properties.jsx";
-import PdsBetaReputation from "./pds-beta-reputation.jsx";
-import PdsIpAllocation from "./pds-ip-allocation.jsx";
-import PdsOnionRouting from "./pds-onion-routing.jsx";
-import PdsPagerank from "./pds-pagerank.jsx";
-import PdsReputationArch from "./pds-reputation-arch.jsx";
-import PdsReputon from "./pds-reputon.jsx";
-import PdsTrafficMixing from "./pds-traffic-mixing.jsx";
-import PdsTrustRelation from "./pds-trust-relation.jsx";
-import PdsVpnAnonymity from "./pds-vpn-anonymity.jsx";
-
-register("pds-anonymity-properties", PdsAnonymityProperties);
-register("pds-beta-reputation", PdsBetaReputation);
-register("pds-ip-allocation", PdsIpAllocation);
-register("pds-onion-routing", PdsOnionRouting);
-register("pds-pagerank", PdsPagerank);
-register("pds-reputation-arch", PdsReputationArch);
-register("pds-reputon", PdsReputon);
-register("pds-traffic-mixing", PdsTrafficMixing);
-register("pds-trust-relation", PdsTrustRelation);
-register("pds-vpn-anonymity", PdsVpnAnonymity);
+register("rasterize",                     () => import("./rasterize.jsx"));
+register("ray",                           () => import("./ray.jsx"));
+register("bfs",                           () => import("./bfs.jsx"));
+register("btree",                         () => import("./btree.jsx"));
+register("handshake",                     () => import("./handshake.jsx"));
+register("biasvar",                       () => import("./biasvar.jsx"));
+register("pis-mono-vs-micro",             () => import("./pis-mono-vs-micro.jsx"));
+register("cdi-scopes",                    () => import("./cdi-scopes.jsx"));
+register("jpa-inheritance",               () => import("./jpa-inheritance.jsx"));
+register("oauth2-flow",                   () => import("./oauth2-flow.jsx"));
+register("benes",                         () => import("./benes.jsx"));
+register("clos",                          () => import("./clos.jsx"));
+register("hol-voq",                       () => import("./holvoq.jsx"));
+register("dijkstra",                      () => import("./dijkstra.jsx"));
+register("kademlia",                      () => import("./kademlia.jsx"));
+register("hicuts",                        () => import("./hicuts.jsx"));
+register("count-to-inf",                  () => import("./count-to-inf.jsx"));
+register("islip",                         () => import("./islip.jsx"));
+register("aimd",                          () => import("./aimd.jsx"));
+register("p2p-overlay",                   () => import("./p2p-overlay.jsx"));
+register("olap-cube",                     () => import("./olap-cube.jsx"));
+register("jpa-lifecycle",                 () => import("./jpa-lifecycle.jsx"));
+register("jpa-nplus1",                    () => import("./jpa-nplus1.jsx"));
+register("two-phase-commit",              () => import("./two-phase-commit.jsx"));
+register("saga",                          () => import("./saga.jsx"));
+register("workflow-patterns",             () => import("./workflow-patterns.jsx"));
+register("recoverable-queue",             () => import("./recoverable-queue.jsx"));
+register("nfa-to-dfa",                    () => import("./nfa-to-dfa.jsx"));
+register("amdahl-gustafson",              () => import("./amdahl-gustafson.jsx"));
+register("broadcast-redukce",             () => import("./broadcast-redukce.jsx"));
+register("prefix-sum-uvod",               () => import("./prefix-sum-uvod.jsx"));
+register("prefix-sum-algoritmus",         () => import("./prefix-sum-algoritmus.jsx"));
+register("euler-tour",                    () => import("./euler-tour.jsx"));
+register("kontrakce-uvod",                () => import("./kontrakce-uvod.jsx"));
+register("transposition-enumeration",     () => import("./transposition-enumeration.jsx"));
+register("merge-radici",                  () => import("./merge-radici.jsx"));
+register("nasobeni-matic-mesh",           () => import("./nasobeni-matic-mesh.jsx"));
+register("volba-master",                  () => import("./volba-master.jsx"));
+register("raft-praxe",                    () => import("./raft-praxe.jsx"));
+register("enumeration-sort",              () => import("./enumeration-sort.jsx"));
+register("min-extraction-sort",           () => import("./min-extraction-sort.jsx"));
+register("median-splitting",              () => import("./median-splitting.jsx"));
+register("list-ranking",                  () => import("./list-ranking.jsx"));
+register("omega-network",                 () => import("./omega-network.jsx"));
+register("caesar-shift",                  () => import("./caesar-shift.jsx"));
+register("tm-simulator",                  () => import("./tm-simulator.jsx"));
+register("pda-stack",                     () => import("./pda-stack.jsx"));
+register("cfg-derivation",                () => import("./cfg-derivation.jsx"));
+register("cyk-parsing",                   () => import("./cyk-parsing.jsx"));
+register("dfa-minimization",              () => import("./dfa-minimization.jsx"));
+register("pumping-lemma",                 () => import("./pumping-lemma.jsx"));
+register("master-theorem",                () => import("./master-theorem.jsx"));
+register("reduction-wiring",              () => import("./reduction-wiring.jsx"));
+register("sat-clique",                    () => import("./sat-clique.jsx"));
+register("chomsky-hierarchy",             () => import("./chomsky-hierarchy.jsx"));
+register("vigenere-attack",               () => import("./vigenere-attack.jsx"));
+register("freq-analysis",                 () => import("./freq-analysis.jsx"));
+register("enigma",                        () => import("./enigma.jsx"));
+register("ecb-tux",                       () => import("./ecb-tux.jsx"));
+register("feistel",                       () => import("./feistel.jsx"));
+register("aes-round",                     () => import("./aes-round.jsx"));
+register("dh-mitm",                       () => import("./dh-mitm.jsx"));
+register("ec-point-add",                  () => import("./ec-point-add.jsx"));
+register("rsa-toy",                       () => import("./rsa-toy.jsx"));
+register("padding-oracle",                () => import("./padding-oracle.jsx"));
+register("birthday-paradox",              () => import("./birthday-paradox.jsx"));
+register("merkle-damgard",                () => import("./merkle-damgard.jsx"));
+register("sponge",                        () => import("./sponge.jsx"));
+register("kerberos",                      () => import("./kerberos.jsx"));
+register("needham-schroeder",             () => import("./needham-schroeder.jsx"));
+register("ecdsa-nonce-reuse",             () => import("./ecdsa-nonce-reuse.jsx"));
+register("hill-cipher",                   () => import("./hill-cipher.jsx"));
+register("playfair",                      () => import("./playfair.jsx"));
+register("rotor-period",                  () => import("./rotor-period.jsx"));
+register("columnar-transposition",        () => import("./columnar-transposition.jsx"));
+register("otp-crib-drag",                 () => import("./otp-crib-drag.jsx"));
+register("tls13-handshake",               () => import("./tls13-handshake.jsx"));
+register("pollard-rho",                   () => import("./pollard-rho.jsx"));
+register("square-and-multiply",           () => import("./square-and-multiply.jsx"));
+register("hmac-structure",                () => import("./hmac-structure.jsx"));
+register("lsb-steganografie",             () => import("./lsb-steganografie.jsx"));
+register("lfsr-explorer",                 () => import("./lfsr-explorer.jsx"));
+register("a51-clocking",                  () => import("./a51-clocking.jsx"));
+register("nist-test-playground",          () => import("./nist-test-playground.jsx"));
+register("arbiter-puf",                   () => import("./arbiter-puf.jsx"));
+register("rsa-spa-trace",                 () => import("./rsa-spa-trace.jsx"));
+register("dpa-aes-sbox",                  () => import("./dpa-aes-sbox.jsx"));
+register("dfa-aes-round",                 () => import("./dfa-aes-round.jsx"));
+register("bellcore-rsa-crt",              () => import("./bellcore-rsa-crt.jsx"));
+register("decimalization-attack",         () => import("./decimalization-attack.jsx"));
+register("emv-shim",                      () => import("./emv-shim.jsx"));
+register("timing-password",               () => import("./timing-password.jsx"));
+register("boolean-masking",               () => import("./boolean-masking.jsx"));
+register("tamper-response",               () => import("./tamper-response.jsx"));
+register("apdu-builder",                  () => import("./apdu-builder.jsx"));
+register("nfc-anticollision",             () => import("./nfc-anticollision.jsx"));
+register("bac-entropy",                   () => import("./bac-entropy.jsx"));
+register("glitch-pin",                    () => import("./glitch-pin.jsx"));
+register("pkcs11-wrap",                   () => import("./pkcs11-wrap.jsx"));
+register("lorawan-counter",               () => import("./lorawan-counter.jsx"));
+register("zigbee-default-key",            () => import("./zigbee-default-key.jsx"));
+register("ble-crackle",                   () => import("./ble-crackle.jsx"));
+register("keeloq-window",                 () => import("./keeloq-window.jsx"));
+register("sinkhole-mesh",                 () => import("./sinkhole-mesh.jsx"));
+register("wormhole-tunnel",               () => import("./wormhole-tunnel.jsx"));
+register("cfg-flatten",                   () => import("./cfg-flatten.jsx"));
+register("linux-rng-boot",                () => import("./linux-rng-boot.jsx"));
+register("sybil-quorum",                  () => import("./sybil-quorum.jsx"));
+register("score-distributions",           () => import("./score-distributions.jsx"));
+register("roc-det-explorer",              () => import("./roc-det-explorer.jsx"));
+register("minutiae-matching",             () => import("./minutiae-matching.jsx"));
+register("daugman-iris-code",             () => import("./daugman-iris-code.jsx"));
+register("eigenfaces-recon",              () => import("./eigenfaces-recon.jsx"));
+register("str-profile-match",             () => import("./str-profile-match.jsx"));
+register("keystroke-rhythm",              () => import("./keystroke-rhythm.jsx"));
+register("epassport-handshake",           () => import("./epassport-handshake.jsx"));
+register("attack-points-7",               () => import("./attack-points-7.jsx"));
+register("vein-nir-spectrum",             () => import("./vein-nir-spectrum.jsx"));
+register("arcface-margin",                () => import("./arcface-margin.jsx"));
+register("viola-jones-cascade",           () => import("./viola-jones-cascade.jsx"));
+register("henry-pattern-classifier",      () => import("./henry-pattern-classifier.jsx"));
+register("gabor-ridge-enhance",           () => import("./gabor-ridge-enhance.jsx"));
+register("dna-electropherogram",          () => import("./dna-electropherogram.jsx"));
+register("gait-cycle-walker",             () => import("./gait-cycle-walker.jsx"));
+register("signature-dynamic",             () => import("./signature-dynamic.jsx"));
+register("voice-mfcc",                    () => import("./voice-mfcc.jsx"));
+register("liveness-pad-tradeoff",         () => import("./liveness-pad-tradeoff.jsx"));
+register("deepfake-detection",            () => import("./deepfake-detection.jsx"));
+register("icao-lds-explorer",             () => import("./icao-lds-explorer.jsx"));
+register("bac-pace-keys",                 () => import("./bac-pace-keys.jsx"));
+register("lambda-reducer",                () => import("./lambda-reducer.jsx"));
+register("church-numerals",               () => import("./church-numerals.jsx"));
+register("y-combinator",                  () => import("./y-combinator.jsx"));
+register("church-rosser-converge",        () => import("./church-rosser-converge.jsx"));
+register("eta-pointfree",                 () => import("./eta-pointfree.jsx"));
+register("hindley-milner",                () => import("./hindley-milner.jsx"));
+register("lazy-thunk-graph",              () => import("./lazy-thunk-graph.jsx"));
+register("adt-pattern-match",             () => import("./adt-pattern-match.jsx"));
+register("functor-applicative-monad",     () => import("./functor-applicative-monad.jsx"));
+register("type-class-dispatch",           () => import("./type-class-dispatch.jsx"));
+register("sieve-lazy",                    () => import("./sieve-lazy.jsx"));
+register("monad-bind-flow",               () => import("./monad-bind-flow.jsx"));
+register("hof-pipeline",                  () => import("./hof-pipeline.jsx"));
+register("currying-partial",              () => import("./currying-partial.jsx"));
+register("fold-comparison",               () => import("./fold-comparison.jsx"));
+register("maybe-either-chain",            () => import("./maybe-either-chain.jsx"));
+register("prolog-unify-tree",             () => import("./prolog-unify-tree.jsx"));
+register("prolog-sld-tree",               () => import("./prolog-sld-tree.jsx"));
+register("dcg-parser",                    () => import("./dcg-parser.jsx"));
+register("clp-nqueens",                   () => import("./clp-nqueens.jsx"));
+register("prolog-findall-bagof-setof",    () => import("./prolog-findall-bagof-setof.jsx"));
+register("ownership-flow",                () => import("./ownership-flow.jsx"));
+register("lifetime-visualizer",           () => import("./lifetime-visualizer.jsx"));
+register("rust-iterator-chain",           () => import("./rust-iterator-chain.jsx"));
+register("rust-result-chain",             () => import("./rust-result-chain.jsx"));
+register("nll-borrow",                    () => import("./nll-borrow.jsx"));
+register("closure-capture-modes",         () => import("./closure-capture-modes.jsx"));
+register("rust-vs-haskell",               () => import("./rust-vs-haskell.jsx"));
+register("smart-pointer-graph",           () => import("./smart-pointer-graph.jsx"));
+register("trait-monomorphization",        () => import("./trait-monomorphization.jsx"));
+register("astar-explorer",                () => import("./astar-explorer.jsx"));
+register("minimax-alphabeta",             () => import("./minimax-alphabeta.jsx"));
+register("mcts-4phase",                   () => import("./mcts-4phase.jsx"));
+register("csp-ac3",                       () => import("./csp-ac3.jsx"));
+register("csp-backtrack-mrv",             () => import("./csp-backtrack-mrv.jsx"));
+register("uninformed-compare",            () => import("./uninformed-compare.jsx"));
+register("iddfs-redundancy",              () => import("./iddfs-redundancy.jsx"));
+register("hill-climbing-sa",              () => import("./hill-climbing-sa.jsx"));
+register("n-queens-min-conflicts",        () => import("./n-queens-min-conflicts.jsx"));
+register("expectiminimax-dice",           () => import("./expectiminimax-dice.jsx"));
+register("and-or-tree-plan",              () => import("./and-or-tree-plan.jsx"));
+register("belief-state-vacuum",           () => import("./belief-state-vacuum.jsx"));
+register("agent-decision-flow",           () => import("./agent-decision-flow.jsx"));
+register("bayes-from-joint",              () => import("./bayes-from-joint.jsx"));
+register("linear-regression-fit",         () => import("./linear-regression-fit.jsx"));
+register("logistic-boundary",             () => import("./logistic-boundary.jsx"));
+register("gradient-descent-bowl",         () => import("./gradient-descent-bowl.jsx"));
+register("backprop-chain",                () => import("./backprop-chain.jsx"));
+register("activation-derivatives",        () => import("./activation-derivatives.jsx"));
+register("regularization-l1-l2",          () => import("./regularization-l1-l2.jsx"));
+register("vanishing-gradient-depth",      () => import("./vanishing-gradient-depth.jsx"));
+register("convolution-interactive",       () => import("./convolution-interactive.jsx"));
+register("cnn-architectures-stack",       () => import("./cnn-architectures-stack.jsx"));
+register("attention-heatmap",             () => import("./attention-heatmap.jsx"));
+register("transformer-block-flow",        () => import("./transformer-block-flow.jsx"));
+register("rnn-unroll-bptt",               () => import("./rnn-unroll-bptt.jsx"));
+register("softmax-temperature",           () => import("./softmax-temperature.jsx"));
+register("word2vec-skipgram",             () => import("./word2vec-skipgram.jsx"));
+register("bert-mlm-fill",                 () => import("./bert-mlm-fill.jsx"));
+register("q-learning-gridworld",          () => import("./q-learning-gridworld.jsx"));
+register("policy-gradient-cartpole",      () => import("./policy-gradient-cartpole.jsx"));
+register("rlhf-pipeline-trace",           () => import("./rlhf-pipeline-trace.jsx"));
+register("distribution-gallery",          () => import("./distribution-gallery.jsx"));
+register("pdf-cdf-link",                  () => import("./pdf-cdf-link.jsx"));
+register("clt-sampling-converge",         () => import("./clt-sampling-converge.jsx"));
+register("sample-space-events",           () => import("./sample-space-events.jsx"));
+register("law-of-large-numbers",          () => import("./law-of-large-numbers.jsx"));
+register("mle-likelihood-curve",          () => import("./mle-likelihood-curve.jsx"));
+register("bayesian-update-beta",          () => import("./bayesian-update-beta.jsx"));
+register("fisher-info-curvature",         () => import("./fisher-info-curvature.jsx"));
+register("mom-vs-mle-gamma",              () => import("./mom-vs-mle-gamma.jsx"));
+register("bias-variance-mse",             () => import("./bias-variance-mse.jsx"));
+register("exponential-family-canonical",  () => import("./exponential-family-canonical.jsx"));
+register("sufficient-statistic-compress", () => import("./sufficient-statistic-compress.jsx"));
+register("hypothesis-test-tradeoff",      () => import("./hypothesis-test-tradeoff.jsx"));
+register("ci-repeated-sampling",          () => import("./ci-repeated-sampling.jsx"));
+register("t-test-interactive",            () => import("./t-test-interactive.jsx"));
+register("chisq-t-f-gallery",             () => import("./chisq-t-f-gallery.jsx"));
+register("lr-wald-score-tests",           () => import("./lr-wald-score-tests.jsx"));
+register("qq-plot-interactive",           () => import("./qq-plot-interactive.jsx"));
+register("contingency-chisq",             () => import("./contingency-chisq.jsx"));
+register("rank-test-mechanics",           () => import("./rank-test-mechanics.jsx"));
+register("anova-interactive",             () => import("./anova-interactive.jsx"));
+register("anova-interaction-plot",        () => import("./anova-interaction-plot.jsx"));
+register("gauss-markov-blue-demo",        () => import("./gauss-markov-blue-demo.jsx"));
+register("hat-matrix-projection",         () => import("./hat-matrix-projection.jsx"));
+register("regression-interactive",        () => import("./regression-interactive.jsx"));
+register("residual-diagnostics",          () => import("./residual-diagnostics.jsx"));
+register("r2-adjusted-overfit",           () => import("./r2-adjusted-overfit.jsx"));
+register("prediction-vs-confidence-band", () => import("./prediction-vs-confidence-band.jsx"));
+register("dtmc-simulator",                () => import("./dtmc-simulator.jsx"));
+register("stationary-power-iteration",    () => import("./stationary-power-iteration.jsx"));
+register("reachability-fixpoint",         () => import("./reachability-fixpoint.jsx"));
+register("mc-classification",             () => import("./mc-classification.jsx"));
+register("mdp-gridworld-policy",          () => import("./mdp-gridworld-policy.jsx"));
+register("value-iteration-converge",      () => import("./value-iteration-converge.jsx"));
+register("quicksort-simulation",          () => import("./quicksort-simulation.jsx"));
+register("karger-contraction-anim",       () => import("./karger-contraction-anim.jsx"));
+register("las-vegas-vs-mc",               () => import("./las-vegas-vs-mc.jsx"));
+register("distribution-explorer",         () => import("./distribution-explorer.jsx"));
+register("anscombe-and-correlation",      () => import("./anscombe-and-correlation.jsx"));
+register("binning-and-outlier-rules",     () => import("./binning-and-outlier-rules.jsx"));
+register("smote-and-threshold-tuning",    () => import("./smote-and-threshold-tuning.jsx"));
+register("scaler-comparator",             () => import("./scaler-comparator.jsx"));
+register("pca-projection",                () => import("./pca-projection.jsx"));
+register("mapreduce-shuffle",             () => import("./mapreduce-shuffle.jsx"));
+register("consistent-hashing-ring",       () => import("./consistent-hashing-ring.jsx"));
+register("sparql-graph-matcher",          () => import("./sparql-graph-matcher.jsx"));
+register("mbb-filter-refine",             () => import("./mbb-filter-refine.jsx"));
+register("kd-tree-builder",               () => import("./kd-tree-builder.jsx"));
+register("rtree-insert-split",            () => import("./rtree-insert-split.jsx"));
+register("rdfs-inference",                () => import("./rdfs-inference.jsx"));
+register("css-xpath-playground",          () => import("./css-xpath-playground.jsx"));
+register("row-vs-column-scan",            () => import("./row-vs-column-scan.jsx"));
+register("dictionary-encoding-builder",   () => import("./dictionary-encoding-builder.jsx"));
+register("column-compression-techniques", () => import("./column-compression-techniques.jsx"));
+register("eventual-consistency-timeline", () => import("./eventual-consistency-timeline.jsx"));
+register("cap-partition-sim",             () => import("./cap-partition-sim.jsx"));
+register("raft-leader-election",          () => import("./raft-leader-election.jsx"));
+register("rdf-graph-browser",             () => import("./rdf-graph-browser.jsx"));
+register("rdf-format-switcher",           () => import("./rdf-format-switcher.jsx"));
+register("main-delta-merge-timeline",     () => import("./main-delta-merge-timeline.jsx"));
+register("pipeline-hazards",              () => import("./pipeline-hazards.jsx"));
+register("cache-mapping",                 () => import("./cache-mapping.jsx"));
+register("pipeline-stage-tracker",        () => import("./pipeline-stage-tracker.jsx"));
+register("superpipelining-depth",         () => import("./superpipelining-depth.jsx"));
+register("control-hazard-recovery",       () => import("./control-hazard-recovery.jsx"));
+register("branch-2bit-counter",           () => import("./branch-2bit-counter.jsx"));
+register("gshare-correlated-branches",    () => import("./gshare-correlated-branches.jsx"));
+register("btb-ras-traversal",             () => import("./btb-ras-traversal.jsx"));
+register("stride-prefetcher-trace",       () => import("./stride-prefetcher-trace.jsx"));
+register("scoreboard-trace",              () => import("./scoreboard-trace.jsx"));
+register("tomasulo-rs-cdb",               () => import("./tomasulo-rs-cdb.jsx"));
+register("rob-precise-exceptions",        () => import("./rob-precise-exceptions.jsx"));
+register("mesi-state-machine",            () => import("./mesi-state-machine.jsx"));
+register("false-sharing-pingpong",        () => import("./false-sharing-pingpong.jsx"));
+register("replacement-policy-race",       () => import("./replacement-policy-race.jsx"));
+register("simd-lane-explorer",            () => import("./simd-lane-explorer.jsx"));
+register("auto-vectorization-tracer",     () => import("./auto-vectorization-tracer.jsx"));
+register("gpu-warp-divergence",           () => import("./gpu-warp-divergence.jsx"));
+register("memory-coalescing-pattern",     () => import("./memory-coalescing-pattern.jsx"));
+register("amat-cache-calculator",         () => import("./amat-cache-calculator.jsx"));
+register("numa-latency-map",              () => import("./numa-latency-map.jsx"));
+register("omp-scheduling-comparator",     () => import("./omp-scheduling-comparator.jsx"));
+register("openmp-fork-join",              () => import("./openmp-fork-join.jsx"));
+register("smt-pipeline-mixing",           () => import("./smt-pipeline-mixing.jsx"));
+register("dvfs-pstate-cstate-timeline",   () => import("./dvfs-pstate-cstate-timeline.jsx"));
+register("bank-conflict-warp",            () => import("./bank-conflict-warp.jsx"));
+register("kill-chain-defender",           () => import("./kill-chain-defender.jsx"));
+register("attack-tree-traversal",         () => import("./attack-tree-traversal.jsx"));
+register("risk-matrix-ale",               () => import("./risk-matrix-ale.jsx"));
+register("blp-access-checker",            () => import("./blp-access-checker.jsx"));
+register("rbac-abac-evaluator",           () => import("./rbac-abac-evaluator.jsx"));
+register("stack-bof-visualizer",          () => import("./stack-bof-visualizer.jsx"));
+register("sqli-injection-trace",          () => import("./sqli-injection-trace.jsx"));
+register("toctou-timeline",               () => import("./toctou-timeline.jsx"));
+register("spectre-cache-timing",          () => import("./spectre-cache-timing.jsx"));
+register("rowhammer-flip",                () => import("./rowhammer-flip.jsx"));
+register("csrf-samesite",                 () => import("./csrf-samesite.jsx"));
+register("phishing-indicators",           () => import("./phishing-indicators.jsx"));
+register("firewall-stateful-trace",       () => import("./firewall-stateful-trace.jsx"));
+register("ids-roc-tuner",                 () => import("./ids-roc-tuner.jsx"));
+register("arp-poison-mitm",               () => import("./arp-poison-mitm.jsx"));
+register("ddos-amplification",            () => import("./ddos-amplification.jsx"));
+register("wpa2-handshake-krack",          () => import("./wpa2-handshake-krack.jsx"));
+register("wep-fms-cracker",               () => import("./wep-fms-cracker.jsx"));
+register("wpa3-sae-vs-psk-brute",         () => import("./wpa3-sae-vs-psk-brute.jsx"));
+register("siem-correlation-trace",        () => import("./siem-correlation-trace.jsx"));
+register("ir-timeline-metrics",           () => import("./ir-timeline-metrics.jsx"));
+register("gdpr-rights-flow",              () => import("./gdpr-rights-flow.jsx"));
+register("pdca-isms",                     () => import("./pdca-isms.jsx"));
+register("cc-eal-explorer",               () => import("./cc-eal-explorer.jsx"));
+register("ais-abstract-factory",          () => import("./ais-abstract-factory.jsx"));
+register("ais-branching-strategy",        () => import("./ais-branching-strategy.jsx"));
+register("ais-code-ownership",            () => import("./ais-code-ownership.jsx"));
+register("ais-composite-tree",            () => import("./ais-composite-tree.jsx"));
+register("ais-crc-card",                  () => import("./ais-crc-card.jsx"));
+register("ais-god-object-refactor",       () => import("./ais-god-object-refactor.jsx"));
+register("ais-grasp-assign",              () => import("./ais-grasp-assign.jsx"));
+register("ais-iter-vs-inkrement",         () => import("./ais-iter-vs-inkrement.jsx"));
+register("ais-kanban-wip",                () => import("./ais-kanban-wip.jsx"));
+register("ais-mda-layers",                () => import("./ais-mda-layers.jsx"));
+register("ais-observer-notify",           () => import("./ais-observer-notify.jsx"));
+register("ais-pozadavky-evoluce",         () => import("./ais-pozadavky-evoluce.jsx"));
+register("ais-rup-hump",                  () => import("./ais-rup-hump.jsx"));
+register("ais-state-machine",             () => import("./ais-state-machine.jsx"));
+register("ais-tdd-cycle",                 () => import("./ais-tdd-cycle.jsx"));
+register("ais-two-hats",                  () => import("./ais-two-hats.jsx"));
+register("ais-uml-class-relations",       () => import("./ais-uml-class-relations.jsx"));
+register("ais-use-case-formality",        () => import("./ais-use-case-formality.jsx"));
+register("ais-usecase-relations",         () => import("./ais-usecase-relations.jsx"));
+register("nav-debounce-shift",            () => import("./nav-debounce-shift.jsx"));
+register("nav-digital-sbernice",          () => import("./nav-digital-sbernice.jsx"));
+register("nav-dvfs",                      () => import("./nav-dvfs.jsx"));
+register("nav-fsm-dispatch",              () => import("./nav-fsm-dispatch.jsx"));
+register("nav-gpos-rtos-scheduling",      () => import("./nav-gpos-rtos-scheduling.jsx"));
+register("nav-h-bridge",                  () => import("./nav-h-bridge.jsx"));
+register("nav-hsp-partition",             () => import("./nav-hsp-partition.jsx"));
+register("nav-isr-latency",               () => import("./nav-isr-latency.jsx"));
+register("nav-merici-retezec",            () => import("./nav-merici-retezec.jsx"));
+register("nav-noise-margin",              () => import("./nav-noise-margin.jsx"));
+register("nav-power-modes",               () => import("./nav-power-modes.jsx"));
+register("nav-proudova-smycka",           () => import("./nav-proudova-smycka.jsx"));
+register("nav-race-to-sleep",             () => import("./nav-race-to-sleep.jsx"));
+register("nav-sar-adc",                   () => import("./nav-sar-adc.jsx"));
+register("nav-super-loop-timeline",       () => import("./nav-super-loop-timeline.jsx"));
+register("nav-vonneumann-harvard",        () => import("./nav-vonneumann-harvard.jsx"));
+register("pdi-chandy-lamport",            () => import("./pdi-chandy-lamport.jsx"));
+register("pdi-data-locality",             () => import("./pdi-data-locality.jsx"));
+register("pdi-eip-chain",                 () => import("./pdi-eip-chain.jsx"));
+register("pdi-fault-tolerance",           () => import("./pdi-fault-tolerance.jsx"));
+register("pdi-konzistentni-rez",          () => import("./pdi-konzistentni-rez.jsx"));
+register("pdi-mom-models",                () => import("./pdi-mom-models.jsx"));
+register("pdi-spark-stages",              () => import("./pdi-spark-stages.jsx"));
+register("tama-activity-lifecycle",       () => import("./tama-activity-lifecycle.jsx"));
+register("tama-form-keyboard",            () => import("./tama-form-keyboard.jsx"));
+register("tama-mvi-cycle",                () => import("./tama-mvi-cycle.jsx"));
+register("tama-nav-patterns",             () => import("./tama-nav-patterns.jsx"));
+register("tama-offline-sync",             () => import("./tama-offline-sync.jsx"));
+register("tama-recomposition",            () => import("./tama-recomposition.jsx"));
+register("tama-sdileni-kodu",             () => import("./tama-sdileni-kodu.jsx"));
+register("tama-staged-rollout",           () => import("./tama-staged-rollout.jsx"));
+register("tama-thumb-zone",               () => import("./tama-thumb-zone.jsx"));
+register("tama-ui-thread",                () => import("./tama-ui-thread.jsx"));
+register("tama-vodopad-vs-agile",         () => import("./tama-vodopad-vs-agile.jsx"));
+register("uxi-domain-iterace",            () => import("./uxi-domain-iterace.jsx"));
+register("uxi-fidelity-ladder",           () => import("./uxi-fidelity-ladder.jsx"));
+register("uxi-vv-klasifikace",            () => import("./uxi-vv-klasifikace.jsx"));
+register("uxia-sus-skore",                () => import("./uxia-sus-skore.jsx"));
+register("uxia-ucd-cyklus",               () => import("./uxia-ucd-cyklus.jsx"));
+register("wap-anycast",                   () => import("./wap-anycast.jsx"));
+register("wap-closure-counter",           () => import("./wap-closure-counter.jsx"));
+register("wap-csp-eval",                  () => import("./wap-csp-eval.jsx"));
+register("wap-csrf-flow",                 () => import("./wap-csrf-flow.jsx"));
+register("wap-debounce-throttle",         () => import("./wap-debounce-throttle.jsx"));
+register("wap-dom-tree",                  () => import("./wap-dom-tree.jsx"));
+register("wap-event-loop",                () => import("./wap-event-loop.jsx"));
+register("wap-event-propagation",         () => import("./wap-event-propagation.jsx"));
+register("wap-http-hol",                  () => import("./wap-http-hol.jsx"));
+register("wap-json-schema-cond",          () => import("./wap-json-schema-cond.jsx"));
+register("wap-microtask-queue",           () => import("./wap-microtask-queue.jsx"));
+register("wap-mime-sniffing",             () => import("./wap-mime-sniffing.jsx"));
+register("wap-origin-check",              () => import("./wap-origin-check.jsx"));
+register("wap-proto-chain",               () => import("./wap-proto-chain.jsx"));
+register("wap-rest-verbs",                () => import("./wap-rest-verbs.jsx"));
+register("wap-typeof-coercion",           () => import("./wap-typeof-coercion.jsx"));
+register("wap-xss-types",                 () => import("./wap-xss-types.jsx"));
+register("pds-anonymity-properties",      () => import("./pds-anonymity-properties.jsx"));
+register("pds-beta-reputation",           () => import("./pds-beta-reputation.jsx"));
+register("pds-ip-allocation",             () => import("./pds-ip-allocation.jsx"));
+register("pds-onion-routing",             () => import("./pds-onion-routing.jsx"));
+register("pds-pagerank",                  () => import("./pds-pagerank.jsx"));
+register("pds-reputation-arch",           () => import("./pds-reputation-arch.jsx"));
+register("pds-reputon",                   () => import("./pds-reputon.jsx"));
+register("pds-traffic-mixing",            () => import("./pds-traffic-mixing.jsx"));
+register("pds-trust-relation",            () => import("./pds-trust-relation.jsx"));
+register("pds-vpn-anonymity",             () => import("./pds-vpn-anonymity.jsx"));

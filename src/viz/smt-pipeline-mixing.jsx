@@ -30,9 +30,9 @@ function genStream(kind, seed) {
 }
 
 const MIXES = {
-  cpu_cpu: { label: "CPU + CPU (degrade)", t0: "cpu", t1: "cpu" },
-  cpu_mem: { label: "CPU + Mem (sweet spot)", t0: "cpu", t1: "mem" },
-  mem_mem: { label: "Mem + Mem (žádný benefit)", t0: "mem", t1: "mem" },
+  cpu_cpu: { label: "CPU + CPU (obě hustá)", t0: "cpu", t1: "cpu" },
+  cpu_mem: { label: "CPU + Mem", t0: "cpu", t1: "mem" },
+  mem_mem: { label: "Mem + Mem (hodně bublin)", t0: "mem", t1: "mem" },
 };
 
 function simulateNoSMT(stream) {
@@ -128,10 +128,10 @@ export default function SmtPipelineMixing() {
         <text x={310} y={257} textAnchor="middle" fontSize="9" fill="white">SMT {(smt.utilized / smt.total * 100).toFixed(0)} %</text>
 
         <text x={6} y={H - 18} fontSize="9.5" fill="var(--text-faint)">
-          CPU + Mem mix = mem-thread plní bubliny z compute thread → big win.
+          Tento zjednodušený model jen ukazuje, jak druhé vlákno plní volné issue sloty (proto neklesne pod 1×).
         </text>
         <text x={6} y={H - 6} fontSize="9.5" fill="var(--text-faint)">
-          CPU + CPU = wallový boj o stejné FU → degrade.
+          Skutečné HT může klesnout pod 1× (viz tabulka: matrix multiply 0,95×) kvůli boji o FU a cache contention.
         </text>
       </svg>
     </div>

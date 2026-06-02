@@ -38,7 +38,7 @@ export default function DeepfakeDetection() {
   const [scenario, setScenario] = useState("deepfake_seen");
   const [enabled, setEnabled] = useState({ blink: true, lipsync: true, rppg: true, freq: true });
 
-  const signals = Object.fromEntries(Object.keys(CHANNELS).map(ch => [ch, genSignal(scenario, ch, scenario.length + ch.length)]));
+  const signals = Object.fromEntries(Object.keys(CHANNELS).map((ch, ci) => [ch, genSignal(scenario, ch, scenario.length * 97 + ci)]));
 
   // Per-frame fusion = weighted sum of enabled channels
   const fusion = new Array(FRAMES).fill(0);

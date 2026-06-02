@@ -103,19 +103,21 @@ Superpipeline rozseká *každý* stupeň na **n** kratších částí. Doba takt
   </g>
   <text x="270" y="85" text-anchor="middle" font-weight="600" fill="var(--text)">Superřetězená (n = 3, tj. 15 stupňů, takt τ/3)</text>
   <g fill="var(--bg-inset)" stroke="var(--line)">
-    <rect x="40" y="95" width="32" height="22" rx="2"/>
-    <rect x="75" y="95" width="32" height="22" rx="2"/>
-    <rect x="110" y="95" width="32" height="22" rx="2"/>
-    <rect x="145" y="95" width="32" height="22" rx="2"/>
-    <rect x="180" y="95" width="32" height="22" rx="2"/>
-    <rect x="215" y="95" width="32" height="22" rx="2"/>
-    <rect x="250" y="95" width="32" height="22" rx="2"/>
-    <rect x="285" y="95" width="32" height="22" rx="2"/>
-    <rect x="320" y="95" width="32" height="22" rx="2"/>
-    <rect x="355" y="95" width="32" height="22" rx="2"/>
-    <rect x="390" y="95" width="32" height="22" rx="2"/>
-    <rect x="425" y="95" width="32" height="22" rx="2"/>
-    <rect x="460" y="95" width="32" height="22" rx="2"/>
+    <rect x="40" y="95" width="28" height="22" rx="2"/>
+    <rect x="70" y="95" width="28" height="22" rx="2"/>
+    <rect x="100" y="95" width="28" height="22" rx="2"/>
+    <rect x="130" y="95" width="28" height="22" rx="2"/>
+    <rect x="160" y="95" width="28" height="22" rx="2"/>
+    <rect x="190" y="95" width="28" height="22" rx="2"/>
+    <rect x="220" y="95" width="28" height="22" rx="2"/>
+    <rect x="250" y="95" width="28" height="22" rx="2"/>
+    <rect x="280" y="95" width="28" height="22" rx="2"/>
+    <rect x="310" y="95" width="28" height="22" rx="2"/>
+    <rect x="340" y="95" width="28" height="22" rx="2"/>
+    <rect x="370" y="95" width="28" height="22" rx="2"/>
+    <rect x="400" y="95" width="28" height="22" rx="2"/>
+    <rect x="430" y="95" width="28" height="22" rx="2"/>
+    <rect x="460" y="95" width="28" height="22" rx="2"/>
   </g>
   <text x="270" y="140" text-anchor="middle" font-weight="600" fill="var(--text)">Superskalární (m = 3)</text>
   <g fill="var(--bg-inset)" stroke="var(--line)">

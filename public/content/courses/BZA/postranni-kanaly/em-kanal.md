@@ -29,7 +29,7 @@ Každý proud měnící se v čase generuje *magnetické pole*. CMOS gates při 
     <path d="M200,80 C220,55 245,48 285,65 C310,75 335,90 360,103"/>
   </g>
   <g fill="var(--text-muted)" font-size="10">
-    <text x="270" y="40" text-anchor="middle">B-pole (silokvótní čáry)</text>
+    <text x="270" y="40" text-anchor="middle">B-pole (siločáry)</text>
   </g>
 </svg>
 :::

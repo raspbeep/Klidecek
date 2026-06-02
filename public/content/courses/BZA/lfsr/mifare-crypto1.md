@@ -29,7 +29,7 @@ title: Mifare Classic a Crypto-1
   </g>
   <g fill="var(--text)" text-anchor="middle">
     <text x="270" y="64" font-size="13">48-bit LFSR — stav</text>
-    <text x="270" y="155" font-size="12">filter function f (5 NAND-of-OR vrstev)</text>
+    <text x="270" y="155" font-size="12">filter function f: 5× 4-vstupní → 1× 5-vstupní fc</text>
   </g>
   <g fill="var(--text-muted)" font-size="9.5" text-anchor="middle">
     <text x="56"  y="100">9</text>
@@ -40,6 +40,8 @@ title: Mifare Classic a Crypto-1
     <text x="366" y="100">19</text>
     <text x="428" y="100">21</text>
     <text x="490" y="100">23</text>
+    <text x="514" y="100">⋯</text>
+    <text x="270" y="120" font-size="8.5">20 lichých tapů 9, 11, … , 47  (5 × 4)</text>
   </g>
   <g stroke="var(--accent)" stroke-width="1" fill="none" stroke-dasharray="2 2">
     <path d="M56,80 L56,128"/>
@@ -50,6 +52,7 @@ title: Mifare Classic a Crypto-1
     <path d="M366,80 L366,128"/>
     <path d="M428,80 L428,128"/>
     <path d="M490,80 L490,128"/>
+    <path d="M514,80 L514,128"/>
   </g>
   <g stroke="var(--accent)" stroke-width="1.2" fill="none" marker-end="url(#aC1)">
     <path d="M270,170 L270,200"/>

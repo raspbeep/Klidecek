@@ -77,13 +77,13 @@ CPI této dvojice = **1** — žádný stall. Hardware: **multiplexor před ALU*
     <rect x="94"  y="34" width="38" height="24" rx="3" fill="#7c5bef" opacity="0.85"/><text x="113" y="50">ID</text>
     <rect x="136" y="34" width="38" height="24" rx="3" fill="#ef5b8d" opacity="0.85"/><text x="155" y="50">EX</text>
     <rect x="178" y="34" width="38" height="24" rx="3" fill="#ef8d5b" opacity="0.85"/><text x="197" y="50">MA</text>
-    <rect x="220" y="34" width="38" height="24" rx="3" fill="#5befef" opacity="0.85"/><text x="239" y="50">WB</text>
+    <rect x="220" y="34" width="38" height="24" rx="3" fill="#1a8f9e" opacity="0.85"/><text x="239" y="50">WB</text>
     <!-- sub: IF ID EX MA WB (cykly 2-6) -->
     <rect x="94"  y="68" width="38" height="24" rx="3" fill="#5b8def" opacity="0.85"/><text x="113" y="84">IF</text>
     <rect x="136" y="68" width="38" height="24" rx="3" fill="#7c5bef" opacity="0.85"/><text x="155" y="84">ID</text>
     <rect x="178" y="68" width="38" height="24" rx="3" fill="#ef5b8d" opacity="0.85"/><text x="197" y="84">EX</text>
     <rect x="220" y="68" width="38" height="24" rx="3" fill="#ef8d5b" opacity="0.85"/><text x="239" y="84">MA</text>
-    <rect x="262" y="68" width="38" height="24" rx="3" fill="#5befef" opacity="0.85"/><text x="281" y="84">WB</text>
+    <rect x="262" y="68" width="38" height="24" rx="3" fill="#1a8f9e" opacity="0.85"/><text x="281" y="84">WB</text>
   </g>
   <!-- forward arrow: add EX (konec t3) → sub EX (t4) -->
   <circle cx="155" cy="58" r="2.4" fill="#3ddc97"/>
@@ -103,14 +103,14 @@ CPI této dvojice = **1** — žádný stall. Hardware: **multiplexor před ALU*
     <rect x="94"  y="142" width="38" height="24" rx="3" fill="#7c5bef" opacity="0.85"/><text x="113" y="158">ID</text>
     <rect x="136" y="142" width="38" height="24" rx="3" fill="#ef5b8d" opacity="0.85"/><text x="155" y="158">EX</text>
     <rect x="178" y="142" width="38" height="24" rx="3" fill="#ef8d5b" opacity="0.85"/><text x="197" y="158">MA</text>
-    <rect x="220" y="142" width="38" height="24" rx="3" fill="#5befef" opacity="0.85"/><text x="239" y="158">WB</text>
+    <rect x="220" y="142" width="38" height="24" rx="3" fill="#1a8f9e" opacity="0.85"/><text x="239" y="158">WB</text>
     <!-- add: IF ID [stall] EX MA WB -->
     <rect x="94"  y="176" width="38" height="24" rx="3" fill="#5b8def" opacity="0.85"/><text x="113" y="192">IF</text>
     <rect x="136" y="176" width="38" height="24" rx="3" fill="#7c5bef" opacity="0.85"/><text x="155" y="192">ID</text>
     <rect x="178" y="176" width="38" height="24" rx="3" fill="var(--bg-inset)" stroke="var(--text-faint)" stroke-dasharray="2 2"/><text x="197" y="192" fill="var(--text-faint)" font-weight="400">—</text>
     <rect x="220" y="176" width="38" height="24" rx="3" fill="#ef5b8d" opacity="0.85"/><text x="239" y="192">EX</text>
     <rect x="262" y="176" width="38" height="24" rx="3" fill="#ef8d5b" opacity="0.85"/><text x="281" y="192">MA</text>
-    <rect x="304" y="176" width="38" height="24" rx="3" fill="#5befef" opacity="0.85"/><text x="323" y="192">WB</text>
+    <rect x="304" y="176" width="38" height="24" rx="3" fill="#1a8f9e" opacity="0.85"/><text x="323" y="192">WB</text>
   </g>
   <!-- forward arrow: lw MA (konec t4) → add EX (t5), až po 1 stallu -->
   <circle cx="197" cy="166" r="2.4" fill="#3ddc97"/>

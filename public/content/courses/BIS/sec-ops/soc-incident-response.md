@@ -74,7 +74,8 @@ NIST SP 800-61 — most cited framework.
     <text x="370" y="78">Contain,</text>
     <text x="370" y="92">Eradicate,</text>
     <text x="370" y="106">Recover</text>
-    <text x="490" y="92">Post-</text>
+    <text x="490" y="85">Post-</text>
+    <text x="490" y="99">incident</text>
   </g>
   <g fill="var(--text-muted)" text-anchor="middle" font-size="9">
     <text x="90" y="115">plan, train</text>

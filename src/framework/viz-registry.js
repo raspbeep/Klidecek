@@ -1,19 +1,28 @@
 // viz-registry.js — registry for interactive viz components.
 //
-// Each viz module exports a default React component plus a `vizId` string.
-// `src/viz/index.js` collects all viz modules and calls `register(id, Component)`
-// on startup, so MD files can reference visualisations by id via `::: viz <id>`.
+// `src/viz/index.js` registers every viz by id with a *dynamic-import loader*
+// (`() => import("./foo.jsx")`) rather than an eagerly-imported component, so
+// Vite code-splits each viz into its own chunk. `register()` wraps the loader in
+// `React.lazy`, so the chunk is only fetched when that viz is actually rendered
+// (which, combined with the in-view gating in content-blocks.jsx, means a page
+// loads only the viz a reader can currently see). MD files reference a viz by id
+// via `::: viz <id>`.
+
+import { lazy } from "react";
 
 const registry = new Map();
 
-export function register(id, Component) {
+export function register(id, loader) {
   if (!id || typeof id !== "string") {
     throw new Error(`viz: register() requires a string id (got ${typeof id})`);
+  }
+  if (typeof loader !== "function") {
+    throw new Error(`viz: register("${id}", loader) requires a () => import(...) loader`);
   }
   if (registry.has(id)) {
     console.warn(`viz: overwriting existing registration for "${id}"`);
   }
-  registry.set(id, Component);
+  registry.set(id, lazy(loader));
 }
 
 export function get(id) {

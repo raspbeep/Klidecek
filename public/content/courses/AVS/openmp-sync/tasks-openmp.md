@@ -69,10 +69,10 @@ Klíčový pattern:
     <text x="385" y="50">T3</text>
   </g>
   <g stroke="var(--accent)" stroke-width="1.5" fill="none">
-    <path d="M70,65 L70,90" marker-end="url(#task-arrow)"/>
-    <path d="M175,65 L175,90" marker-end="url(#task-arrow)"/>
-    <path d="M280,65 L280,90" marker-end="url(#task-arrow)"/>
-    <path d="M385,65 L385,90" marker-end="url(#task-arrow)"/>
+    <path d="M70,90 L70,65" marker-end="url(#task-arrow)"/>
+    <path d="M175,90 L175,65" marker-end="url(#task-arrow)"/>
+    <path d="M280,90 L280,65" marker-end="url(#task-arrow)"/>
+    <path d="M385,90 L385,65" marker-end="url(#task-arrow)"/>
   </g>
   <g fill="var(--accent)" opacity="0.15" stroke="var(--accent)">
     <rect x="20" y="100" width="500" height="60" rx="4"/>

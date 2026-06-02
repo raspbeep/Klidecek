@@ -93,15 +93,12 @@ export default function MesiStateMachine() {
   const [log, setLog] = useState([{ txt: "počáteční stav: oba I" }]);
 
   function go(ev) {
-    const [n0, n1, bus] = ev[0] === "0" ? step(proto, c0, c1, ev) : step(proto, c1, c0, ev).map((x, i) => i < 2 ? (i === 0 ? x : x) : x);
-    if (ev[0] === "0") {
-      setC0(n0); setC1(n1);
-    } else {
-      const [n1b, n0b, bus2] = step(proto, c1, c0, ev);
-      setC1(n1b); setC0(n0b);
-      setLog(l => [...l, { txt: `core${ev[0]} ${ev[1] === "r" ? "READ" : "WRITE"} → core0=${n0b}, core1=${n1b} | ${bus2}` }]);
-      return;
-    }
+    // step() always takes (c0, c1) in fixed order and returns [newLocal, newOther],
+    // where local/other are chosen from ev[0]; map the result back to core0/core1.
+    const [nl, no, bus] = step(proto, c0, c1, ev);
+    const n0 = ev[0] === "0" ? nl : no;
+    const n1 = ev[0] === "0" ? no : nl;
+    setC0(n0); setC1(n1);
     setLog(l => [...l, { txt: `core${ev[0]} ${ev[1] === "r" ? "READ" : "WRITE"} → core0=${n0}, core1=${n1} | ${bus}` }]);
   }
 

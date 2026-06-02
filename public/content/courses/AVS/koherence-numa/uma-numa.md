@@ -83,7 +83,7 @@ Reálné měření (Intel Xeon Gold dual-socket):
 
 ⇒ Remote DRAM **2-3× pomalejší** než local. Pro memory-bound zátěž to znamená 2-3× propad výkonu.
 
-::: viz numa-latency-map "Přepni thread/page mezi NUMA 0 a NUMA 1. Lokální = 80 ns, remote (cross UPI) = 200 ns. Bandwidth bar ukazuje propad ~40 %."
+::: viz numa-latency-map "Přepni thread/page mezi NUMA 0 a NUMA 1. Lokální = 80 ns, remote (cross UPI) = 200 ns. Bandwidth bar klesne na ~40 % lokální propustnosti (propad ~60 %)."
 :::
 
 ## OS support — first-touch policy

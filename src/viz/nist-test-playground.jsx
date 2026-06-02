@@ -31,12 +31,13 @@ function genBiased(n, p) {
   return a;
 }
 function genLcg(n, seed) {
-  // glibc rand: X = (1103515245*X + 12345) mod 2^31; take bit at position 30 (MSB of 31-bit)
+  // glibc rand: X = (1103515245*X + 12345) mod 2^31; take LSB (low bit), which is a
+  // period-2 0101... stream — exposes the LCG's linear/periodic structure on runs/longest-run.
   let x = seed >>> 0;
   const a = new Array(n);
   for (let i = 0; i < n; i++) {
     x = (Math.imul(1103515245, x) + 12345) & 0x7fffffff;
-    a[i] = (x >>> 30) & 1;
+    a[i] = x & 1;
   }
   return a;
 }
@@ -116,7 +117,7 @@ const GENS = {
   "Uniformni Math.random()": (n) => genUniform(n),
   "Vychyleny min. p=0.55": (n) => genBiased(n, 0.55),
   "Vychyleny min. p=0.7": (n) => genBiased(n, 0.7),
-  "LCG glibc-rand": (n) => genLcg(n, 12345),
+  "LCG glibc-rand (nizky bit)": (n) => genLcg(n, 12345),
   "Periodicky 10110100": (n) => genPeriodic(n, "10110100"),
   "Periodicky 1100": (n) => genPeriodic(n, "1100"),
   "AES-like (pseudo)": (n) => genAesCtr(n),
@@ -183,8 +184,9 @@ export default function NistTestPlayground() {
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
-        Test prochazi pri p ≥ 0.01 (alpha = 0.01). LCG projde monobit, ale ne dalsi testy s mensimi statistikami;
-        periodicky generator selze na runs/longest-run; vychyleny generator selze na monobit i block-frequency.
+        Test prochazi pri p ≥ 0.01 (alpha = 0.01). LCG (nizky bit) projde monobit i block-frequency (bit je vyvazeny),
+        ale selze na runs/longest-run kvuli periodicke strukture; periodicky generator selze na runs/longest-run;
+        vychyleny generator selze na monobit i block-frequency.
       </div>
     </div>
   );

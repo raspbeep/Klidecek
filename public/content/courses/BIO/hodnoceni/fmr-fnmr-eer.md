@@ -64,17 +64,17 @@ Praktický důsledek: pro large-scale systémy (Aadhaar) je nutné velmi nízké
     <path d="M50,30 C150,40 280,120 460,170"/>
   </g>
   <g stroke="var(--accent)" stroke-width="1" stroke-dasharray="3 3" fill="none">
-    <path d="M255,80 L255,180"/>
-    <path d="M40,80 L255,80"/>
+    <path d="M212,80 L212,180"/>
+    <path d="M40,80 L212,80"/>
   </g>
   <g fill="var(--text)" text-anchor="middle">
     <text x="100" y="60" font-size="11" fill="rgb(64,192,87)">FRR</text>
     <text x="100" y="170" font-size="11" fill="var(--danger, #d33)">FAR</text>
-    <text x="255" y="65" font-size="11" fill="var(--accent)">EER</text>
-    <text x="265" y="200" font-size="10" fill="var(--text-muted)">τ</text>
+    <text x="212" y="65" font-size="11" fill="var(--accent)">EER</text>
+    <text x="222" y="200" font-size="10" fill="var(--text-muted)">τ</text>
     <text x="22" y="80" font-size="10" fill="var(--text-muted)">EER value</text>
   </g>
-  <circle cx="255" cy="80" r="4" fill="var(--accent)"/>
+  <circle cx="212" cy="80" r="4" fill="var(--accent)"/>
 </svg>
 :::
 

@@ -132,7 +132,7 @@ export default function RocDetExplorer() {
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
         <div>
-          <div style={panelTitle}>ROC (lin)</div>
+          <div style={panelTitle}>ROC</div>
           <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%" }}>
             <line x1={30} y1={H - 25} x2={W - 20} y2={H - 25} stroke="var(--text-muted)" strokeWidth="1" />
             <line x1={30} y1={20} x2={30} y2={H - 25} stroke="var(--text-muted)" strokeWidth="1" />

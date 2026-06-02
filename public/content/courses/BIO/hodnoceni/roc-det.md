@@ -100,18 +100,18 @@ Alternativní vizualizace, *populární v biometrii*:
   <g stroke="var(--danger, #d33)" stroke-width="2" fill="none">
     <path d="M55,170 C200,110 320,80 460,50"/>
   </g>
-  <circle cx="170" cy="120" r="4" fill="rgb(64,192,87)"/>
+  <circle cx="201" cy="74" r="4" fill="rgb(64,192,87)"/>
   <circle cx="270" cy="100" r="4" fill="var(--danger, #d33)"/>
   <g fill="var(--text)" text-anchor="start" font-size="11">
     <text x="200" y="50" fill="rgb(64,192,87)">System A</text>
     <text x="300" y="80" fill="var(--danger, #d33)">System B</text>
   </g>
   <g fill="var(--text-muted)" text-anchor="middle" font-size="9">
-    <text x="170" y="135">EER A</text>
+    <text x="201" y="68">EER A</text>
     <text x="270" y="115">EER B</text>
     <text x="280" y="200">FAR (log)</text>
     <text x="22" y="100" transform="rotate(-90, 22, 100)">FRR (log)</text>
-    <text x="270" y="195">EER line (FAR = FRR)</text>
+    <text x="120" y="58" transform="rotate(19.6, 120, 58)">EER line (FAR = FRR)</text>
   </g>
 </svg>
 :::

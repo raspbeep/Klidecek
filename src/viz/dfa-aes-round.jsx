@@ -31,7 +31,7 @@ export default function DfaAesRound() {
     { title: "Krok 0 — injekce chyby (start kola 9)", desc: "1 byte modifikovan (napr. bit-flip pres EM-FI nebo laser)." },
     { title: "Krok 1 — po SubBytes kola 9", desc: "S-box je byte-wise bijekce; chyba zustava na stejne pozici." },
     { title: "Krok 2 — po ShiftRows kola 9", desc: `Radek r=${faulted.r} se posune o ${faulted.r} doleva; byte je nyni na sloupci c'=${(faulted.c - faulted.r + 4) % 4}.` },
-    { title: "Krok 3 — po MixColumns kola 9", desc: "MixColumns smichá 4 bity sloupce; cely sloupec se nyni lisi." },
+    { title: "Krok 3 — po MixColumns kola 9", desc: "MixColumns smichá 4 byty sloupce; cely sloupec se nyni lisi." },
     { title: "Krok 4 — po SubBytes + ShiftRows + AddRoundKey kola 10 (C')", desc: "Poslední kolo nema MixColumns; ShiftRows roztáhne 4 byty do 4 ruznych sloupcu." },
   ];
 

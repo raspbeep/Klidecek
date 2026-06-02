@@ -25,7 +25,8 @@ title: KeeLoq — autoklíče a rolling code
     <text x="105" y="92" font-size="10.5" fill="var(--text-muted)">counter C (16b)</text>
     <text x="105" y="110" font-size="10.5" fill="var(--text-muted)">serial S (28b)</text>
     <text x="105" y="128" font-size="10.5" fill="var(--text-muted)">device key K (64b)</text>
-    <text x="105" y="155" font-size="11" fill="var(--accent)">M = KeeLoq_K(C||disc||F), S v plaintextu</text>
+    <text x="105" y="150" font-size="10.5" fill="var(--accent)">M = KeeLoq_K(C ∥ disc ∥ F)</text>
+    <text x="105" y="165" font-size="10.5" fill="var(--accent)">S v plaintextu</text>
     <text x="435" y="92" font-size="10.5" fill="var(--text-muted)">manufacturer key</text>
     <text x="435" y="110" font-size="10.5" fill="var(--text-muted)">K = derive(MK, S)</text>
     <text x="435" y="128" font-size="10.5" fill="var(--text-muted)">last_C, window [C+1, C+w]</text>

@@ -11,7 +11,7 @@ const TRACES = {
   mixed: { label: "smíšený", addrs: [1,2,3,1,4,2,5,3,1,6,2,4] },
 };
 
-function sim(policy, addrs) {
+function sim(policy, addrs, n) {
   let cache = []; // array of lines (LRU front=oldest)
   let history = []; // [pseudo-LRU]
   let plruBits = 0; // for 4-way pseudo-LRU, 3 bits
@@ -32,7 +32,7 @@ function sim(policy, addrs) {
       events.push({ a, hit: true });
     } else {
       misses++;
-      if (cache.length < N_LINES) {
+      if (cache.length < n) {
         cache.push(a);
         if (policy === "PLRU") plruBits = updatePLRU(plruBits, cache.length - 1);
         events.push({ a, hit: false, evict: null });
@@ -51,7 +51,7 @@ function sim(policy, addrs) {
           plruBits = updatePLRU(plruBits, way);
         } else { // random
           rngSeed = (rngSeed * 1664525 + 1013904223) >>> 0;
-          const way = rngSeed % N_LINES;
+          const way = rngSeed % n;
           evict = cache[way];
           cache[way] = a;
         }
@@ -90,10 +90,18 @@ function plruVictim(bits) {
 export default function ReplacementPolicyRace() {
   const [traceKey, setTraceKey] = useState("stream");
   const trace = TRACES[traceKey].addrs;
-  const policies = ["LRU", "FIFO", "PLRU", "random"];
-  const results = policies.map(p => sim(p, trace));
+  // FIFO is shown at two cache sizes (3 and 4) so Bélády's anomaly — more
+  // misses with the LARGER cache — is directly visible on adjacent rows.
+  const rows = [
+    { policy: "LRU", n: N_LINES, label: "LRU" },
+    { policy: "FIFO", n: 3, label: "FIFO n=3" },
+    { policy: "FIFO", n: N_LINES, label: `FIFO n=${N_LINES}` },
+    { policy: "PLRU", n: N_LINES, label: "PLRU" },
+    { policy: "random", n: N_LINES, label: "random" },
+  ];
+  const results = rows.map(r => sim(r.policy, trace, r.n));
 
-  const W = 580, H = 296;
+  const W = 580, H = 340;
   const cellW = Math.min(36, (W - 100) / trace.length);
 
   return (
@@ -103,7 +111,7 @@ export default function ReplacementPolicyRace() {
           {Object.entries(TRACES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
         <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
-          trace ({trace.length}), N_LINES = {N_LINES}
+          trace ({trace.length}), N_LINES = {N_LINES} (FIFO i n=3 pro Bélády)
         </span>
       </div>
 
@@ -118,16 +126,15 @@ export default function ReplacementPolicyRace() {
           </g>
         ))}
 
-        {policies.map((p, pi) => {
+        {rows.map((row, pi) => {
           const r = results[pi];
           const y = 70 + pi * 50;
           const miss = r.misses;
           const hit = r.total - r.misses;
-          const pct = (hit / r.total * 100).toFixed(0);
           return (
-            <g key={p}>
-              <text x={20} y={y + 12} fontSize="11" fontWeight="600" fill="var(--text)">{p}</text>
-              <text x={20} y={y + 28} fontSize="9.5" fill="var(--text-muted)">{hit}/{r.total} hit ({pct} %)</text>
+            <g key={row.label}>
+              <text x={20} y={y + 12} fontSize="11" fontWeight="600" fill="var(--text)">{row.label}</text>
+              <text x={20} y={y + 28} fontSize="9.5" fill="var(--text-muted)">{hit}/{r.total} hit · {miss} miss</text>
               {r.events.map((e, i) => (
                 <rect key={i} x={80 + i * cellW} y={y} width={cellW - 2} height={36}
                   fill={e.hit ? "oklch(0.65 0.16 145 / 0.5)" : "oklch(0.65 0.18 22 / 0.5)"}
@@ -144,7 +151,7 @@ export default function ReplacementPolicyRace() {
         })}
 
         <text x={20} y={H - 22} fontSize="9.5" fill="var(--text-faint)">
-          Bélády anomaly: u FIFO se zvětšením cache může vzrůst počet miss-ů (paradox).
+          Bélády anomaly: porovnej řádky FIFO n=3 vs n=4 — větší cache, víc miss-ů (paradox).
         </text>
         <text x={20} y={H - 10} fontSize="9.5" fill="var(--text-faint)">
           Random nemá patologii — překvapivě konkurenční při velké asociativitě.

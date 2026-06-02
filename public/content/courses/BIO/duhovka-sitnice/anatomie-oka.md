@@ -45,7 +45,7 @@ title: Anatomie oka pro biometriku
     <path d="M175,120 L155,118"/>
     <path d="M192,140 L155,148"/>
     <path d="M225,100 L245,80"/>
-    <path d="M325,110 L350,108"/>
+    <path d="M358,110 L350,104"/>
     <path d="M295,180 L320,196"/>
   </g>
 </svg>

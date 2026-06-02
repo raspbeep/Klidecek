@@ -19,12 +19,10 @@ title: DNA — struktura a princip
   <g stroke="var(--text)" stroke-width="0.8" fill="none">
     <line x1="155" y1="60" x2="245" y2="60"/>
     <line x1="180" y1="80" x2="220" y2="80"/>
-    <line x1="200" y1="100" x2="200" y2="100"/>
     <line x1="180" y1="120" x2="220" y2="120"/>
     <line x1="155" y1="140" x2="245" y2="140"/>
     <line x1="180" y1="160" x2="220" y2="160"/>
     <line x1="155" y1="180" x2="245" y2="180"/>
-    <line x1="180" y1="200" x2="220" y2="200"/>
   </g>
   <g fill="var(--accent)" font-size="11" text-anchor="middle">
     <text x="200" y="65">A=T</text>

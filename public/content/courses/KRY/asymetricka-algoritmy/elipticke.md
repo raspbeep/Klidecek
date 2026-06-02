@@ -18,7 +18,7 @@ Koblitz (1985) a Miller (1985) nezávisle navrhli ECC jako náhradu DH/RSA. Prak
 
 Nad reálnými čísly: $y^2 = x^3 + ax + b$ je hladká křivka (pokud $4a^3 + 27b^2 \neq 0$).
 
-::: svg "Eliptická křivka y² = x³ − x + 1 nad reálnými čísly"
+::: svg "Eliptická křivka y² = x³ − x nad reálnými čísly (tři reálné kořeny → ovál + větev)"
 <svg viewBox="0 0 540 220" font-family="ui-sans-serif, system-ui" font-size="11">
   <g stroke="var(--line)" stroke-width="0.5" fill="none">
     <line x1="40"  y1="110" x2="500" y2="110"/>
@@ -68,17 +68,17 @@ Operace je geometricky **"protáhni přímku skrz $P, Q$, zrcadli třetí průse
         fill="none" stroke="var(--accent)" stroke-width="1.4"/>
   <path d="M 270 120 Q 220 150 270 120 Q 350 140 460 190" 
         fill="none" stroke="var(--accent)" stroke-width="1.4"/>
-  <line x1="150" y1="68" x2="430" y2="200" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="150" y1="68" x2="430" y2="169" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 3"/>
   <line x1="350" y1="100" x2="350" y2="140" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="2 2"/>
   <g fill="var(--accent)">
     <circle cx="150" cy="68"  r="3.5"/>
-    <circle cx="220" cy="80"  r="3.5"/>
+    <circle cx="220" cy="93"  r="3.5"/>
     <circle cx="350" cy="140" r="3.5"/>
     <circle cx="350" cy="100" r="3.5"/>
   </g>
   <g fill="var(--text)" font-size="11.5">
     <text x="135" y="60">P</text>
-    <text x="205" y="74">Q</text>
+    <text x="205" y="87">Q</text>
     <text x="361" y="145">−R</text>
     <text x="361" y="96">R = P + Q</text>
   </g>

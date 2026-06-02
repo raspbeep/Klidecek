@@ -37,8 +37,8 @@ title: Papilární linie a anatomie otisku
     <text x="220" y="73">hřeben</text>
     <text x="250" y="98">dno</text>
   </g>
-  <g fill="var(--text-muted)" font-size="9.5">
-    <text x="350" y="35">papilární vyvýšeniny obnovovány z dermis</text>
+  <g fill="var(--text-muted)" font-size="9.5" text-anchor="end">
+    <text x="494" y="193">papilární vyvýšeniny obnovovány z dermis</text>
   </g>
 </svg>
 :::

@@ -52,7 +52,7 @@ Na mobilu tento efekt **neplatí**. Prst se pohybuje ve volném prostoru, disple
   <rect x="20" y="26" width="230" height="110" rx="4" fill="var(--bg-card)" stroke="var(--line-strong)"/>
   <rect x="20" y="26" width="230" height="20" fill="var(--accent)" fill-opacity="0.18"/>
   <text x="135" y="40" text-anchor="middle" font-size="9.5" fill="var(--text)">cílový pruh u okraje</text>
-  <path d="M 120 110 L 30 36" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#fz1)"/>
+  <path d="M 120 110 L 30 36" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#fz1)"/>
   <circle cx="120" cy="110" r="3" fill="var(--accent)"/>
   <text x="125" y="124" font-size="9" fill="var(--text-muted)">kurzor narazí a stojí</text>
   <!-- Mobile -->
@@ -62,7 +62,7 @@ Na mobilu tento efekt **neplatí**. Prst se pohybuje ve volném prostoru, disple
   <text x="405" y="55" text-anchor="middle" font-size="9.5" fill="var(--text)">dotykový cíl</text>
   <circle cx="430" cy="51" r="16" fill="var(--text-faint)" fill-opacity="0.55"/>
   <text x="455" y="86" font-size="9" fill="var(--text-muted)">prst zakrývá</text>
-  <path d="M 405 120 L 405 70" stroke="var(--text-faint)" stroke-width="1.6" marker-end="url(#fz2)"/>
+  <path d="M 405 120 L 405 70" fill="none" stroke="var(--text-faint)" stroke-width="1.6" marker-end="url(#fz2)"/>
   <defs>
     <marker id="fz1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="var(--accent)"/></marker>
     <marker id="fz2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="var(--text-faint)"/></marker>

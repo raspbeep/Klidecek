@@ -55,9 +55,9 @@ Round-robin: každé update line jezdí mezi jádry. Single update = 50-100 cykl
   <text x="260" y="68" text-anchor="middle" fill="var(--text-muted)" font-size="9">counts[2]</text>
   <text x="360" y="68" text-anchor="middle" fill="var(--text-muted)" font-size="9">counts[3]</text>
   <g stroke="var(--accent-line)" fill="none" stroke-width="1.5">
-    <path d="M100,55 Q160,15 220,55" marker-end="url(#fsh-ar)"/>
-    <path d="M200,55 Q260,15 320,55" marker-end="url(#fsh-ar)"/>
-    <path d="M300,55 Q360,15 420,55" marker-end="url(#fsh-ar)"/>
+    <path d="M100,55 Q110,38 120,55" marker-end="url(#fsh-ar)"/>
+    <path d="M200,55 Q210,38 220,55" marker-end="url(#fsh-ar)"/>
+    <path d="M300,55 Q310,38 320,55" marker-end="url(#fsh-ar)"/>
   </g>
   <text x="270" y="100" text-anchor="middle" fill="var(--accent-line)" font-size="10">cache line ping-pong (invalidace + transfer)</text>
   <g fill="var(--bg-card)" stroke="var(--accent)">

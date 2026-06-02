@@ -6,7 +6,7 @@ const PROTOCOLS = [
   { id: "dns",    name: "DNS (ANY query)",   amp: 28,    note: "common, easy to find resolvers" },
   { id: "ntp",    name: "NTP monlist",       amp: 556,   note: "old NTP servers, mostly patched" },
   { id: "ssdp",   name: "SSDP",              amp: 30,    note: "IoT devices, UPnP" },
-  { id: "memc",   name: "Memcached",         amp: 51200, note: "GitHub 2018: 1.35 Tbps" },
+  { id: "memc",   name: "Memcached",         amp: 51000, note: "GitHub 2018: 1.35 Tbps" },
   { id: "snmp",   name: "SNMP",              amp: 6.3,   note: "modest factor" },
   { id: "chargen",name: "CHARGEN",           amp: 358,   note: "legacy, rare today" },
 ];

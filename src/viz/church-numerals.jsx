@@ -67,12 +67,19 @@ export default function ChurchNumerals() {
   // visualize the Church numeral n = λf x. f^n(x) as a stack of f bubbles
   const renderChurch = (k, color) => {
     const W = 140, H = 110;
+    const VIS_MAX = 5;                 // top bubble i=4 -> cy=32, leaves room for x/⋮ label
+    const shown = Math.min(k, VIS_MAX);
     const bubbles = [];
-    for (let i = 0; i < k; i++) {
+    for (let i = 0; i < shown; i++) {
       bubbles.push(<circle key={i} cx={W / 2} cy={H - 14 - i * 16} r="8" fill={color} stroke="var(--text)" strokeWidth="1" />);
       bubbles.push(<text key={"t" + i} x={W / 2} y={H - 11 - i * 16} fontSize="9" textAnchor="middle" fill="var(--bg-card)">f</text>);
     }
-    bubbles.push(<text key="x" x={W / 2} y={H - 14 - k * 16 - 4} fontSize="9" textAnchor="middle" fill="var(--text-muted)">x</text>);
+    if (k > VIS_MAX) {
+      // overflow indicator instead of literal stack (avoids clipping + DOM blowup)
+      bubbles.push(<text key="more" x={W / 2} y={H - 14 - shown * 16 + 2} fontSize="11" textAnchor="middle" fill="var(--text-muted)">⋮</text>);
+    } else {
+      bubbles.push(<text key="x" x={W / 2} y={H - 14 - shown * 16 - 4} fontSize="9" textAnchor="middle" fill="var(--text-muted)">x</text>);
+    }
     bubbles.push(<text key="lbl" x={W / 2} y={14} fontSize="11" textAnchor="middle" fill="var(--text)">{k}</text>);
     return <svg viewBox={`0 0 ${W} ${H}`} style={{ width: 140, height: 110, background: "var(--bg-inset)", borderRadius: 6 }}>{bubbles}</svg>;
   };

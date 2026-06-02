@@ -102,14 +102,16 @@ export default function BlpAccessChecker() {
         {/* action arrow */}
         {action === "read" && (
           <g>
-            <path d={`M 310 ${25 + (3 - sLvlIdx) * 40 + 15} Q 380 100 460 ${25 + (3 - oLvlIdx) * 40 + 15}`}
+            {/* info flows object → subject (data leaves the file, enters the reader) */}
+            <path d={`M 460 ${25 + (3 - oLvlIdx) * 40 + 15} Q 380 100 310 ${25 + (3 - sLvlIdx) * 40 + 15}`}
               stroke={allowed ? "oklch(0.7 0.15 145)" : "oklch(0.65 0.18 22)"} strokeWidth="2" fill="none"
               strokeDasharray={allowed ? "0" : "4 3"} markerEnd="url(#blp-ar)" />
           </g>
         )}
         {action === "write" && (
           <g>
-            <path d={`M 460 ${25 + (3 - oLvlIdx) * 40 + 15} Q 380 100 310 ${25 + (3 - sLvlIdx) * 40 + 15}`}
+            {/* info flows subject → object (data leaves the writer, enters the file) */}
+            <path d={`M 310 ${25 + (3 - sLvlIdx) * 40 + 15} Q 380 100 460 ${25 + (3 - oLvlIdx) * 40 + 15}`}
               stroke={allowed ? "oklch(0.7 0.15 145)" : "oklch(0.65 0.18 22)"} strokeWidth="2" fill="none"
               strokeDasharray={allowed ? "0" : "4 3"} markerEnd="url(#blp-ar)" />
           </g>

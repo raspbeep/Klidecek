@@ -40,13 +40,18 @@ Po $n$ kolech dostaneme $(L_n, R_n)$. Ciphertext je obvykle $(R_n, L_n)$ (pro sy
     <text x="370" y="190">R_{i+1}</text>
   </g>
   <g stroke="var(--accent)" stroke-width="1.2" fill="none" marker-end="url(#aFeist)">
-    <path d="M370,50  L370,160"/>
-    <path d="M150,50  L150,100 L255,110"/>
-    <path d="M340,110 L150,150 L150,160"/>
+    <!-- R_i větví do vstupu F -->
+    <path d="M370,50 L370,70 L255,70 L255,110 L258,110"/>
+    <!-- R_i křižuje do levého L_{i+1} -->
+    <path d="M370,50 L370,90 L150,150 L150,160"/>
+    <!-- L_i klesá do XOR uzlu v pravém sloupci -->
+    <path d="M150,50 L150,150 L370,150"/>
+    <!-- výstup F jde do XOR, pak dolů do R_{i+1} -->
+    <path d="M340,110 L370,110 L370,160"/>
   </g>
+  <circle cx="370" cy="70" r="2.5" fill="var(--accent)"/>
   <g fill="var(--text-muted)" font-size="11">
-    <text x="80"  y="155">⊕</text>
-    <text x="80"  y="105">XOR</text>
+    <text x="382" y="154">⊕</text>
     <text x="440" y="80">K_i</text>
   </g>
   <g stroke="var(--text-muted)" stroke-dasharray="3 3" fill="none" marker-end="url(#aFeist)">

@@ -180,7 +180,7 @@ export default function DaugmanIrisCode() {
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
-        Daugman empiricky: <b>genuine</b> HD ≈ 0.10 (σ 0.05), <b>impostor</b> HD ≈ 0.50 (σ 0.015). Threshold 0.32 dává FAR ≈ 10⁻¹².
+        Daugman empiricky: <b>genuine</b> HD ≈ 0.10 (σ 0.05), <b>impostor</b> HD ≈ 0.50 (σ 0.032). Threshold 0.32 dává FAR ≈ 10⁻¹².
         Rotace hlavy = cyklický posun kódu → matching opakovaně zkouší shifts ±8 pozic, vybírá minimum HD.
         Mask bity v reálu maskují řasy / odlesky (zde vynecháno pro názornost).
       </div>

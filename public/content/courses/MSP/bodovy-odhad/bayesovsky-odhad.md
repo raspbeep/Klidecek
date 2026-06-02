@@ -76,8 +76,8 @@ To je opět *Beta* rozdělení! Konkrétně `θ | x ∼ Beta(α + k, β + n − 
     <path d="M 40 170 Q 90 160 150 130 Q 270 80 390 130 Q 450 160 500 170" stroke="var(--accent)" stroke-width="2" fill="none"/>
     <text x="270" y="50" text-anchor="middle" fill="var(--accent)">prior Beta(2,2)</text>
 
-    <path d="M 40 170 Q 180 168 290 145 Q 400 90 440 30 Q 470 80 500 170" stroke="var(--accent-line)" stroke-width="2" fill="none"/>
-    <text x="430" y="60" text-anchor="middle" fill="var(--accent-line)">posterior Beta(10,4)</text>
+    <path d="M 40 170 Q 150 168 250 140 Q 330 95 385 32 Q 440 75 500 170" stroke="var(--accent-line)" stroke-width="2" fill="none"/>
+    <text x="370" y="55" text-anchor="middle" fill="var(--accent-line)">posterior Beta(10,4)</text>
 
     <line x1="408" y1="30" x2="408" y2="170" stroke="var(--accent-line)" stroke-dasharray="3 3"/>
     <text x="408" y="20" text-anchor="middle" fill="var(--accent-line)" font-size="10">k/n=0.8</text>

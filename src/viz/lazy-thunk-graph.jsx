@@ -14,7 +14,7 @@ function buildFib(n) {
 }
 
 export default function LazyThunkGraph() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(0);
   const [demand, setDemand] = useState(0);
   const N = 9;
   const nodes = buildFib(N);

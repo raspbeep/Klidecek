@@ -26,13 +26,13 @@ Spartská **skytale** (cca 5. stol. př. n. l.): plaintext se napsal na proužek
     <text x="340" y="56">H</text><text x="365" y="56">E</text><text x="390" y="56">N</text><text x="415" y="56">E</text><text x="440" y="56">I</text>
     <text x="465" y="56">D</text><text x="490" y="56">L</text>
     <text x="340" y="78">A</text><text x="365" y="78">E</text><text x="390" y="78">P</text><text x="415" y="78">M</text><text x="440" y="78">R</text>
-    <text x="465" y="78">M</text><text x="490" y="78">U</text>
+    <text x="465" y="78">M</text><text x="490" y="78">U</text><text x="515" y="78">A</text>
   </g>
   <g fill="var(--text-muted)" font-size="10.5" text-anchor="middle">
     <text x="150" y="22">plaintext zapsán po řádcích (5×3)</text>
     <text x="410" y="22">přečteno po sloupcích → ciphertext</text>
     <text x="150" y="116">"HELPMEIAMUNDERA(TTACK)"</text>
-    <text x="410" y="116">"HEN EID LAEPM RMU"</text>
+    <text x="410" y="116">"HEN EID LAE PMR MUA"</text>
   </g>
 </svg>
 :::

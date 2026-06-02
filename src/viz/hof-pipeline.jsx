@@ -24,7 +24,7 @@ export default function HofPipeline() {
     <div style={ctn}>
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, textAlign: "center" }}>
         <code style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--accent)" }}>
-          {consumer} . map (^2) . filter even . take {n}  $  [1..100]
+          {consumer} . map (^2) . filter even . take {n}  $  [1..]
         </code>
       </div>
       <div style={row}>

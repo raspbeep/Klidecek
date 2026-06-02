@@ -21,7 +21,7 @@ export default function AisStateMachine() {
 
   function fire(evt) {
     const t = TRANS[state][evt];
-    setLastEvt(evt);
+    setLastEvt(t.to !== state ? evt : null);
     setState(t.to);
     setLog((l) => [...l.slice(-3), { t: `${state} --${evt}--> ${t.to}  (${t.note})` }]);
   }

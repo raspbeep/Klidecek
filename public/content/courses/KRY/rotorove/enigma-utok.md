@@ -57,7 +57,7 @@ Bombe běžela ~20 minut na jedno nastavení (1 Walzenlage). Pro 60 Walzenlagí 
   </g>
   <g fill="var(--text)" font-size="11">
     <text x="40" y="55">Crib:  WETTERVORHERSAGE</text>
-    <text x="40" y="73">Ciph:  HBXWPMJKLNQRSEUR</text>
+    <text x="40" y="73">Ciph:  HBXWPMJKLNQZTEUR</text>
   </g>
   <g stroke="var(--accent)" stroke-width="1.1" fill="none">
     <path d="M44,82 Q60,95 76,82"/>

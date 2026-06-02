@@ -64,10 +64,11 @@ export default function SpectreCacheTiming() {
         {showProbe && (
           <>
             <text x={20} y={170} fontSize="10" fontWeight="600" fill="var(--text)">FLUSH+RELOAD timings (ns):</text>
+            <text x={20} y={181} fontSize="8.5" fill="var(--text-muted)">nízký sloupec = rychlý přístup = cached = leaked byte</text>
             {Array.from({ length: 32 }).map((_, i) => {
               const isHit = Math.floor(SECRET / 8) === i;
               const t = isHit ? 4 : 250;
-              const h = Math.min(40, t / 8);
+              const h = isHit ? 3 : Math.min(34, t / 8);
               return (
                 <g key={i}>
                   <rect x={20 + i * 17} y={215 - h} width="14" height={h}

@@ -62,7 +62,12 @@ export default function NllBorrow() {
               <text x={tx((b.from + b.to) / 2)} y={y + 15} fontSize="10" textAnchor="middle" fill="var(--bg-card)">
                 {b.kind === "owner" ? "owns" : b.kind === "borrow" ? "&" + b.of : "&mut " + b.of}
               </text>
-              {b.note && <text x={tx(b.to) + 4} y={y + 14} fontSize="9" fill="var(--text-muted)">{b.note}</text>}
+              {b.note && (() => {
+                const nearRight = tx(b.to) > W - 130;
+                return nearRight
+                  ? <text x={W - 6} y={y + 32} fontSize="9" textAnchor="end" fill="var(--text-muted)">{b.note}</text>
+                  : <text x={tx(b.to) + 4} y={y + 14} fontSize="9" fill="var(--text-muted)">{b.note}</text>;
+              })()}
             </g>
           );
         })}

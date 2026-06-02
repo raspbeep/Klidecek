@@ -3,9 +3,11 @@
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { useProgress, useCollapsed, loadTweaks, saveTweaks } from "./progress.js";
-import { BlockList } from "./content-blocks.jsx";
+import { LazyBlocks } from "./content-blocks.jsx";
 import { Mindmap } from "./mindmap.jsx";
 import { GlobalMindmap } from "./global-mindmap.jsx";
+
+const BASE = import.meta.env.BASE_URL || "/";
 
 function useTweak(key, defaultValue) {
   const [val, setVal] = useState(() => {
@@ -397,7 +399,7 @@ export function CourseDetailPage({ content, courseId, focusTopic, focusSub, focu
     if (!course || isMindmap) return;
     if (focusSub && focusTopic) {
       requestAnimationFrame(() => requestAnimationFrame(() => {
-        // Prefer a specific figure (#/c/cid/tid/sid/figN) when present, else the subtopic.
+        // Prefer a specific figure (/c/cid/tid/sid/figN) when present, else the subtopic.
         const figEl = focusFig && document.getElementById(`sub-${focusTopic}-${focusSub}--${focusFig}`);
         const el = figEl || document.getElementById(`sub-${focusTopic}-${focusSub}`);
         if (el) {
@@ -485,7 +487,7 @@ export function CourseDetailPage({ content, courseId, focusTopic, focusSub, focu
   if (!course) return <div className="empty">Course not found</div>;
 
   const copyAnchor = (topicId, subId) => {
-    const url = location.origin + location.pathname + `#/c/${course.id}/${topicId}/${subId}`;
+    const url = location.origin + BASE + `c/${course.id}/${topicId}/${subId}`;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).catch(() => {});
     }
@@ -628,7 +630,15 @@ export function CourseDetailPage({ content, courseId, focusTopic, focusSub, focu
                           )}
                         </button>
                       </header>
-                      {!subCollapsed && <BlockList blocks={sub.blocks} courseId={course.id} topicId={t.id} subId={sub.id} />}
+                      {!subCollapsed && (
+                        <LazyBlocks
+                          blocks={sub.blocks}
+                          courseId={course.id}
+                          topicId={t.id}
+                          subId={sub.id}
+                          forceMount={focusTopic === t.id && focusSub === sub.id}
+                        />
+                      )}
                     </article>
                   );
                 })}
@@ -1085,7 +1095,7 @@ export function ExamTopicPage({ content, specId, topicId, navigate }) {
                 open
               </button>
             </header>
-            {!subCollapsed && <BlockList blocks={sub.blocks} />}
+            {!subCollapsed && <LazyBlocks blocks={sub.blocks} forceMount={i === 0} />}
           </article>
         );
       })}

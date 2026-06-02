@@ -54,26 +54,20 @@ RFC 6960. Online dotaz na CA: "je tento konkrétní certifikát (sériové čís
     </marker>
   </defs>
   <g fill="var(--bg-card)" stroke="var(--accent)" stroke-width="1.3">
-    <rect x="20"  y="60" width="120" height="60" rx="8"/>
-    <rect x="200" y="60" width="140" height="60" rx="8"/>
-    <rect x="400" y="60" width="120" height="60" rx="8"/>
+    <rect x="40"  y="60" width="120" height="60" rx="8"/>
+    <rect x="380" y="60" width="120" height="60" rx="8"/>
   </g>
   <g fill="var(--text)" text-anchor="middle">
-    <text x="80"  y="95">Client</text>
-    <text x="270" y="95">TLS Server</text>
-    <text x="460" y="95">OCSP Responder</text>
+    <text x="100" y="95">Client</text>
+    <text x="440" y="95">OCSP Responder</text>
   </g>
   <g stroke="var(--accent)" fill="none" marker-end="url(#aOCSP)">
-    <path d="M140,80 L200,80"/>
-    <path d="M200,100 L140,100"/>
-    <path d="M340,80 L400,80"/>
-    <path d="M400,100 L340,100"/>
+    <path d="M160,80 L380,80"/>
+    <path d="M380,100 L160,100"/>
   </g>
   <g fill="var(--text-muted)" font-size="10" text-anchor="middle">
-    <text x="170" y="75">TLS handshake</text>
-    <text x="170" y="115">Cert chain</text>
-    <text x="370" y="75">OCSP req</text>
-    <text x="370" y="115">OCSP resp</text>
+    <text x="270" y="74">OCSP req: status certifikátu (serial X)?</text>
+    <text x="270" y="115">OCSP resp: good / revoked / unknown (podepsáno)</text>
   </g>
 </svg>
 :::

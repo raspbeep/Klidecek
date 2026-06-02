@@ -81,7 +81,9 @@ export default function LifetimeVisualizer() {
               <text x={tx((b.from + b.to) / 2)} y={y + 15} fontSize="10" textAnchor="middle" fill="var(--bg-card)">
                 {b.kind === "owner" ? "owns" : b.kind === "borrow" ? "&" + b.of : b.kind === "borrow-mut" ? "&mut " + b.of : "'static"}
               </text>
-              {b.note && <text x={tx(b.to) + 6} y={y + 14} fontSize="9" fill="var(--text-muted)">{b.note}</text>}
+              {b.note && (b.to >= tMax - 1
+                ? <text x={tx(b.to) - 6} y={y + 14} fontSize="9" textAnchor="end" fill="var(--text-muted)">{b.note}</text>
+                : <text x={tx(b.to) + 6} y={y + 14} fontSize="9" fill="var(--text-muted)">{b.note}</text>)}
             </g>
           );
         })}

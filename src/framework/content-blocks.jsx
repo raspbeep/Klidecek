@@ -6,10 +6,11 @@
 // Wiki links navigate within the app via a React context populated by BlockList.
 // Math (inline and block) is rendered with KaTeX.
 
-import { createContext, useContext, useCallback, useState, useMemo } from "react";
+import { createContext, useContext, useCallback, useState, useMemo, useRef, useEffect, Suspense } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import * as viz from "./viz-registry.js";
+import { useInView, estimateBlocksHeight } from "./in-view.js";
 
 const BASE = import.meta.env.BASE_URL || "/";
 function resolveAsset(src) {
@@ -23,7 +24,8 @@ export const BlockContext = createContext({ content: null, navigate: null });
 
 /* ─── Context: per-subtopic anchor base so figures get shareable deep-links ──
  * subAnchor = "sub-<tid>-<sid>" (the enclosing <article> id); a figure's DOM id
- * is `${subAnchor}--fig<N>` and its shareable URL is `#${routeBase}/fig<N>`. */
+ * is `${subAnchor}--fig<N>` and its shareable URL is `<BASE>${routeBase}/fig<N>`
+ * (clean path — no leading hash since the router migrated off hash routing). */
 export const FigureContext = createContext({ subAnchor: null, routeBase: null });
 
 // Small "copy link to this figure" button, shown on image/svg/viz blocks.
@@ -33,7 +35,7 @@ function FigureAnchor({ figId }) {
   if (!routeBase || !figId) return null;
   const onCopy = (e) => {
     e.stopPropagation();
-    const url = location.origin + location.pathname + "#" + routeBase + "/" + figId;
+    const url = location.origin + BASE + routeBase.replace(/^\/+/, "") + "/" + figId;
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).catch(() => {});
     setCopied(true);
     if (typeof window !== "undefined" && window.toast) window.toast("Figure link copied to clipboard");
@@ -618,8 +620,26 @@ function QuizBlock({ block }) {
 function VizBlock({ block, figIndex }) {
   const Component = viz.get(block.id);
   const { domId, figKey } = useFigureId(figIndex);
+  // Only mount the (lazily-imported) component while it's near the viewport.
+  // Unmounting it once scrolled well away stops its rAF/interval loops and frees
+  // the heavy SVG — the dynamic-import chunk is cached, so re-mount is instant.
+  // We remember the largest height it ever had and floor the body to it, so the
+  // mount/unmount never shifts the page.
+  const [ref, inView] = useInView({ rootMargin: "400px" });
+  const bodyRef = useRef(null);
+  const [minH, setMinH] = useState(300);
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (!inView || !el || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(() => {
+      const h = el.offsetHeight;
+      if (h > 60) setMinH((prev) => (h > prev ? h : prev));
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [inView]);
   return (
-    <div className="block-viz" id={domId}>
+    <div className="block-viz" id={domId} ref={ref}>
       <div className="block-viz-head">
         <span>interactive · {block.id || "?"}</span>
         <span className="block-viz-head-right">
@@ -627,9 +647,11 @@ function VizBlock({ block, figIndex }) {
           <span className="block-viz-hint">drag · click · tap</span>
         </span>
       </div>
-      <div className="block-viz-body">
+      <div className="block-viz-body" ref={bodyRef} style={Component ? { minHeight: minH } : undefined}>
         {Component
-          ? <Component />
+          ? (inView
+              ? <Suspense fallback={<div className="block-viz-loading" aria-hidden="true" />}><Component /></Suspense>
+              : <div className="block-viz-loading" aria-hidden="true" />)
           : (
             <div style={{ padding: 24, fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-faint)" }}>
               viz "{block.id}" not registered. Add it in <code>src/viz/index.js</code>.
@@ -662,7 +684,133 @@ export function Block({ block, figIndex }) {
   }
 }
 
-export function BlockList({ blocks, courseId, topicId, subId }) {
+/* ─── Unified "see more" (Další zdroje) at the end of a subtopic ──────────
+ * A subtopic's videos (`embed`) and external references (`link`) are gathered
+ * out of the inline flow into ONE compact list, videos first. Videos play in
+ * place on click (the iframe — and any YouTube request — loads only then), with
+ * a ▶ "přehrát zde" marker so it's clear they're playable in-page; links open in
+ * a new tab. Mirrors the course-level `.see-more` look. */
+
+const ytGlyph = (
+  <svg className="embed-yt-icon" width="16" height="12" viewBox="0 0 24 17" fill="currentColor" aria-hidden="true">
+    <path d="M23.5 2.6a3 3 0 00-2.1-2.1C19.5 0 12 0 12 0S4.5 0 2.6.5A3 3 0 00.5 2.6 31 31 0 000 8.5a31 31 0 00.5 5.9 3 3 0 002.1 2.1C4.5 17 12 17 12 17s7.5 0 9.4-.5a3 3 0 002.1-2.1 31 31 0 00.5-5.9 31 31 0 00-.5-5.9z"/>
+    <path d="M9.5 12.2 15.8 8.5 9.5 4.8z" fill="var(--bg-card)"/>
+  </svg>
+);
+
+function SeeMoreVideo({ block }) {
+  const [playing, setPlaying] = useState(false);
+  const id = block.videoId;
+  if (!id) {
+    return <li className="see-more-item see-more-bad">Nelze vložit video: neznámé YouTube ID ({block.src || "?"}).</li>;
+  }
+  const watch = `https://www.youtube.com/watch?v=${id}`;
+  const embedParams = "autoplay=1&rel=0" + (block.cc ? "&cc_load_policy=1&cc_lang_pref=en&hl=en" : "");
+  return (
+    <li className="see-more-item see-more-video" data-vid={id} data-playing={playing || undefined}>
+      {!playing ? (
+        <button type="button" className="see-more-link see-more-playrow" onClick={() => setPlaying(true)}>
+          <span className="see-more-play" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span className="see-more-link-text">
+            <span className="see-more-link-title">{block.title || "Video"}</span>
+            {block.channel && <span className="see-more-link-note">{block.channel} · YouTube</span>}
+          </span>
+          {block.cc && <span className="see-more-cc" title="Anglické titulky">CC&nbsp;EN</span>}
+          <span className="see-more-kind see-more-kind-video">přehrát&nbsp;zde</span>
+        </button>
+      ) : (
+        <div className="see-more-player">
+          <div className="embed-frame">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${id}?${embedParams}`}
+              title={block.title || "YouTube video"}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+          <div className="see-more-player-cap">
+            {ytGlyph}
+            <a href={watch} target="_blank" rel="noopener noreferrer">
+              {block.title || (block.channel ? `${block.channel} · YouTube` : "Otevřít na YouTube")}
+            </a>
+            {block.cc && <span className="see-more-cc" title="Anglické titulky">CC&nbsp;EN</span>}
+            <button type="button" className="see-more-close" onClick={() => setPlaying(false)} aria-label="Zavřít přehrávač">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+      )}
+    </li>
+  );
+}
+
+function SeeMoreLink({ block }) {
+  let host = "";
+  try { host = new URL(block.href).host.replace(/^www\./, ""); } catch {}
+  return (
+    <li className="see-more-item">
+      <a className="see-more-link" href={block.href} target="_blank" rel="noopener noreferrer">
+        <svg className="see-more-extico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72"/>
+          <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+        </svg>
+        <span className="see-more-link-text">
+          <span className="see-more-link-title">{block.label}</span>
+        </span>
+        {host && <span className="see-more-kind">{host}</span>}
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </a>
+    </li>
+  );
+}
+
+// `refs` is the subtopic's gathered link + embed blocks. Videos first, then links.
+function SeeMoreSection({ refs }) {
+  if (!refs || !refs.length) return null;
+  const videos = refs.filter((b) => b.kind === "embed");
+  const links = refs.filter((b) => b.kind === "link");
+  return (
+    <section className="see-more see-more-sub">
+      <header className="see-more-head">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72"/>
+          <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+        </svg>
+        <h3>Další zdroje</h3>
+      </header>
+      <ul className="see-more-list">
+        {videos.map((b, i) => <SeeMoreVideo key={"v" + i} block={b} />)}
+        {links.map((b, i) => <SeeMoreLink key={"l" + i} block={b} />)}
+      </ul>
+    </section>
+  );
+}
+
+// Subtopic-level lazy mount: render the blocks only once this subtopic nears the
+// viewport, then keep them (so quiz answers / toggles never reset). Until then a
+// reserved-height spacer stands in so the scrollbar barely drifts as content
+// streams in. `forceMount` skips the gate (used for the deep-linked subtopic so a
+// shared link lands on fully-rendered content). With `?eager=1`, useInView starts
+// true → everything mounts immediately (render-audit tooling relies on this).
+export function LazyBlocks({ blocks, courseId, topicId, subId, forceMount = false }) {
+  const estimate = useMemo(() => estimateBlocksHeight(blocks), [blocks]);
+  const [ref, inView] = useInView({ once: true, rootMargin: "1400px" });
+  const show = forceMount || inView;
+  if (show) {
+    return <BlockList blocks={blocks} courseId={courseId} topicId={topicId} subId={subId} seeMore />;
+  }
+  return <div ref={ref} className="blocks-placeholder" aria-hidden="true" style={{ minHeight: estimate }} />;
+}
+
+const isZdrojFooter = (b) => b.kind === "text" && /^\*?\s*Zdroj\s*:/i.test((b.body || "").trim());
+// The redundant section heading the video integrator inserts above the embeds —
+// now folded into the unified "Další zdroje" list, so it's dropped.
+const isVideaHeading = (b) => b.kind === "heading" && /^videa$/i.test((b.body || "").trim());
+
+export function BlockList({ blocks, courseId, topicId, subId, seeMore = false }) {
   const onClick = useWikiLinkHandler();
   const figCtx = useMemo(
     () => (courseId && topicId && subId)
@@ -670,16 +818,35 @@ export function BlockList({ blocks, courseId, topicId, subId }) {
       : { subAnchor: null, routeBase: null },
     [courseId, topicId, subId]
   );
-  // Number figures (image / svg / viz) in document order so each gets a stable
-  // `fig<N>` id for deep-linking.
+
+  // At the subtopic level (`seeMore`), pull link + embed blocks out of the inline
+  // flow into one trailing "Další zdroje" list, drop the now-redundant "Videa"
+  // heading, and keep the *Zdroj footer dead last. Everything else (incl. quizzes)
+  // renders in place. Figures are only image/svg/viz — never gathered — so their
+  // `fig<N>` deep-link numbering is unchanged.
+  const all = blocks || [];
+  let body = all, refs = null, zdroj = null;
+  if (seeMore) {
+    body = [];
+    refs = [];
+    for (const b of all) {
+      if (b.kind === "link" || b.kind === "embed") refs.push(b);
+      else if (isVideaHeading(b)) continue;
+      else if (!zdroj && isZdrojFooter(b)) zdroj = b;
+      else body.push(b);
+    }
+  }
+
   let figN = 0;
   return (
     <FigureContext.Provider value={figCtx}>
       <div className="blocks" onClick={onClick}>
-        {(blocks || []).map((b, i) => {
+        {body.map((b, i) => {
           const figIndex = (b.kind === "image" || b.kind === "svg" || b.kind === "viz") ? ++figN : undefined;
           return <Block key={i} block={b} figIndex={figIndex} />;
         })}
+        {seeMore && <SeeMoreSection refs={refs} />}
+        {zdroj && <Block key="zdroj" block={zdroj} />}
       </div>
     </FigureContext.Provider>
   );

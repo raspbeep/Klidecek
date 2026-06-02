@@ -92,7 +92,7 @@ To znamená:
 * Probability 1 in $10^{20}$ — there are ~$10^{10}$ humans, so virtually no chance of accidental match.
 * In court: "probability that random unrelated person has this profile is approximately 1 in N".
 
-::: viz str-profile-match "Porovnání suspect vs crime scene přes 20 CODIS lokusů; jeden nesoulad = vyloučení."
+::: viz str-profile-match "Porovnání suspect vs crime scene přes 13 CODIS lokusů (původní CODIS core); jeden nesoulad = vyloučení."
 :::
 
 ## Specifické situace

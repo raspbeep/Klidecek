@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 const EVENTS = [
-  { t: 0,   src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
-  { t: 10,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
+  { t: 15,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
+  { t: 18,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
   { t: 20,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
   { t: 30,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
   { t: 40,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
@@ -13,7 +13,7 @@ const EVENTS = [
   { t: 60,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
   { t: 65,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
   { t: 70,  src: "AD",    type: "auth_fail",    user: "alice", ip: "10.0.0.5" },
-  { t: 80,  src: "AD",    type: "auth_success", user: "alice", ip: "203.0.113.7" },
+  { t: 75,  src: "AD",    type: "auth_success", user: "alice", ip: "203.0.113.7" },
   { t: 90,  src: "VPN",   type: "connect",      user: "alice", ip: "203.0.113.7" },
   { t: 100, src: "files", type: "read",         user: "alice", file: "/sensitive/payroll.csv" },
 ];
@@ -23,12 +23,13 @@ export default function SiemCorrelationTrace() {
 
   const visible = EVENTS.slice(0, idx);
   // Rule: ≥10 auth_fail same user within 60s, then auth_success same user different IP within 60s
+  const latestT = visible.length ? visible[visible.length - 1].t : 0;
   const fails = visible.filter(e => e.type === "auth_fail" && e.user === "alice");
   const success = visible.find(e => e.type === "auth_success" && e.user === "alice");
-  const failsBeforeSuccess = success
-    ? fails.filter(f => f.t <= success.t && f.t >= success.t - 60)
-    : [];
-  const ruleFired = success && failsBeforeSuccess.length >= 10 && success.ip !== "10.0.0.5";
+  // count fails inside the 60s window ending at success (or at the latest event so far)
+  const winEnd = success ? success.t : latestT;
+  const failsInWindow = fails.filter(f => f.t >= winEnd - 60 && f.t <= winEnd);
+  const ruleFired = success && failsInWindow.length >= 10 && success.ip !== "10.0.0.5";
 
   const ipMismatch = success && success.ip !== "10.0.0.5";
   const fileTouch = visible.find(e => e.type === "read" && e.file && e.file.includes("sensitive"));
@@ -67,8 +68,8 @@ export default function SiemCorrelationTrace() {
         <rect x={20} y={110} width={260} height={140} rx="3" fill="var(--bg-inset)" stroke="var(--line)" />
         <text x={30} y={128} fontSize="10.5" fontWeight="700" fill="var(--text)">correlation rule state</text>
         <text x={30} y={146} fontSize="10" fontFamily="ui-monospace, monospace"
-          fill={fails.length >= 10 ? "oklch(0.7 0.15 145)" : "var(--text)"}>
-          fails(60s) = {fails.length} {fails.length >= 10 ? "✓ ≥10" : "(need 10)"}
+          fill={failsInWindow.length >= 10 ? "oklch(0.7 0.15 145)" : "var(--text)"}>
+          fails(60s) = {failsInWindow.length} {failsInWindow.length >= 10 ? "✓ ≥10" : "(need 10)"}
         </text>
         <text x={30} y={162} fontSize="10" fontFamily="ui-monospace, monospace"
           fill={success ? (ipMismatch ? "oklch(0.75 0.12 60)" : "oklch(0.7 0.15 145)") : "var(--text)"}>

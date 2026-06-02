@@ -4,19 +4,31 @@ import { useState } from "react";
 function buildSieveTrace(limit, demand) {
   // Simulate primes = sieve [2..]
   // sieve (p:xs) = p : sieve [x | x <- xs, x `mod` p /= 0]
-  // We track: at each "demand" step, what's crossed out
+  // Lazy-faithful: only the candidates up to the demand frontier (the Nth
+  // yielded prime) have actually been forced through the filter, so we only
+  // record strikes for x <= frontier. Numbers above the frontier stay grey
+  // ("not yet forced") — exactly what call-by-need would do.
   const nums = [];
   for (let i = 2; i <= limit; i++) nums.push(i);
-  const removedBy = new Map(); // n -> p that struck it
+  // Pass 1: compute the yielded primes (cheap loop).
   const primes = [];
   let current = [...nums];
   while (primes.length < demand && current.length) {
     const p = current[0];
     primes.push(p);
-    current = current.slice(1).filter((x) => {
-      if (x % p === 0) { if (!removedBy.has(x)) removedBy.set(x, p); return false; }
-      return true;
-    });
+    current = current.slice(1).filter((x) => x % p !== 0);
+  }
+  // Pass 2: strike each composite up to the frontier with its smallest
+  // yielded prime factor.
+  const frontier = primes.length ? primes[primes.length - 1] : 1;
+  const primeSet = new Set(primes);
+  const removedBy = new Map(); // n -> p that struck it
+  for (let x = 2; x <= frontier; x++) {
+    if (primeSet.has(x)) continue;
+    for (const p of primes) {
+      if (p >= x) break;
+      if (x % p === 0) { removedBy.set(x, p); break; }
+    }
   }
   return { primes, removedBy };
 }

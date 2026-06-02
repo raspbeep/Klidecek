@@ -85,8 +85,7 @@ export default function AisUmlClassRelations() {
 
         {/* spojnice */}
         <line x1={x1} y1={y} x2={x2} y2={y} stroke="var(--text)" strokeWidth="1.6"
-          markerStart={r.end === "hollow" ? "url(#hollowDia)" : r.end === "filled" ? "url(#filledDia)" : undefined}
-          markerEnd={r.end === "triangle" ? "url(#hollowTri)" : undefined} />
+          markerStart={r.end === "hollow" ? "url(#hollowDia)" : r.end === "filled" ? "url(#filledDia)" : r.end === "triangle" ? "url(#hollowTri)" : undefined} />
 
         {/* multiplicity */}
         {r.multA && <text x={x1 + 6} y={y - 6} fontSize="11" fontFamily="ui-monospace, monospace" fill="var(--accent)">{r.multA}</text>}
@@ -104,8 +103,8 @@ export default function AisUmlClassRelations() {
           <marker id="filledDia" viewBox="0 0 20 12" refX="1" refY="6" markerWidth="20" markerHeight="12" orient="auto">
             <path d="M1,6 L10,1 L19,6 L10,11 Z" fill="var(--text)" stroke="var(--text)" strokeWidth="1.2" />
           </marker>
-          <marker id="hollowTri" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" orient="auto">
-            <path d="M1,1 L15,8 L1,15 Z" fill="var(--bg-inset)" stroke="var(--text)" strokeWidth="1.2" />
+          <marker id="hollowTri" viewBox="0 0 16 16" refX="1" refY="8" markerWidth="16" markerHeight="16" orient="auto">
+            <path d="M15,1 L1,8 L15,15 Z" fill="var(--bg-inset)" stroke="var(--text)" strokeWidth="1.2" />
           </marker>
         </defs>
       </svg>

@@ -8,7 +8,7 @@ title: Markanty (minutiae) — detailní porovnání
 
 ## Typy markantů
 
-::: svg "Typy markantů: ridge ending, bifurcation, dot, island, lake, spur, crossover, bridge."
+::: svg "Typy markantů: ridge ending, bifurcation, continuous (no minutia), dot/island, lake (enclosure), lake closed, spur, crossover."
 <svg viewBox="0 0 540 240" font-family="ui-sans-serif, system-ui" font-size="11">
   <g fill="var(--bg-card)" stroke="var(--accent)" stroke-width="1">
     <rect x="20" y="30" width="120" height="90" rx="4"/>
@@ -24,14 +24,14 @@ title: Markanty (minutiae) — detailní porovnání
     <path d="M30,75 L70,75"/>
     <path d="M30,90 L70,90"/>
     <path d="M30,60 L70,60"/>
-    <path d="M160,75 L195,75 L220,65"/>
-    <path d="M160,90 L195,90 L220,100"/>
+    <path d="M160,82 L195,82 L220,70"/>
+    <path d="M195,82 L220,94"/>
     <path d="M290,75 L370,75"/>
     <path d="M290,90 L370,90"/>
     <path d="M420,75 L500,75"/>
     <path d="M420,90 L460,90 M470,90 L500,90"/>
-    <path d="M30,175 L130,175"/>
-    <path d="M30,195 L130,195"/>
+    <path d="M30,185 L55,185 C70,175 90,175 100,185 L130,185"/>
+    <path d="M55,185 C70,195 90,195 100,185"/>
     <path d="M160,175 L260,175"/>
     <path d="M160,195 L195,195 C200,205 215,205 220,195 L260,195"/>
     <path d="M290,175 L325,175 L335,165 M345,165 L370,175"/>
@@ -40,8 +40,8 @@ title: Markanty (minutiae) — detailní porovnání
     <path d="M420,190 L460,190 L470,180 L500,190"/>
   </g>
   <g fill="var(--accent)" stroke="var(--accent)">
-    <circle cx="78" cy="75" r="3" fill="var(--accent)"/>
-    <circle cx="220" cy="65" r="3" fill="var(--accent)"/>
+    <circle cx="70" cy="75" r="3" fill="var(--accent)"/>
+    <circle cx="195" cy="82" r="3" fill="var(--accent)"/>
     <circle cx="335" cy="80" r="3" fill="var(--accent)"/>
     <circle cx="465" cy="90" r="3" fill="var(--accent)"/>
   </g>

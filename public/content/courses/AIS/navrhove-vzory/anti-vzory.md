@@ -32,7 +32,7 @@ public class EmailService   { }
 public class PdfGenerator   { }
 ```
 
-::: viz ais-god-object-refactor "Přepínač před/po. Vlevo God Object s pěti odpovědnostmi a vším provázaným; vpravo rozpad do soudržných služeb. Sleduj, jak klesne počet vazeb."
+::: viz ais-god-object-refactor "Přepínač před/po. Vlevo God Object s pěti odpovědnostmi a vším provázaným; vpravo rozpad do soudržných služeb. Sleduj, jak se vazby přerozdělí z jedné nabobtnalé třídy (fan-in 5) na soudržné služby (fan-in 1)."
 :::
 
 ## Spaghetti Code (Špagetový kód)

@@ -98,7 +98,7 @@ Reálný benchmark (Intel Core i7, SPECrate 2017):
 
 ⇒ HT obvykle 15-40 % gain. Pro *vysoce compute-bound*, plně vektorizovaný kód může *škodit*.
 
-::: viz smt-pipeline-mixing "Vyber mix (CPU+CPU degrade / CPU+Mem sweet spot / Mem+Mem). Stíny: bubliny v issue width 4 → SMT je vyplní z druhého threadu jen pokud má co dělat."
+::: viz smt-pipeline-mixing "Vyber mix vláken. Čím víc bublin (stallů) v issue width 4, tím víc volných slotů může druhé vlákno vyplnit — proto Mem+Mem ukazuje největší nárůst využití FU. Pozn.: model jen zaplňuje prázdné sloty, takže nikdy neklesne pod 1×; reálná degradace u CPU+CPU (boj o FU, viz tabulka 0,95×) je popsána v textu výše."
 :::
 
 ## Disable HT — kdy

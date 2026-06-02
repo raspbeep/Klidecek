@@ -47,7 +47,7 @@ title: Reverzní inženýrství — úvod a motivace
     <path d="M470,126 L470,120"/>
     <path d="M470,76 L470,70"/>
     <path d="M120,200 L420,200"/>
-    <path d="M120,50 L420,50"/>
+    <path d="M420,50 L120,50"/>
   </g>
 </svg>
 :::

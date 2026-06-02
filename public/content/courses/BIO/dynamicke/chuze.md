@@ -15,7 +15,7 @@ Lidská chůze je *komplexní* pohyb — pozice nohou, paží, trupu se *koordin
 * **Neurologii** — motor control patterns.
 * **Habits** — naučené walking style.
 
-::: svg "Gait cycle: stance phase + swing phase, levá a pravá noha v anti-fázi."
+::: svg "Stylizovaná chůze: stance fáze (noha na zemi) a swing fáze (noha ve vzduchu)."
 <svg viewBox="0 0 540 200" font-family="ui-sans-serif, system-ui" font-size="11">
   <g stroke="var(--text)" stroke-width="1.5" fill="none">
     <circle cx="80" cy="60" r="12"/>

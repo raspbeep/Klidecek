@@ -79,7 +79,7 @@ export default function BankConflictWarp() {
         {/* Cycles bar */}
         <text x={20} y={170} fontSize="10.5" fill="var(--text)" fontWeight="600">relativní čas:</text>
         <rect x={20} y={178} width={500} height={20} fill="var(--bg-inset)" stroke="var(--line)" rx="2" />
-        <rect x={20} y={178} width={500 * (cycles / 8)} height={20}
+        <rect x={20} y={178} width={500 * (cycles / N_BANKS)} height={20}
           fill={cycles === 1 ? "oklch(0.65 0.16 145)" : "oklch(0.65 0.18 22)"} rx="2" />
         <text x={270} y={191} textAnchor="middle" fontSize="10" fill="white" fontWeight="600">{cycles} cyklů</text>
 

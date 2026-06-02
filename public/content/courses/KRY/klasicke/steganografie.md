@@ -37,12 +37,12 @@ Nejjednodušší technika: do nejnižšího bitu každého pixelu RGB obrazu se 
     <text x="110" y="98" fill="var(--text-muted)">B: 1100101<tspan fill="var(--accent)">1</tspan></text>
 
     <text x="280" y="50">Bit zprávy</text>
-    <text x="280" y="78" font-size="18" fill="var(--accent)">1 0 1</text>
+    <text x="280" y="78" font-size="18" fill="var(--accent)">0 1 0</text>
 
     <text x="440" y="50">Modifikovaný pixel</text>
-    <text x="440" y="70" fill="var(--text-muted)">R: 1011001<tspan fill="var(--accent)">1</tspan></text>
-    <text x="440" y="84" fill="var(--text-muted)">G: 0110110<tspan fill="var(--accent)">0</tspan></text>
-    <text x="440" y="98" fill="var(--text-muted)">B: 1100101<tspan fill="var(--accent)">1</tspan></text>
+    <text x="440" y="70" fill="var(--text-muted)">R: 1011001<tspan fill="var(--accent)">0</tspan></text>
+    <text x="440" y="84" fill="var(--text-muted)">G: 0110110<tspan fill="var(--accent)">1</tspan></text>
+    <text x="440" y="98" fill="var(--text-muted)">B: 1100101<tspan fill="var(--accent)">0</tspan></text>
   </g>
   <g stroke="var(--text-muted)" fill="none">
     <path d="M200,70 L218,70" marker-end="url(#aSteg)"/>

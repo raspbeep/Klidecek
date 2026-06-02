@@ -109,7 +109,7 @@ export default function StackBofVisualizer() {
 
         {/* Address arrow indicating where bytes go */}
         <text x={30} y={115} fontSize="10" fill="var(--accent)">strcpy(buf, input) →</text>
-        <line x1={30 + Math.min(inputLen, 48) * pxPerByte} y1="110" x2={30 + Math.min(inputLen, 48) * pxPerByte} y2="95"
+        <line x1={30 + Math.min(inputLen, totalSize) * pxPerByte} y1="110" x2={30 + Math.min(inputLen, totalSize) * pxPerByte} y2="95"
           stroke="var(--accent)" strokeWidth="2" markerEnd="url(#bof-up)" />
         <defs>
           <marker id="bof-up" markerWidth="6" markerHeight="6" refX="3" refY="0" orient="auto">

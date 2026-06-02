@@ -13,6 +13,8 @@ function detectInjection(s) {
   return /['";]|--|\bOR\b|\bUNION\b|\bDROP\b/i.test(s);
 }
 
+const ell = (s, n = 22) => (s.length > n ? s.slice(0, n) + "…" : s);
+
 function buildVulnerable(u, p) {
   return `SELECT * FROM users\n  WHERE username='${u}'\n    AND password='${p}'`;
 }
@@ -99,7 +101,7 @@ export default function SqliInjectionTrace() {
           <text x={320} y={89}>"SELECT * FROM users</text>
           <text x={320} y={103}>   WHERE username = %s</text>
           <text x={320} y={117}>     AND password = %s",</text>
-          <text x={320} y={131}>(<tspan fill="var(--accent)">"{u}"</tspan>, <tspan fill="var(--accent)">"{p}"</tspan>))</text>
+          <text x={320} y={131}>(<tspan fill="var(--accent)">"{ell(u)}"</tspan>, <tspan fill="var(--accent)">"{ell(p)}"</tspan>))</text>
         </g>
         <text x={320} y={148} fontSize="9" fill="var(--text-faint)">→ values bound as DATA, not SQL</text>
         <rect x={315} y={160} width={230} height={50} rx="3"

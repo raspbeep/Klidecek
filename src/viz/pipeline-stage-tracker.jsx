@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const STAGES = ["IF", "ID", "EX", "MA", "WB"];
-const COLORS = ["#5b8def", "#7c5bef", "#ef5b8d", "#ef8d5b", "#5befef"];
+const COLORS = ["#5b8def", "#7c5bef", "#ef5b8d", "#ef8d5b", "#1a8f9e"]; // WB teal: readable white label
 
 const PROG = [
   "lw  r1, 0(r0)",

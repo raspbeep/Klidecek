@@ -84,7 +84,7 @@ export default function IrTimelineMetrics() {
               <line x1={xC} y1={110} x2={xD} y2={110} stroke="oklch(0.65 0.18 22)" strokeWidth="3" />
               <text x={(xC + xD) / 2} y={106} textAnchor="middle" fontSize="9.5" fill="oklch(0.65 0.18 22)" fontWeight="600">MTTD = {mttd}h</text>
               <line x1={xD} y1={130} x2={xR} y2={130} stroke="oklch(0.7 0.15 145)" strokeWidth="3" />
-              <text x={(xD + xR) / 2} y={126} textAnchor="middle" fontSize="9.5" fill="oklch(0.7 0.15 145)" fontWeight="600">MTTR = {mttr}h</text>
+              <text x={(xD + xR) / 2} y={126} textAnchor="middle" fontSize="9.5" fill="oklch(0.7 0.15 145)" fontWeight="600">MTT-recover = {mttr}h</text>
             </>
           );
         })()}
@@ -94,10 +94,10 @@ export default function IrTimelineMetrics() {
         <text x={30} y={170} fontSize="11" fontWeight="700" fill="var(--text)">SOC metrics</text>
         <g fontFamily="ui-monospace, monospace" fontSize="10">
           <text x={30} y={190} fill="var(--text)">MTTD (mean time to detect) = {mttd} h</text>
-          <text x={30} y={205} fill="var(--text)">MTT contain = {mttContain} h</text>
-          <text x={30} y={220} fill="var(--text)">MTTR (to recover) = {mttr} h</text>
+          <text x={30} y={205} fill="var(--text)">MTTR (mean time to respond) = {mttContain} h</text>
+          <text x={30} y={220} fill="var(--text)">Mean Time to Recovery = {mttr} h</text>
           <text x={30} y={235} fill={mttd <= 1 ? "oklch(0.7 0.15 145)" : mttd <= 24 ? "oklch(0.75 0.12 60)" : "oklch(0.65 0.18 22)"} fontWeight="700">
-            target: MTTD &lt; 1h, MTTR &lt; 24h {mttd <= 1 && mttr <= 24 ? "✓" : ""}
+            target: MTTD &lt; 1h, MTTR &lt; 24h {mttd <= 1 && mttContain <= 24 ? "✓" : ""}
           </text>
         </g>
         <text x={310} y={170} fontSize="11" fontWeight="700" fill="var(--text)">estimated impact</text>

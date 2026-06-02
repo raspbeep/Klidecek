@@ -10,7 +10,6 @@ Bezpečnostní politika (security policy) je *formální dokument*, který defin
 
 ::: svg "Hierarchie security documentation"
 <svg viewBox="0 0 580 200" font-family="ui-sans-serif, system-ui" font-size="11">
-  <polygon points="270,30 130,180 410,180" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
   <g fill="var(--bg-inset)" stroke="var(--line)">
     <rect x="200" y="40" width="140" height="30" rx="3"/>
     <rect x="170" y="80" width="200" height="30" rx="3"/>

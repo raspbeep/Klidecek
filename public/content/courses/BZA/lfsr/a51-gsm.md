@@ -16,12 +16,16 @@ A5/1 používá **3 LFSRs** s irregulárním hodinováním (*majority clocking*)
     <marker id="aA51" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M0 0 L8 4 L0 8 z" fill="var(--accent)"/>
     </marker>
+    <marker id="aA51clk" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="var(--text-muted)"/>
+    </marker>
   </defs>
   <g fill="var(--bg-card)" stroke="var(--accent)" stroke-width="1.3">
     <rect x="20" y="30" width="380" height="40" rx="4"/>
     <rect x="20" y="100" width="380" height="40" rx="4"/>
     <rect x="20" y="170" width="380" height="40" rx="4"/>
     <rect x="430" y="100" width="80" height="40" rx="6"/>
+    <rect x="430" y="20" width="80" height="40" rx="6"/>
   </g>
   <g fill="var(--bg-inset)" stroke="var(--line)">
     <rect x="190" y="34" width="14" height="32"/>
@@ -35,12 +39,22 @@ A5/1 používá **3 LFSRs** s irregulárním hodinováním (*majority clocking*)
     <text x="197" y="80" font-size="10" fill="var(--accent)">C1 (bit 8)</text>
     <text x="241" y="150" font-size="10" fill="var(--accent)">C2 (bit 10)</text>
     <text x="253" y="220" font-size="10" fill="var(--accent)">C3 (bit 10)</text>
-    <text x="470" y="115" font-size="12">majority</text>
-    <text x="470" y="130" font-size="10" fill="var(--text-muted)">(C1,C2,C3)</text>
+    <text x="470" y="40" font-size="12">majority</text>
+    <text x="470" y="55" font-size="10" fill="var(--text-muted)">(C1,C2,C3)</text>
+    <text x="470" y="115" font-size="12">XOR</text>
+    <text x="470" y="130" font-size="10" fill="var(--text-muted)">(MSB1,MSB2,MSB3)</text>
     <text x="350" y="22" font-size="10" fill="var(--text-muted)">tapy: 18,17,16,13</text>
     <text x="350" y="92" font-size="10" fill="var(--text-muted)">tapy: 21,20</text>
     <text x="350" y="162" font-size="10" fill="var(--text-muted)">tapy: 22,21,20,7</text>
   </g>
+  <g stroke="var(--text-muted)" stroke-width="1" fill="none" stroke-dasharray="3 2">
+    <path d="M197,34 L197,6 L470,6"/>
+    <path d="M241,104 L218,104 L218,6"/>
+    <path d="M253,174 L230,174 L230,6"/>
+    <path d="M470,6 L470,20" marker-end="url(#aA51clk)"/>
+    <path d="M450,60 L450,78 L418,78" marker-end="url(#aA51clk)"/>
+  </g>
+  <text x="508" y="90" font-size="9" text-anchor="end" fill="var(--text-muted)">clock-enable → posune registr</text>
   <g stroke="var(--accent)" stroke-width="1.2" fill="none" marker-end="url(#aA51)">
     <path d="M400,50 L420,50 L420,110 L430,115"/>
     <path d="M400,120 L430,120"/>

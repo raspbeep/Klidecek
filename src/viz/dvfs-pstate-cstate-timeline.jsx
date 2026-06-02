@@ -2,25 +2,28 @@
 // + frequency curve, energy integrated. Toggle race-to-idle vs run-slow.
 import { useState } from "react";
 
-// Workload: pulses
-const WORKLOAD = [
-  { start: 0, end: 4, busy: false },
-  { start: 4, end: 14, busy: true },   // burst
-  { start: 14, end: 20, busy: false },
-  { start: 20, end: 50, busy: true, intensity: 0.6 }, // sustained
-  { start: 50, end: 64, busy: false },
+// Workload as ARRIVING tasks: fixed work (in reference-ms @ refF). A higher clock
+// finishes the same work sooner, so the busy window shrinks and idle grows — this
+// is what lets race-to-idle drop into deep C6 for longer.
+const refF = 3500;
+const TASKS = [
+  { arrive: 4, work: 10 },  // burst
+  { arrive: 20, work: 30 }, // sustained
 ];
 
 const STRATS = {
-  race: { label: "race-to-idle (max f, pak C6)", busyF: 4500, busyV: 1.35, idleF: 0, idleV: 0, idleP: 0.5 },
+  race: { label: "race-to-idle (max f, pak C6)", busyF: 4500, busyV: 1.35, idleF: 0, idleV: 0, idleP: 0.3 },
   slow: { label: "run-slow (nižší f, mělčí idle)", busyF: 2500, busyV: 0.9, idleF: 0, idleV: 0.6, idleP: 3 },
   balanced: { label: "balanced", busyF: 3500, busyV: 1.1, idleF: 0, idleV: 0.4, idleP: 1.5 },
 };
 
+// Always-on platform/uncore/static power while active (W). It makes run-slow's
+// long active time costly, so race-to-idle wins despite its higher V².
+const ACTIVE_FLOOR = 10;
 function powerOfF(f, v) {
-  if (f === 0 && v === 0) return 0.3; // C6 leakage
-  // dynamic ~ v^2 * f
-  return 0.001 * v * v * f + (v > 0 ? 2 : 0);
+  if (f === 0 && v === 0) return 0.3; // C6 leakage (deep sleep)
+  // dynamic ~ v^2 * f, plus the always-on platform floor while active
+  return 0.001 * v * v * f + (v > 0 ? ACTIVE_FLOOR : 0);
 }
 
 export default function DvfsPstateCstateTimeline() {
@@ -33,15 +36,26 @@ export default function DvfsPstateCstateTimeline() {
   const tMax = 64;
   const xOf = t => padX + (t / tMax) * chartW;
 
+  // Busy intervals: each task takes work·(refF/busyF) ms, back-to-back after it
+  // arrives. A faster clock → shorter busy window → more time in deep C6 idle.
+  const intervals = [];
+  let prevEnd = 0;
+  for (const tk of TASKS) {
+    const start = Math.max(tk.arrive, prevEnd);
+    const end = Math.min(tMax, start + tk.work * (refF / s.busyF));
+    intervals.push([start, end]);
+    prevEnd = end;
+  }
+  const isBusy = t => intervals.some(([a, b]) => t >= a && t < b);
+
   // Build per-ms power trace
   const samples = [];
   let energy = 0;
   for (let t = 0; t < tMax; t++) {
-    const wl = WORKLOAD.find(w => t >= w.start && t < w.end);
-    const busy = wl?.busy ?? false;
+    const busy = isBusy(t);
     const f = busy ? s.busyF : s.idleF;
     const v = busy ? s.busyV : s.idleV;
-    const p = busy ? powerOfF(f, v) : s.idleP;
+    const p = busy ? powerOfF(s.busyF, s.busyV) : s.idleP;
     energy += p;
     samples.push({ t, busy, f, v, p });
   }
@@ -62,9 +76,9 @@ export default function DvfsPstateCstateTimeline() {
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
         {/* Workload bar */}
         <text x={6} y={20} fontSize="10" fill="var(--text)" fontWeight="600">workload:</text>
-        {WORKLOAD.map((w, i) => (
-          <rect key={i} x={xOf(w.start)} y={26} width={xOf(w.end) - xOf(w.start)} height={14}
-            fill={w.busy ? "oklch(0.7 0.15 60 / 0.5)" : "var(--bg-inset)"} stroke="var(--line)" />
+        <rect x={xOf(0)} y={26} width={xOf(tMax) - xOf(0)} height={14} fill="var(--bg-inset)" stroke="var(--line)" />
+        {intervals.map(([a, b], i) => (
+          <rect key={i} x={xOf(a)} y={26} width={xOf(b) - xOf(a)} height={14} fill="oklch(0.7 0.15 60 / 0.5)" stroke="var(--line)" />
         ))}
 
         {/* Frequency curve */}
