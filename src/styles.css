@@ -2135,3 +2135,61 @@ button { font: inherit; color: inherit; }
   margin-top: var(--pad-4);
 }
 .komise-addrepo .komise-picker-input { margin-bottom: 0; flex: 1; min-width: 180px; }
+
+/* ─── Komise in exam prep: histogram + who-asked ──────────── */
+.komise-scope {
+  display: inline-flex; gap: 2px; padding: 2px;
+  background: var(--bg-inset); border-radius: 7px; flex-shrink: 0;
+}
+.komise-scope button {
+  appearance: none; border: none; background: transparent; cursor: default;
+  font: inherit; font-size: 12px; font-weight: 500; color: var(--text-muted);
+  padding: 4px 10px; border-radius: 5px; white-space: nowrap;
+}
+.komise-scope button[data-active="true"] {
+  background: var(--bg-card); color: var(--text); box-shadow: var(--shadow-sm);
+}
+
+.komise-hist {
+  margin: var(--pad-4) 0;
+  background: var(--bg-card); border: 0.5px solid var(--line);
+  border-radius: var(--r-md); padding: var(--pad-4);
+}
+.komise-hist-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: var(--pad-3); }
+.komise-hist-title { font-size: 15px; font-weight: 600; margin: 0; }
+.komise-hist-sub { margin: 2px 0 0; font-size: 12.5px; color: var(--text-muted); }
+.komise-hist-bars { display: flex; flex-direction: column; gap: 4px; }
+.komise-hist-row {
+  position: relative; appearance: none; border: none; cursor: default; font: inherit;
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; text-align: left; padding: 7px 10px; border-radius: 7px;
+  background: var(--bg-inset); overflow: hidden;
+}
+.komise-hist-row:hover { outline: 1px solid var(--accent-line); outline-offset: -1px; }
+.komise-hist-fill {
+  position: absolute; left: 0; top: 0; bottom: 0; z-index: 0;
+  background: var(--accent-soft); border-radius: 7px;
+}
+.komise-hist-n { position: relative; z-index: 1; font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); flex-shrink: 0; }
+.komise-hist-label { position: relative; z-index: 1; flex: 1; min-width: 0; font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.komise-hist-count { position: relative; z-index: 1; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); flex-shrink: 0; }
+
+.komise-asked {
+  margin: 0 0 16px;
+  background: var(--bg-card); border: 0.5px solid var(--line);
+  border-radius: var(--r-md); padding: var(--pad-3) var(--pad-4);
+}
+.komise-asked-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.komise-asked-title { font-size: 13px; font-weight: 600; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
+.komise-asked-total { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); }
+.komise-asked-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.komise-asked-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12.5px; padding: 4px 9px; border-radius: 999px;
+  background: var(--bg-inset); border: 0.5px solid var(--line); color: var(--text-muted);
+}
+.komise-asked-chip[data-mine="true"] {
+  background: var(--accent-soft); border-color: var(--accent-line);
+  color: var(--text); font-weight: 600;
+}
+.komise-asked-n { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); }

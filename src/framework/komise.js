@@ -197,8 +197,14 @@ export function buildIndex(payloads) {
     .map((m) => ({ ...m, courses: [...m.courses].sort() }))
     .sort((a, b) => b.count - a.count || a.surname.localeCompare(b.surname, "cs"));
 
-  return { members: memberList, records, byMember, byTopic, byCourse };
+  const byKey = new Map(memberList.map((m) => [m.key, m]));
+  return { members: memberList, records, byMember, byTopic, byCourse, byKey };
 }
+
+export const memberDisplay = (index, key) => {
+  const m = index && index.byKey.get(key);
+  return m ? m.display : key;
+};
 
 const weightOf = (rec) => (rec.map && rec.map.confidence === "high" ? 1 : 0.6);
 
@@ -280,4 +286,61 @@ export function topicsForMember(index, memberKey) {
   }
   const list = [...topics.values()].sort((a, b) => b.records.length - a.records.length);
   return { topics: list, loose, total: recs.length };
+}
+
+/* ─── Exam-prep integration ───────────────────────────────────
+ * Bridge the committee records onto exam topics. An exam topic's `refs` point at
+ * course subtopics ([course, topic, sub]); a committee record is mapped to a
+ * {course, topic}. So an exam topic's records = the records mapped to any of the
+ * distinct course/topic pairs its refs cover. */
+export function examTopicKeys(examTopic) {
+  const keys = new Set();
+  for (const ref of (examTopic && examTopic.refs) || []) {
+    if (ref && ref.length >= 2) keys.add(ref[0] + "/" + ref[1]);
+  }
+  return [...keys];
+}
+
+export function examTopicRecords(index, examTopic) {
+  if (!index) return [];
+  const out = [];
+  const seen = new Set();
+  for (const key of examTopicKeys(examTopic)) {
+    for (const r of index.byTopic.get(key) || []) {
+      if (!seen.has(r.id)) { seen.add(r.id); out.push(r); }
+    }
+  }
+  return out;
+}
+
+// Who asked this exam topic. `board` = your commission member keys. Returns examiner
+// rows (board members first), with `mine` flagged, plus global + board totals.
+export function whoAsked(index, examTopic, board) {
+  const recs = examTopicRecords(index, examTopic);
+  const boardSet = new Set(board || []);
+  const byMember = new Map();
+  let boardTotal = 0;
+  for (const r of recs) {
+    if (!r.memberKey) continue;
+    const mine = boardSet.has(r.memberKey);
+    if (mine) boardTotal++;
+    let m = byMember.get(r.memberKey);
+    if (!m) { m = { key: r.memberKey, display: memberDisplay(index, r.memberKey), count: 0, mine }; byMember.set(r.memberKey, m); }
+    m.count++;
+  }
+  const members = [...byMember.values()].sort(
+    (a, b) => (b.mine - a.mine) || (b.count - a.count) || a.display.localeCompare(b.display, "cs")
+  );
+  return { members, total: recs.length, boardTotal };
+}
+
+// Per-exam-topic ask counts for a whole spec. scope: "board" (only your commission) or
+// "global" (everyone). Returns one row per topic (count may be 0 — filter in the UI).
+export function askHistogram(index, examTopics, board, scope) {
+  const boardSet = new Set(board || []);
+  return (examTopics || []).map((t) => {
+    const recs = examTopicRecords(index, t);
+    const count = scope === "board" ? recs.filter((r) => boardSet.has(r.memberKey)).length : recs.length;
+    return { id: t.id, n: t.n, title: t.title, count };
+  });
 }

@@ -112,6 +112,24 @@ try {
   const afterRestore = await page.$$eval('.komise-repo', e => e.length);
   ok(`default repo restorable (${afterRestore})`, afterRestore === before);
 
+  // ── exam-prep integration ──
+  // board (Křivka) was set in the min-max step → histogram renders on the spec list
+  await page.goto(BASE + 'x/NADE', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.exam-topiclist', { timeout: 12000 });
+  await page.waitForSelector('.komise-hist-row', { timeout: 10000 });
+  const boardBars = await page.$$eval('.komise-hist-row', e => e.length);
+  ok(`exam histogram renders for the board (${boardBars} bars)`, boardBars > 0);
+  await page.evaluate(() => [...document.querySelectorAll('.komise-hist .komise-scope button')].find(b => /Všichni/.test(b.textContent)).click());
+  await page.waitForFunction((n) => document.querySelectorAll('.komise-hist-row').length >= n, { timeout: 5000 }, boardBars);
+  const globalBars = await page.$$eval('.komise-hist-row', e => e.length);
+  ok(`histogram global scope ≥ board (${boardBars}→${globalBars})`, globalBars >= boardBars);
+
+  // an exam topic shows who asked it (global by default)
+  await page.goto(BASE + 'x/NADE/t60', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.komise-asked', { timeout: 12000 });
+  const askers = await page.$$eval('.komise-asked-chip', e => e.length);
+  ok(`exam topic shows who asked (${askers} examiners)`, askers > 0);
+
 } catch (e) {
   ok('exception: ' + e.message, false);
 }

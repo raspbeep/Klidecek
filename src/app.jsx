@@ -8,6 +8,7 @@ import {
   GlobalMindmapPage,
 } from "./framework/pages.jsx";
 import { KomisePage } from "./framework/komise-page.jsx";
+import { KomiseProvider } from "./framework/komise-context.jsx";
 import {
   useProgress, useTweaks,
   loadProgress, saveProgress, exportProgress, importProgress,
@@ -557,6 +558,7 @@ export function App() {
   }
 
   return (
+    <KomiseProvider>
     <div className="app">
       <Topbar
         navigate={navigate}
@@ -587,5 +589,6 @@ export function App() {
       )}
       <Toast msg={toastMsg} />
     </div>
+    </KomiseProvider>
   );
 }

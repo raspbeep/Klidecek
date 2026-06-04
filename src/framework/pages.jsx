@@ -6,6 +6,7 @@ import { useProgress, useCollapsed, loadTweaks, saveTweaks } from "./progress.js
 import { LazyBlocks, TierBadge } from "./content-blocks.jsx";
 import { Mindmap } from "./mindmap.jsx";
 import { GlobalMindmap } from "./global-mindmap.jsx";
+import { ExamSpecHistogram, ExamTopicAskedBy } from "./komise-exam.jsx";
 
 const BASE = import.meta.env.BASE_URL || "/";
 
@@ -970,6 +971,8 @@ export function ExamSpecPage({ content, specId, navigate }) {
         </div>
       </div>
 
+      <ExamSpecHistogram specId={specId} topics={topics} navigate={navigate} />
+
       <div className="exam-topiclist">
         {topics.map((t) => {
           const total = t.refs.length;
@@ -1070,6 +1073,8 @@ export function ExamTopicPage({ content, specId, topicId, navigate }) {
           ))}
         </div>
       )}
+
+      <ExamTopicAskedBy topic={topic} />
 
       {(() => {
         const resolved = topic.refs.filter(([c, tp, s]) => {

@@ -1252,8 +1252,10 @@ leaf dot.
 | `src/framework/viz-registry.js`   | `register(id, Component)` + `get(id)`. |
 | `src/framework/mindmap.jsx`       | Radial course-mindmap layout. |
 | `src/framework/pages.jsx`         | All route page components (courses, specs, exam, course detail). |
-| `src/framework/komise.js`         | Komise data layer — repository list (localStorage), fetch+merge, index, min-max ranking (§11). |
+| `src/framework/komise.js`         | Komise data layer — repository list (localStorage), fetch+merge, index, min-max ranking, exam-topic bridge (§11). |
+| `src/framework/komise-context.jsx`| `KomiseProvider`/`useKomise` — app-wide shared board + lazily-loaded index (§11). |
 | `src/framework/komise-page.jsx`   | The `/k` page: min-max by commission, browse by examiner, manage repositories (§11). |
+| `src/framework/komise-exam.jsx`   | Committee histogram + who-asked widgets embedded in the exam-prep pages (§11). |
 | `src/framework/progress.js`       | localStorage + React hooks for progress, collapse state (per-key defaults for tiers), and user tweaks. |
 | `src/app.jsx`                     | History-API (clean-path) router (legacy `#/…` auto-rewritten), theme, sheets, app shell. |
 | `src/main.jsx`                    | React mount, removes the boot fade. |
@@ -1328,6 +1330,29 @@ Three tabs:
 - **Repozitáře** — add/remove/enable repository URLs; shows per-repo load status and
   record counts.
 
-`komise.js` is pure logic + storage (no React); the page drives it. localStorage keys:
-`okruhy.komise.repos.v1`, `okruhy.komise.board.v1`. Verify with
-`node tools/committee-data/smoke.mjs` (spawns vite, drives `/k` headless).
+### In the exam-prep pages (`komise-exam.jsx`)
+
+The same data is surfaced where you actually revise, driven by the same shared board:
+
+- **`ExamSpecHistogram`** (on `/x/<spec>`, above the topic list) — *when a commission is
+  set*, a histogram of how often each okruh in that specialization was asked, sorted
+  hot-first, each bar linking to the topic. A **Moje komise / Všichni** toggle widens it
+  from your board to all examiners.
+- **`ExamTopicAskedBy`** (on `/x/<spec>/<topic>`) — who asked this okruh, **global by
+  default** with the same toggle; board members are highlighted (and sorted first) even
+  in the global view. Hidden when no examiner is on record for the topic.
+
+`examTopicRecords()` bridges an okruh's `refs` (`[course, topic, sub]`) to the records
+mapped to those `course/topic` pairs; `whoAsked()` and `askHistogram()` aggregate them.
+
+### Shared state (`komise-context.jsx`)
+
+`KomiseProvider` (wrapping the app in `app.jsx`) owns the merged index, the repository
+list, and the board, so `/k` and the exam pages stay in sync. It loads **lazily** —
+nothing is fetched until a consumer calls `ensureLoaded()` (first mount of the Komise
+page, an exam topic page, or a spec page with a commission set) — so users who never use
+the feature don't pay for the fetch.
+
+`komise.js` is pure logic + storage (no React); the context + pages drive it. localStorage
+keys: `okruhy.komise.repos.v1`, `okruhy.komise.board.v1`. Verify with
+`node tools/committee-data/smoke.mjs` (spawns vite, drives `/k` and the exam pages headless).

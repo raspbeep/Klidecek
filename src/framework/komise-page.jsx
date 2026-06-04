@@ -7,31 +7,10 @@
 
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import {
-  loadRepos, addRepo, removeRepo, setRepoEnabled, restoreDefault,
-  loadBoard, saveBoard, fetchAll, buildIndex, clearRepoCache,
+  addRepo, removeRepo, setRepoEnabled, restoreDefault,
   rankForCommission, topicsForMember,
 } from "./komise.js";
-
-/* ─── data hook ───────────────────────────────────────────── */
-function useKomiseData() {
-  const [repos, setRepos] = useState(() => loadRepos());
-  const [state, setState] = useState({ status: "loading", index: null, errors: [] });
-
-  const reload = useCallback((repoList, { fresh = false } = {}) => {
-    const list = repoList || loadRepos();
-    if (fresh) clearRepoCache();
-    setState((s) => ({ ...s, status: "loading" }));
-    fetchAll(list).then(({ payloads, errors }) => {
-      const index = buildIndex(payloads);
-      setState({ status: "ready", index, errors });
-    });
-  }, []);
-
-  useEffect(() => { reload(repos); /* eslint-disable-next-line */ }, []);
-
-  const mutate = useCallback((next, opts) => { setRepos(next); reload(next, opts); }, [reload]);
-  return { repos, setRepos: mutate, ...state, reload };
-}
+import { useKomise } from "./komise-context.jsx";
 
 /* ─── helpers ─────────────────────────────────────────────── */
 function resolveTopic(content, course, topic, fallbackTitle) {
@@ -420,10 +399,9 @@ function ReposView({ repos, setRepos, errors, index, reload }) {
 
 /* ─── page shell ──────────────────────────────────────────── */
 export function KomisePage({ content, navigate }) {
-  const { repos, setRepos, status, index, errors, reload } = useKomiseData();
+  const { repos, setRepos, status, index, errors, reload, board, setBoard, ensureLoaded } = useKomise();
   const [tab, setTab] = useState("minmax");
-  const [board, setBoardState] = useState(() => loadBoard());
-  const setBoard = useCallback((keys) => { setBoardState(keys); saveBoard(keys); }, []);
+  useEffect(() => { ensureLoaded(); }, [ensureLoaded]);
 
   const memberNameOf = useCallback((key) => {
     const m = index && index.members.find((x) => x.key === key);
@@ -457,7 +435,7 @@ export function KomisePage({ content, navigate }) {
         ))}
       </div>
 
-      {status === "loading" && !index ? (
+      {!index && status !== "ready" ? (
         <div className="komise-empty"><span className="spinner" style={{ marginRight: 8 }} />Načítám data z repozitářů…</div>
       ) : !index ? (
         <div className="komise-empty">Data se nepodařilo načíst.</div>
