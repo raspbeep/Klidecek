@@ -11,6 +11,7 @@ import katex from "katex";
 import "katex/dist/katex.min.css";
 import * as viz from "./viz-registry.js";
 import { useInView, estimateBlocksHeight } from "./in-view.js";
+import { useCollapsed } from "./progress.js";
 
 const BASE = import.meta.env.BASE_URL || "/";
 function resolveAsset(src) {
@@ -59,6 +60,21 @@ function useFigureId(figIndex) {
   if (!subAnchor || !figIndex) return {};
   const figKey = "fig" + figIndex;
   return { domId: subAnchor + "--" + figKey, figKey };
+}
+
+// Small pill that marks non-core content (examples / real-world / extras). The
+// `tier` is the normalised descriptor from tier.js ({ kind, label, hue, desc }),
+// attached to a subtopic (frontmatter) or a section heading (`{…}` attribute).
+export function TierBadge({ tier }) {
+  if (!tier || tier.core) return null;
+  return (
+    <span className="tier-badge" data-tier={tier.kind} style={{ "--tier-h": tier.hue }} title={tier.desc}>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2.6l2.45 6.0 6.45.45-4.95 4.15 1.6 6.25L12 20.1l-5.6 3.4 1.6-6.25-4.95-4.15 6.45-.45z"/>
+      </svg>
+      {tier.label}
+    </span>
+  );
 }
 
 /* ─── Escapes / inline markdown ────────────────────────────────────────── */
@@ -810,6 +826,80 @@ const isZdrojFooter = (b) => b.kind === "text" && /^\*?\s*Zdroj\s*:/i.test((b.bo
 // now folded into the unified "Další zdroje" list, so it's dropped.
 const isVideaHeading = (b) => b.kind === "heading" && /^videa$/i.test((b.body || "").trim());
 
+// Slug for a stable per-section collapse key (diacritics-folded, punctuation → -).
+function slugify(s) {
+  return (s || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "") // strip combining diacritics
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 40) || "sec";
+}
+
+// Group a block run into [{type:"block"} | {type:"section", heading, blocks}].
+// A non-core heading (`heading.tier && !core`) opens a section that absorbs every
+// following block until the next heading of equal-or-higher level. Order is
+// preserved, so figure numbering (computed separately over the flat body) is
+// unaffected by which sections are collapsed.
+function groupTierSections(blocks) {
+  const out = [];
+  let i = 0;
+  while (i < blocks.length) {
+    const b = blocks[i];
+    if (b.kind === "heading" && b.tier && !b.tier.core) {
+      const level = b.level || 2;
+      const inner = [];
+      let j = i + 1;
+      while (j < blocks.length) {
+        const nb = blocks[j];
+        if (nb.kind === "heading" && (nb.level || 2) <= level) break;
+        inner.push(nb);
+        j++;
+      }
+      out.push({ type: "section", heading: b, blocks: inner });
+      i = j;
+    } else {
+      out.push({ type: "block", block: b });
+      i++;
+    }
+  }
+  return out;
+}
+
+// A collapsible "subsubtopic" — a heading-delimited non-core section. Its heading
+// becomes the clickable summary (with a TierBadge); the body collapses. Default
+// state is collapsed (unless the tier carries `open`); the user's choice persists
+// via the shared collapsed store, keyed by `sectionKey`.
+function CollapsibleSection({ sectionKey, tier, heading, children }) {
+  const { isCollapsed, toggle } = useCollapsed();
+  const content = useContent();
+  const def = !tier.defaultOpen;
+  const collapsed = isCollapsed(sectionKey, def);
+  const onToggle = () => toggle(sectionKey, def);
+  const level = Math.min(6, Math.max(2, heading.level || 3));
+  const Tag = `h${level}`;
+  // Mirror the subtopic header: a real chevron <button> is the labelled control,
+  // the heading is a click convenience. (Don't wrap the heading in a <button> —
+  // a heading isn't valid button content and may itself contain a link.)
+  return (
+    <section className="subsection" data-tier={tier.kind} data-collapsed={collapsed || undefined} style={{ "--tier-h": tier.hue }}>
+      {/* Whole header is the click target; the chevron <button> carries the a11y
+          semantics (its click/Enter/Space bubbles up to this onClick). */}
+      <div className="subsection-head" data-collapsed={collapsed || undefined} onClick={onToggle}>
+        <button type="button" className="collapse-toggle" data-collapsed={collapsed}
+          aria-expanded={!collapsed} aria-label={(collapsed ? "Rozbalit" : "Sbalit") + ": " + heading.body}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m6 9 6 6 6-6" /></svg>
+        </button>
+        <Tag className="subsection-title" dangerouslySetInnerHTML={{ __html: inline(heading.body, content) }} />
+        <TierBadge tier={tier} />
+        {collapsed && <span className="collapse-hint">klikni pro zobrazení</span>}
+      </div>
+      {!collapsed && <div className="subsection-body">{children}</div>}
+    </section>
+  );
+}
+
 export function BlockList({ blocks, courseId, topicId, subId, seeMore = false }) {
   const onClick = useWikiLinkHandler();
   const figCtx = useMemo(
@@ -837,16 +927,46 @@ export function BlockList({ blocks, courseId, topicId, subId, seeMore = false })
     }
   }
 
-  let figN = 0;
+  // Per-block bookkeeping over the flat body in document order:
+  //  • figIndex — image/svg/viz get a 1-based `fig<N>`, independent of section
+  //    grouping/collapse, so a collapsed section never shifts a core figure's number;
+  //  • a stable React key (`b<pos>`) keyed off the block's position in body, so keys
+  //    don't drift when blocks are regrouped into sections.
+  const { figIndexOf, keyOf } = useMemo(() => {
+    const fig = new Map(), key = new Map();
+    let n = 0;
+    body.forEach((b, i) => {
+      key.set(b, "b" + i);
+      if (b.kind === "image" || b.kind === "svg" || b.kind === "viz") fig.set(b, ++n);
+    });
+    return { figIndexOf: fig, keyOf: key };
+  }, [body]);
+  const renderBlock = (b, fallbackKey) => <Block key={keyOf.get(b) || fallbackKey} block={b} figIndex={figIndexOf.get(b)} />;
+
+  // Only the subtopic level (`seeMore`) groups heading-delimited non-core sections;
+  // nested BlockLists (e.g. blockquote children) render flat.
+  const items = seeMore ? groupTierSections(body) : body.map((block) => ({ type: "block", block }));
+  const idBase = `${courseId || ""}/${topicId || ""}/${subId || ""}`;
+  // Section ordinal counts only tier sections, so adding a plain heading above a
+  // section doesn't shift its collapse key (and lose the user's remembered state).
+  const secOrd = new Map();
+  let so = 0;
+  for (const it of items) if (it.type === "section") secOrd.set(it, so++);
+
   return (
     <FigureContext.Provider value={figCtx}>
       <div className="blocks" onClick={onClick}>
-        {body.map((b, i) => {
-          const figIndex = (b.kind === "image" || b.kind === "svg" || b.kind === "viz") ? ++figN : undefined;
-          return <Block key={i} block={b} figIndex={figIndex} />;
+        {items.map((it) => {
+          if (it.type !== "section") return renderBlock(it.block);
+          const sectionKey = `sec:${idBase}#${secOrd.get(it)}-${slugify(it.heading.body)}`;
+          return (
+            <CollapsibleSection key={sectionKey} sectionKey={sectionKey} tier={it.heading.tier} heading={it.heading}>
+              {it.blocks.map((b) => renderBlock(b))}
+            </CollapsibleSection>
+          );
         })}
         {seeMore && <SeeMoreSection refs={refs} />}
-        {zdroj && <Block key="zdroj" block={zdroj} />}
+        {zdroj && renderBlock(zdroj, "zdroj")}
       </div>
     </FigureContext.Provider>
   );

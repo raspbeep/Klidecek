@@ -18,6 +18,7 @@
 // Each MD subtopic can also override its title via frontmatter `title:`.
 
 import { parseMarkdown } from "./md-parser.js";
+import { parseTier } from "./tier.js";
 
 const BASE = import.meta.env.BASE_URL || "/";
 
@@ -52,7 +53,7 @@ export async function loadContent(manifestUrl = "content/manifest.json") {
             (topic.subtopics || []).map(async (sub) => {
               const subVerified = topicVerified || verifiedSet.has(`${course.id}/${topic.id}/${sub.id}`);
               if (!sub.src) {
-                return { ...sub, blocks: [], verified: subVerified };
+                return { ...sub, blocks: [], verified: subVerified, tier: parseTier(sub.tier) };
               }
               try {
                 const r = await fetch(joinBase(sub.src), { cache: "no-cache" });
@@ -70,13 +71,16 @@ export async function loadContent(manifestUrl = "content/manifest.json") {
                   body = body.slice(1);
                 }
                 if (!title) title = sub.id;
-                return { ...sub, title, blocks: body, verified: subVerified };
+                // Non-core marker: frontmatter `tier:` (else a manifest override).
+                const tier = parseTier(frontmatter.tier != null ? frontmatter.tier : sub.tier);
+                return { ...sub, title, blocks: body, verified: subVerified, tier };
               } catch (err) {
                 console.error(`failed to load ${sub.src}`, err);
                 return {
                   ...sub,
                   title: sub.title || sub.id,
                   verified: subVerified,
+                  tier: parseTier(sub.tier),
                   blocks: [{
                     kind: "text",
                     body: `_Failed to load content for ${sub.id} (${sub.src}): ${err.message || err}_`,

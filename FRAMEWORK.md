@@ -354,6 +354,10 @@ home institution and named instructors out of the prose.
 * **Name-dropping the home institution or instructor in prose**: see §0.8.
   The citation footer at the bottom is the appropriate place for source
   attribution; the body of the page should be source-agnostic study material.
+* **Over-tagging core content as non-core**: marking a definition, theorem, or
+  the primary explanation of a concept with a `tier:` / `{tier=…}` marker (§4)
+  hides exam-essential material behind a collapsed card. Tiers are for genuinely
+  skippable asides — when unsure, leave it core.
 
 ---
 
@@ -485,11 +489,94 @@ Every subtopic is one Markdown file. The parser is in
 ```markdown
 ---
 title: Triangle rasterization
+tier: example
 ---
 ```
 
-Only `title:` is read currently. The block is delimited by `---` lines at the
-very top of the file.
+Read keys: `title:` and `tier:` (see [Content tiers](#content-tiers--marking-non-core-content)
+below). The block is delimited by `---` lines at the very top of the file.
+
+### Content tiers — marking non-core content
+
+Some material is **not core exam knowledge** — worked examples, real-world usage,
+beyond-syllabus extras. Marking it lets a reader focus on the core and pull the rest up
+on demand. A tiered item shows a small **badge**, a **"klikni pro zobrazení"** hint, and
+is **collapsible**; **non-core starts collapsed by default**. The reader's expand/collapse
+choice persists in `localStorage`, and the *entire* header is the click target. (Deep-
+linking straight to a tiered *subtopic* — on the course-detail or exam page — auto-
+expands that subtopic, so a shared link lands on visible content.) Tiers render
+identically on the course-detail page and the exam pages.
+
+There are two granularities:
+
+**1. A whole subtopic** — a `tier:` line in the file's frontmatter:
+
+```markdown
+---
+title: Příklady NoSQL databází
+tier: example          # example | practice | extra | core ; add `open` → start expanded
+---
+```
+
+**2. A heading-delimited section ("subsubtopic")** — a `{…}` attribute on the heading.
+The section spans every block from that heading until the **next heading of equal-or-
+higher level**; that whole run collapses into one card. Three equivalent spellings, plus
+an optional `open` flag:
+
+```markdown
+## Princip H-můstku                          ← no marker → core, always shown
+
+…core theory…
+
+## Řízení DC motoru v praxi {tier=practice}  ← marked → collapsible, default-collapsed
+## Worked example {.example}                 ← `.kind` shorthand
+## Edge cases {extra open}                   ← bare kind + `open` (starts expanded)
+```
+
+Recognised kinds (defined in `src/framework/tier.js` — each picks a label + hue):
+
+| `tier` | Badge | Use for |
+|--------|-------|---------|
+| `example`  | Příklad | illustrative worked examples that aren't the core idea |
+| `practice` | V praxi | real-world usage / applications beyond the exam core |
+| `extra`    | Navíc   | rounding-out detail beyond the official okruhy |
+| `core`     | —       | explicit "this *is* core" (the default; rarely needed) |
+
+An unrecognised kind written with an explicit marker (`{.foo}` / `{tier=foo}`) still
+renders, with a generic **Doplněk** badge — but prefer the four above.
+
+**Semantics the parser enforces (so markers never misfire):**
+
+* **Default state** — a non-core item is collapsed unless it carries `open`; `core` (or
+  no marker) is expanded. `tier: example open` / `{example open}` start expanded.
+* **No accidental hijacking** — a heading ending in a *bare unknown* `{…}` (e.g.
+  `## Stav {x}`, or inline math like `$\{0,1\}$`) is **not** tiered; the braces stay
+  literal. Only a known kind, a `.kind`, or `tier=kind` is recognised as a marker.
+* **A heading that is *only* the marker** (`### {tier=practice}`) keeps its literal text
+  and is **not** tiered — real heading text must remain after the marker is stripped.
+* **Sections group only at the subtopic level.** A `{tier=…}` heading nested inside a
+  blockquote renders as a plain heading (no card); don't rely on tiering inside quotes.
+* **Don't tag `### Videa`.** That heading is already stripped by the renderer (videos
+  fold into the "Další zdroje" list), so a tier on it is a no-op.
+* Figure deep-link numbering (`fig<N>`) is computed over the whole subtopic, so a
+  collapsed section never shifts a core figure's share-link. (A figure that lives
+  *inside* a collapsed section isn't scrolled to until the reader expands that section —
+  only the subtopic container auto-expands on a deep-link.)
+
+**Use it conservatively — this is the one rule that matters.** Most content is core;
+over-tagging hides exam material behind a collapsed card. Reach for a tier only when a
+section is genuinely skippable on a first pass — the worked example *after* the concept
+is explained, the "where it's used in industry" aside, the historical tangent. When in
+doubt, leave it core. A reader scanning for exam essentials should be able to trust that
+everything *not* tiered is something they need.
+
+Implementation: `tier.js` (`parseTier` → `{core,kind,defaultOpen,label,hue}`),
+`content-loader.js` (subtopic frontmatter → `sub.tier`), `md-parser.js` (heading `{…}`
+attribute → `block.tier`), `content-blocks.jsx` (`TierBadge`, `CollapsibleSection`,
+section grouping, the hint), `pages.jsx` (subtopic badge + default-collapse),
+`pages.jsx` also auto-expands the deep-linked subtopic; `progress.js`'s `useCollapsed`
+stores an explicit collapsed/expanded flag with a per-key default, so non-core can default
+to collapsed while everything else defaults to expanded.
 
 ### Paragraphs → text blocks
 
@@ -562,7 +649,7 @@ yields args `["rasterize", "Drag the vertices."]`.
 | `svg`       | optional `"caption"`                         | raw inline SVG markup                 |
 | `link`      | `"label" "url"`                              | empty (or `[label](url)` instead)     |
 | `viz`       | `<id>` then optional `"caption"`             | empty                                 |
-| `youtube`   | `"url-or-id"` (optional `"title"`, `"channel"`) | empty (or the url instead of the 1st arg) — alias `video` |
+| `youtube`   | `"url-or-id"` (optional `"title"`, `"channel"`, `"cc"`) | empty (or the url instead of the 1st arg) — alias `video`/`embed`; 4th arg `cc` → English captions on (§0.5) |
 | `quiz`      | `"question"`                                 | a list of `- [x] / - [ ]` choices, each optionally followed by an indented `> reason` line |
 
 The `youtube` fence accepts a full watch/`youtu.be`/`/embed/`/`/shorts/` URL or a
@@ -1143,6 +1230,8 @@ leaf dot.
 * [ ] Every `["course", "topic", "subtopic"]` ref in `exam` resolves.
 * [ ] `npm run build` succeeds.
 * [ ] Opening the course in dev shows the subtopics and any vizs render.
+* [ ] Any `tier:`/`{tier=…}` markers point at genuinely non-core content, and the
+      core material above a tiered section still reads complete on its own.
 
 ---
 
@@ -1150,13 +1239,14 @@ leaf dot.
 
 | File | What it owns |
 |------|--------------|
-| `src/framework/content-loader.js` | Fetching manifest + MD files, hydrating the in-memory model. |
-| `src/framework/md-parser.js`      | Parsing one MD string into `{ frontmatter, blocks[] }`. |
+| `src/framework/content-loader.js` | Fetching manifest + MD files, hydrating the in-memory model (incl. `sub.tier`). |
+| `src/framework/md-parser.js`      | Parsing one MD string into `{ frontmatter, blocks[] }` (incl. heading `{tier=…}`). |
 | `src/framework/content-blocks.jsx`| Rendering every block kind. New block kind? Add a renderer and a case in `Block`. |
+| `src/framework/tier.js`           | `parseTier()` + tier metadata for non-core content markers (§4). |
 | `src/framework/viz-registry.js`   | `register(id, Component)` + `get(id)`. |
 | `src/framework/mindmap.jsx`       | Radial course-mindmap layout. |
 | `src/framework/pages.jsx`         | All route page components (courses, specs, exam, course detail). |
-| `src/framework/progress.js`       | localStorage + React hooks for progress & user tweaks. |
+| `src/framework/progress.js`       | localStorage + React hooks for progress, collapse state (per-key defaults for tiers), and user tweaks. |
 | `src/app.jsx`                     | Hash router, theme application, sheets, app shell. |
 | `src/main.jsx`                    | React mount, removes the boot fade. |
 

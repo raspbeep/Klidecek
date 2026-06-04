@@ -122,9 +122,13 @@ export function useProgress(content) {
   return { raw: data, set, toggle, courseStats, specStats, examStats };
 }
 
-// Collapsed-section store: stores the set of keys the user has *explicitly*
-// collapsed. Anything not in the set is treated as expanded (the default).
-// Keys are app-defined strings like "topic:PDS/transport" or "sub:PDS/transport/arq-okno".
+// Collapsed-section store: records the user's *explicit* expand/collapse choices.
+// A stored `1` = collapsed, `0` = expanded; a key that's absent falls back to the
+// caller-supplied `defaultCollapsed` (so non-core content can default to collapsed
+// while everything else defaults to expanded). Legacy entries were `1`-only, so
+// they still read as collapsed — backward compatible.
+// Keys are app-defined strings like "topic:PDS/transport", "sub:PDS/transport/arq-okno",
+// or "sec:PRL/stromy/expression-eval#2-aplikace-v-praxi" (a non-core section).
 function loadCollapsed() {
   try { return JSON.parse(localStorage.getItem(COLLAPSED_KEY) || "{}"); } catch { return {}; }
 }
@@ -145,14 +149,17 @@ export function useCollapsed() {
     };
   }, []);
   const data = useMemo(loadCollapsed, [tick]);
-  const isCollapsed = (key) => !!data[key];
+  const isCollapsed = (key, defaultCollapsed = false) =>
+    (key in data ? data[key] === 1 : defaultCollapsed);
+  // Always store the explicit choice (1/0) — never delete — so a user expanding a
+  // default-collapsed item (or collapsing a default-expanded one) actually sticks.
   const setCollapsed = (key, collapsed) => {
     const c = loadCollapsed();
-    if (collapsed) c[key] = 1;
-    else delete c[key];
+    c[key] = collapsed ? 1 : 0;
     saveCollapsed(c);
   };
-  const toggle = (key) => setCollapsed(key, !data[key]);
+  const toggle = (key, defaultCollapsed = false) =>
+    setCollapsed(key, !isCollapsed(key, defaultCollapsed));
   return { isCollapsed, setCollapsed, toggle };
 }
 

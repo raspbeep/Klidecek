@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { useProgress, useCollapsed, loadTweaks, saveTweaks } from "./progress.js";
-import { LazyBlocks } from "./content-blocks.jsx";
+import { LazyBlocks, TierBadge } from "./content-blocks.jsx";
 import { Mindmap } from "./mindmap.jsx";
 import { GlobalMindmap } from "./global-mindmap.jsx";
 
@@ -598,20 +598,25 @@ export function CourseDetailPage({ content, courseId, focusTopic, focusSub, focu
                   const subKey = `sub:${course.id}/${t.id}/${sub.id}`;
                   const isDone = set.has(key);
                   const isCopied = copiedKey === `${t.id}/${sub.id}`;
-                  const subCollapsed = isCollapsed(subKey);
+                  // Non-core subtopics (frontmatter `tier:`) default to collapsed.
+                  const subTier = sub.tier && !sub.tier.core ? sub.tier : null;
+                  const subDefaultCollapsed = !!(subTier && !subTier.defaultOpen);
+                  const subCollapsed = isCollapsed(subKey, subDefaultCollapsed);
                   return (
-                    <article className="subtopic" id={`sub-${t.id}-${sub.id}`} key={sub.id} data-collapsed={subCollapsed}>
+                    <article className="subtopic" id={`sub-${t.id}-${sub.id}`} key={sub.id} data-collapsed={subCollapsed} data-tier={subTier ? subTier.kind : undefined} style={subTier ? { "--tier-h": subTier.hue } : undefined}>
                       <header className="subtopic-head">
                         <div className="subtopic-title-row">
-                          <ChevronToggle collapsed={subCollapsed} onClick={() => toggleCollapsed(subKey)} label={sub.title} />
+                          <ChevronToggle collapsed={subCollapsed} onClick={() => toggleCollapsed(subKey, subDefaultCollapsed)} label={sub.title} />
                           <button className="subtopic-check" data-checked={isDone}
                             onClick={() => toggle(key)}
                             aria-label={isDone ? "Mark not done" : "Mark done"}>
                             {isDone && <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="m5 12 5 5 9-11"/></svg>}
                           </button>
-                          <h3 className="subtopic-title" onClick={() => toggleCollapsed(subKey)}>
+                          <h3 className="subtopic-title" onClick={() => toggleCollapsed(subKey, subDefaultCollapsed)}>
                             {sub.title}
                             {sub.verified && <VerifiedBadge />}
+                            {subTier && <TierBadge tier={subTier} />}
+                            {subTier && subCollapsed && <span className="collapse-hint">klikni pro zobrazení</span>}
                           </h3>
                         </div>
                         <button className={"subtopic-anchor" + (isCopied ? " copied" : "")}
@@ -1073,20 +1078,24 @@ export function ExamTopicPage({ content, specId, topicId, navigate }) {
         const key = `${cid}/${tid}/${sid}`;
         const subKey = `sub:${cid}/${tid}/${sid}`;
         const done = set.has(key);
-        const subCollapsed = isCollapsed(subKey);
+        const subTier = sub.tier && !sub.tier.core ? sub.tier : null;
+        const subDefaultCollapsed = !!(subTier && !subTier.defaultOpen);
+        const subCollapsed = isCollapsed(subKey, subDefaultCollapsed);
         return (
-          <article className="subtopic" key={i} id={`exam-${i}`} data-collapsed={subCollapsed}>
+          <article className="subtopic" key={i} id={`exam-${i}`} data-collapsed={subCollapsed} data-tier={subTier ? subTier.kind : undefined} style={subTier ? { "--tier-h": subTier.hue } : undefined}>
             <header className="subtopic-head">
               <div className="subtopic-title-row">
-                <ChevronToggle collapsed={subCollapsed} onClick={() => toggleCollapsed(subKey)} label={sub.title} />
+                <ChevronToggle collapsed={subCollapsed} onClick={() => toggleCollapsed(subKey, subDefaultCollapsed)} label={sub.title} />
                 <button className="subtopic-check" data-checked={done} onClick={() => toggle(key)}>
                   {done && <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="m5 12 5 5 9-11"/></svg>}
                 </button>
-                <div onClick={() => toggleCollapsed(subKey)} style={{ cursor: "pointer" }}>
+                <div onClick={() => toggleCollapsed(subKey, subDefaultCollapsed)} style={{ cursor: "pointer" }}>
                   <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-faint)" }}>{course.id} · {t.title}</div>
                   <h3 className="subtopic-title" style={{ marginTop: 2 }}>
                     {sub.title}
                     {sub.verified && <VerifiedBadge />}
+                    {subTier && <TierBadge tier={subTier} />}
+                    {subTier && subCollapsed && <span className="collapse-hint">klikni pro zobrazení</span>}
                   </h3>
                 </div>
               </div>
@@ -1095,7 +1104,7 @@ export function ExamTopicPage({ content, specId, topicId, navigate }) {
                 open
               </button>
             </header>
-            {!subCollapsed && <LazyBlocks blocks={sub.blocks} forceMount={i === 0} />}
+            {!subCollapsed && <LazyBlocks blocks={sub.blocks} courseId={cid} topicId={tid} subId={sid} forceMount={i === 0} />}
           </article>
         );
       })}

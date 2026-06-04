@@ -16,6 +16,8 @@
 //           "image" | "svg" | "viz" | "quiz" | "table" | "list" |
 //           "quote" | "hr", ... }
 
+import { parseTier } from "./tier.js";
+
 export function parseFrontmatter(md) {
   const lines = md.split("\n");
   const fm = {};
@@ -218,11 +220,23 @@ export function parseBlocks(body) {
       continue;
     }
 
-    // ATX heading: # … ######
+    // ATX heading: # … ######  (optional trailing `{…}` tier attribute, e.g.
+    // `### V praxi {tier=practice}` / `### Příklad {.example open}` — marks the
+    // heading-delimited section as non-core; see tier.js / content-blocks.jsx)
     const heading = line.match(/^(#{1,6})\s+(.+?)\s*#*\s*$/);
     if (heading) {
       flushText();
-      blocks.push({ kind: "heading", level: heading[1].length, body: heading[2] });
+      let text = heading[2];
+      let tier = null;
+      const attr = text.match(/\s*\{([^{}]*)\}\s*$/);
+      if (attr) {
+        const parsed = parseTier(attr[1]);
+        const stripped = text.slice(0, attr.index).replace(/\s+$/, "");
+        // Only treat `{…}` as a tier marker if real heading text remains — a
+        // heading that is *only* the attribute keeps its literal text instead.
+        if (parsed && stripped) { tier = parsed; text = stripped; }
+      }
+      blocks.push({ kind: "heading", level: heading[1].length, body: text, ...(tier ? { tier } : {}) });
       i++;
       continue;
     }
