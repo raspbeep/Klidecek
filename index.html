@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark light" />
+    <!-- Always revalidate the entry HTML so a redeploy is picked up immediately (the
+         hashed JS/CSS assets are themselves immutable & cache-busted by filename).
+         This is what keeps a cached old index.html from referencing deleted chunks. -->
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
     <!-- Apply the saved theme before first paint to avoid a flash. Dark is the default. -->
     <script>
       (function () {

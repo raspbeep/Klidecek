@@ -10,6 +10,7 @@ import { createContext, useContext, useCallback, useState, useMemo, useRef, useE
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import * as viz from "./viz-registry.js";
+import { ErrorBoundary } from "./error-boundary.jsx";
 import { useInView, estimateBlocksHeight } from "./in-view.js";
 import { useCollapsed } from "./progress.js";
 
@@ -666,7 +667,16 @@ function VizBlock({ block, figIndex }) {
       <div className="block-viz-body" ref={bodyRef} style={Component ? { minHeight: minH } : undefined}>
         {Component
           ? (inView
-              ? <Suspense fallback={<div className="block-viz-loading" aria-hidden="true" />}><Component /></Suspense>
+              ? (
+                <ErrorBoundary fallback={({ stale }) => (
+                  <div style={{ padding: 24, fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-faint)" }}>
+                    {stale ? "Vizualizaci se nepodařilo načíst. " : "Vizualizaci se nepodařilo zobrazit. "}
+                    <button onClick={() => window.location.reload()} style={{ font: "inherit", color: "var(--accent)", background: "none", border: "none", textDecoration: "underline", cursor: "pointer", padding: 0 }}>obnovit</button>
+                  </div>
+                )}>
+                  <Suspense fallback={<div className="block-viz-loading" aria-hidden="true" />}><Component /></Suspense>
+                </ErrorBoundary>
+              )
               : <div className="block-viz-loading" aria-hidden="true" />)
           : (
             <div style={{ padding: 24, fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-faint)" }}>
