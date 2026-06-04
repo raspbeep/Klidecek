@@ -34,11 +34,13 @@ await page.setRequestInterception(true);
 page.on('request', req => { if (/ytimg|youtube|googlevideo/.test(req.url())) req.abort().catch(() => {}); else req.continue().catch(() => {}); });
 await page.setViewport({ width: 900, height: 1500, deviceScaleFactor: 1 });
 
+// Videos now render as compact rows in the unified "Další zdroje" list; each
+// carries its id on data-vid (no big facade until clicked).
 const readPage = () => page.evaluate(() => ({
-  ids: [...document.querySelectorAll('.embed-cap a')].map(a => (a.href.match(/[?&]v=([\w-]{11})/) || [])[1]).filter(Boolean).sort(),
-  embeds: document.querySelectorAll('.block-embed').length,
-  facades: document.querySelectorAll('.embed-facade').length,
-  bad: document.querySelectorAll('.block-embed-bad').length,
+  ids: [...document.querySelectorAll('.see-more-video[data-vid]')].map(el => el.getAttribute('data-vid')).filter(Boolean).sort(),
+  embeds: document.querySelectorAll('.see-more-video').length,
+  facades: document.querySelectorAll('.see-more-playrow').length,
+  bad: document.querySelectorAll('.see-more-bad').length,
   videaHeadings: [...document.querySelectorAll('.block-heading')].filter(h => /^Videa$/.test(h.textContent.trim())).length,
   notReg: (document.body.innerText.match(/neregistrov|Neznámá vizual/gi) || []).length,
 }));
@@ -56,8 +58,10 @@ for (const dark of [true, false]) {
     page.on('console', onMsg); page.on('pageerror', onErr);
     try {
       await page.goto('about:blank', { waitUntil: 'domcontentloaded', timeout: 15000 });
-      await page.goto(BASE + exp.route, { waitUntil: 'domcontentloaded', timeout: 20000 });
-      await page.waitForFunction(() => document.querySelector('.block-embed'), { timeout: 12000 }).catch(() => {});
+      // `?eager=1` disables the in-view lazy-mount/code-split gating so the whole
+      // course (all subtopics + viz) renders at once and the full id set is in DOM.
+      await page.goto(BASE + '?eager=1' + exp.route, { waitUntil: 'domcontentloaded', timeout: 20000 });
+      await page.waitForFunction(() => document.querySelector('.see-more-video'), { timeout: 12000 }).catch(() => {});
     } catch (e) {
       page.off('console', onMsg); page.off('pageerror', onErr);
       bad.push({ theme: dark ? 'dark' : 'light', course, nav: String(e).slice(0, 80) }); continue;
