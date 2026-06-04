@@ -41,7 +41,9 @@ def fold(s: str) -> str:
 # nicest display forms; `aka` lists folded alias tokens / nicknames that also map
 # here (nicknames, FSI co-examiners, sr./jr. forms).
 PEOPLE = {
-    "burget":     ("Burget", "Lukáš / Radek", "doc. Ing., Ph.D.", []),
+    # Two different people who share a surname; disambiguated by first name or course.
+    "burget-l":   ("Burget", "Lukáš", "doc. Ing., Ph.D.", []),  # ML/řeč: SUR, BAYa, KNN, SUI, ZRE
+    "burget-r":   ("Burget", "Radek", "doc. Ing., Ph.D.", []),  # web/IS: PIS, WAP, PDB, IIS
     "burgetova":  ("Burgetová", "", "Ing.", []),
     "malinka":    ("Malinka", "Kamil", "Mgr., Ph.D.", []),
     "vojnar":     ("Vojnar", "Tomáš", "prof. Ing., Ph.D.", []),
@@ -116,9 +118,13 @@ TITLE_TOKENS = {
 }
 JUNK = {"", "nan", "?", "bleh", "vsichni", "pepe?"}
 
+# Radek Burget examines web / information-systems courses; Lukáš Burget examines
+# ML / speech (and is the default when the bare surname "Burget" gives no other clue).
+BURGET_RADEK_COURSES = {"PIS", "WAP", "PDB", "IIS", "IW5", "ISA", "ISJ", "VIS", "WAPa"}
 
-def member_key(raw: str):
-    """raw member string -> (canonical_key|None, first_name|'')."""
+
+def member_key(raw, course=""):
+    """raw member string (+ optional course) -> (canonical_key|None, first_name|'')."""
     if raw is None:
         return None, ""
     s = str(raw).strip()
@@ -133,6 +139,13 @@ def member_key(raw: str):
     raw_tokens = re.split(r"[\s,./]+", s_clean)
     toks = [fold(t).strip(".") for t in raw_tokens if t.strip()]
     toks = [t for t in toks if t]
+    # Burget — two people. Prefer an explicit first name, else infer from the course.
+    if "burget" in toks and "burgetova" not in toks:
+        if "radek" in toks:
+            return "burget-r", "Radek"
+        if "lukas" in toks:
+            return "burget-l", "Lukáš"
+        return ("burget-r" if (course or "").strip().upper() in BURGET_RADEK_COURSES else "burget-l"), ""
     # 1) direct surname token match (longest-known wins)
     found = None
     for t in toks:
@@ -307,7 +320,7 @@ def main():
     records = []
     n_map_high = n_map_low = n_map_course = n_unmapped = 0
     for i, row in enumerate(rows):
-        key, first = member_key(row["member"])
+        key, first = member_key(row["member"], row["course"])
         if key:
             m = members.setdefault(key, {
                 "key": key, "surname": PEOPLE[key][0], "first": PEOPLE[key][1],
@@ -317,8 +330,9 @@ def main():
                 m["aliases"].add(str(row["member"]).strip())
             if first:
                 first_seen[key][first] += 1
-        # skip rows with neither a real topic nor text (pure spacers)
-        if not (row["title"] or row["text"]):
+        # keep rows that carry a question (title/text) OR at least an examiner+course
+        # pairing (who examines what); drop only true spacers.
+        if not (row["title"] or row["text"] or (row["course"] and key)):
             continue
         mp = map_record(row["course"], row["title"], row["text"], index, canon)
         if mp is None:

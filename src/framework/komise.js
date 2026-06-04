@@ -319,9 +319,10 @@ export function whoAsked(index, examTopic, board) {
   const recs = examTopicRecords(index, examTopic);
   const boardSet = new Set(board || []);
   const byMember = new Map();
-  let boardTotal = 0;
+  let boardTotal = 0, total = 0;
   for (const r of recs) {
-    if (!r.memberKey) continue;
+    if (!r.memberKey) continue; // anonymous record (no examiner) — counts in the histogram, not here
+    total++;
     const mine = boardSet.has(r.memberKey);
     if (mine) boardTotal++;
     let m = byMember.get(r.memberKey);
@@ -331,7 +332,8 @@ export function whoAsked(index, examTopic, board) {
   const members = [...byMember.values()].sort(
     (a, b) => (b.mine - a.mine) || (b.count - a.count) || a.display.localeCompare(b.display, "cs")
   );
-  return { members, total: recs.length, boardTotal };
+  // `total` is the count of *named* asks, so the header matches the sum of the chips.
+  return { members, total, boardTotal };
 }
 
 // Per-exam-topic ask counts for a whole spec. scope: "board" (only your commission) or

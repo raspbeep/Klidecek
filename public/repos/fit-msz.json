@@ -21,21 +21,6 @@
    "display": "Adam Rogalewicz"
   },
   {
-   "key": "burget",
-   "surname": "Burget",
-   "first": "Lukáš / Radek",
-   "titles": "doc. Ing., Ph.D.",
-   "aliases": [
-    "Burget",
-    "Burget Lukáš",
-    "Burget Lukáš, doc. Ing., Ph.D.",
-    "Burget Radek, doc. Ing., Ph.D.",
-    "Burget/Smrz"
-   ],
-   "count": 33,
-   "display": "Lukáš / Radek Burget"
-  },
-  {
    "key": "zboril",
    "surname": "Zbořil",
    "first": "František",
@@ -82,6 +67,20 @@
    ],
    "count": 28,
    "display": "Kamil Malinka"
+  },
+  {
+   "key": "burget-l",
+   "surname": "Burget",
+   "first": "Lukáš",
+   "titles": "doc. Ing., Ph.D.",
+   "aliases": [
+    "Burget",
+    "Burget Lukáš",
+    "Burget Lukáš, doc. Ing., Ph.D.",
+    "Burget/Smrz"
+   ],
+   "count": 27,
+   "display": "Lukáš Burget"
   },
   {
    "key": "lengal",
@@ -618,6 +617,18 @@
    ],
    "count": 7,
    "display": "Richard Růžička"
+  },
+  {
+   "key": "burget-r",
+   "surname": "Burget",
+   "first": "Radek",
+   "titles": "doc. Ing., Ph.D.",
+   "aliases": [
+    "Burget",
+    "Burget Radek, doc. Ing., Ph.D."
+   ],
+   "count": 6,
+   "display": "Radek Burget"
   },
   {
    "key": "drabek",
@@ -1434,6 +1445,36 @@
    "title": null,
    "text": "Otazka Managment času a nákladů (CPM, CPM vs PERT), nevěděl jsem vůbec nic, upřímně jsem si tuhle otázku ani nečetl, Květoňová se snažila pomoct, poradit, ale nevěděl jsem nic.",
    "map": null
+  },
+  {
+   "id": "r0049",
+   "session": "MSZ 2025",
+   "memberKey": "rychly",
+   "course": "UPA",
+   "num": 49,
+   "title": null,
+   "text": null,
+   "map": {
+    "course": "UPA",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
+  },
+  {
+   "id": "r0050",
+   "session": "MSZ 2025",
+   "memberKey": "hynek",
+   "course": "AIS",
+   "num": 10,
+   "title": null,
+   "text": null,
+   "map": {
+    "course": "AIS",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
   },
   {
    "id": "r0051",
@@ -2608,7 +2649,7 @@
   {
    "id": "r0139",
    "session": "MSZ 2025",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUR",
    "num": 23,
    "title": null,
@@ -2693,7 +2734,7 @@
   {
    "id": "r0146",
    "session": "MSZ 2025",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUR",
    "num": 22,
    "title": null,
@@ -2973,6 +3014,16 @@
    "num": null,
    "title": null,
    "text": "Znalostné oblasti",
+   "map": null
+  },
+  {
+   "id": "r0168",
+   "session": "MSZ 2025",
+   "memberKey": "bartik",
+   "course": "ZZN",
+   "num": null,
+   "title": null,
+   "text": null,
    "map": null
   },
   {
@@ -3318,6 +3369,21 @@
     "topic": "postranni-kanaly",
     "examTitle": "Postranní kanály, jejich využití pro útoky a ochrana proti nim.",
     "confidence": "high"
+   }
+  },
+  {
+   "id": "r0193",
+   "session": "MSZ 2025",
+   "memberKey": "krivka",
+   "course": "FLP",
+   "num": null,
+   "title": null,
+   "text": null,
+   "map": {
+    "course": "FLP",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
    }
   },
   {
@@ -4053,7 +4119,7 @@
   {
    "id": "r0255",
    "session": "MSZ 2025",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "BAYa",
    "num": null,
    "title": "1 - Bayesovská inference",
@@ -4118,7 +4184,7 @@
   {
    "id": "r0261",
    "session": "MSZ 2025",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "BAYa",
    "num": null,
    "title": "3 - Přibližná inference v Bayesovských modelech (Gibbs sampling)",
@@ -4298,7 +4364,7 @@
   {
    "id": "r0274",
    "session": "MSZ 2025",
-   "memberKey": "burget",
+   "memberKey": "burget-r",
    "course": "PIS",
    "num": null,
    "title": "30 - workflow",
@@ -4838,7 +4904,7 @@
   {
    "id": "r0314",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "Problém generalizce v strojovom učení",
@@ -4898,7 +4964,7 @@
   {
    "id": "r0318",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "",
    "num": null,
    "title": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese)",
@@ -4918,7 +4984,7 @@
   {
    "id": "r0320",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "2. Generativní modely a diskriminativní přístup ke klasifikaci (gaussovský klasifikátor, logistická regrese, ...)",
@@ -4933,7 +4999,7 @@
   {
    "id": "r0321",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "4. Neuronové sítě pro strukturovaná data (konvoluční a rekurentní sítě, motivace, základní vlastnosti, použití)",
@@ -5088,7 +5154,7 @@
   {
    "id": "r0334",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUR",
    "num": null,
    "title": "SVM",
@@ -5123,7 +5189,7 @@
   {
    "id": "r0337",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUR",
    "num": null,
    "title": "lin. klasifikátory",
@@ -5188,7 +5254,7 @@
   {
    "id": "r0342",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "BAYa",
    "num": null,
    "title": "Bayesovská inference",
@@ -5248,7 +5314,7 @@
   {
    "id": "r0347",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "Problém generalizace strojového učení a přístup k jeho řešení",
@@ -7403,7 +7469,7 @@
   {
    "id": "r0501",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "",
    "num": null,
    "title": "Workflow",
@@ -7483,7 +7549,7 @@
   {
    "id": "r0508",
    "session": "MSZ 2023",
-   "memberKey": "burget",
+   "memberKey": "burget-r",
    "course": "PIS",
    "num": null,
    "title": "Mikroslužby a Monolitická architektúra",
@@ -8593,11 +8659,36 @@
   {
    "id": "r0588",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUR",
    "num": 65,
    "title": null,
    "text": "Na papírku zase jen \"Logistická regrese\", tak jsem začal co vlastně modeluje, z čeho vychází, jaké jsou parametry a vstupy, její rovnice, pak vzorec maximum likelihood a nakonec převod na binární cross-entropy. Za celou dobu nepadla jediná otázka a pak zazvonil budík.",
+   "map": null
+  },
+  {
+   "id": "r0589",
+   "session": "MSZ 2024",
+   "memberKey": "holik",
+   "course": "TIN",
+   "num": 25,
+   "title": null,
+   "text": null,
+   "map": {
+    "course": "TIN",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
+  },
+  {
+   "id": "r0590",
+   "session": "MSZ 2024",
+   "memberKey": "grezl",
+   "course": "SUR",
+   "num": 67,
+   "title": null,
+   "text": null,
    "map": null
   },
   {
@@ -8643,7 +8734,7 @@
   {
    "id": "r0594",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "BAYa",
    "num": 45,
    "title": null,
@@ -8663,7 +8754,7 @@
   {
    "id": "r0596",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "",
    "num": null,
    "title": "GMM",
@@ -8698,7 +8789,7 @@
   {
    "id": "r0599",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": 16,
    "title": null,
@@ -9633,7 +9724,7 @@
   {
    "id": "r0667",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "BAYa",
    "num": null,
    "title": "44. Bayesovská inference",
@@ -9693,7 +9784,7 @@
   {
    "id": "r0672",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "15. Generativní a diskriminativní klasifikace\nregrese, ...)",
@@ -9783,7 +9874,7 @@
   {
    "id": "r0679",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "Generalizace",
@@ -10418,7 +10509,7 @@
   {
    "id": "r0729",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-r",
    "course": "PIS",
    "num": 53,
    "title": null,
@@ -10448,7 +10539,7 @@
   {
    "id": "r0731",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-r",
    "course": "PIS",
    "num": 55,
    "title": null,
@@ -10478,7 +10569,7 @@
   {
    "id": "r0733",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-r",
    "course": "PIS",
    "num": 54,
    "title": null,
@@ -10508,7 +10599,7 @@
   {
    "id": "r0735",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-r",
    "course": "PIS",
    "num": 55,
    "title": null,
@@ -10608,7 +10699,7 @@
   {
    "id": "r0742",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "15 - Generativní a diskriminativní modely",
@@ -10633,7 +10724,7 @@
   {
    "id": "r0744",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUR",
    "num": null,
    "title": "65 - LIneárny gaussovský klasifikátor",
@@ -10668,7 +10759,7 @@
   {
    "id": "r0747",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "BAYa",
    "num": null,
    "title": "44 - Bayesovská inference",
@@ -10693,7 +10784,7 @@
   {
    "id": "r0749",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": null,
    "title": "19 Trenovani Neuronovych siti ( maticovy zapis, gradient, aktivacne a loss funkce )",
@@ -12408,7 +12499,7 @@
   {
    "id": "r0877",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "SUI",
    "num": 26,
    "title": null,
@@ -12531,6 +12622,31 @@
    "map": null
   },
   {
+   "id": "r0886",
+   "session": "MSZ 2024",
+   "memberKey": "vojnar",
+   "course": "TIN",
+   "num": 24,
+   "title": null,
+   "text": null,
+   "map": {
+    "course": "TIN",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
+  },
+  {
+   "id": "r0887",
+   "session": "MSZ 2024",
+   "memberKey": "burget-l",
+   "course": "KNN",
+   "num": 48,
+   "title": null,
+   "text": null,
+   "map": null
+  },
+  {
    "id": "r0888",
    "session": "MSZ 2024",
    "memberKey": "vojnar",
@@ -12548,7 +12664,7 @@
   {
    "id": "r0889",
    "session": "MSZ 2024",
-   "memberKey": "burget",
+   "memberKey": "burget-l",
    "course": "MSP",
    "num": 8,
    "title": null,
