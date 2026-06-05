@@ -249,6 +249,102 @@ def build_topic_index(manifest):
 # course-code aliases in the sheet -> app course id (only ones the app actually has)
 COURSE_ALIAS = {"avs?": "AVS", "sui": "SUI", "mpr": None, "sdl ?": None, "zpo?": None}
 
+# Manual topic overrides from the 2026-06 mapping audit. The keyword matcher gets the
+# *course* right but sometimes the *topic* wrong (e.g. it filed pushdown-automata ("ZA")
+# questions under the regular-languages topic, or superscalar/OOO questions under plain
+# pipelining). Each entry below was flagged by one reviewer and independently confirmed
+# by a second; the few auditor/verifier disagreements were resolved against the okruh→topic
+# ownership in the manifest. value = corrected topic id (confidence forced to "high"),
+# or None = "course-only" (question too vague to pin a single topic).
+# Keys are record ids (r{row:04d}); they are stable for the frozen source workbook
+# (MSZ 2026 ALL KOMISE.xlsx). If that workbook changes, re-audit rather than trust these.
+MANUAL_TOPIC = {
+    "r0006": "xml-json",                 # UPA: objektove-db -> xml-json
+    "r0009": "bezkontextove",            # TIN: course-only -> bezkontextove
+    "r0011": "bezkontextove",            # TIN: regularni -> bezkontextove
+    "r0014": "slozitost",                # TIN: rozhodnutelnost -> slozitost
+    "r0018": "priprava-dat",             # UPA: crisp-dm -> priprava-dat
+    "r0066": "cnn",                      # SUI: course-only -> cnn
+    "r0068": "sitova-bezpecnost",        # BIS: wifi-bezpecnost -> sitova-bezpecnost
+    "r0071": "hashe-podpisy",            # KRY: asymetricka-zaklady -> hashe-podpisy
+    "r0077": "bezkontextove",            # TIN: analyza -> bezkontextove
+    "r0081": "utoky",                    # BIO: oblicej -> utoky
+    "r0102": "jazyky-hierarchie",        # TIN: course-only -> jazyky-hierarchie
+    "r0111": "lambda",                   # FLP: course-only -> lambda
+    "r0115": "markovske-retezce",        # MSP: pravdepodobnost-zaklady -> markovske-retezce
+    "r0116": "ids",                      # PDS: routery -> ids
+    "r0117": "kategorialni-glm",         # MSP: course-only -> kategorialni-glm
+    "r0148": "objektove-db",             # UPA: course-only -> objektove-db
+    "r0154": "sitova-bezpecnost",        # BIS: access-control -> sitova-bezpecnost
+    "r0155": "predikce-skoku",           # AVS: superskalar -> predikce-skoku (2bit predictor)
+    "r0175": "reputace",                 # PDS: course-only -> reputace
+    "r0183": "sitova-bezpecnost",        # BIS: wifi-bezpecnost -> sitova-bezpecnost
+    "r0225": "markovske-retezce",        # MSP: course-only -> markovske-retezce
+    "r0233": "bezkontextove",            # TIN: regularni -> bezkontextove
+    "r0234": "openmp-sync",              # AVS: openmp-zaklady -> openmp-sync
+    "r0238": "jazyky-hierarchie",        # TIN: regularni -> jazyky-hierarchie
+    "r0258": "slozitost",                # TIN: rozhodnutelnost -> slozitost
+    "r0284": "sitova-bezpecnost",        # BIS: wifi-bezpecnost -> sitova-bezpecnost
+    "r0285": "bezkontextove",            # TIN: course-only -> bezkontextove
+    "r0292": "webove-sluzby",            # WAP: http -> webove-sluzby (REST API, JWT)
+    "r0298": "vyvojovy-proces",          # TAMa: mobilni-ui -> vyvojovy-proces
+    "r0302": "vyhledavani-trideni",      # PRL: course-only -> vyhledavani-trideni
+    "r0308": None,                       # KNN: konvolucni-site -> course-only (Siamese/triplet loss)
+    "r0325": "evolucni-navrh",           # BIN: neuroevoluce -> evolucni-navrh
+    "r0338": "bezkontextove",            # TIN: jazyky-hierarchie -> bezkontextove
+    "r0343": "openmp-zaklady",           # AVS: koherence-numa -> openmp-zaklady
+    "r0367": "pipelining",               # AVS: course-only -> pipelining
+    "r0394": "oo-navrh",                 # AIS: uml -> oo-navrh
+    "r0397": "nosql-uvod",               # UPA: nosql-dotazovani -> nosql-uvod
+    "r0419": "smerovani",                # PDS: course-only -> smerovani
+    "r0429": "klice-asymetricka",        # KRY: klice-symetricka -> klice-asymetricka
+    "r0441": "klice-asymetricka",        # KRY: klice-symetricka -> klice-asymetricka
+    "r0457": "slozitost",                # TIN: rozhodnutelnost -> slozitost
+    "r0458": "dna",                      # BIO: pasy -> dna
+    "r0477": "hashe-podpisy",            # KRY: course-only -> hashe-podpisy
+    "r0487": "sitova-bezpecnost",        # BIS: wifi-bezpecnost -> sitova-bezpecnost
+    "r0492": "synchronizace",            # PRL: vyhledavani-trideni -> synchronizace (OpenMP sync)
+    "r0508": "principy",                 # PIS: course-only -> principy
+    "r0520": "wifi-bezpecnost",          # BIS: uvod-bis -> wifi-bezpecnost
+    "r0530": "openmp-zaklady",           # AVS: superskalar -> openmp-zaklady
+    "r0541": "neuroevoluce",             # BIN: evolucni-navrh -> neuroevoluce
+    "r0552": "bezkontextove",            # TIN: regularni -> bezkontextove
+    "r0553": "uvod-bis",                 # BIS: sw-zranitelnosti -> uvod-bis
+    "r0564": "hashe-podpisy",            # KRY: asymetricka-zaklady -> hashe-podpisy
+    "r0571": "superskalar",              # AVS: pipelining -> superskalar
+    "r0573": "superskalar",              # AVS: course-only -> superskalar
+    "r0578": "p2p",                      # PDS: smerovani -> p2p
+    "r0581": "kategorialni-glm",         # MSP: pravdepodobnost-zaklady -> kategorialni-glm
+    "r0583": "globalni-stav",            # PDI: course-only -> globalni-stav (logical clocks)
+    "r0584": "superskalar",              # AVS: course-only -> superskalar
+    "r0587": "bezkontextove",            # TIN: jazyky-hierarchie -> bezkontextove
+    "r0593": "pravdepodobnost-zaklady",  # MSP: course-only -> pravdepodobnost-zaklady
+    "r0613": "superskalar",              # AVS: pipelining -> superskalar
+    "r0631": "postranni-kanaly",         # BZA: chybova-analyza -> postranni-kanaly
+    "r0634": "komunikace",               # PRL: vyhledavani-trideni -> komunikace
+    "r0639": "sitova-bezpecnost",        # BIS: wifi-bezpecnost -> sitova-bezpecnost
+    "r0683": "zaklady",                  # PRL: konsensus -> zaklady (architecture classification)
+    "r0710": "predikce-skoku",           # AVS: pipelining -> predikce-skoku (branch prediction)
+    "r0733": "workflow",                 # PIS: procesy -> workflow
+    "r0750": "koherence-numa",           # AVS: cache -> koherence-numa
+    "r0762": "turing",                   # TIN: analyza -> turing
+    "r0763": "zaklady",                  # PRL: vyhledavani-trideni -> zaklady
+    "r0764": None,                       # FLP: lambda -> course-only
+    "r0769": "komunikace",               # PRL: vyhledavani-trideni -> komunikace
+    "r0783": "superskalar",              # AVS: pipelining -> superskalar
+    "r0788": "superskalar",              # AVS: course-only -> superskalar
+    "r0796": "rozhodnutelnost",          # TIN: jazyky-hierarchie -> rozhodnutelnost
+    "r0814": "bezkontextove",            # TIN: regularni -> bezkontextove
+    "r0829": "superskalar",              # AVS: pipelining -> superskalar
+    "r0830": "komunikace",               # PRL: process-algebra -> komunikace
+    "r0834": "objektove-db",             # UPA: xml-json -> objektove-db
+    "r0845": "zaklady",                  # PRL: konsensus -> zaklady (same okruh as r0683)
+    "r0848": "nosql-uvod",               # UPA: nosql-dotazovani -> nosql-uvod
+    "r0859": "transport-protokoly",      # PDS: transport -> transport-protokoly (MPTCP, QUIC)
+    "r0873": "principy",                 # PIS: business-api -> principy
+    "r0880": "slozitost",                # TIN: jazyky-hierarchie -> slozitost
+}
+
 
 def map_record(course, title, text, index, canon):
     course = (course or "").strip()
@@ -335,6 +431,17 @@ def main():
         if not (row["title"] or row["text"] or (row["course"] and key)):
             continue
         mp = map_record(row["course"], row["title"], row["text"], index, canon)
+        rid = f"r{i:04d}"
+        if rid in MANUAL_TOPIC and mp is not None:
+            ov = MANUAL_TOPIC[rid]
+            cid = mp["course"]
+            if ov is None:
+                mp = {"course": cid, "topic": None, "examTitle": None, "confidence": "course"}
+            else:
+                if ov not in {t["topic"] for t in index.get(cid, [])}:
+                    raise SystemExit(f"MANUAL_TOPIC[{rid}] = {ov!r} is not a topic of course {cid}")
+                mp = {"course": cid, "topic": ov,
+                      "examTitle": canon.get((cid, ov)), "confidence": "high"}
         if mp is None:
             n_unmapped += 1
         elif mp["topic"] is None:
@@ -344,7 +451,7 @@ def main():
         else:
             n_map_low += 1
         records.append({
-            "id": f"r{i:04d}",
+            "id": rid,
             "session": row["session"],
             "memberKey": key,
             "course": row["course"],
