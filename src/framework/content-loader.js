@@ -129,12 +129,29 @@ export async function loadContent(manifestUrl = "content/manifest.json") {
     if (r.ok) globalMindmap = await r.json();
   } catch { /* ignore — global mindmap is optional */ }
 
+  // Per-okruh "speedruns" — last-minute cheat-sheets (how to start + what to watch),
+  // grounded in past committee questions. Keyed by the okruh's sorted course/topic refs
+  // ("C1/t1|C2/t2"). Optional file.
+  let speedruns = {};
+  try {
+    const r = await fetch(joinBase("content/speedruns.json"), { cache: "no-cache" });
+    if (r.ok) speedruns = await r.json();
+  } catch { /* ignore — speedruns are optional */ }
+  // key an exam okruh the same way the build does: sorted distinct "course/topic" refs.
+  const speedrunKey = (examTopic) => {
+    const keys = [...new Set(((examTopic && examTopic.refs) || [])
+      .filter((r) => r && r.length >= 2).map((r) => r[0] + "/" + r[1]))].sort();
+    return keys.join("|");
+  };
+
   return {
     SPECIALIZATIONS: manifest.specializations || [],
     COURSES: courses,
     EXAM_TOPICS: manifest.exam || {},
     MINDMAPS: mindmaps,
     GLOBAL_MINDMAP: globalMindmap,
+    SPEEDRUNS: speedruns,
+    speedrunFor: (examTopic) => speedruns[speedrunKey(examTopic)] || null,
     REPO_URL: "https://github.com/tmokenc/Klidecek",
     hasAnyVerified: verifiedSet.size > 0,
     findSpec: (id) => (manifest.specializations || []).find((s) => s.id === id),

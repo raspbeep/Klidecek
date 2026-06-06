@@ -1,0 +1,1297 @@
+{
+ "TIN/analyza|TIN/slozitost": {
+  "opener": "Hned řekni, že složitost je FUNKCE délky vstupu na počet kroků (čas) / buněk pásky (paměť), a definuj třídy přes TS: P = DTIME[n^k], NP = NTIME[n^k]. Nezdržuj se neformálním úvodem - rovnou na tabuli formálně.",
+  "watch": [
+   "Mluv o PROBLÉMU, ne o algoritmu - na to tlačí.",
+   "Formální definice O(f(n)) na tabuli: 'existuje c, n0…'.",
+   "U NP zdůrazni 'existuje' nedeterministický TS / certifikát + verifikace.",
+   "Nakresli vztah správně: P ⊆ NP, NP-úplné ⊆ NP (nejtěžší v NP), NP-těžké leží i mimo NP.",
+   "SAT: v NP, Cook-Levin = první NP-úplný; NP-úplný = v NP a NP-těžký."
+  ],
+  "grounded": true
+ },
+ "TIN/bezkontextove": {
+  "opener": "Napiš ZA jako sedmici (Q, Σ, Γ, δ, q0, Z0, F) a hned zvýrazni přechodovou funkci δ - na ní se vše hraje. Pak ukaž rozdíl NZA vs DZA právě na tvaru δ.",
+  "watch": [
+   "Nezapomeň na ε-přechody a počáteční symbol zásobníku Z0.",
+   "DZA < NZA ve vyjadřovací síle, nejsou převoditelné; uveď příklad.",
+   "Tři způsoby přijetí: koncový stav, prázdný zásobník, obojí.",
+   "Příklad jazyka: a^n b^n nebo palindrom - popiš chod ZA.",
+   "BKJ uzávěr: na průnik a doplněk NEjsou uzavřené (na sjednocení ano)."
+  ],
+  "grounded": true
+ },
+ "TIN/regularni": {
+  "opener": "Napiš KA jako pětici (Q, Σ, δ, q0, F) a popiš δ; pak buď čekej na konkrétní úkol (sestroj automat, determinizuj), nebo rovnou nabídni determinizaci/minimalizaci na malém příkladu. Nakresli jednoduchý NKA s nedeterministickou větví.",
+  "watch": [
+   "Determinizace podmnožinová - stavy jako MNOŽINY; nezapomeň zápis.",
+   "Minimalizace přes relaci k-nerozlišitelnosti.",
+   "Myhill-Nerode: pravá kongruence konečného indexu ↔ existence DKA.",
+   "Pumping lemma: na DŮKAZ neregularity (a^n b^n).",
+   "RV→NKA→DKA; přijetí slova RV je lineární v délce slova."
+  ],
+  "grounded": true
+ },
+ "SUI/cnn|SUI/nn-zaklady|SUI/zaklady-ml": {
+  "opener": "Vyjdi z definice generalizace = výkon na neviděných datech, a hned rozděl data na trénovací/validační/testovací s rolí každé. Pak protistav overfitting vs underfitting a vyjmenuj nástroje proti přeučení.",
+  "watch": [
+   "Proč validační A testovací zvlášť - validace ladí, test je finální.",
+   "Detekce overfittingu: rozjezd train vs val loss během tréninku.",
+   "Nástroje: regularizace, augmentace, dropout, předtrénování, multi-task.",
+   "Pokud sklouznou na NN: aktivace, loss, gradient descent / SGD, backprop.",
+   "CNN: konvoluční jádro, sdílené váhy, pooling, rozměr NxNxCxM."
+  ],
+  "grounded": true
+ },
+ "PRL/komunikace|PRL/process-algebra|PRL/synchronizace": {
+  "opener": "Začni rozlišením kooperace vs soupeření a hned jmenuj KONKRÉTNÍ problémy: deadlock, starvation, livelock, race condition, kritická sekce. Pak nasaď klasické úlohy (producent-konzument, večeřící filozofové) a řešení přes semafory/mutex/monitory.",
+  "watch": [
+   "Pozor: synchronizace je ŘEŠENÍ, ne problém - rozliš to hned.",
+   "Chtějí konkrétní problémy paralelismu, ne obecné povídání.",
+   "U deadlocku ukaž kdy nastane a jak mu předejít.",
+   "Modely: sdílená paměť vs předávání zpráv (send/recv, synchronní).",
+   "Logický čas: Lamportovy hodiny, relace happens-before, kauzalita."
+  ],
+  "grounded": true
+ },
+ "PRL/komunikace|PRL/konsensus|PRL/synchronizace": {
+  "opener": "Definuj distribuovaný konsensus (shoda i při výpadcích) a uveď failure modely; pak přejdi na spolehlivý broadcast a jeho uspořádání. Vzájemné vyloučení rozkresli na master/token a kolektivní operace MPI měj připravené.",
+  "watch": [
+   "Broadcast: reliable + uspořádání FIFO / kauzální (happens-before) / total.",
+   "MPI: point-to-point vs kolektivní (broadcast, scatter, gather, reduce).",
+   "Klasický deadlock send-send a jak ho řešit (buffer, pořadí, Isend).",
+   "Konsensus: Paxos/Raft, byzantské poruchy, role master/leader.",
+   "Vzájemné vyloučení v distribuci - tokenové / Lamportovy hodiny."
+  ],
+  "grounded": true
+ },
+ "PRL/komunikace|PRL/pram": {
+  "opener": "Začni tím, že PRAM je model procesorů se sdílenou pamětí (řekni to hned, hodně to pomáhá), a vyjmenuj varianty EREW/CREW/CRCW. Pak přejdi na sumu prefixů: napiš definici posloupnosti a řekni, že topologie je strom.",
+  "watch": [
+   "Suma prefixů: fáze up-sweep (reduce) + down-sweep, časová složitost O(log n).",
+   "Často chtějí konkrétní aplikaci sumy prefixů — připrav alespoň jednu (komprese, řazení).",
+   "Topologie: umět bisekci a průměr (nejdelší nejkratší cesta!), statické vs. dynamické, přímé/nepřímé.",
+   "Strom má úzké hrdlo u kořene → vylepšení tlustým stromem.",
+   "MPI: send/recv synchronní, ukázat deadlock (oba recv) a jak ho řešit; kolektivní vs. point-to-point."
+  ],
+  "grounded": true
+ },
+ "TIN/turing": {
+  "opener": "Slovně definuj jazyk přijímaný TS: z POČÁTEČNÍ konfigurace přejde do KONCOVÉHO stavu. Pak rovnou napiš přechodovou funkci na tabuli — to chtějí skoro vždy.",
+  "watch": [
+   "Přechodová funkce: obor hodnot zahrnuje sjednocení s {L,R}; nezapomenout na to.",
+   "Rozdíl DTS vs. NTS v přechodové funkci; w přijato NTS když EXISTUJE jedna cesta do koncového stavu.",
+   "Výpočetní síla DTS = NTS (převod NTS→DTS); chtějí složitost simulace ~2^n.",
+   "Šestice TS, gamma = znak pod hlavou; LOA jako TS s lineárně omezenou páskou.",
+   "Můžou přijít speciální otázky (cyklická páska apod.) — neboj se odhadnout třídu jazyka."
+  ],
+  "grounded": true
+ },
+ "TIN/rozhodnutelnost": {
+  "opener": "Začni hierarchií jazyků (regulární ⊂ REC ⊂ RE ⊂ vše) a řekni, čím jsou přijímané. Jazyk je rozhodnutelný, když ho přijímá TS, který na KAŽDÉM vstupu zastaví (zdůrazni „a jazyk přijímá“).",
+  "watch": [
+   "Diagonalizace: množina TS je spočetná, množina jazyků nespočetná → existuje jazyk mimo L0.",
+   "Problém zastavení (HP) je RE ale ne REC; jeho doplněk není ani RE.",
+   "Redukce A≤B: umět zapsat a říct, k čemu slouží (přenos nerozhodnutelnosti).",
+   "PCP jako konkrétní nerozhodnutelný problém (redukce z problému členství TS); připrav malý příklad systému slov (dominové kostky).",
+   "Praktický pohled „co to znamená pro programátora“ — zda lze/nelze implementovat.",
+   "Pozor: někdy nechtějí nic na tabuli, jen slovní výklad."
+  ],
+  "grounded": true
+ },
+ "FLP/prolog": {
+  "opener": "Řekni, že Prolog je deklarativní logický jazyk založený na Hornových klauzulích (NE funkcionální!), a hned napiš predikát (faktoriál nebo rodič/muž/žena) k demonstraci. Pak vysvětluj vyhodnocení.",
+  "watch": [
+   "Vyhodnocení = SLD rezoluce + backtracking; unifikace jako substituce na podcíl.",
+   "Unifikaci chtějí ukázat na konkrétním příkladu — připrav si průběh krok po kroku.",
+   "Operátor řezu: vhodné (odřez zbytečného backtrackingu) vs. nevhodné užití; umět napsat not přes řez.",
+   "Vestavěné predikáty: assert/retract — změna DB za běhu, prohledávání stavového prostoru.",
+   "Práce se seznamy: zápis [H|T], napsat member; pozor na záměnu term/klauzule."
+  ],
+  "grounded": true
+ },
+ "TIN/jazyky-hierarchie": {
+  "opener": "Nakresli Chomského hierarchii od L_fin přes L3, L2, L1, REC, RE až po Σ* a ke každé třídě řekni model (automat) a tvar pravidel. Pak naváž na uzávěrové vlastnosti a rozhodnutelnost.",
+  "watch": [
+   "Ke každé třídě: generuje gramatika, přijímá automat, příklad jazyka v ní a v žádné vlastní podmnožině.",
+   "Uzavřenost: definice s kvantifikátorem „pro každé dva jazyky“; CFL NEjsou uzavřené na průnik/doplněk.",
+   "Pravidla jako konečná podmnožina kartézského součinu — chtějí slyšet „konečná množina“.",
+   "Rozhodnutelnost: u L0 TS může cyklit; problém prázdnosti/příslušnosti pro regulární.",
+   "Proč L_fin ⊂ L3; jazyk v L2 a ne v L3 (a^n b^n)."
+  ],
+  "grounded": true
+ },
+ "PRL/komunikace|PRL/konsensus": {
+  "opener": "Začni rozdílem blokující vs. neblokující: MPI_Send/Recv blokuje do dokončení, MPI_Isend/Irecv vrací okamžitě a dokončuje se přes MPI_Wait/Test. Hned ukaž, jak vzniká deadlock při dvou blokujících send/recv.",
+  "watch": [
+   "Parametry send/recv (cíl, tag, komunikátor, buffer); režimy: synchronní, buffered, ready.",
+   "Deadlock: oba procesy nejdřív recv (nebo synchronní send) → umět to vyřešit (přeskládat, neblokující, Sendrecv).",
+   "Point-to-point vs. kolektivní operace (broadcast, scatter, gather, reduce).",
+   "Můžou zabrousit ke konsensu: failure modely, FIFO/kauzální uspořádání, happens-before relace.",
+   "Reliable broadcast: validity, agreement, integrity — umět je pojmenovat."
+  ],
+  "grounded": true
+ },
+ "PRL/komunikace": {
+  "opener": "Začni tím, že MPI je model distribuovaných procesů komunikujících předáváním zpráv, a rozliš point-to-point (send/recv) vs. kolektivní operace. Pak vyjmenuj kolektivní operace: broadcast, scatter, gather, redukce, prefix sum (scan).",
+  "watch": [
+   "Send/recv: ukaž blokující variantu a nakresli deadlock (oba recv) + řešení (přehoď pořadí, nebuffer).",
+   "Často chtějí parametry send/recv (cíl, tag, komunikátor) a sync vs. async.",
+   "Prefix-sum: pracuje nad vektorem, topologie strom, up-sweep + down-sweep.",
+   "Topologie: statické vs. dynamické, přímé vs. nepřímé; spočítej bisekci a diametr (nejdelší nejkratší cesta!).",
+   "Strom má úzké hrdlo v kořeni → tlustý strom; znej UMA/NUMA, reliable/FIFO/kauzální broadcast (happens-before)."
+  ],
+  "grounded": true
+ },
+ "AVS/pipelining|AVS/predikce-skoku|AVS/superskalar": {
+  "opener": "Začni srovnáním subskalární / skalární (pipeline) / superskalární procesor: superskalár má replikované jednotky a vydává více instrukcí za takt. Rozděl ho na frontend (IF, ID, predikce skoků) a backend (OOO výkon, EX, WB).",
+  "watch": [
+   "Chtějí mimo-pořadové vykonávání: scoreboard vs. Tomasulo (rezervační stanice, kdo řídí pořadí).",
+   "Datové konflikty RAW (pravý) vs. WAR/WAW (nepravé) → forwarding/bypass a renaming registrů.",
+   "Řídicí konflikty: NOP vs. predikce; statická, 2-bit BHT, pokročilé prediktory.",
+   "Klíčové slovo, na které tlačí: ROB (reorder buffer) pro in-order completion a přesné výjimky.",
+   "Časté odbočky: paměťová konzistence, load předbíhá store (store/load buffer), MMU/TLB a virtuální adresy."
+  ],
+  "grounded": true
+ },
+ "FLP/lambda": {
+  "opener": "Řekni, že lambda kalkul je výpočetní model (ekvivalentní Turingovu stroji / parciálně rekurzivním funkcím, základ Haskellu). Hned napiš syntaxi termu: proměnná, abstrakce (λx.E), aplikace.",
+  "watch": [
+   "Definici termu chtějí formálně a přesně — neodbýt slovy.",
+   "Volná vs. vázaná proměnná; α-konverze přejmenuje vázané, aby β-redukce nezpůsobila kolizi.",
+   "Uměj napsat příklad, kde je α-konverze nutná (kolize jmen při substituci).",
+   "β-redukce = aplikace funkce (substituce), η; ukaž na konkrétním výrazu.",
+   "Church/Peanova čísla: SUCC, ISZERO, ADD — častý zádrhel; otázka „s čím je ekvivalentní“."
+  ],
+  "grounded": true
+ },
+ "MSP/pravdepodobnost-zaklady": {
+  "opener": "Náhodnou veličinu definuj jako zobrazení z prostoru elementárních jevů (ne nutně do R), a hned ji rozděl na diskrétní a spojitou. Připrav si grafy: pravděpodobnostní funkce + distribuční funkce (diskrétní), hustota + distribuční funkce (spojitá).",
+  "watch": [
+   "Pozor: na dotaz „vždy do R?“ odpověz, že nemusí být — to chtějí slyšet.",
+   "Číselné charakteristiky: střední hodnota a rozptyl + jak se počítají.",
+   "Rozdělení: vyjmenuj diskrétní i spojitá; Gaussovka, pravidlo 3 sigma, význam μ a σ.",
+   "Podmíněná pravděpodobnost a Bayesova věta P(A|B)=P(B|A)P(A)/P(B); jmenovatel rozepiš větou o úplné pravděpodobnosti.",
+   "Občas chtějí generování pseudonáhodných čísel a transformaci na rozdělení."
+  ],
+  "grounded": true
+ },
+ "KRY/asymetricka-algoritmy|KRY/asymetricka-zaklady|KRY/hashe-podpisy": {
+  "opener": "Začni dvojicí svázaných klíčů (veřejný/soukromý), z jednoho neodvodíš druhý; asymetrika je pomalá → hybridní kryptografie (přenese se jen symetrický klíč). Pak vyjmenuj poskytované funkce: důvěrnost, autentičnost, integrita, nepopiratelnost.",
+  "watch": [
+   "Nezaměň autentizaci × autentičnost; nezapomeň nepopiratelnost — častý zádrhel.",
+   "RSA: generování klíčů a faktorizace; znej i DH/ElGamal (diskrétní log) a eliptické křivky.",
+   "El. podpis: podepiš hash soukromým klíčem, ověř veřejným; nakresli schéma + certifikační autorita.",
+   "Hash vlastnosti: first/second preimage vs. collision resistance — drž rozdíl pevně.",
+   "Klíčovaný hash/HMAC (ipad/opad), co přidává proti čistému hashi; MD5/SHA nejsou bezpečné."
+  ],
+  "grounded": true
+ },
+ "UPA/objektove-db|UPA/xml-json": {
+  "opener": "Vyjdi z relačního modelu (tabulka = relace, podmnožina kartézského součinu, vztahy přes PK/FK) a postav proti němu objektové DB: objekty mají OID a reference místo cizích klíčů. Pak motivuj postrelační/objektově-relační model a podporu XML/JSON.",
+  "watch": [
+   "Skoro vždy nejdřív vrtají do „proč je relační DB relační“ — měj relaci přesně.",
+   "Objekt vs. struktura: objekt má OID, identitu, metody; vztahy se modelují přes OID/reference.",
+   "Objektově-relační: strukturované datové typy v SQL; ORM/ODM (např. SQLAlchemy).",
+   "XML: elementy/tagy, validace přes DTD a XSD; uměj napsat krátké XML.",
+   "JSON: napiš příklad s vnořením; kdy XML vs. JSON a podpora v DB."
+  ],
+  "grounded": true
+ },
+ "SUI/nn-zaklady": {
+  "opener": "Začni tím, že NN je jen funkce (black-box) — nakresli jeden neuron (vážený součet + bias + aktivace) a hned přejdi na maticový zápis vrstvy y = σ(Wx + b). Pak řekni, že trénink = minimalizace loss gradientním sestupem.",
+  "watch": [
+   "Na bias se nezapomeň v maticovém zápisu — častý zádrhel.",
+   "Gradient = parciální derivace chyby podle vah; uměj jeden krok GD.",
+   "Backpropagation: spojitá aktivace, MSE/cross-entropy, řetízkové pravidlo.",
+   "Generalizace: rozdělení train/val/test, over/underfitting, jak detekovat.",
+   "Proti přeučení: augmentace dat, L1/L2 regularizace, dropout (co dělá s neurony)."
+  ],
+  "grounded": true
+ },
+ "AVS/simd|AVS/spotreba-gpgpu": {
+  "opener": "Vyjdi z názvu: SIMD = jedna instrukce nad polem/maticí dat, SIMT = více vláken běží stejný kód (GPU, warpy). Řekni, k čemu to je (sčítání/násobení vektorů a matic) a hned rozliš HW (vektorové registry, AVX) vs SW.",
+  "watch": [
+   "Vektorizace NENÍ automatická — kompilátor ji umí, ale řídí ji programátor (pragmy, OpenMP, intrinsics).",
+   "Podmínky vektorizace: žádné větvení, volání funkcí ani závislosti mezi iteracemi.",
+   "Často chtějí konkrétní rozšíření (SSE/AVX) i konkrétní instrukci.",
+   "SIMD vs SIMT: warpy, dělení dat mezi vlákna, divergence, occupancy.",
+   "Spotřeba: nakresli CMOS invertor, vzorec P=α·C·V²·f; snižuje se napětím, clock/power gating."
+  ],
+  "grounded": true
+ },
+ "AVS/cache|AVS/superskalar": {
+  "opener": "Pozor — otázka má tři části: konzistence paměti, předbíhání load/store a virtuální paměť; uveď všechny a nech examinátora vybrat. Začni definicí: load chceme nechat předbíhat store, ale musíme zaručit, že load nevezme starou hodnotu — proto store/load buffery.",
+  "watch": [
+   "Nejdřív popiš PROBLÉM (proč je předbíhání nebezpečné), až pak řešení s buffery — častá výtka.",
+   "Konzistence: definici si připrav, lidi se na ní zasekávají hned na začátku.",
+   "Virtuální paměť: MMU překládá virt→fyz, tabulky stránek, výpadek stránky, TLB jako HW cache.",
+   "Offset adresy zůstává stejný; SEGFAULT při nepovolené stránce.",
+   "Superskalár: frontend/backend, branch prediktor, OOO; scoreboard, rezervační stanice, ROB.",
+   "Tomasulo a renaming uměj alespoň principiálně; kdy poznáme špatný skok."
+  ],
+  "grounded": true
+ },
+ "TIN/logika": {
+  "opener": "Rozliš syntax a sémantiku: nejdřív vyjmenuj jazyk predikátové logiky (termy, atomické formule, kvantifikátory), pak realizaci/model. Formální systém = jazyk + axiomy + odvozovací pravidla.",
+  "watch": [
+   "Ve výrokové logice NEJSOU proměnné (jen výrokové symboly) — neplést s predikátovou.",
+   "Připrav formální definici DŮKAZU a dokazatelné formule — tady se nejvíc zasekávají.",
+   "Odvozovací pravidla: modus ponens a generalizace (dedukce ne).",
+   "Věta o úplnosti/korektnosti, důsledek teorie, sporná teorie, Gödel jen rámcově.",
+   "Mohou chtít zapsat tvrzení v PL nebo převod ∃ na ∀ — připrav příklad."
+  ],
+  "grounded": true
+ },
+ "AVS/superskalar|BIS/sw-zranitelnosti": {
+  "opener": "Začni tím, že jde o nearchitekturní (mikroarchitekturní) útoky zneužívající spekulativní vykonávání: CPU spekulativně provede load i po neoprávněném přístupu, a stopu nechá v cache. Naváž na superskalár — spekulace, ROB, ze kterého se výsledky zahodí, ale stav cache zůstane.",
+  "watch": [
+   "Spectre (zneužití branch prediktoru, útok na jiný proces) vs Meltdown (čtení privilegované paměti přes spekulaci).",
+   "Postranní kanál: data se 'unesou' přes timing cache (cache side-channel).",
+   "Vysvětli proč: výjimka se vyřeší až při retire, ale spekulativní load už cache pozmění.",
+   "Souvislost se superskalárem: OOO, spekulace, ROB, předbíhání load/store.",
+   "Obrana: fences, KPTI, retpoline; zařaď i do kontextu HW zranitelností v BIS."
+  ],
+  "grounded": true
+ },
+ "PDI/globalni-stav|PRL/synchronizace": {
+  "opener": "Začni formální definicí globálního stavu (stavy procesů + zprávy na kanálech) a hned přejdi na konzistentní řez: pokud řez obsahuje příjem zprávy, musí obsahovat i její odeslání. Nakresli 3 procesy a ukaž jeden konzistentní a jeden nekonzistentní řez.",
+  "watch": [
+   "Formální definici si připrav — examinátoři ji explicitně chtějí a tam se padá na D.",
+   "Konzistence: žádná zpráva přijatá 'z budoucnosti' (příjem bez odeslání před řezem).",
+   "Lamportovy hodiny: mluv o UDÁLOSTECH, ne o zprávách (častá oprava).",
+   "Úplné uspořádání = Lamport + id procesu; vektorové hodiny dají kauzalitu.",
+   "Chandy-Lamport snapshot algoritmus a markery; Lamport pro mutual exclusion."
+  ],
+  "grounded": true
+ },
+ "AVS/openmp-sync|AVS/openmp-zaklady": {
+  "opener": "Začni jednou větou, že OpenMP je standard pro systémy se sdílenou pamětí (direktivy #pragma), a hned přejdi na `#pragma omp parallel for` — nečekej u definice. Pak vyjmenuj podmínky paralelizace smyčky a postupně přidávej sekce, tasky a synchronizaci.",
+  "watch": [
+   "Podmínky paralel. for: nezávislé iterace, konstantní (invariantní) krok, předem známý počet iterací.",
+   "Redukci napiš přímo k for: `reduction(+:sum)` — operátor i proměnná.",
+   "Plánování static/dynamic/guided + jejich režie; guided vysvětli.",
+   "Rozdíl sekce vs. tasky; tasky pro rekurzi; jak vlákno zjistí své id.",
+   "Bariéra na konci parallel zaručí dokončení; sdílení private/shared/firstprivate, false sharing."
+  ],
+  "grounded": true
+ },
+ "BIS/access-control|BIS/sec-ops|BIS/sitova-bezpecnost": {
+  "opener": "Téma je obří — řekni to a nabídni, že si vybereš oblast (typicky útoky na L2/L3 nebo fáze útoku). Nakresli topologii se switchem a začni konkrétním útokem (CAM overflow, ARP poisoning) nebo fázemi reconnaissance.",
+  "watch": [
+   "Fáze útoku: průzkum (footprinting/fingerprinting), enumerace, průnik, eskalace, zamaskování, zadní vrátka.",
+   "L2 útoky: CAM tabulka (MAC/port/VLAN), CAM overflow → broadcast → odposlech.",
+   "ARP poisoning/flooding, DHCP spoofing/starvation + obrana (DHCP snooping).",
+   "VPN: GRE vs. IPsec; AH vs. ESP; tunelový vs. transportní mód; IKE/výměna klíčů.",
+   "IDS vs. IPS, network/host-based, signatura; mohou tlačit i na TLS/podpisy."
+  ],
+  "grounded": true
+ },
+ "BIS/hodnoceni-bis|BIS/politiky-bis": {
+  "opener": "Začni otázkou „proč to děláme\" (potřeba důvěry/certifikace) a vyber jednu větev — buď kritéria hodnocení (TCSEC → ITSEC → Common Criteria), nebo ISO 27000/ISMS. Definuj základní pojmy: aktivum, hrozba, zranitelnost, riziko, opatření.",
+  "watch": [
+   "Analýza rizik: riziko = okolnost ohrožující aktivum; generace metod (1.–3.), kontext rizika.",
+   "ALE a vzorec, kdy se opatření vyplatí (cena opatření < očekávaná ztráta).",
+   "CC: úrovně/stupnice hodnocení (EAL), bezpečnostní funkce; TCSEC vs. ITSEC historie.",
+   "ISO 27001 vs. 27000: ISMS, PDCA cyklus, jak reálně zavést bezpečnost ve firmě.",
+   "Rozdíl guideline (může) vs. politika (musí); audit, skryté kanály."
+  ],
+  "grounded": true
+ },
+ "AVS/koherence-numa": {
+  "opener": "Nakresli schéma: výpočetní jednotky — propojovací síť — sdílená paměť dole; řekni, že u UMA je sběrnice úzké hrdlo a přístup uniformní. Definuj koherenci (každé jádro vidí poslední zápis) a hned přejdi na protokol MSI.",
+  "watch": [
+   "MSI: stavy Modified/Shared/Invalid a přechody — uměj projít tabulku po více jádrech.",
+   "Varianty MESI/MOESI/MESIF — co přidávají (Exclusive, Owned, Forward).",
+   "Snooping (sběrnice) vs. directory (adresáře) — kdy se co používá.",
+   "Cache: index + tag; UMA typicky desktop, NUMA víceprocesorové servery.",
+   "NUMA: lokalita dat, First Touch politika, bindování procesů na domény."
+  ],
+  "grounded": true
+ },
+ "UPA/prostorove-db": {
+  "opener": "Začni tím, proč klasické B+ stromy nestačí na 2D/vícerozměrná data (indexují jen jednu dimenzi, ztrácí se sousednost). Pak nakresli a popiš kD-strom, přejdi na Grid File a R-Tree.",
+  "watch": [
+   "Hlavní otázka: proč nejde B-strom na prostorová data — řekni hned.",
+   "kD-strom: dělení po dimenzích; adaptivní kD-strom volí dělicí osu/hodnotu.",
+   "Grid File: mřížka + adresářová struktura; nevýhoda shlukování → twin grid file.",
+   "R-Tree: hierarchie MBR (minimal bounding rectangle), překryvy, vyhledávání.",
+   "Prostorové operace: hledání v intervalu, k nejbližších sousedů."
+  ],
+  "grounded": true
+ },
+ "TIN/analyza": {
+  "opener": "Začni formálními definicemi: graf G=(V,E), pak sled, tah, cesta, kružnice, cyklus — rozdíl je v opakování vrcholů/hran. Pak rozeber BFS: fronta, strom prohledávání do šířky a jeho vlastnosti (nejkratší cesty v počtu hran).",
+  "watch": [
+   "Přesné rozlišení sled/tah/cesta a kružnice/cyklus — na to se ptají.",
+   "Připrav formální zápis (i asymptotika O/Ω/Θ na tabuli, ne jen slovně).",
+   "BFS strom: vrstvy = vzdálenost od kořene; hrany stromové a (nestromové) příčné — pozor, zpětné/dopředné hrany patří k DFS, ne k BFS.",
+   "Reprezentace grafu: matice vs. seznam sousedů a jejich nevýhody.",
+   "Mohou skočit na související: kostry (Kruskal/Prim), Dijkstra, silná souvislost."
+  ],
+  "grounded": true
+ },
+ "MSP/markovske-retezce|MSP/mdp": {
+  "opener": "Hned v přípravě nakresli jednoduchý řetězec (3 stavy, hrany s pravděpodobnostmi) a u něj vysvětluj: definice jako stochastický model bez paměti, formálně trojice (stavy, počáteční rozdělení, přechodová matice).",
+  "watch": [
+   "Skoro vždy chtějí nakreslit konkrétní příklad (férová kostka, hod 2×) a mluvit nad ním.",
+   "Nezapomeň, že součet odchozích hran/řádku matice = 1 — opakovaně to chtějí slyšet.",
+   "Tranzientní analýza = počáteční vektor × mocnina přechodové matice; ukaž 1.–2. krok.",
+   "Steady-state často chtějí odhadnout bez rovnic — jen 'jaká je dlouhodobá pravděpodobnost'.",
+   "Mohou chtít silně souvislé komponenty, reachability a klasifikaci stavů; MDP přidává akce/politiku a value iteration."
+  ],
+  "grounded": true
+ },
+ "SUI/csp|SUI/nejistota-hry|SUI/prohledavani": {
+  "opener": "Začni definicí stavového prostoru (stavy, akce, počáteční/cílový stav) a rovnou nabídni dělení na neinformované vs. informované metody; jako první vyjmenuj nejjednodušší neinformované.",
+  "watch": [
+   "Vyjmenuj BFS, DFS, IDS, UCS a uměj jejich vlastnosti: úplnost, optimalita, časová/prostorová složitost.",
+   "Často chtějí složitosti BFS/DFS a implementaci (fronta vs. zásobník).",
+   "U A* napiš f(n)=g(n)+h(n), vysvětli roli heuristiky (přípustnost) a předveď na grafu.",
+   "Lokální prohledávání: hill climbing, simulated annealing — kdy a proč.",
+   "Doplňky: CSP (proměnné/domény/podmínky, inference, backtracking), adversariální hraní her, MCTS."
+  ],
+  "grounded": true
+ },
+ "BIS/access-control|BIS/sw-zranitelnosti|BIS/uvod-bis": {
+  "opener": "Nabídni vysvětlení pojmů na modelu bezpečnostního incidentu a nakresli ho: definuj aktivum, hrozbu, zranitelnost (slabé místo) a opatření — ke každému hned konkrétní příklad.",
+  "watch": [
+   "Vždy chtějí konkrétní příklady: aktivum (data, HW), hrozba, slabé místo (neošetřený vstup → SQL injection).",
+   "Bezpečnostní cíle/funkce: důvěrnost, integrita, dostupnost, účtovatelnost (CIA + auditovatelnost).",
+   "Opatření děl na preventivní vs. minimalizující škodu/detekční.",
+   "Řízení přístupu DAC vs. MAC (příklad SELinux), Bell-LaPadula; skryté kanály (covert channels — timing/storage, obcházejí MAC; NE postranní/side channel) umět definovat.",
+   "Malware a kroky útočníka (před/během útoku), zmínka o CVE jako databázi známých zranitelností."
+  ],
+  "grounded": true
+ },
+ "KRY/symetricka-algoritmy|KRY/symetricka-zaklady": {
+  "opener": "Začni tím, že symetrická šifra používá jeden sdílený klíč pro šifrování i dešifrování, ale NEtvrď, že je proto 'slabší' — rovnou přejdi na vlastnosti bezpečného algoritmu a Kerckhoffsův princip.",
+  "watch": [
+   "Pozor na past 'symetrická je slabší' — to examinátora popudí; zdůvodni rozdíl korektně.",
+   "Feistel: nakresli funkci F a uměj, co obsahuje (DES: permutace + S-boxy).",
+   "AES: velikost bloku 128b, klíče 128/192/256, počet kol, round keys; SPN ne Feistel.",
+   "Režimy: nakresli ECB a vysvětli jeho problém; CBC/CFB/OFB/CTR — propagace chyby a samosynchronizace.",
+   "Časté: délka klíče vs. útok hrubou silou, integrita/ochrana proti přeskládání bloků (AEAD), 3DES, proudové šifry."
+  ],
+  "grounded": true
+ },
+ "SUI/zaklady-ml": {
+  "opener": "Začni rozdílem generativní vs. diskriminativní přístup: generativní modeluje p(x|třída) a apriory, diskriminativní rovnou p(třída|x); pak jdi na gaussovský klasifikátor.",
+  "watch": [
+   "Gaussovský klasifikátor: napiš posterior přes Bayese, vysvětli apriori a likelihood.",
+   "Logistická regrese jako diskriminativní protějšek; uměj sigmoidu a co optimalizuje.",
+   "Lineární regrese: účelová (ztrátová) funkce, MSE — uměj odvodit, ne se přiznat 'nerozumím vzorci'.",
+   "Často sklouznou na generalizaci: overfitting/underfitting, train/validation/test a proč obě poslední.",
+   "Doplňky proti přeučení: regularizace L1/L2, dropout, early stopping, augmentace, předtrénování."
+  ],
+  "grounded": true
+ },
+ "UPA/nosql-dotazovani|UPA/nosql-uvod": {
+  "opener": "Začni porovnáním relačních a NoSQL DB, pak rozepiš ACID po písmenech a přejdi na CAP větu v kontextu distribuovaných databází.",
+  "watch": [
+   "ACID po písmenech — nezapomeň D (durability) a uměj příklad porušení atomicity.",
+   "Klíčová past: C v CAP (konzistence napříč uzly) ≠ C v ACID — na tom se nejvíc zasekávají.",
+   "CAP: zdůvodni, proč lze splnit jen 2 ze 3; existují systémy bez partition tolerance?",
+   "Typy NoSQL (klíč-hodnota, dokumentové, sloupcové, grafové — Neo4j) a příklady zástupců.",
+   "Dotazování, sharding/partitioning, Map-Reduce a agregační pipeline; zmínka o BASE a NewSQL."
+  ],
+  "grounded": true
+ },
+ "PDS/routery": {
+  "opener": "Začni tím, co je směrovač (L3 zařízení) a nakresli diagram PC–switch–router–router–switch–PC; pak veď výklad jako cestu paketu zařízením od vstupního rozhraní po výstupní.",
+  "watch": [
+   "Co se stane s paketem: odpouzdření L2, kontrola/dekrement TTL, přepočet checksumu (u IPv6 už není), zahození MAC.",
+   "Vysvětli kontext paketu (metadata) a jak/kdy vzniká.",
+   "Směrovací tabulka = prefix + next-hop + metrika; přepínací (CEF/FIB) tabulka a její záznamy.",
+   "Rozliš control plane vs data plane; znej obecnou architekturu.",
+   "Rychlá vs pomalá cesta; rozdíly softwarové → fast → CEF a proč je CEF lepší (FIB+adjacency předpočítané)."
+  ],
+  "grounded": true
+ },
+ "KRY/klice-asymetricka": {
+  "opener": "Začni motivací: v asymetrii máme dvojici SK/VK, ale veřejnému klíči protistrany nelze slepě věřit — proto certifikáty a CA. Pak přejdi rovnou na X.509.",
+  "watch": [
+   "Vyjmenuj položky certifikátu (subjekt, VK, vydavatel, platnost/expirace, podpis CA).",
+   "Chain of trust: CA podepisuje VK uživatele; jak ověřit pravost certifikátu.",
+   "Kořenová CA: její cert už ověřit nelze — self-signed, předinstalovaný v úložišti.",
+   "Revokace: kdy a proč zneplatnit (CRL, OCSP), úrovně/míra důvěry.",
+   "Mohou doplnit PGP (web of trust) jako alternativu k hierarchii CA."
+  ],
+  "grounded": true
+ },
+ "AIS/oo-navrh": {
+  "opener": "Začni podstatou OO návrhu: systém = objekty komunikující zprávami, kterým přiřazujeme zodpovědnosti (knowing vs doing). Pak plynule přejdi na GRASP a SOLID.",
+  "watch": [
+   "Dva typy zodpovědností: vědomost (knowing) a činnost (doing).",
+   "GRASP: jmenuj a vysvětli Information Expert, Creator, Controller, Low Coupling, High Cohesion.",
+   "Druhy řadičů: jeden pro celý systém vs samostatný per use-case.",
+   "SOLID: ke každému principu očekávají praktickou ukázku na třídách.",
+   "Jak zaručit Open/Closed (abstrakce/rozšíření, ne modifikace); vstupy/výstupy OO návrhu."
+  ],
+  "grounded": true
+ },
+ "PRL/vyhledavani-trideni": {
+  "opener": "Když řeknou „seřaďte mi něco“, začni cílem PRL algoritmů: zajímá nás čas, počet procesorů a cena (čas×procesory); pak si vyber konkrétní algoritmus a popiš ho na tabuli.",
+  "watch": [
+   "Cena = čas × počet procesorů; optimální = cena řádu sekvenčního algoritmu.",
+   "Efektivita = sekvenční cena / paralelní cena; uměj odvodit zrychlení.",
+   "Enumeration/odd-even transposition sort: kroky, složitost, proč nejsou optimální.",
+   "Cost-optimální slučovací algoritmy (Bucket Sort, Pipeline Merge Sort): čas O(n), O(log n) procesorů, cena O(n log n). Batcherův Odd-Even Merge Sort: čas O(log²n), ale cena O(n log²n) → NENÍ cost-optimal.",
+   "Vyhledávání: seřazené vs neseřazené pole, medián, distribuce hodnoty v EREW.",
+   "Model PRAM (EREW/CREW); co nejde dobře paralelizovat (závislosti, grafy)."
+  ],
+  "grounded": true
+ },
+ "BIS/politiky-bis": {
+  "opener": "Začni definicemi pojmů: aktiva, hrozby, zranitelná místa → z nich vzniká riziko; riziko = okolnost s dopadem na aktivum. Pak teprve popisuj proces analýzy a generace.",
+  "watch": [
+   "Přesně definuj riziko (ne jen \"hrozba\"); kontext je u rizika klíčový.",
+   "Vstupy a výstupy analýzy, prioritizace rizik.",
+   "Jednotlivé generace analýzy rizik — hlavně 3. generaci si pamatuj.",
+   "ALE/vzorec: kdy se opatření vyplatí (náklad opatření < očekávaná ztráta).",
+   "ISO 27000/27001, ISMS; rozdíl guideline (může) vs politika (musí)."
+  ],
+  "grounded": true
+ },
+ "BIS/sw-zranitelnosti|WAP/bezpecnost": {
+  "opener": "Začni krátkým rámcem (hrozby, zranitelná místa, aktiva) a hned přejdi na jádro: popiš podstatu XSS a CSRF a jejich mitigaci. SOP nech jako klíčový koncept SOP/CORS.",
+  "watch": [
+   "XSS: injekce skriptu; obrana = validace/escapování vstupu (kontrola skriptovacích symbolů), CSP.",
+   "CSRF: zneužití přihlášené session; obrana = anti-CSRF token, SameSite cookie.",
+   "SOP: definuj origin jako trojici (schéma, host, port) a uměj konkrétní příklad.",
+   "Bezpečnostní hlavičky: HSTS (vynucení HTTPS), CSP, X-Frame-Options — proti čemu chrání.",
+   "Mohou navázat SQL injekcí, CVE a obecnou definicí pojmů (aktiva/hrozby)."
+  ],
+  "grounded": true
+ },
+ "MSP/randomizovane": {
+  "opener": "Začni obecně: proč do algoritmu vnášíme náhodu (nezávislost na zlovolném vstupu, jednoduchost), pak hned rozděl na Las Vegas (vždy správný výsledek, náhodná doba běhu) vs. Monte Carlo (pevná doba, výsledek s pravděpodobností chybný). Napiš na papír malý příklad — pole 0/1 nebo randomizovaný quicksort.",
+  "watch": [
+   "Klíčový rozdíl: LV = vždy korektní, náhodný čas; MC = pevný čas, chybný s p.",
+   "Měj připravený konkrétní příklad: quicksort (LV), Karger min-cut, integrál přes MC.",
+   "Vysvětli amplifikaci MC — opakováním snížíš chybu, znej procentuální chybovost.",
+   "Indikátorové veličiny a linearita E pro analýzu očekávané ceny.",
+   "Mohou tlačit i mimo MSP (IMS/bezpečnost) — drž se rámce MSP a řekni to."
+  ],
+  "grounded": true
+ },
+ "KRY/hashe-podpisy": {
+  "opener": "Definuj hašovací funkci: vstup libovolné délky → výstup pevné délky, rychlá, deterministická. Hned přejdi na tři bezpečnostní vlastnosti — first preimage, second preimage, collision resistance.",
+  "watch": [
+   "Drž rozdíl 2nd-preimage (daný vstup) vs. collision (libovolná dvojice) — tady visí lidé.",
+   "Složitosti bruteforce: preimage 2^n, kolize 2^(n/2) (narozeninový paradox).",
+   "Klíčovaný haš/MAC = navíc autentizace, klíč musí mít obě strany; nakresli schéma.",
+   "Mohou chtít vnitřní princip (Merkle-Damgård iterace, SHA-3 houba) a že MD5 padlo.",
+   "Použití: integrita, MAC v SSL/TLS, podpis hešuje před RSA."
+  ],
+  "grounded": true
+ },
+ "BIN/evolucni-navrh": {
+  "opener": "Pokud je podtržené 'číslicové', přeskoč obecný EA a rovnou jdi na CGP: nakresli mřížku uzlů, popiš kódování chromozomu (vstupy uzlu + funkce) a fitness jako pokrytí pravdivostní tabulky. U analogových zmiň reprezentaci přes komponenty.",
+  "watch": [
+   "Číslicové → CGP struktura a kódování; analogové → evoluce topologie/komponent.",
+   "Fitness pro n vstupů/m výstupů = velikost pravdivostní tabulky (2^n řádků).",
+   "Problém škálovatelnosti: exponenciální tabulka → dekompozice, inkrementální evoluce.",
+   "Přímé vs. nepřímé kódování; vyhodnocení přes box-plot přes generace.",
+   "GA negarantuje optimum; porovnání s prohledáváním/neuronovými sítěmi."
+  ],
+  "grounded": true
+ },
+ "PDS/p2p": {
+  "opener": "Začni definicí: P2P = decentralizovaná overlay síť nad existující IP, kde uzly jsou rovnocenné a sdílejí zdroje (soubory, výpočetní výkon). Pak hned rozděl na strukturované (DHT) vs. nestrukturované sítě.",
+  "watch": [
+   "Vlastnosti: decentralizace, škálovatelnost, odolnost, problém spolehlivosti uzlů.",
+   "Nestrukturované: 4 způsoby směrování z přednášek (flooding, random walk…), porovnej se strukturovanými.",
+   "Strukturované = DHT, deterministické vyhledávání v O(log n), pseudometrika/vzdálenost.",
+   "Připoj/odpoj uzlu: jak se aktualizuje topologie a routovací tabulky.",
+   "Zmiň jev malého světa a hybridní/centralizované P2P (BitTorrent tracker)."
+  ],
+  "grounded": true
+ },
+ "BZA/chybova-analyza|BZA/postranni-kanaly": {
+  "opener": "Definuj postranní kanál: nezamýšlený únik informace fyzikálním projevem (čas, spotřeba, EM), o kterém návrhář neví. Začni nejjednodušší časovou analýzou (porovnání hesla po znacích) a hned řekni, že cílem je zjistit klíč.",
+  "watch": [
+   "Časová analýza RSA: square-and-multiply, větvení dle bitů klíče → únik času.",
+   "Měj připravený silnější příklad — jednoduché porovnání hesla berou za banální.",
+   "Chybová analýza: glitch útoky, DFA, Bellcore útok na RSA-CRT; CBC padding oracle.",
+   "Obrana: konstantní čas, maskování, blinding, redundantní výpočet.",
+   "SPA vs. DPA (výkonová analýza); pozor na přesah do Spectre/Meltdown."
+  ],
+  "grounded": true
+ },
+ "PRL/synchronizace": {
+  "opener": "Začni motivací: v distribuovaném systému nemáme společné hodiny, proto logický čas a uspořádání událostí (ne zpráv!). Definuj Lamportovy skalární hodiny a relaci happened-before, pak rozšiř na vektorové a maticové.",
+  "watch": [
+   "Mluv o 'událostech', ne 'zprávách' — na tom opravují.",
+   "Lamport: úplné uspořádání doplníš ID procesu; nezachytí kauzalitu.",
+   "Vektorový čas zachytí kauzalitu/souběžnost; maticový = znalost o znalosti (n×n).",
+   "Podmínky silné konzistence; co když se ztratí ACK zpráva.",
+   "Mohou chtít Lamportův algoritmus vzájemného vyloučení (přístup ke kritické sekci)."
+  ],
+  "grounded": true
+ },
+ "BZA/postranni-kanaly": {
+  "opener": "Začni definicí postranního kanálu: únik informace fyzikálním projevem implementace (čas, spotřeba, EM, chyby), o němž návrhář dopředu neví. Hned řekni cíl útoku — získat tajný klíč.",
+  "watch": [
+   "Hned se ptají \"co se snažíme zjistit\" — odpověz: klíč.",
+   "Časovou analýzu (porovnání hesla po znacích) berou jako triviální, posuň se dál.",
+   "Klasika: RSA square-and-multiply, ukaž únik bitu klíče časem/spotřebou.",
+   "Chybová analýza: umět popsat CBC padding oracle.",
+   "Obrana: konstantní čas, blinding, maskování — ne jen \"šifrovat\".",
+   "Pozor na Spectre/Meltdown follow-up: superskalár, branch prediction, spekulace."
+  ],
+  "grounded": true
+ },
+ "AIS/navrhove-vzory": {
+  "opener": "Začni obecně: co je návrhový vzor (osvědčené opakovatelné řešení) a jeho tři kategorie — creational, structural, behavioral. Pak rovnou kresli vybraný vzor v UML a popisuj vztahy.",
+  "watch": [
+   "Hlavní je nakreslit UML a vysvětlit vazby, ne jen vyjmenovat.",
+   "Observer: umět zdůvodnit směr každé šipky; Subject drží seznam observerů a notifikuje, Observer poskytuje aktualizační rozhraní (update).",
+   "Abstract Factory vs Prototype: rozdíl je klonování instance.",
+   "Ke každému vzoru dej konkrétní reálné použití.",
+   "Anti-vzor: znát definici a jeden příklad (god object, spaghetti)."
+  ],
+  "grounded": true
+ },
+ "SUI/cnn|SUI/sekvence-jazyk": {
+  "opener": "Začni motivací: strukturovaná data (obraz, sekvence) mají prostorovou/časovou strukturu, kterou plně propojená síť ignoruje. Pak přejdi na konvoluční jádro a sdílení vah.",
+  "watch": [
+   "Rozměry dat: chtějí slyšet N×N×C×M (kanály, filtry).",
+   "Filtr má hloubku rovnou počtu vstupních kanálů — častá chyba.",
+   "Vrstvy CNN: konvoluce → ReLU → pooling, hierarchie příznaků.",
+   "RNN/LSTM: motivace pro sekvence, často na ně nezbude čas — stihni princip.",
+   "Backprop: stačí algoritmus + diferencovatelnost, ne vzorce.",
+   "Kresli — hodnotí podle dojmu, že tomu rozumíš."
+  ],
+  "grounded": true
+ },
+ "KNN/konvolucni-site": {
+  "opener": "Začni motivací a konvolucí: jádro extrahuje příznaky se sdílenými vahami a lokální vazbou. Napiš vzorec 1D/2D konvoluce a zmiň rozdíl od korelace.",
+  "watch": [
+   "Tvary tenzorů a hloubka filtru = počet vstupních kanálů.",
+   "Pooling (max/average) redukuje dimenzionalitu; batch norm proč a kde.",
+   "VGG: hierarchie konv+ReLU+pooling, pak FC; problém hloubky = vanishing gradient.",
+   "ResNet/Inception: motivace (skip connection, různá jádra) vs VGG.",
+   "Umět napsat vzorec konvoluce a vysvětlit korelace vs konvoluce.",
+   "Kresli architekturu — examinátoři se toho chytí."
+  ],
+  "grounded": true
+ },
+ "AIS/uml": {
+  "opener": "Začni: UML je standardní vizuální jazyk pro modelování SW; dělí se na strukturní a behaviorální (vč. interakčních) diagramy. Hned vyjmenuj diagramy a vyber si jeden ke kreslení.",
+  "watch": [
+   "Točí se to hlavně kolem diagramu tříd — umět vztahy.",
+   "Vztahy: asociace, agregace, kompozice, generalizace, implementace rozhraní.",
+   "Ke každému diagramu řekni konkrétní použití/co modeluje.",
+   "Stavový diagram: na co a co obsahuje; sekvenční jako příklad interakce.",
+   "Rozšiřitelnost: stereotypy, profily, tagged values.",
+   "Vědět, co znamená zkratka UML (Unified Modeling Language)."
+  ],
+  "grounded": true
+ },
+ "PDI/mapreduce|UPA/nosql-dotazovani": {
+  "opener": "Začni modelem MapReduce: vstup jako páry (k1,v1), map → mezivýsledky (k2,v2), shuffle/sort, reduce → výsledek. Klasický příklad word count napiš na tabuli.",
+  "watch": [
+   "Chtějí napsat fáze formálně: (k1,v1)→(k2,v2)→… na tabuli.",
+   "Synchronizace nastává ve shuffle fázi mezi map a reduce.",
+   "Co lze paralelizovat: vše v map, pak vše v reduce.",
+   "Combiner: lokální reduce, umět říct přesně co dělá a I/O fází.",
+   "Hadoop vs Spark: Spark in-memory, DAG vs disk-based MapReduce.",
+   "NoSQL follow-up: ACID vs BASE, CAP věta (umět vysvětlit, ne jen písmena)."
+  ],
+  "grounded": true
+ },
+ "FLP/haskell-pokrocile|FLP/haskell-zaklady": {
+  "opener": "Nezačínej formálně — rovnou ukaž lazy evaluation na nejjednodušším příkladu (nekonečný seznam, např. `take 5 [1..]` nebo `let x = undefined in 1`). Mít připravenou definici vlastního ADT (data Tree, vlastní seznam) přes `data` a `deriving`.",
+  "watch": [
+   "Vyhnout se Fibonacci/složitým ukázkám — chtějí TRIVIÁLNÍ příklad líného vyhodnocení.",
+   "Chtějí lazy na UŽIVATELSKÉM typu, ne jen na vestavěném seznamu.",
+   "Umět nadefinovat vlastní rekurzivní typ: `data List a = Nil | Cons a (List a)`, strom.",
+   "Velikost písmen: konstruktory/typy velké, proměnné a funkce malé.",
+   "Typová signatura `map :: (a->b)->[a]->[b]` — vysvětli typové proměnné a polymorfismus.",
+   "Doplnění: typové třídy (Eq, Ord) a generický klíč/hodnota přes class constraint."
+  ],
+  "grounded": true
+ },
+ "UPA/crisp-dm|UPA/priprava-dat": {
+  "opener": "Začni obecným důvodem: do algoritmů chceme pouštět jen data dostatečné kvality, jinak dávají špatné výsledky. Pak projeď fáze podle kartičky: čištění, redukce, nevyváženost, normalizace — případně zarámuj přes CRISP-DM.",
+  "watch": [
+   "Popisné charakteristiky dat + vizualizační techniky (histogram, boxplot, scatter).",
+   "Korelační analýza — typicky chtějí na závěr (co s korelovanými atributy).",
+   "Redukce dat: výběr atributů, sloučení, PCA; znát i pojem redukce dimenzionality.",
+   "Nevyváženost tříd — oversampling/undersampling, SMOTE.",
+   "Normalizace vs. diskretizace — kdy a proč."
+  ],
+  "grounded": true
+ },
+ "ZZN/shlukova-analyza": {
+  "opener": "Začni obecně: co je shluk a shluková analýza (učení bez učitele, maximalizace vnitřní podobnosti). Pak rovnou definuj podobnost/vzdálenost a vyjmenuj rodiny metod.",
+  "watch": [
+   "Jak definujeme podobnost/vzdálenost — euklidovská; pozor na numerické vs. nominální hodnoty.",
+   "k-means vs. k-medoids: princip, iterace přiřazení/přepočet, citlivost na odlehlé body.",
+   "Hierarchické metody — aglomerativní princip, dendrogram, kritéria spojování.",
+   "DBSCAN — hustota, eps a minPts, odhalí šum a nekonvexní shluky.",
+   "Doplnění: na co se používá, postup u vysoce dimenzionálních dat."
+  ],
+  "grounded": true
+ },
+ "BIF/zarovnani-sekvenci": {
+  "opener": "Začni K ČEMU zarovnání slouží (podobnost sekvencí, evoluční vztah, hledání v DB). Pak skórovací funkce a rovnou nakresli princip dynamického programování — připrav se zarovnat dvě konkrétní sekvence na tabuli.",
+  "watch": [
+   "Rozdíl globální / semiglobální / lokální zarovnání (Needleman-Wunsch vs. Smith-Waterman).",
+   "Odvodit ČASOVOU složitost dynamického programování O(m·n).",
+   "Skórovací funkce — penalizace mezer (gap), substituční matice (BLOSUM/PAM).",
+   "Mohou dát dvě sekvence a chtít ukázat vyplnění části matice a zpětný průchod.",
+   "BLAST — heuristika (seedy/k-mery, extenze), proč rychlejší než plné DP."
+  ],
+  "grounded": true
+ },
+ "BIS/wifi-bezpecnost": {
+  "opener": "Zarámuj přes 3 základní bezpečnostní funkce (důvěrnost, integrita, autentizace) v prostředí Wi-Fi (AP, stanice). Pak chronologicky WEP → WPA → WPA2 → WPA3 s útoky na každý.",
+  "watch": [
+   "WEP: proudová šifra RC4, proč slabá (krátký IV, opakování, statický klíč).",
+   "WPA/TKIP: nový klíč pro každý rámec (per-packet keying).",
+   "WPA2: šifra AES (CCMP); rozliš PSK vs. Enterprise.",
+   "Enterprise: 802.1X + EAP + RADIUS autentizační server, často s LDAP databází.",
+   "Útoky: deautentizace, handshake capture + slovník na PSK, MitM/rogue AP.",
+   "WPA3: SAE (Dragonfly) řeší offline slovníkové útoky na PSK."
+  ],
+  "grounded": true
+ },
+ "MSP/intervaly-hypotezy|MSP/kategorialni-glm": {
+  "opener": "Začni POSTUPEM, ne vzorci: formulace H0 vs. H1, volba hladiny α, testová statistika, p-hodnota / kritický obor, rozhodnutí. Definuj chybu I. a II. druhu a sílu testu (1−β).",
+  "watch": [
+   "Test dobré shody (χ²): rozdělení dat do intervalů, odhad rozdělení, porovnání pozorovaných vs. očekávaných četností.",
+   "Chyba I. (α, false positive) vs. II. druhu (β); síla = 1−β.",
+   "Testy na normálním rozdělení: jedno/dvouvýběrový t-test, předpoklad normality a rovnosti rozptylů.",
+   "Vícevýběrové testy — ANOVA princip.",
+   "Neparametrické (rank) testy když neplatí normalita; věrohodnostní poměr.",
+   "Kategoriální data: χ² test nezávislosti, kontingenční tabulka."
+  ],
+  "grounded": true
+ },
+ "BIN/neuroevoluce": {
+  "opener": "Začni definicí: neuroevoluce = evoluce neuronových sítí (typicky topologie i vah) evolučním algoritmem; ujasni kontext, ve kterém ji bereš (evoluce topologií). Pak nakresli zakódování — přímé vs. nepřímé — a probíhej standardní GA smyčkou.",
+  "watch": [
+   "Rozliš přímé vs. nepřímé kódování; nakresli příklad (strom/graf).",
+   "Vyjmenuj evoluované parametry: počet vrstev, neuronů, propojení, váhy.",
+   "Popiš algoritmus na NEAT: populace → fitness → výběr → křížení/mutace → nová generace; zmiň i CGP jako alternativu.",
+   "Fitness: přesnost, velikost, rychlost i rychlost trénování sítě.",
+   "Náhradní modely/prediktory: levný model (regrese/neuronka) nahradí drahé vyhodnocení fitness; příbuzné zrychlení = sdílení vah."
+  ],
+  "grounded": true
+ },
+ "PDS/prepinace": {
+  "opener": "Začni obecnou architekturou přepínače (vstupní/výstupní porty, switching fabric, řízení) a hned rozliš tři realizace fabricu: sdílená sběrnice, sdílená paměť, křížový (crossbar). Připrav se kreslit konkrétní vícestupňovou síť.",
+  "watch": [
+   "Umět nakreslit konkrétní Clos(n,m,r), např. Clos(4,4,2) i 8-portový.",
+   "Říct, kdy je Clos blokující/neblokující a jaké parametry to zaručí (m≥2n−1).",
+   "Benešova síť jako rekurzivní rozšíření Closu — uměj i tu.",
+   "Blokování: HOL blocking, řešení přes VOQ; párování vstupů a výstupů.",
+   "Plánovací algoritmy: PIM a iSLIP (request–grant–accept iterace).",
+   "Porovnej crossbar vs. sdílená sběrnice vs. sdílená paměť (propustnost, škálování)."
+  ],
+  "grounded": true
+ },
+ "PDS/transport|PDS/transport-protokoly": {
+  "opener": "Začni rozlišením řízení toku (flow control — ochrana příjemce, sliding window) vs. řízení zahlcení (congestion control — ochrana sítě). Pak rozjeď TCP mechanismy a navaž na moderní protokoly MP-TCP, QUIC, SCTP.",
+  "watch": [
+   "Sliding window: Go-Back-N, fast retransmit, ACK/NACK, sekvenční čísla.",
+   "Congestion varianty: Tahoe, Reno, Westwood, Cubic — uměj alespoň jednu popsat.",
+   "QUIC: nad UDP, šifrování, multiplexované streamy (bez HOL blocking) — počítej s dotazem na streamy.",
+   "MP-TCP: více cest, coupled congestion control; SCTP: multi-homing, multi-streaming.",
+   "Zahlcení v UDP se neřeší — aplikace si řídí samo; nepleť s flow controlem."
+  ],
+  "grounded": true
+ },
+ "BIO/otisky": {
+  "opener": "Začni přehledem celého řetězce: snímání → předzpracování → extrakce markantů (signatura) → rozpoznání. Pak rozveď třídy otisků a singulární body (jádro, delta) z pole orientací.",
+  "watch": [
+   "Gaborův filtr nakreslit a vysvětlit: 2D vlnka, frekvenční oblast, zvýrazní hřebeny/údolí.",
+   "Pole orientací → určení třídy + singulárních bodů (jádro/delta).",
+   "Markanty (minutiae): typy (ukončení, vidlička), porovnání po zarovnání otisků.",
+   "Nevýhody markantů: vyžadují velkou plochu prstu, nevhodné pro malé senzory.",
+   "Předzpracování: filtrování, ztenčení (skeletonizace); alternativy: korelace obrazů."
+  ],
+  "grounded": true
+ },
+ "BIO/oblicej|BIO/utoky": {
+  "opener": "Začni modelem biometrického systému (snímání → extrakce → porovnání → rozhodnutí) a vyznač zranitelná místa a vektory útoku. Teprve pak přejdi na prezentační útoky a detekci živosti — ale nejdřív projdi celou architekturu.",
+  "watch": [
+   "Nezačínej rovnou liveness — nejdřív model systému a kde lze zaútočit.",
+   "Vektory útoku na senzor, kanál, šablonu, rozhodovací modul.",
+   "Detekce živosti prstu: vlnová délka IR světla, prokrvení, proč je odseknutý prst neživý.",
+   "Antispoofing obličeje: 2D vs. 3D vs. termogram; jak detekovat 2D fotku/masku.",
+   "Deepfakes jako moderní útok; etika a GDPR u biometrických dat."
+  ],
+  "grounded": true
+ },
+ "WAP/http": {
+  "opener": "Začni rozkladem URI na URL (lokace) a URN (jméno) a ukaž jejich zápis a komponenty (schéma, autorita, cesta). Pak HTTP jako bezstavový dotaz–odpověď protokol a navaž na HTTP/2 proudy a CDN.",
+  "watch": [
+   "URI = nadřazený pojem; URL adresuje umístění, URN identifikuje nezávisle na umístění.",
+   "HTTP: hlavička + tělo, dotaz–odpověď, stavové kódy (404 — kdo posílá, kdo způsobil).",
+   "HTTP/2: multiplexing, proudy a rámce nad jedním spojením — počítej na dotaz na multiplexing.",
+   "CDN: jak klient najde nejbližší uzel (anycast / DNS-based směrování).",
+   "XHR a streaming přenosů; nepleť verze HTTP s tím, jak protokol funguje."
+  ],
+  "grounded": true
+ },
+ "MSP/bodovy-odhad|MSP/intervaly-hypotezy|MSP/mle-vlastnosti": {
+  "opener": "Začni na konkrétním příkladu (např. odhad průměrné výšky studentů): popiš náhodný výběr, pak rozliš bodový odhad (jedna hodnota) vs. intervalový odhad (interval s danou spolehlivostí 1−α). Nakresli, že při α→0 je interval celá osa, při α→1 jen bod.",
+  "watch": [
+   "Vlastnosti odhadu: nestrannost, konzistence, vydatnost (min. rozptyl).",
+   "MLE: sestav věrohodnostní funkci, logaritmuj, derivuj=0; uveď invariantnost.",
+   "Fisherova informace + Cramér-Raova mez jako dolní hranice rozptylu.",
+   "Postup testu: ověř normalitu/předpoklady, pak vol t-test vs. z-test.",
+   "Testy dobré shody (χ²), vícevýběrové testy a likelihood-ratio si přichystej."
+  ],
+  "grounded": true
+ },
+ "PBI/klasifikace-predikce": {
+  "opener": "Začni rozlišením klasifikace (diskrétní třída) vs. predikce/regrese (spojitá hodnota) a fázemi: trénink na trénovací množině, pak aplikace na nová data. Pak projdi klasifikátory.",
+  "watch": [
+   "Naivní Bayes: stojí na předpokladu podmíněné nezávislosti příznaků.",
+   "Umět porovnat naivní Bayes vs. logistická regrese/neuronka (generativní vs. diskriminativní).",
+   "Lineární regrese: hledáme koeficienty minimalizující sumu čtverců (MSE) — uzavřeně normálními rovnicemi.",
+   "Nelineární regrese: minimum iteračně (gradientní sestup, Gauss-Newton), ne normálními rovnicemi.",
+   "Hodnocení: matice záměn, accuracy, precision/recall, křížová validace."
+  ],
+  "grounded": true
+ },
+ "AIS/zivotni-cyklus": {
+  "opener": "Začni proti vodopádu vymezením iterativního/inkrementálního cyklu, pak rozveď Unified Process a jeho fáze. Nakonec přejdi k agilnímu vývoji a agilnímu modelování.",
+  "watch": [
+   "UP fáze: rozliš inception vs. elaboration (proveditelnost, hlavní rizika).",
+   "Proveditelnost projektu: nestačí jen 'analýza rizik', uveď prototyp/architekturu.",
+   "Agilní modelování: jen tolik modelů, kolik je třeba; vstupem requirements.",
+   "MDA: model jako primární artefakt, transformace PIM→PSM.",
+   "Nepleť agilní vývoj (proces) s agilním modelováním (praktika modelování)."
+  ],
+  "grounded": true
+ },
+ "AIS/pozadavky": {
+  "opener": "Začni krátce, proč požadavky vůbec získáváme a modelujeme, a jak se vyvíjejí (evoluce). Pak rozepiš model FURPS+ a přejdi k UP artefaktům a diagramu případů použití.",
+  "watch": [
+   "FURPS+: nestačí vyjmenovat, uveď příklady, hlavně usability.",
+   "Funkční vs. nefunkční požadavky a co znamená to '+'.",
+   "Techniky elicitace: interview, workshopy, prototypy, pozorování.",
+   "Use-case model: aktér, případ užití, vztahy include/extend.",
+   "UP artefakty požadavků: vision, use-case model, glosář, supplementary specs."
+  ],
+  "grounded": true
+ },
+ "AIS/kvalita-kodu": {
+  "opener": "Začni TDD: nejdřív napíšeme test, pak kód (red-green-refactor). Pak definuj refaktorizaci, typy vlastnictví kódu a nakonec správu kódu v Gitu (repozitáře, větvení).",
+  "watch": [
+   "Refaktorizace: mění strukturu, NE chování — testy zůstávají stejné.",
+   "Uveď konkrétní refaktorizační transformace (extract method, rename).",
+   "Rozliš unit/akceptační testy a black-box vs. white-box.",
+   "Typy vlastnictví kódu: individuální, kolektivní, žádné.",
+   "Git: větvení, merge/rebase, feature branch, význam pro kvalitu/CI."
+  ],
+  "grounded": true
+ },
+ "NAV/hw-sw-codesign": {
+  "opener": "Začni tím, že funkci lze realizovat v SW (procesor/firmware) nebo v HW (ASIC/FPGA), a porovnej obě cesty. Pak ukaž partitioning — rozdělení funkcí mezi HW a SW.",
+  "watch": [
+   "SW: flexibilní, levný vývoj, ale pomalejší a větší spotřeba.",
+   "HW: rychlý, paralelní, energeticky úsporný, ale drahý a neměnný.",
+   "Měj připravený konkrétní příklad funkce a dopad na výkon/cenu/spotřebu.",
+   "Partitioning a HW/SW codesign: kritéria dělení, metodika návrhu.",
+   "Programovatelné obvody (FPGA) jako kompromis mezi SW a fixním HW."
+  ],
+  "grounded": true
+ },
+ "NAV/sw-architektura": {
+  "opener": "Začni rozdílem bare-metal architektur: super-loop (hlavní smyčka s pollingem) vs. obsluha přerušení (ISR). Nakresli inicializaci periferií a vektoru přerušení před vstupem do nekonečné smyčky.",
+  "watch": [
+   "Připraví otázku na úsporu spotřeby: vše na přerušení + spánek jádra.",
+   "Chtějí: proč ISR funguje i ve spánku (NVIC zůstává napájen, spí jen jádro).",
+   "Co vše inicializovat před smyčkou, zejména obsluhu přerušení.",
+   "Rozdíl polling vs. přerušení z hlediska rychlosti odbavení požadavku.",
+   "Stavový automat jako čistší forma hlavní smyčky (switch přes stavy)."
+  ],
+  "grounded": true
+ },
+ "WAP/reprezentace-dat": {
+  "opener": "Drž to základní: ke každému pojmu řekni co to je a k čemu. Začni značkovacími jazyky (XML, HTML), pak JSON, pak DOM a MIME.",
+  "watch": [
+   "Chtějí srovnání JSON vs. XML a XML vs. HTML.",
+   "DOM: stromová/objektová reprezentace dokumentu + API pro přístup k uzlům.",
+   "Validace: hlídání párovosti a správného vnoření značek (well-formed).",
+   "Rozliš well-formed vs. valid (proti DTD/XML Schema).",
+   "MIME: identifikace typu obsahu (Content-Type), netvrď nic složitého."
+  ],
+  "grounded": true
+ },
+ "BIN/dna-pocitace": {
+  "opener": "Začni tím, co je DNA počítání (masivní paralelismus molekul), pak rovnou Adlemanův experiment. Na tabuli zakóduj uzel jako 20 nukleotidů (20-mer) a hranu jako komplementární spojku konců dvou uzlů.",
+  "watch": [
+   "Jaký problém Adleman řešil: existence (orientované) Hamiltonovské cesty v grafu.",
+   "Popiš kroky: generování cest, výběr délky, výběr uzlů (gel, PCR).",
+   "Zasekávají se na kroku generování všech potenciálních cest.",
+   "Nejnáročnější krok z hlediska časové/prostorové složitosti.",
+   "Výhody a nevýhody DNA počítání, důsledky pro informatiku."
+  ],
+  "grounded": true
+ },
+ "BIO/duhovka-sitnice": {
+  "opener": "Začni anatomií: duhovka leží mezi pupilou a bělmem, vzor dán melaninem. Pak přejdi na získání pásku duhovky (kruhový filtr) a Daugmanův algoritmus.",
+  "watch": [
+   "Daugmanův algoritmus znej jménem: převod do polárních souřadnic, IrisCode.",
+   "Porovnání kódů Hammingovou vzdáleností.",
+   "Houghova transformace pro odstranění víčka/řas.",
+   "Sítnice: snímání IR světlem, extrakce cév a jejich křížení.",
+   "Slepá vs. žlutá skvrna; entropie sítnice vs. duhovka (~2048 bitů)."
+  ],
+  "grounded": true
+ },
+ "BIO/oblicej": {
+  "opener": "Začni snímáním a předzpracováním (detekce a normalizace obličeje), pak metody: klasicky Eigenfaces/PCA a dnes deep learning. 2D, 3D i termogram zmiň, ale očekávej tah hlavně k 2D.",
+  "watch": [
+   "Často chtějí spíš netechnický postup: jak bys detekci řešil krok po kroku.",
+   "Eigenfaces = PCA nad obrázky obličejů, projekce do podprostoru.",
+   "Rozliš 2D (osvětlení/pozice) vs. 3D (geometrie) vs. termogram (cévy/teplo).",
+   "Antispoofing: liveness detection proti fotce/masce.",
+   "Deep learning: CNN embedding a porovnání vektorů."
+  ],
+  "grounded": true
+ },
+ "NAV/rizeni-spotreby": {
+  "opener": "Začni podstatou spotřeby CMOS (dynamická ~ f·V², statická = leakage), pak typické režimy: run, sleep, deep-sleep/stop, standby. Naváž tím, co se v každém režimu vypíná.",
+  "watch": [
+   "Konkrétně: co se v jakém režimu spánku na MCU vypíná (jádro, hodiny, RAM).",
+   "Na základě čeho se MCU probudí (přerušení, RTC, externí pin).",
+   "Snížení napětí a frekvence hodin (DVFS) jako nástroj řízení.",
+   "Řízení spotřeby periferií: clock gating, vypínání nepoužívaných modulů.",
+   "Kompromis mezi spotřebou a latencí probuzení."
+  ],
+  "grounded": true
+ },
+ "NAV/senzory": {
+  "opener": "Začni nakreslením celého měřicího řetězce: neelektrická veličina → senzor (převodník) → úprava signálu (zesílení, filtrace) → A/D převodník → MCU. Pak řetězec popisuj prvek po prvku.",
+  "watch": [
+   "Fyzikální úvod přeskoč, jdou hned po popisu řetězce a komunikaci s MCU.",
+   "Připrav aspoň tři sběrnice senzor↔MCU: I2C, SPI a navíc UART/1-Wire.",
+   "Rozliš analogové připojení (přímo na ADC) vs. digitální rozhraní senzoru.",
+   "Umět dát konkrétní příklady senzorů (teplota, pohyb, tlak) a co měří.",
+   "Čekej dialog a ukazování na reálné senzory v místnosti."
+  ],
+  "grounded": true
+ },
+ "TAMa/vyvojovy-proces": {
+  "opener": "Začni rámcem SDLC s důrazem na MVP a iterace, pak rozdělíš technologické přístupy: nativní vs. hybridní vs. PWA. Klidně to celé piš/kresli na papír.",
+  "watch": [
+   "PWA je klíčové: co to je a jak bys ji implementoval (service worker, offline).",
+   "Umět rozdíl mobilní vs. webové aplikace a společné prvky UI.",
+   "Architektura aplikace (MVC) a zpracování vstupů od uživatele.",
+   "Offline režim a bezpečnost dat, distribuce přes store / CI-CD.",
+   "Je to spíš dialog — naváděj řeč, neboj se nahlas přemýšlet."
+  ],
+  "grounded": true
+ },
+ "WAP/javascript": {
+  "opener": "U prototypů začni tím, že každý objekt má prototyp, který je sám objektem se svým prototypem — tak vzniká prototypový řetěz. Pak na tabuli nakresli příklad (Person) a vysvětli delegaci volání a this.",
+  "watch": [
+   "Řetěz prototypů = dědičnost; navaž rovnou na polymorfismus.",
+   "Čekej dotaz: kompilovaný vs. interpretovaný jazyk (JS je interpretovaný/JIT).",
+   "Vysvětli this a jak se mění podle způsobu volání.",
+   "Datové typy a rozsahy platnosti: var/let/const, hoisting, uzávěry (closures).",
+   "Uzávěr = funkce drží přístup k proměnným z okolního scope i po jeho ukončení."
+  ],
+  "grounded": true
+ },
+ "WAP/webove-sluzby": {
+  "opener": "Začni evolucí: XML-RPC → SOAP/WSDL/UDDI (web services) → REST jako jejich nástupce. Pak u REST zdůrazni vazbu na HTTP.",
+  "watch": [
+   "REST silně stojí na HTTP: metody GET/POST/PUT/DELETE, stavové kódy, endpointy.",
+   "Bezstavovost REST a princip resource/URI.",
+   "Připrav i autentizaci: co je JWT a jak se v API používá (token v hlavičce).",
+   "SOAP: znát roli WSDL (popis) a UDDI (registr) a formát XML obálky.",
+   "Umět říct, proč REST nahradil těžkopádné SOAP web services."
+  ],
+  "grounded": true
+ },
+ "BIN/entropie": {
+  "opener": "Fyzikální entropii zmiň jen jednou větou a hned přejdi na informační: napiš Shannonův vzorec H = -Σ p_i log2 p_i a vysvětli, co znamená p_i a jednotka (bit).",
+  "watch": [
+   "Hlavní tah je odvození a výpočet — buď připraven počítat příklady.",
+   "Spočítej vyrovnaný systém (max. entropie) vs. systém s jedním jistým stavem (H=0).",
+   "Emergence a chaos je často jen okrajové, ale měj definice po ruce.",
+   "Entropie = míra neurčitosti / průměrné informace zdroje.",
+   "Nezdržuj se fyzikou termodynamiky, hned přepni na informatiku."
+  ],
+  "grounded": true
+ },
+ "ZZN/asociacni-pravidla": {
+  "opener": "Začni definicemi: frekventovaná množina, asociační pravidlo X→Y, support (podpora) a confidence (spolehlivost) jako pravděpodobnosti. Pak naváž na algoritmy.",
+  "watch": [
+   "Support = P(X∪Y), confidence = P(Y|X) — umět to říct přes pravděpodobnosti.",
+   "Hlavní téma jsou dva algoritmy: Apriori a FP-growth (FP-strom).",
+   "Porovnej je: který je lepší a proč (Apriori opakovaně prochází DB, FP-growth ne).",
+   "Detailní postup algoritmu většinou nechtějí — stačí princip a srovnání.",
+   "Případně zmiň lift jako další metriku zajímavosti pravidla."
+  ],
+  "grounded": true
+ },
+ "BIF/rozpoznavani-genu": {
+  "opener": "Začni obecně: na základě čeho gen poznáme — signály v sekvenci (promotor, start/stop kodon, sestřihová místa) plus statistika obsahu (codon bias, GC). Pak přejdi rovnou na HMM jako pravděpodobnostní model stavů genu.",
+  "watch": [
+   "Hlavní cíl je dostat se k HMM — moc se nezdržuj u introny/exony u eukaryot.",
+   "Chtějí umět: jak HMM vypadá (stavy, emisní a přechodové pravděpodobnosti).",
+   "Viterbiho algoritmus — najde nejpravděpodobnější cestu stavů; umět vysvětlit.",
+   "Rozliš signálové (sestřihová místa, promotor) vs. obsahové statistické metody.",
+   "Klidně odpovídej formou otázka–odpověď, doptávají se postupně."
+  ],
+  "grounded": true
+ },
+ "PBI/kartezske-gp": {
+  "opener": "Začni tím, jaký problém CGP řeší — evoluční návrh obvodů/programů reprezentovaných orientovaným acyklickým grafem. Pak popiš, jak vznikne chromozom: mřížka uzlů kódovaná celými čísly (vstupy + funkce každého uzlu).",
+  "watch": [
+   "Popiš tvorbu chromozomu: trojice geny vstup-vstup-funkce, indexy uzlů.",
+   "Algoritmus evoluce: typicky (1+λ), mutace, žádný/málo crossover.",
+   "Fitness funkce — jak se hodnotí kvalita kandidáta.",
+   "Co když je vstupních kombinací příliš mnoho: trénovací vs. testovací množina.",
+   "Zmiň neaktivní geny (bloat-free) a redundanci v genotypu."
+  ],
+  "grounded": true
+ },
+ "UPA/nosql-dotazovani": {
+  "opener": "Title je o MapReduce, ale záznamy ukazují, že se ptají hlavně na NoSQL teorii — začni, že jde o distribuované DB, a rovnou nabídni CAP teorém (Consistency, Availability, Partition tolerance). Pak srovnej s ACID vs. BASE u relačních DB.",
+  "watch": [
+   "ACID: umět všechna písmena a co znamenají vůči relační DB.",
+   "CAP: nestačí vyjmenovat — vysvětlit kompromis a co se obětuje při partition.",
+   "Doptávají se: existují systémy bez partition tolerance? (ano, jednouzlové/CP-CA).",
+   "BASE jako protipól ACID (eventual consistency).",
+   "MapReduce: umět průběh map→shuffle→reduce a roli Hadoop vs. Spark (in-memory)."
+  ],
+  "grounded": true
+ },
+ "PDS/anonymita": {
+  "opener": "Nech se vyzvat a začni dvojicí fingerprinting + geolokace: otisk prohlížeče/OS = soubor vlastností (rozlišení, fonty/canvas, podporované šifry, User-Agent, HTTP hlavičky), kterými lze uživatele jednoznačně identifikovat i bez cookies. Zdůrazni rozdíl proti stavovému sledování přes cookies. Pak přejdi na geolokaci IP.",
+  "watch": [
+   "Fingerprinting rozveď: které konkrétní atributy + entropie identifikace.",
+   "Geolokace IP: jak se mapuje adresa na polohu, přesnost a omezení.",
+   "VPN vs. aplikační proxy — rozdíl ve vrstvě a co skrývají.",
+   "Tor: onion routing, vrstvy šifrování, entry/relay/exit uzly.",
+   "Doptávají se na slabiny Toru (exit node, korelace provozu)."
+  ],
+  "grounded": true
+ },
+ "BIS/sw-zranitelnosti": {
+  "opener": "Pozor, papírek bývá širší (hrozby, zranitelná místa, aktiva, škodlivý SW) — začni definicemi těchto pojmů a jejich vztahem. Pak dej konkrétní příklad zranitelnosti, např. neošetřený uživatelský vstup → SQL injection.",
+  "watch": [
+   "Chtějí konkrétní příklad zranitelnosti, ne jen definice.",
+   "Jak hrozbám bránit: validace vstupů, CVE/známé zranitelnosti, záplaty.",
+   "Web: SOP, XSS (reflected/stored), CSRF a obrana (token, SameSite).",
+   "Bezpečnostní HTTP hlavičky (CSP, HSTS, X-Frame-Options).",
+   "Nečekají monolog — kladou dílčí otázky, buď připraven reagovat."
+  ],
+  "grounded": true
+ },
+ "BIO/ruka": {
+  "opener": "Vyprávěj to jako příběh: jak se uživatel registruje a jak se rozpoznává podle 2D geometrie ruky — princip distančních sloupků, snímání shora a z boku. Pak vyjmenuj metriky (délky a tloušťky prstů, šířka dlaně).",
+  "watch": [
+   "3D geometrie: jak se snímá — strukturované světlo, time-of-flight (obojí typicky v IR).",
+   "Vlnová délka: pro 2D obrys stačí RGB; pro 3D hloubku/žíly se používá (near-)IR.",
+   "Kolik lidí lze geometrií ruky rozlišit (nízká rozlišovací schopnost).",
+   "Žilní řečiště — dlaň/hřbet/předloktí, snímání v IR.",
+   "Doplň nehty a kosti ruky jako další identifikátory."
+  ],
+  "grounded": true
+ },
+ "NAV/vestavene-systemy": {
+  "opener": "Začni definicí: vestavěný systém je počítač zabudovaný do většího zařízení, plnící jednu dedikovanou funkci, často s real-time požadavky. Pak postav tabulku shod/odlišností vůči univerzálnímu PC.",
+  "watch": [
+   "Klíčové slovo, které chtějí slyšet: běží v reálném čase (deadliny, determinismus).",
+   "Nestačí vyjmenovat periferie/senzory/low-power; řekni důsledky pro návrh.",
+   "Odlišnosti: fixní úloha, omezené zdroje, RTOS vs OS, spolehlivost, dlouhá životnost.",
+   "Připrav konkrétní příklady (řídicí jednotka, IoT) i shody (CPU, paměť, sběrnice)."
+  ],
+  "grounded": true
+ },
+ "MSP/linearni-model-anova|MSP/linearni-regrese-msp": {
+  "opener": "Začni lineárním modelem y = Xβ + ε s předpoklady a nakresli obrázek metody nejmenších čtverců. Hned napiš správné kritérium S(β) = Σ(yᵢ − f(xᵢ))² a minimalizaci přes derivace.",
+  "watch": [
+   "Pozor na vzorec chyby: minimalizuje se Σ(y − f(x))², ne přes x.",
+   "Minimalizace = derivace podle β = 0 → normální rovnice, β̂ = (XᵀX)⁻¹Xᵀy.",
+   "Umět Gaussovu-Markovovu větu: OLS je BLUE za daných předpokladů.",
+   "Test podmodelu = F-test; ANOVA jako rozklad rozptylu, one-way vs two-way.",
+   "Diagnostika: rezidua, hat-matice, leverage, kvalita modelu (R²)."
+  ],
+  "grounded": true
+ },
+ "KNN/autoregresivni-transformery": {
+  "opener": "Začni rámcem autoregresivního modelu: p(x) = Π p(xₜ | x<ₜ), generování token po tokenu. Pak nakresli transformer (encoder-decoder) a vysvětli, jak do něj zapadá attention.",
+  "watch": [
+   "Attention umět odvodit: Q,K,V, softmax(QKᵀ/√d)V, self- vs cross-attention.",
+   "Pokud máš attention ve slidech, čekej tlak vysvětlit zbytek architektury.",
+   "Nezůstávej jen high-level: positional encoding, multi-head, maskovaný decoder.",
+   "Aplikace: jazykové modely, strojový překlad; rozdíl encoder/decoder/decoder-only."
+  ],
+  "grounded": true
+ },
+ "BIF/predikce-proteinu": {
+  "opener": "Začni úrovněmi struktury proteinu (primární → sekundární → terciární → kvartérní) a co se predikuje na které úrovni. Pak přehledně rozděl metody predikce.",
+  "watch": [
+   "Hlavně popsat způsoby predikce; čekej dotaz na neuronové sítě.",
+   "Sekundární struktura: helixy/listy, metody (Chou-Fasman, statistika, NN).",
+   "Terciární/celkový tvar: homologní modelování, threading, ab initio, AlphaFold.",
+   "Měj odpovědi připravené, ať z tebe nemusí informace dolovat."
+  ],
+  "grounded": true
+ },
+ "PDS/reputace": {
+  "opener": "Začni rozlišením důvěry a reputace (reputace = agregovaný kolektivní názor sítě), NE relací s vlastnostmi jako asymetrie/tranzitivita. Pak přejdi na architekturu reputačního systému.",
+  "watch": [
+   "Nezačínej formálními vlastnostmi relace, hned tě zastaví, že to není reputace.",
+   "Architektura: sběr zpětné vazby, agregace skóre, distribuce/uložení (centr. vs P2P).",
+   "Umět výpočet reputačního skóre (vážený průměr, EigenTrust apod.).",
+   "Grafy/obrázky měj dobře popsané; hlídej si čas u obhajoby.",
+   "Příklady (eBay, PageRank-like) a rizika: Sybil, badmouthing, whitewashing."
+  ],
+  "grounded": true
+ },
+ "BIO/dynamicke": {
+  "opener": "Začni vymezením dynamických (behaviorálních) biometrik vs statických: měří se chování v čase, ne anatomie. Pak projdi příklady: keystroke dynamika, chůze, podpis, hlas.",
+  "watch": [
+   "Keystroke: dwell/flight time, kontinuální autentizace.",
+   "Chůze: video/akcelerometr, výhoda bezkontaktnosti na dálku.",
+   "Dynamika podpisu: tlak, rychlost, pořadí tahů (ne jen tvar).",
+   "Obecně nižší přesnost, ovlivnění stavem; rozdíl identifikace vs verifikace, FAR/FRR."
+  ],
+  "grounded": false
+ },
+ "KRY/klice-symetricka": {
+  "opener": "Začni motivací: u symetrické kryptografie je problém distribuce klíče (n uživatelů → n(n-1)/2 klíčů), proto zavedeme důvěryhodnou třetí stranu. Definuj rozdíl KDC (generuje/distribuuje relační klíč) vs KTC (jen přeposílá/translatuje klíč mezi stranami).",
+  "watch": [
+   "Vysvětlit modely push / pull / hybrid distribuce klíče.",
+   "KTC ilustrovat protokolem Wide-Mouthed Frog, KDC pak Kerberem.",
+   "Needham-Schroeder: znát útok přehráním a opravu pomocí nonce.",
+   "Kerberos: TGT, ticket, časové značky jako ochrana proti replay.",
+   "Umět protokol autentizace přes timestamp (Alice šifruje čas → Bob)."
+  ],
+  "grounded": true
+ },
+ "NAV/gpio": {
+  "opener": "Začni rozdělením GPIO na vstup a výstup a hlavními problémy: nekompatibilní napěťové úrovně, zákmity kontaktů a omezený výstupní proud pinu. Nakresli jednoduché schéma s pull-up/pull-down rezistorem.",
+  "watch": [
+   "Level shifting: odporový dělič vs MOSFET obousměrný převodník.",
+   "Debouncing: RC filtr, Schmittův klopný obvod, softwarové ošetření zákmitů.",
+   "Posílení výstupu: spínací tranzistor, open-collector/drain, budič.",
+   "Ovládání induktivní zátěže → nutná zpětná (flyback) dioda.",
+   "H-můstek: 4 spínače, řízení směru/PWM, riziko shoot-through."
+  ],
+  "grounded": false
+ },
+ "PDI/esb": {
+  "opener": "Začni vymezením ESB jako integrační páteře v SOA: prostředník zajišťující směrování, transformaci a doručení zpráv mezi službami místo přímých vazeb point-to-point. Nakresli sběrnici s připojenými službami a adaptéry.",
+  "watch": [
+   "MOM: asynchronní zasílání zpráv, fronty vs topics (P2P / pub-sub).",
+   "Volné provázání (loose coupling) a spolehlivé doručení zpráv.",
+   "Enterprise Integration Patterns: router, translator, splitter, aggregator.",
+   "Obsahově a hlavičkově řízené směrování (content-based routing).",
+   "Rozdíl ESB vs prosté MOM: přidává transformaci, orchestraci, adaptéry."
+  ],
+  "grounded": false
+ },
+ "TAMa/mobilni-ui": {
+  "opener": "Začni klíčovými omezeními mobilu vůči desktopu: malá dotyková obrazovka, ovládání prsty, mobilita a kontext použití, omezené zdroje. Z toho odvoď principy návrhu mobilního UI.",
+  "watch": [
+   "Dotykové cíle: minimální velikost prstu, žádný přesný kurzor ani hover.",
+   "Thumb zone / ergonomie ovládání jednou rukou.",
+   "Odlišnosti: gesta, orientace, notifikace, přerušovaná pozornost.",
+   "Mobilní formuláře: minimum polí, vhodné klávesnice, autofill.",
+   "Responzivita, mobile-first a šetření energií/daty."
+  ],
+  "grounded": false
+ },
+ "TAMa/architektury-aplikaci": {
+  "opener": "Začni oddělením vrstev (prezentace / logika / data) a vysvětli, proč se na mobilu používají vzory MVC, MVVM a MVI. Lead s MVVM a data bindingem jako dnešním standardem.",
+  "watch": [
+   "MVC vs MVVM vs MVI: kdo drží stav a tok dat (jednosměrný v MVI).",
+   "Deklarativní UI (Compose / SwiftUI) vs imperativní pohledy.",
+   "Paralelismus: hlavní/UI vlákno nesmí blokovat, async úlohy na pozadí.",
+   "Životní cyklus aktivity/fragmentu: pozastavení, obnova, zničení.",
+   "Uchování stavu při rotaci/zabití procesu OS."
+  ],
+  "grounded": false
+ },
+ "UXIa/konceptualni-model": {
+  "opener": "Začni definicí konceptuálního modelu jako mentální představy, jak aplikace funguje a co s ní lze dělat, a propoj ji s doménovým modelem. Zdůrazni, že má vzniknout před vizuálním návrhem.",
+  "watch": [
+   "Doménový model: entity, jejich vztahy a slovník uživatele.",
+   "Soulad konceptuálního modelu vývojáře a uživatele (žádný mismatch).",
+   "Verifikace vs validace: stavíme to správně vs stavíme správnou věc.",
+   "Prototypování: low-fidelity vs high-fidelity, kdy které použít.",
+   "Testování modelu s uživateli ještě před implementací."
+  ],
+  "grounded": false
+ },
+ "UXIa/ucd": {
+  "opener": "Začni definicí UCD jako iterativního procesu stavějícího na potřebách uživatele a kontextu užití; nakresli smyčku čtyř fází z ISO 9241-210 (kontext → požadavky → návrh → evaluace).",
+  "watch": [
+   "Rozliš formativní vs. sumativní evaluaci a kdy kterou použít.",
+   "Umět personas, scénáře, use-case, mentální model vs. konceptuální model.",
+   "Thinking-aloud, A/B test, heuristická evaluace (Nielsenovy heuristiky) — kdy, kolik uživatelů.",
+   "Nepleť si UCD vs. UX vs. usability; usability (ISO 9241-11) = účinnost, efektivita, spokojenost.",
+   "Iterace a prototypování (lo-fi vs. hi-fi) jako jádro, ne jednorázový krok."
+  ],
+  "grounded": false
+ },
+ "WAP/udalosti": {
+  "opener": "Začni tím, že JS je jednovláknový a asynchronicitu řeší event loop; nakresli call stack, frontu callbacků (task queue) a microtask queue.",
+  "watch": [
+   "Rozliš makrotasky (setTimeout, I/O) vs. microtasky (Promise) — pořadí vykonávání.",
+   "Bubbling vs. capturing, event.target vs. currentTarget, stopPropagation/preventDefault.",
+   "Event delegation a proč je výhodná pro dynamický DOM.",
+   "Callback → Promise → async/await; co je za await fakticky microtask.",
+   "addEventListener vs. on-handler; kdy se callback vrátí do stacku."
+  ],
+  "grounded": false
+ },
+ "PRL/matice|PRL/stromy": {
+  "opener": "Pojmenuj model (PRAM, EREW/CREW/CRCW) a metriky cena = p·t, zrychlení, efektivnost; pak rozděl výklad na seznamy/stromy (Euler tour, kontrakce) a matice (násobení na mesh/cube).",
+  "watch": [
+   "Pointer jumping a list ranking — logaritmický čas, cena O(n log n).",
+   "Euler tour reprezentace stromu polem a její aplikace (hloubka, počet potomků).",
+   "Rake & Compress kontrakce stromu, evaluace výrazu — O(log n).",
+   "Násobení matic: mesh O(n) s 2D toky, hyperkrychle O(log n), broadcast.",
+   "Umět odvodit složitost a ukázat optimálnost (cena vs. sekvenční)."
+  ],
+  "grounded": false
+ },
+ "UPA/semanticky-web": {
+  "opener": "Začni vizí sémantického webu jako vrstveného „layer cake“ (URI/IRI → RDF → RDFS → OWL → SPARQL) a definuj RDF trojici subjekt–predikát–objekt jako orientovaný graf.",
+  "watch": [
+   "Linked Data principy (4 pravidla T. Berners-Lee), dereferencovatelné URI.",
+   "Serializace RDF: Turtle, RDF/XML, JSON-LD, N-Triples — umět zapsat trojici.",
+   "RDFS (třída, vlastnost, doména/rozsah) vs. OWL (kardinalita, ekvivalence, inverze).",
+   "Open World Assumption a inference/reasoning — rozdíl oproti DB.",
+   "SPARQL: SELECT a basic graph pattern; strukturovaná data na WWW (microdata, schema.org)."
+  ],
+  "grounded": false
+ },
+ "BIN/vypocetni-development": {
+  "opener": "Začni motivací: výpočetní vývin jako proces genotyp → fenotyp inspirovaný embryogenezí, kde z malého popisu „roste“ složitá struktura; pak přejdi na celulární automat jako diskrétní model lokálních pravidel.",
+  "watch": [
+   "Definuj CA: mřížka, stavy, okolí (von Neumann vs. Moore), přechodové pravidlo.",
+   "1D elementární CA: 256 pravidel, číslování (rule 30, 110), 110 je Turing-úplné.",
+   "Wolframovy 4 třídy (homogenní, periodické, chaotické, komplexní) — umět příklad.",
+   "Game of Life jako 2D CA; gliders, oscilátory, sebereplikace (von Neumann automat).",
+   "Vysvětli, proč je vývin výhodný: kompaktní genotyp, škálovatelnost, robustnost/regenerace."
+  ],
+  "grounded": false
+ },
+ "KNN/grafove-site": {
+  "opener": "Začni motivací: data jako graf (uzly, hrany, vlastnosti) a permutační invariance; pak zaveď message passing — agregace zpráv od sousedů a update vektoru uzlu po vrstvách.",
+  "watch": [
+   "Stavební bloky: AGGREGATE (sum/mean/max) + UPDATE; permutační invariance/ekvivariance.",
+   "Varianty: GCN (normalizovaná agregace), GraphSAGE (sampling), GAT (attention).",
+   "Over-smoothing při mnoha vrstvách — uzly konvergují k stejné reprezentaci.",
+   "Úrovně úloh: klasifikace uzlu, predikce hrany, klasifikace celého grafu (readout/pooling).",
+   "Využití: molekuly, sociální sítě, doporučování, znalostní grafy."
+  ],
+  "grounded": false
+ },
+ "ZZN/dolovani-textu": {
+  "opener": "Začni vymezením dolování textu jako extrakce znalostí z nestrukturovaného textu a nakresli pipeline: předzpracování → reprezentace → vyhledávání/klasifikace. Pak rovnou rozepiš kroky předzpracování a model vektorového prostoru s TF-IDF.",
+  "watch": [
+   "Vyjmenuj předzpracování: tokenizace, lowercasing, stop-slova, stemming vs. lemmatizace.",
+   "Umět napsat vzorec TF-IDF a vysvětlit, proč IDF tlumí časté termy.",
+   "Bag-of-words zahazuje pořadí slov; zmínit omezení a n-gramy.",
+   "Vyhledávání: kosinová podobnost dotaz–dokument, ne euklidovská vzdálenost.",
+   "Rozlišuj IR (relevance, precision/recall) od klasifikace/clusteringu textů."
+  ],
+  "grounded": false
+ },
+ "BIF/vicenasobne-zarovnani": {
+  "opener": "Začni tím, že MSA zobecňuje párové zarovnání na k sekvencí a optimální řešení dynamickým programováním je NP-těžké (k-rozměrná matice, exponenciální složitost). Proto přejdi na heuristiku CLUSTAL a popiš progresivní zarovnávání.",
+  "watch": [
+   "Složitost exaktního DP roste exponenciálně s počtem sekvencí — proto heuristiky.",
+   "CLUSTAL kroky: párové zarovnání → guide tree (NJ) → progresivní zarovnání.",
+   "\"Once a gap, always a gap\" — chyby z brzkých kroků se nezvrátí.",
+   "Skórování přes sum-of-pairs, role substituční matice a gap penalty.",
+   "Zmínit zarovnávání profilů (profile-profile), ne jen sekvence-sekvence."
+  ],
+  "grounded": false
+ },
+ "BIF/fylogeneticke-stromy": {
+  "opener": "Začni rozlišením vstupů: distanční metody pracují s maticí vzdáleností, znakové metody přímo se zarovnáním. Pak projdi tři rodiny — distanční (UPGMA, NJ), parsimonie a maximum likelihood.",
+  "watch": [
+   "UPGMA předpokládá molekulární hodiny (ultrametrika); NJ ne.",
+   "Maximální parsimonie minimalizuje počet mutací — pozor na long-branch attraction.",
+   "ML potřebuje model substituce (např. Jukes-Cantor) a maximalizuje věrohodnost.",
+   "Rozlišuj zakořeněný vs. nezakořeněný strom a roli outgroupu.",
+   "Spolehlivost větví: bootstrap; topologie vs. délky hran."
+  ],
+  "grounded": false
+ },
+ "BIF/sekvenace-dna": {
+  "opener": "Začni přehledem generací sekvenace: Sangerova (chain-termination) → NGS/Illumina (krátké čtení, sequencing-by-synthesis) → nanopore/PacBio (dlouhá čtení). Pak přejdi na sestavování fragmentů jako řešení překryvů čtení.",
+  "watch": [
+   "Sanger vs. NGS: délka čtení vs. propustnost a chybovost.",
+   "De novo (overlap nebo de Bruijn graf) vs. mapování na referenci.",
+   "De Bruijn graf: k-mery jako hrany, problém s opakováními (repeats).",
+   "Pojmy: coverage/hloubka, contig, scaffold, N50.",
+   "Shotgun sekvenace a proč dlouhá čtení pomáhají přes repetice."
+  ],
+  "grounded": false
+ },
+ "BIF/genomy-anotace": {
+  "opener": "Začni rozlišením strukturní anotace (kde jsou geny — predikce ORF, exonů/intronů) a funkční anotace (co dělají — Gene Ontology, homologie). Pak vysvětli strukturu GO jako řízeného slovníku.",
+  "watch": [
+   "GO tři domény: molecular function, biological process, cellular component.",
+   "GO je DAG (ne strom) — termy mají více rodičů; is-a, part-of vztahy.",
+   "Funkční anotace přenosem přes homologii (BLAST) — riziko šíření chyb.",
+   "Znát klíčové databáze: GenBank/EMBL, UniProt, Ensembl/RefSeq.",
+   "Strukturní predikce genů: ORF, splice sites, HMM (eukaryota vs. prokaryota)."
+  ],
+  "grounded": false
+ },
+ "PBI/genomika-metagenomika": {
+  "opener": "Začni vymezením genomiky (jeden organismus) versus metagenomiky (DNA celého společenstva přímo z prostředí, bez kultivace). Pak nakresli typickou pipeline: QC čtení → assembly/mapování → anotace/profilování.",
+  "watch": [
+   "Metagenomika obchází kultivaci — zachytí i nekultivovatelné druhy.",
+   "Amplikonové (16S rRNA) vs. shotgun metagenomické sekvenování.",
+   "Binning a taxonomické profilování složení společenstva.",
+   "Problémy: nízká pokrytí vzácných druhů, chimérické contigy, kontaminace.",
+   "Nástroje/kroky: QC (trimming), assembler, mapování čtení, klasifikace."
+  ],
+  "grounded": false
+ },
+ "PBI/biologicke-sekvence-statisticky": {
+  "opener": "Začni rámcem: biologická sekvence (DNA/protein) jako řetězec nad konečnou abecedou, který modelujeme pravděpodobnostně. Pak rozděl výklad na tři pilíře — statistický popis sekvencí, informační teorii (entropie) a strojové učení.",
+  "watch": [
+   "Markovovy modely a HMM: emisní vs. přechodové pravděpodobnosti, Viterbi pro CpG ostrovy/geny.",
+   "Shannonova entropie sekvence; sequence logo a information content na pozici (bits).",
+   "PWM/PSSM jako log-odds skóre vůči pozadí; vztah ke skórování zarovnání.",
+   "ML modely: klasifikace, embeddingy, často chtějí motivaci pro deep learning nad sekvencemi.",
+   "Nepleť pravděpodobnostní model dat se statistickou významností zásahu: E-value v BLAST je očekávaný počet náhodných zásahů s daným skóre (ne p-hodnota), p-hodnota je pravděpodobnost takového zásahu náhodou."
+  ],
+  "grounded": false
+ },
+ "BZA/rng": {
+  "opener": "Začni rozlišením TRNG (fyzikální entropie) vs. DRNG/PRNG (deterministický, ze semínka) a uveď hybridní schéma: TRNG jako zdroj entropie sázející DRBG. Pak zmiň, proč CSPRNG potřebuje nepředvídatelnost dopředu i zpětně.",
+  "watch": [
+   "AIS-31 třídy (PTG.1–PTG.3, DRG.x): co která garantuje, online testy zdroje.",
+   "NIST SP 800-22 testy náhodnosti — testují kvalitu, NEdokazují bezpečnost.",
+   "Linux: /dev/random vs. /dev/urandom, getrandom(), blokování a entropy pool.",
+   "PUF jako zdroj náhodnosti/identity: variabilita výroby, fuzzy extractor, helper data.",
+   "Časté: rozdíl entropie vs. statistická náhodnost; backtracking/forward secrecy DRBG."
+  ],
+  "grounded": false
+ },
+ "KRY/klasicke|KRY/rotorove": {
+  "opener": "Začni klasifikací: substituce (mono- vs. polyalfabetická) vs. transpozice, a zmiň steganografii jako ukrytí existence zprávy (vs. šifrování obsahu). Pak přejdi přes Vigenère k rotorovým strojům jako mechanizaci polyalfabetické substituce.",
+  "watch": [
+   "Monoalfabetická substituce: frekvenční analýza; Caesar je speciální případ.",
+   "Vigenère: Kasiského test / index koincidence pro nalezení délky klíče.",
+   "One-time pad: dokonalá bezpečnost jen při náhodném, jednorázovém klíči délky zprávy.",
+   "Enigma: zapojení rotorů, reflektor (žádné písmeno na sebe) a propojovací deska.",
+   "Útok na Enigmu: cribs, bomba; reflektor zakazuje samozobrazení — slabina využitá při luštění."
+  ],
+  "grounded": false
+ }
+}

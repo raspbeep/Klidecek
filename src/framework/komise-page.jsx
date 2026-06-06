@@ -495,7 +495,7 @@ export function KomisePage({ content, navigate }) {
         <div className="page-eyebrow">Státnice · co se ptají</div>
         <h1 className="page-title">Komise</h1>
         <p className="page-blurb">
-          Z čeho zkoušeli jednotliví komisaři u státnic (MSZ 2023–2025), namapováno na
+          Z čeho zkoušeli jednotliví komisaři u státnic (MSZ 2018–2025), namapováno na
           okruhy. Zadáš, kdo tě bude zkoušet, a uvidíš, co si zopakovat přednostně.
         </p>
       </div>

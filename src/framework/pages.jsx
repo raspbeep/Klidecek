@@ -948,6 +948,54 @@ export function ExamPage({ content, navigate }) {
   );
 }
 
+/* One okruh row in the exam chooser, with a collapsible "speedrun" (default collapsed):
+ * how to start speaking + what to watch for, grounded in past committee questions. */
+function ExamTopicCard({ content, specId, t, set, navigate }) {
+  const [open, setOpen] = useState(false);
+  const total = t.refs.length;
+  const done = t.refs.filter(([c, tp, s]) => set.has(`${c}/${tp}/${s}`)).length;
+  const blank = !topicHasContent(content, t);
+  const hasLinks = (t.resources && t.resources.length > 0);
+  const sr = content.speedrunFor ? content.speedrunFor(t) : null;
+  return (
+    <div className="exam-topic-card" data-blank={blank} data-has-speedrun={!!sr}>
+      <button className="exam-topic-row" onClick={() => navigate(`/x/${specId}/${t.id}`)}>
+        <span className="exam-topic-n">{String(t.n).padStart(2, "0")}</span>
+        <span className="exam-topic-title">{t.title}</span>
+        {blank
+          ? (hasLinks
+            ? <span className="exam-links-pill" title={`${t.resources.length} external resources`}>{t.resources.length} link{t.resources.length === 1 ? "" : "s"}</span>
+            : <UnavailPill label="empty" />)
+          : <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-faint)" }}>{done}/{total}</span>}
+        <span className="exam-topic-tags">
+          {t.sharedWith && t.sharedWith.length > 0 && <SpecDots content={content} specs={t.sharedWith} />}
+        </span>
+      </button>
+      {sr && (
+        <>
+          <button className="exam-speedrun-toggle" data-open={open} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+            <span className="exam-speedrun-ic">⚡</span>
+            <span>Rychlý start</span>
+            {sr.grounded && <span className="exam-speedrun-tag" title="Sestaveno z dřívějších dotazů u komise">dle komise</span>}
+            <span className="exam-speedrun-caret">{open ? "▾ skrýt" : "▸ rozbalit"}</span>
+          </button>
+          {open && (
+            <div className="exam-speedrun-body">
+              <p className="exam-speedrun-opener">{sr.opener}</p>
+              {sr.watch && sr.watch.length > 0 && (
+                <ul className="exam-speedrun-watch">
+                  {sr.watch.map((w, i) => <li key={i}>{w}</li>)}
+                </ul>
+              )}
+              {!blank && <button className="exam-speedrun-full" onClick={() => navigate(`/x/${specId}/${t.id}`)}>Otevřít celý okruh →</button>}
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
 export function ExamSpecPage({ content, specId, navigate }) {
   const spec = content.findSpec(specId);
   const { examStats, set } = useProgress(content);
@@ -974,26 +1022,9 @@ export function ExamSpecPage({ content, specId, navigate }) {
       <ExamSpecHistogram specId={specId} topics={topics} navigate={navigate} />
 
       <div className="exam-topiclist">
-        {topics.map((t) => {
-          const total = t.refs.length;
-          const done = t.refs.filter(([c, tp, s]) => set.has(`${c}/${tp}/${s}`)).length;
-          const blank = !topicHasContent(content, t);
-          const hasLinks = (t.resources && t.resources.length > 0);
-          return (
-            <button key={t.id} className="exam-topic-card" data-blank={blank} onClick={() => navigate(`/x/${specId}/${t.id}`)}>
-              <span className="exam-topic-n">{String(t.n).padStart(2, "0")}</span>
-              <span className="exam-topic-title">{t.title}</span>
-              {blank
-                ? (hasLinks
-                  ? <span className="exam-links-pill" title={`${t.resources.length} external resources`}>{t.resources.length} link{t.resources.length === 1 ? "" : "s"}</span>
-                  : <UnavailPill label="empty" />)
-                : <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-faint)" }}>{done}/{total}</span>}
-              <span className="exam-topic-tags">
-                {t.sharedWith && t.sharedWith.length > 0 && <SpecDots content={content} specs={t.sharedWith} />}
-              </span>
-            </button>
-          );
-        })}
+        {topics.map((t) => (
+          <ExamTopicCard key={t.id} content={content} specId={specId} t={t} set={set} navigate={navigate} />
+        ))}
       </div>
     </>
   );

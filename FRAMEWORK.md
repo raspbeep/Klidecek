@@ -1314,8 +1314,26 @@ the same `key` merge across repos).
 surname-only, diacritic and word-order variants, nicknames) into canonical people via a
 curated `PEOPLE` table, and (2) maps each record onto a course topic with an
 IDF-weighted, accent-insensitive keyword matcher built from the manifest's own
-topic / sub-topic / exam-question titles. **Re-run it after renaming content topics** so
-the mapping stays in sync. See `tools/committee-data/README.md`.
+topic / sub-topic / exam-question titles. **Re-run it after renaming OR adding content
+topics/courses** so the mapping stays in sync (a question for a not-yet-added course stays
+`map:null` until the course exists and you rebuild). See `tools/committee-data/README.md`.
+
+Two refinements layered on top of the matcher:
+
+- **`MANUAL_TOPIC` overrides** (in `build.py`): the matcher reliably gets the *course* right
+  but sometimes the *topic* wrong (e.g. it filed pushdown-automata questions under the
+  regular-languages topic). `MANUAL_TOPIC` is a record-id → corrected-topic table (forced to
+  `high` confidence, or `None` for course-only) applied right after the matcher; it raises if
+  an id maps to a non-existent topic. Keys are stable for the frozen workbook — re-audit if the
+  xlsx changes.
+- **Historical years (MSZ 2018–2020)** use an older *per-committee* spreadsheet layout the
+  List-1 reader can't parse. They were extracted, audited and topic-mapped offline (high-
+  confidence-only) and persisted as **`tools/committee-data/historical-2018-2020.json`** (631
+  records, examiner + topic already resolved); `build.py` merges them directly (`hNNNN` ids;
+  the live workbook keeps `rNNNN`). Examiners there are partial/misspelled in prose → resolved
+  against each committee's roster, with same-surname people kept distinct (`ceska`/`ceska-sr`,
+  `zboril`/`zboril-sr`, `burget-l`/`-r`/`-radim`, `matousek`/`matousek-r`) by direct assignment;
+  no student names/logins are stored. Output is now MSZ 2018–2025.
 
 ### The page (`komise-page.jsx`)
 
@@ -1344,10 +1362,29 @@ The same data is surfaced where you actually revise, driven by the same shared b
   from your board to all examiners.
 - **`ExamTopicAskedBy`** (on `/x/<spec>/<topic>`) — who asked this okruh, **global by
   default** with the same toggle; board members are highlighted (and sorted first) even
-  in the global view. Hidden when no examiner is on record for the topic.
+  in the global view. Hidden when no examiner is on record for the topic. Each examiner
+  chip is **clickable**: it expands an inline detail panel with that person's actual
+  question notes for *this* okruh (the same notes format as the Komise page).
 
 `examTopicRecords()` bridges an okruh's `refs` (`[course, topic, sub]`) to the records
 mapped to those `course/topic` pairs; `whoAsked()` and `askHistogram()` aggregate them.
+
+### Per-okruh "speedrun" (`/x/<spec>` chooser)
+
+Each okruh card on the spec chooser carries a **collapsible "Rychlý start"** (default-
+collapsed) — a last-minute cheat-sheet: an `opener` ("how to start speaking") plus `watch`
+bullets ("what to be aware of / the follow-ups examiners push on"). Where past committee
+questions exist for the okruh, the speedrun is **grounded in them** (tagged "dle komise",
+`grounded:true`); otherwise it's derived from the topic structure. It never names an
+examiner (§0.8) — the who-asked list carries that separately.
+
+- Data: **`public/content/speedruns.json`**, keyed by the okruh's sorted distinct
+  `course/topic` refs (`"C1/t1|C2/t2"`). Value: `{ opener, watch:[...], grounded }`. Only
+  okruhy with content (non-empty refs) get one.
+- Loaded in `content-loader.js` (`content.SPEEDRUNS`, `content.speedrunFor(examTopic)`),
+  rendered by `ExamTopicCard` in `pages.jsx`.
+- Authored/verified offline (grounded in the merged committee records) — regenerate when
+  topics or the committee data change.
 
 ### Shared state (`komise-context.jsx`)
 
