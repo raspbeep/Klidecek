@@ -105,6 +105,36 @@ PEOPLE = {
     "zemcik":     ("Zemčík", "Pavel", "prof. Dr. Ing.", []),
     "vasicek":    ("Vašíček", "Zdeněk", "doc. Ing., Ph.D.", []),
     "korenek":    ("Kořenek", "Jan", "doc. Ing., Ph.D.", []),
+    # Examiners that appear (so far) only in the historical MSZ 2018–2020 set. memberKey is
+    # assigned offline from the per-committee rosters (see historical-2018-2020.json), so the
+    # collision splits below are reached by that direct assignment, NOT by member_key() —
+    # member_key() still resolves the bare surname to the present-day person.
+    "drahansky":   ("Drahanský", "Martin", "prof. Ing., Ph.D.", []),
+    "orsag":       ("Orság", "Filip", "Ing., Ph.D.", []),
+    "zendulka":    ("Zendulka", "Jaroslav", "doc. Ing., CSc.", []),
+    "szoke":       ("Szőke", "Igor", "Ing., Ph.D.", []),
+    "kekely":      ("Kekely", "Lukáš", "Ing., Ph.D.", []),
+    "zeman":       ("Zeman", "Václav", "doc. Ing., Ph.D.", []),
+    "hrdina":      ("Hrdina", "Jaroslav", "doc. Mgr., Ph.D.", []),
+    "seda":        ("Šeda", "Miloš", "prof. RNDr. Ing., Ph.D.", []),
+    "pavlik":      ("Pavlík", "Jan", "Mgr., Ph.D.", []),
+    "rybicka":     ("Rybička", "Jiří", "doc. Ing. Dr.", []),
+    "polasek":     ("Polášek", "Ivan", "doc. Ing., Ph.D.", []),
+    "holub":       ("Holub", "Jan", "prof. Ing., Ph.D.", []),
+    "slapal":      ("Šlapal", "Josef", "prof. RNDr., CSc.", []),
+    "vranic":      ("Vranić", "Valentino", "doc. Ing., Ph.D.", []),
+    "hladka":      ("Hladká", "Eva", "doc. RNDr., Ph.D.", []),
+    "lacko":       ("Lacko", "Peter", "doc. Ing., Ph.D.", []),
+    "sedlak":      ("Sedlák", "Petr", "doc. Ing., Ph.D.", []),
+    "sochor":      ("Sochor", "Jiří", "prof. Ing., CSc.", []),
+    "trenz":       ("Trenz", "Oldřich", "doc. Ing., Ph.D.", []),
+    "lucka":       ("Lucká", "Mária", "prof. RNDr., Ph.D.", []),
+    # Same-surname different people, kept distinct from the present-day person:
+    "ceska-sr":    ("Češka st.", "Milan", "prof. RNDr., CSc.", []),       # senior (Petri nets), vs ceska (jr)
+    "zboril-sr":   ("Zbořil st.", "František V.", "doc. Ing., CSc.", []),  # senior, vs zboril (jr)
+    "burget-radim":("Burget", "Radim", "doc. Ing., Ph.D.", []),           # FEKT, vs burget-l / burget-r
+    "matousek-r":  ("Matoušek", "Radomil", "doc. Ing., Ph.D.", []),       # FSI, vs matousek (Petr)
+    "janousek-j":  ("Janoušek", "Jan", "doc. Ing., Ph.D.", []),           # ČVUT, vs janousek (Vladimír)
 }
 # folded alias token -> canonical key
 ALIAS = {}
@@ -461,6 +491,39 @@ def main():
             "map": mp,
         })
 
+    # ── merge curated historical records (MSZ 2018–2020) ──
+    # The older years use a per-committee spreadsheet layout the List-1 reader can't parse;
+    # they were extracted, audited and topic-mapped offline (historical-2018-2020.json) with
+    # examiner identity + topic already resolved, so they're merged directly here.
+    HIST = ROOT / "tools" / "committee-data" / "historical-2018-2020.json"
+    n_hist = n_hist_mapped = 0
+    if HIST.exists():
+        for j, h in enumerate(json.loads(HIST.read_text(encoding="utf-8"))):
+            key = h.get("memberKey")
+            if key:
+                if key not in PEOPLE:
+                    raise SystemExit(f"historical memberKey {key!r} missing from PEOPLE")
+                m = members.setdefault(key, {
+                    "key": key, "surname": PEOPLE[key][0], "first": PEOPLE[key][1],
+                    "titles": PEOPLE[key][2], "aliases": set(), "count": 0})
+                m["count"] += 1
+                if h.get("examiner"):
+                    m["aliases"].add(h["examiner"])
+            mp = h.get("map")  # {course, topic, examTitle, confidence} or null (already resolved)
+            records.append({
+                "id": f"h{j:04d}",
+                "session": h["session"],
+                "memberKey": key,
+                "course": (mp or {}).get("course") or "",
+                "num": h.get("num"),
+                "title": h.get("title"),
+                "text": h.get("text"),
+                "map": mp,
+            })
+            n_hist += 1
+            if mp:
+                n_hist_mapped += 1
+
     member_list = []
     for key, m in members.items():
         m["aliases"] = sorted(m["aliases"])
@@ -475,7 +538,7 @@ def main():
         "schema": "klidecek-komise/v1",
         "name": "FIT VUT — MSZ komise",
         "description": "Co se u státnic (MSZ) ptali jednotliví komisaři, namapováno na "
-                       "okruhy. Zdroj: studentské zápisky z MSZ 2024–2025.",
+                       "okruhy. Zdroj: studentské zápisky z MSZ 2018–2025.",
         "sourceFile": XLSX.name,
         "version": "2026.06",
         "members": member_list,
@@ -493,6 +556,7 @@ def main():
     print(f"  mapped low conf    : {n_map_low}")
     print(f"  course-only        : {n_map_course}")
     print(f"  course unknown     : {n_unmapped}")
+    print(f"historical merged    : {n_hist} (MSZ 2018–2020; {n_hist_mapped} topic-mapped)")
     unknown = sum(1 for r in records if not r["memberKey"])
     print(f"records w/o member   : {unknown}")
     print(f"\noutput: {OUT.relative_to(ROOT)}  ({OUT.stat().st_size//1024} KB)")
