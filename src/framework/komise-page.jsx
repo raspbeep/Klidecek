@@ -13,6 +13,14 @@ import {
 } from "./komise.js";
 import { useKomise } from "./komise-context.jsx";
 
+/* small line icons, sized to sit inline with button text (matches the app's 24-grid stroke set) */
+const Ic = (d, sw = 2) => (p) => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...p}>{d}</svg>
+);
+const IconDownload = Ic(<><path d="M12 3v11" /><path d="m8 11 4 4 4-4" /><path d="M5 21h14" /></>);
+const IconLink = Ic(<><path d="M9 15 15 9" /><path d="M11 6.5 12 5.5a4 4 0 0 1 5.7 5.7l-1 1" /><path d="M13 17.5 12 18.5a4 4 0 0 1-5.7-5.7l1-1" /></>);
+const IconUsers = Ic(<><path d="M15 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1" /><circle cx="8.5" cy="8" r="3.2" /><path d="M16 5a3.2 3.2 0 0 1 0 6.2M22 19v-1a4 4 0 0 0-3-3.8" /></>);
+
 /* Save / share / export bar for the selected commission. */
 function ExportBar({ index, board }) {
   const [copied, setCopied] = useState(false);
@@ -35,12 +43,21 @@ function ExportBar({ index, board }) {
   const n = index.records.filter((r) => board.includes(r.memberKey)).length;
   return (
     <div className="komise-export">
-      <span className="komise-export-label">Ulož / sdílej výběr ({n} otázek):</span>
-      <button className="btn" onClick={copyLink} title="Odkaz s tvojí komisí — ulož do záložek nebo pošli dál">
-        {copied ? "✓ Zkopírováno" : "Zkopírovat odkaz"}
-      </button>
-      <button className="btn" onClick={dlJSON} title="Export otázek jako JSON">Stáhnout JSON</button>
-      <button className="btn" onClick={dlCSV} title="Export otázek jako tabulku (CSV pro Excel)">Stáhnout CSV</button>
+      <span className="komise-export-label">
+        Ulož / sdílej výběr <b className="komise-export-count">{n} otázek</b>
+      </span>
+      <div className="komise-export-actions">
+        <button className="komise-xbtn" data-on={copied} onClick={copyLink} title="Odkaz s tvojí komisí — ulož do záložek nebo pošli dál">
+          <IconLink /> {copied ? "Zkopírováno" : "Odkaz"}
+        </button>
+        <span className="komise-xsep" aria-hidden="true" />
+        <button className="komise-xbtn dl" onClick={dlCSV} title="Export otázek jako tabulku (CSV pro Excel)">
+          <IconDownload /> CSV
+        </button>
+        <button className="komise-xbtn dl" onClick={dlJSON} title="Export otázek jako JSON">
+          <IconDownload /> JSON
+        </button>
+      </div>
     </div>
   );
 }
@@ -225,11 +242,11 @@ function MinMaxView({ content, index, board, setBoard, navigate, memberNameOf })
         <MemberPicker members={index.members} board={board} onAdd={toggle} />
         {index.members.length > board.length && (
           <button
-            className="btn ghost komise-addall"
+            className="komise-addall"
             onClick={() => setBoard(index.members.map((m) => m.key))}
             title="Vybrat všechny komisaře — pak můžeš stáhnout úplně všechny otázky (CSV/JSON)"
           >
-            + Všichni komisaři ({index.members.length})
+            <IconUsers /> Všichni komisaři <span className="komise-addall-n">{index.members.length}</span>
           </button>
         )}
       </div>

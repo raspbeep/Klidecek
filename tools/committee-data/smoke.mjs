@@ -169,10 +169,10 @@ try {
   await page.waitForFunction(() => /komise=/.test(location.search), { timeout: 6000 }).catch(() => {});
   const urlParam = await page.evaluate(() => location.search);
   ok(`selection encoded in URL (${urlParam || 'none'})`, /komise=/.test(urlParam));
-  const expectN = await page.$eval('.komise-export-label', el => parseInt((el.textContent.match(/\((\d+)/) || [])[1], 10));
+  const expectN = await page.$eval('.komise-export-count', el => parseInt(el.textContent, 10));
 
   // CSV export — real download, round-tripped
-  await page.evaluate(() => [...document.querySelectorAll('.komise-export .btn')].find(b => /CSV/.test(b.textContent)).click());
+  await page.evaluate(() => [...document.querySelectorAll('.komise-export .komise-xbtn')].find(b => /CSV/.test(b.textContent)).click());
   const csv = fs.readFileSync(await waitForFile(DL, /\.csv$/), 'utf8');
   const rows = parseCSV(csv);
   const allSixCols = rows.every(r => r.length === 6);
@@ -180,7 +180,7 @@ try {
      csv.charCodeAt(0) === 0xFEFF && /Komisař/.test(rows[0].join(',')) && rows.length - 1 === expectN && allSixCols);
 
   // JSON export
-  await page.evaluate(() => [...document.querySelectorAll('.komise-export .btn')].find(b => /JSON/.test(b.textContent)).click());
+  await page.evaluate(() => [...document.querySelectorAll('.komise-export .komise-xbtn')].find(b => /JSON/.test(b.textContent)).click());
   const obj = JSON.parse(fs.readFileSync(await waitForFile(DL, /\.json$/), 'utf8'));
   ok(`JSON: valid schema + ${obj.count} records = count`,
      obj.schema === 'klidecek-komise-export/v1' && obj.records.length === obj.count && obj.count === expectN);

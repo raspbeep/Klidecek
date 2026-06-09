@@ -11,6 +11,12 @@ import { useState, useEffect, useMemo } from "react";
 import { useKomise } from "./komise-context.jsx";
 import { askHistogram, whoAsked, examTopicRecords, buildExamTopicExport, exportToCSV, downloadText } from "./komise.js";
 
+const IconDownload = (p) => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...p}>
+    <path d="M12 3v11" /><path d="m8 11 4 4 4-4" /><path d="M5 21h14" />
+  </svg>
+);
+
 /* The raw "what was asked" notes for one examiner on this okruh — same shape as the
  * Komise page's detail, but scoped to the topic you're currently viewing. */
 function MemberNotes({ records }) {
@@ -133,7 +139,7 @@ export function ExamTopicAskedBy({ topic }) {
           {hasBoard && <ScopeToggle scope={scope} setScope={setScope} />}
           {dlCount > 0 && (
             <span className="komise-asked-dl" title={scope === "board" ? "Stáhnout otázky tvé komise k tomuto okruhu" : "Stáhnout všechny otázky k tomuto okruhu"}>
-              <span className="komise-asked-dl-label">Stáhnout</span>
+              <IconDownload className="komise-asked-dl-ic" />
               <button type="button" className="komise-asked-dl-btn" onClick={dlCSV}>CSV</button>
               <button type="button" className="komise-asked-dl-btn" onClick={dlJSON}>JSON</button>
             </span>
