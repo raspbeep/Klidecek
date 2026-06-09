@@ -1255,6 +1255,7 @@ leaf dot.
 | `src/framework/komise.js`         | Komise data layer — repository list (localStorage), fetch+merge, index, min-max ranking, exam-topic bridge (§11). |
 | `src/framework/komise-context.jsx`| `KomiseProvider`/`useKomise` — app-wide shared board + lazily-loaded index (§11). |
 | `src/framework/komise-page.jsx`   | The `/k` page: min-max by commission, browse by examiner, manage repositories (§11). |
+| `src/framework/komise-2026.js`    | Static MSZ June 2026 committee roster — "číslo komise" lookup data (§11). |
 | `src/framework/komise-exam.jsx`   | Committee histogram + who-asked widgets embedded in the exam-prep pages (§11). |
 | `src/framework/progress.js`       | localStorage + React hooks for progress, collapse state (per-key defaults for tiers), and user tweaks. |
 | `src/app.jsx`                     | History-API (clean-path) router (legacy `#/…` auto-rewritten), theme, sheets, app shell. |
@@ -1347,6 +1348,18 @@ Three tabs:
   a link pre-fills the board. The selection can also be **exported**: "Stáhnout JSON" /
   "Stáhnout CSV" (`buildCommissionExport` + `exportToCSV` — RFC-4180, UTF-8 BOM for Excel)
   dump every question those examiners asked.
+
+  At the top sits the **committee-number lookup** (`CommitteeLookup` +
+  `komise-2026.js`): enter the official "číslo komise" from the MSZ June 2026 roster and
+  the whole committee is added to the board. The schedule is *static data transcribed from
+  the official roster* (`COMMITTEES_2026` — numbers, date, room, spec, six people with
+  roles), with each person carrying the member key(s) of the default repository. New
+  examiners with no historical records have `keys: []` and are reported as "bez záznamů"
+  instead of being silently added; if the board already held people *outside* the entered
+  committee, an inline prompt offers to drop them (extras are derived live from the board,
+  so hand-removing chips updates/dismisses the prompt). "Zbořil st." intentionally maps to
+  both `zboril-sr` *and* the merged `zboril` pool — most surname-only Zbořil records can't
+  be told apart. **Update `komise-2026.js` each year** when the new roster is published.
 - **Komisaři** (browse) — every examiner and the topics they asked; "+ do komise" feeds
   the min-max selection.
 - **Repozitáře** — add/remove/enable repository URLs; shows per-repo load status and

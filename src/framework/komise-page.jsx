@@ -12,6 +12,7 @@ import {
   buildCommissionExport, exportToCSV, parseBoardParam, downloadText,
 } from "./komise.js";
 import { useKomise } from "./komise-context.jsx";
+import { SEASON_2026, findCommittee2026, formatNumbers, numbersHint } from "./komise-2026.js";
 
 /* small line icons, sized to sit inline with button text (matches the app's 24-grid stroke set) */
 const Ic = (d, sw = 2) => (p) => (
@@ -161,7 +162,7 @@ function MemberPicker({ members, board, onAdd }) {
       {open && (
         <ul className="komise-suggest" role="listbox">
           {suggestions.length === 0 ? (
-            <li className="komise-suggest-empty">{q.trim() ? `Nikdo neodpovídá „${q}".` : "Všichni komisaři už jsou ve výběru."}</li>
+            <li className="komise-suggest-empty">{q.trim() ? `Nikdo neodpovídá „${q}“.` : "Všichni komisaři už jsou ve výběru."}</li>
           ) : suggestions.map((m, i) => (
             <li
               key={m.key}
@@ -181,6 +182,133 @@ function MemberPicker({ members, board, onAdd }) {
             </li>
           ))}
         </ul>
+      )}
+    </div>
+  );
+}
+
+/* ─── committee-number lookup (static 2026 schedule) ──────────
+ * Enter the "číslo komise" from the official roster and the whole committee lands on
+ * the board. Members the data knows nothing about are reported instead of added; if
+ * the board already held people OUTSIDE the committee, an inline prompt asks whether
+ * to drop them. The extras are SNAPSHOTTED at apply time (matched against every
+ * committee key, with data or not) and the snapshot only ever SHRINKS: once a key
+ * leaves the board — by "Odebrat" or by hand — it stops being this lookup's business,
+ * so members the user deliberately (re-)adds afterwards are never nagged about. */
+function CommitteeLookup({ index, board, setBoard, memberNameOf }) {
+  const [q, setQ] = useState("");
+  const [res, setRes] = useState(null); // {error} | {committee, addedN, anyData, noData, extrasAtApply, keepExtras}
+
+  useEffect(() => {
+    if (!res || res.error || !res.extrasAtApply.length) return;
+    const pruned = res.extrasAtApply.filter((k) => board.includes(k));
+    if (pruned.length !== res.extrasAtApply.length) setRes({ ...res, extrasAtApply: pruned });
+  }, [board, res]);
+
+  const extras = useMemo(() => {
+    if (!res || res.error || res.keepExtras) return [];
+    const snap = new Set(res.extrasAtApply);
+    return board.filter((k) => snap.has(k));
+  }, [res, board]);
+
+  const apply = () => {
+    const c = findCommittee2026(q);
+    if (!c) {
+      setRes({ error: q.trim()
+        ? `Komisi „${q.trim()}“ v rozpisu nenajdeme — zkus číslo ${numbersHint()}.`
+        : `Zadej číslo komise (${numbersHint()}).` });
+      return;
+    }
+    const targetKeys = []; // addable: this index has records for them
+    const noData = [];
+    for (const p of c.people) {
+      const ks = p.keys.filter((k) => index.byKey.has(k));
+      if (ks.length) targetKeys.push(...ks);
+      else noData.push(p.name);
+    }
+    const added = targetKeys.filter((k) => !board.includes(k));
+    // committee membership ≠ having data: extras are judged against ALL committee
+    // keys, so switching repositories can't declare real committee members "extra"
+    const committee = new Set(c.people.flatMap((p) => p.keys));
+    const extrasAtApply = board.filter((k) => !committee.has(k));
+    if (added.length) setBoard([...board, ...added]);
+    // a no-op re-apply of the same committee keeps an earlier "Nechat" dismissal
+    const keepExtras = !!(res && !res.error && res.committee === c && !added.length && res.keepExtras);
+    setRes({ committee: c, addedN: added.length, anyData: targetKeys.length > 0, noData, extrasAtApply, keepExtras });
+  };
+
+  const c = res && res.committee;
+  return (
+    <div className="komise-lookup">
+      <div className="komise-lookup-row">
+        <label className="komise-lookup-label" htmlFor="komise-cislo">
+          Znáš číslo své komise?<span className="komise-lookup-season">{SEASON_2026}</span>
+        </label>
+        <input
+          id="komise-cislo"
+          className="komise-picker-input komise-lookup-input"
+          value={q}
+          onChange={(e) => { setQ(e.target.value); }}
+          onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); apply(); } }}
+          placeholder="např. 73"
+          inputMode="numeric"
+          autoComplete="off"
+          spellCheck={false}
+        />
+        <button className="btn primary komise-lookup-btn" onClick={apply}>Vyplnit komisi</button>
+      </div>
+
+      {res && (
+        <div className="komise-lookup-result" aria-live="polite">
+          {res.error ? (
+            <div className="komise-lookup-err">{res.error}</div>
+          ) : (
+            <>
+              <div className="komise-lookup-meta">
+                <b>Komise {formatNumbers(c.numbers)}</b> · {c.date} · {c.room}
+                <span className="search-chip">{c.spec}</span>
+                <span className="komise-muted">
+                  {res.addedN > 0 ? `přidáno ${res.addedN}`
+                    : res.anyData ? "všichni už ve výběru byli"
+                    : "nikdo z komise nemá v datech záznamy"}
+                </span>
+              </div>
+              <div className="komise-lookup-people">
+                {c.people.map((p) => (
+                  <span key={p.name} className="komise-lookup-person" data-nodata={p.keys.length === 0 || !p.keys.some((k) => index.byKey.has(k))}>
+                    {p.role && <em>{p.role === "místopředseda" ? "místopř." : p.role}</em>}
+                    {p.name}
+                  </span>
+                ))}
+              </div>
+              {res.noData.length > 0 && (
+                <div className="komise-lookup-note">
+                  Bez záznamů v datech: <b>{res.noData.join(", ")}</b> — v žebříčku se neobjeví.
+                </div>
+              )}
+              {extras.length > 0 && (
+                <div className="komise-lookup-extras">
+                  <span>
+                    Ve výběru máš i komisaře mimo komisi {formatNumbers(c.numbers)}:{" "}
+                    <b>{extras.map((k) => memberNameOf(k)).join(", ")}</b>
+                  </span>
+                  <span className="komise-lookup-extras-btns">
+                    <button
+                      className="btn komise-lookup-drop"
+                      onClick={() => {
+                        const drop = new Set(extras);
+                        setBoard(board.filter((k) => !drop.has(k)));
+                      }}
+                    >
+                      Odebrat ({extras.length})
+                    </button>
+                    <button className="btn ghost" onClick={() => setRes({ ...res, keepExtras: true })}>Nechat</button>
+                  </span>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       )}
     </div>
   );
@@ -240,6 +368,8 @@ function MinMaxView({ content, index, board, setBoard, navigate, memberNameOf })
         nejdřív.
       </p>
 
+      <CommitteeLookup index={index} board={board} setBoard={setBoard} memberNameOf={memberNameOf} />
+
       <div className="komise-pick-row">
         <MemberPicker members={index.members} board={board} onAdd={toggle} />
         {index.members.length > board.length && (
@@ -273,7 +403,7 @@ function MinMaxView({ content, index, board, setBoard, navigate, memberNameOf })
       {board.length === 0 ? (
         <div className="komise-empty komise-empty-hint">
           <IconChevron className="komise-empty-arrow" />
-          Vyber komisaře výše — nebo přidej rovnou všechny.
+          Zadej číslo komise, vyber komisaře výše — nebo přidej rovnou všechny.
         </div>
       ) : ranked.topics.length === 0 && ranked.loose.length === 0 ? (
         <div className="komise-empty">Od vybraných komisařů zatím nemáme žádné záznamy.</div>

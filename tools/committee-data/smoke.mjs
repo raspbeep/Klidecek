@@ -67,14 +67,15 @@ try {
   ok('komise page renders tabs', true);
 
   // data loads from the repository — combobox suggests examiners on focus
-  await page.waitForSelector('.komise-picker-input', { timeout: 25000 });
-  await page.click('.komise-picker-input');
+  // (scoped to .komise-combo — the committee-number lookup reuses the input class)
+  await page.waitForSelector('.komise-combo .komise-picker-input', { timeout: 25000 });
+  await page.click('.komise-combo .komise-picker-input');
   await page.waitForSelector('.komise-suggest-item', { timeout: 25000 });
   const sugg = await page.$$eval('.komise-suggest-item', els => els.length);
   ok(`type-ahead suggests examiners (${sugg})`, sugg > 0);
 
   // type a name -> filtered suggestions -> pick it (mousedown adds)
-  await page.type('.komise-picker-input', 'kriv');
+  await page.type('.komise-combo .komise-picker-input', 'kriv');
   await page.waitForFunction(() => {
     const el = document.querySelector('.komise-suggest-item .komise-suggest-name');
     return el && /Křivka/.test(el.textContent);
@@ -190,6 +191,44 @@ try {
   await page.waitForSelector('.komise-board .komise-chip', { timeout: 12000 });
   const boardChips = await page.$$eval('.komise-board .komise-chip', els => els.map(e => e.textContent).join(' '));
   ok(`shared link pre-fills board (${boardChips.replace(/\s+/g, ' ').trim().slice(0, 40)})`, /Malinka/.test(boardChips));
+
+  // ── committee-number lookup (2026 schedule) ──
+  // board currently holds the shared-link members, who sit OUTSIDE committee 73
+  await page.waitForSelector('.komise-lookup-input', { timeout: 8000 });
+  const chipsBefore = await page.$$eval('.komise-board .komise-chip', e => e.length);
+  await page.type('.komise-lookup-input', '73');
+  await page.click('.komise-lookup-btn');
+  await page.waitForSelector('.komise-lookup-result', { timeout: 5000 });
+  const lkMeta = await page.$eval('.komise-lookup-meta', el => el.textContent).catch(() => '');
+  ok(`lookup finds committee 73 (${lkMeta.replace(/\s+/g, ' ').slice(0, 44)})`, /Komise 73/.test(lkMeta) && /NADE/.test(lkMeta));
+  const chipsAfter = await page.$$eval('.komise-board .komise-chip', e => e.length);
+  ok(`lookup adds the 5 members with data (${chipsBefore}→${chipsAfter})`, chipsAfter === chipsBefore + 5);
+  const lkNote = await page.$eval('.komise-lookup-note', el => el.textContent).catch(() => '');
+  ok('lookup reports the no-data member (Jaroš M.)', /Jaroš M\./.test(lkNote));
+
+  // members outside the committee → inline prompt offers to drop them
+  const lkExtras = await page.$eval('.komise-lookup-extras', el => el.textContent).catch(() => '');
+  ok(`extras prompt lists outside members (${lkExtras.replace(/\s+/g, ' ').slice(0, 56)})`, /Malinka/.test(lkExtras) && /Odebrat/.test(lkExtras));
+  await page.evaluate(() => [...document.querySelectorAll('.komise-lookup-extras button')].find(b => /Odebrat/.test(b.textContent)).click());
+  await page.waitForFunction(() => !document.querySelector('.komise-lookup-extras'), { timeout: 5000 });
+  const finalChips = await page.$$eval('.komise-board .komise-chip', els => els.map(e => e.textContent).join(' '));
+  const finalN = await page.$$eval('.komise-board .komise-chip', e => e.length);
+  ok(`drop extras → board is exactly committee 73 (${finalN} chips)`, finalN === 5 && !/Malinka/.test(finalChips) && /Meduna/.test(finalChips));
+
+  // deliberate post-lookup additions (incl. re-adding dropped members via add-all)
+  // must NOT re-arm the extras prompt
+  await page.evaluate(() => document.querySelector('.komise-addall')?.click());
+  await page.waitForFunction(() => document.querySelectorAll('.komise-board .komise-chip').length > 5, { timeout: 5000 });
+  const rearmed = await page.$('.komise-lookup-extras');
+  ok('add-all after lookup does not re-arm the extras prompt', !rearmed);
+
+  // unknown number → friendly error with the valid ranges
+  await page.click('.komise-lookup-input', { clickCount: 3 });
+  await page.type('.komise-lookup-input', '999');
+  await page.click('.komise-lookup-btn');
+  await page.waitForSelector('.komise-lookup-err', { timeout: 5000 });
+  const lkErr = await page.$eval('.komise-lookup-err', el => el.textContent);
+  ok(`unknown number shows the ranges hint (${lkErr.slice(0, 36)}…)`, /nenajdeme/.test(lkErr) && /60–66/.test(lkErr));
 
 } catch (e) {
   ok('exception: ' + e.message, false);
