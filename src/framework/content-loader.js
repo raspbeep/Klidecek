@@ -27,6 +27,23 @@ function joinBase(p) {
   return (BASE.endsWith("/") ? BASE : BASE + "/") + p.replace(/^\//, "");
 }
 
+// Cap concurrent fetches. The catalogue has 700+ MD files; firing them all at once
+// can exhaust the browser's request pool (net::ERR_INSUFFICIENT_RESOURCES) and the
+// starved subtopics then render as "failed to load" stubs until a reload.
+function makeLimiter(max) {
+  let active = 0;
+  const queue = [];
+  const release = () => {
+    active--;
+    if (queue.length) { active++; queue.shift()(); }
+  };
+  return async (fn) => {
+    if (active >= max) await new Promise((resolve) => queue.push(resolve));
+    else active++;
+    try { return await fn(); } finally { release(); }
+  };
+}
+
 export async function loadContent(manifestUrl = "content/manifest.json") {
   const manifestResp = await fetch(joinBase(manifestUrl), { cache: "no-cache" });
   if (!manifestResp.ok) throw new Error(`Failed to load manifest: ${manifestResp.status}`);
@@ -43,6 +60,7 @@ export async function loadContent(manifestUrl = "content/manifest.json") {
   } catch { /* ignore — verified list is optional */ }
 
   // Hydrate each subtopic with the parsed MD content.
+  const limit = makeLimiter(24);
   const courses = await Promise.all(
     (manifest.courses || []).map(async (course) => {
       const courseVerified = verifiedSet.has(course.id);
@@ -56,9 +74,11 @@ export async function loadContent(manifestUrl = "content/manifest.json") {
                 return { ...sub, blocks: [], verified: subVerified, tier: parseTier(sub.tier) };
               }
               try {
-                const r = await fetch(joinBase(sub.src), { cache: "no-cache" });
-                if (!r.ok) throw new Error(`HTTP ${r.status}`);
-                const text = await r.text();
+                const text = await limit(async () => {
+                  const r = await fetch(joinBase(sub.src), { cache: "no-cache" });
+                  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                  return r.text();
+                });
                 const { frontmatter, blocks } = parseMarkdown(text);
                 // Pick a human title in this order: explicit manifest > frontmatter
                 // > first H1 in the body > the id. If we used the body's H1, drop
