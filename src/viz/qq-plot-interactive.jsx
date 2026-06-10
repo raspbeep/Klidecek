@@ -66,9 +66,9 @@ export default function QqPlotInteractive() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(SOURCES).map(([k, v]) => (
-          <button key={k} onClick={() => setSrc(k)} style={btn(src === k)}>{v.label}</button>
+          <button key={k} className="viz-btn" data-active={src === k} onClick={() => setSrc(k)}>{v.label}</button>
         ))}
       </div>
 
@@ -98,11 +98,11 @@ export default function QqPlotInteractive() {
         <text x={14} y={PAD_T + PH / 2} fontSize="10.5" fill="var(--text-muted)" fontFamily="var(--font-mono)" transform={`rotate(-90 14 ${PAD_T + PH / 2})`}>standardizovaný vzorek</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ gap: 14 }}>
         <label style={lab()}>n = {n}
-          <input type="range" min={20} max={500} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={20} max={500} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový vzorek</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový vzorek</button>
       </div>
 
       <div style={{ fontSize: 10.5, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
@@ -114,5 +114,4 @@ export default function QqPlotInteractive() {
   );
 }
 
-function btn(active) { return { padding: "3px 9px", fontSize: 10.5, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 200px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

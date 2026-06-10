@@ -46,7 +46,7 @@ export default function BlpAccessChecker() {
         <div>
           <div style={{ fontWeight: 600, marginBottom: 3 }}>Subject (uživatel)</div>
           <div>Clearance:&nbsp;
-            <select value={sLvl} onChange={e => setSLvl(e.target.value)} style={ctrl}>
+            <select className="viz-select" value={sLvl} onChange={e => setSLvl(e.target.value)}>
               {LEVELS.map(l => <option key={l} value={l}>{l} — {LEVEL_NAME[l]}</option>)}
             </select>
           </div>
@@ -61,7 +61,7 @@ export default function BlpAccessChecker() {
         <div>
           <div style={{ fontWeight: 600, marginBottom: 3 }}>Object (soubor)</div>
           <div>Label:&nbsp;
-            <select value={oLvl} onChange={e => setOLvl(e.target.value)} style={ctrl}>
+            <select className="viz-select" value={oLvl} onChange={e => setOLvl(e.target.value)}>
               {LEVELS.map(l => <option key={l} value={l}>{l} — {LEVEL_NAME[l]}</option>)}
             </select>
           </div>
@@ -75,9 +75,9 @@ export default function BlpAccessChecker() {
         </div>
       </div>
 
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "center" }}>
-        <button onClick={() => setAction("read")} style={btn(action === "read")}>read</button>
-        <button onClick={() => setAction("write")} style={btn(action === "write")}>write</button>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <button className="viz-btn" data-active={action === "read"} onClick={() => setAction("read")}>read</button>
+        <button className="viz-btn" data-active={action === "write"} onClick={() => setAction("write")}>write</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -140,7 +140,3 @@ export default function BlpAccessChecker() {
   );
 }
 
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 5px", borderRadius: 3, fontSize: 11 };
-function btn(active) {
-  return { ...ctrl, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", cursor: "pointer", padding: "3px 10px" };
-}

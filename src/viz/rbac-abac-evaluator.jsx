@@ -38,15 +38,15 @@ export default function RbacAbacEvaluator() {
     <div style={{ width: "100%" }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 8, fontSize: 11 }}>
         <div>
-          <div>Role: <select value={role} onChange={e => setRole(e.target.value)} style={ctrl}>
+          <div>Role: <select className="viz-select" value={role} onChange={e => setRole(e.target.value)}>
             {Object.keys(ROLES).map(r => <option key={r} value={r}>{r}</option>)}
           </select></div>
-          <div style={{ marginTop: 4 }}>User dept: <select value={dept} onChange={e => setDept(e.target.value)} style={ctrl}>
+          <div style={{ marginTop: 4 }}>User dept: <select className="viz-select" value={dept} onChange={e => setDept(e.target.value)}>
             <option value="cardiology">cardiology</option>
             <option value="neurology">neurology</option>
             <option value="radiology">radiology</option>
           </select></div>
-          <div style={{ marginTop: 4 }}>Object dept: <select value={objDept} onChange={e => setObjDept(e.target.value)} style={ctrl}>
+          <div style={{ marginTop: 4 }}>Object dept: <select className="viz-select" value={objDept} onChange={e => setObjDept(e.target.value)}>
             <option value="cardiology">cardiology</option>
             <option value="neurology">neurology</option>
             <option value="radiology">radiology</option>
@@ -54,12 +54,12 @@ export default function RbacAbacEvaluator() {
         </div>
         <div>
           <div>Time of day: {hour}:00
-            <input type="range" min="0" max="23" value={hour} onChange={e => setHour(+e.target.value)} style={{ width: "100%" }} />
+            <input type="range" className="viz-slider" min="0" max="23" value={hour} onChange={e => setHour(+e.target.value)} style={{ width: "100%" }} />
           </div>
           <div style={{ marginTop: 4 }}>
             <label><input type="checkbox" checked={onSite} onChange={e => setOnSite(e.target.checked)} /> na síti nemocnice</label>
           </div>
-          <div style={{ marginTop: 4 }}>Action: <select value={action} onChange={e => setAction(e.target.value)} style={ctrl}>
+          <div style={{ marginTop: 4 }}>Action: <select className="viz-select" value={action} onChange={e => setAction(e.target.value)}>
             {ACTIONS.map(a => <option key={a} value={a}>{a}</option>)}
           </select></div>
         </div>
@@ -113,5 +113,3 @@ export default function RbacAbacEvaluator() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 5px", borderRadius: 3, fontSize: 11 };

@@ -35,15 +35,14 @@ export default function TamaSdileniKodu() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {APPROACHES.map((x) => (
-          <button key={x.id} onClick={() => setId(x.id)}
-            style={{
-              padding: "5px 9px", fontSize: 11, fontFamily: "var(--font-mono)",
-              borderRadius: 4, cursor: "pointer", color: "var(--text)",
-              border: `1px solid ${id === x.id ? `oklch(0.62 0.14 ${x.hue})` : "var(--line)"}`,
-              background: id === x.id ? `oklch(0.62 0.14 ${x.hue} / 0.18)` : "var(--bg-card)",
-            }}>
+          <button key={x.id} className="viz-btn" data-active={id === x.id} onClick={() => setId(x.id)}
+            style={id === x.id ? {
+              borderColor: `oklch(0.62 0.14 ${x.hue})`,
+              background: `oklch(0.62 0.14 ${x.hue} / 0.18)`,
+              color: "var(--text)",
+            } : undefined}>
             {x.label}
           </button>
         ))}

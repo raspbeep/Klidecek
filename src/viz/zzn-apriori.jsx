@@ -103,7 +103,7 @@ export default function ZznApriori() {
           rows = velikost množiny · modrá = frekventovaná · škrtnutá = pod prahem / odřezaná
         </text>
       </svg>
-      <input type="range" min={1} max={N} value={minSup}
+      <input type="range" className="viz-slider" min={1} max={N} value={minSup}
         onChange={(e) => setMinSup(+e.target.value)} style={{ width: "100%" }} />
       <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
         min-support = {minSup} z {N} transakcí ({Math.round((minSup / N) * 100)} %) ·

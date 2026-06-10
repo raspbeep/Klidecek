@@ -37,9 +37,9 @@ export default function SybilQuorum() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>obrana:</label>
-        <select value={defense} onChange={(e) => setDefense(e.target.value)} style={{ ...sel, minWidth: 200 }}>
+        <select className="viz-select" value={defense} onChange={(e) => setDefense(e.target.value)} style={{ minWidth: 200 }}>
           <option value="none">žádná (open P2P)</option>
           <option value="pow">Proof-of-Work (Bitcoin-style)</option>
           <option value="stake">Proof-of-Stake (Ethereum-style)</option>
@@ -47,15 +47,15 @@ export default function SybilQuorum() {
         </select>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>honest uzly:</label>
-        <input type="range" min={3} max={30} value={honest} onChange={(e) => setHonest(+e.target.value)} style={{ flex: 1, minWidth: 120 }} />
-        <span style={lbl}>{honest}</span>
+        <input type="range" className="viz-slider" min={3} max={30} value={honest} onChange={(e) => setHonest(+e.target.value)} style={{ flex: 1, minWidth: 120 }} />
+        <span className="viz-readout">{honest}</span>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Sybil identity:</label>
-        <input type="range" min={0} max={50} value={sybil} onChange={(e) => setSybil(+e.target.value)} style={{ flex: 1, minWidth: 120 }} />
-        <span style={lbl}>{sybil}</span>
+        <input type="range" className="viz-slider" min={0} max={50} value={sybil} onChange={(e) => setSybil(+e.target.value)} style={{ flex: 1, minWidth: 120 }} />
+        <span className="viz-readout">{sybil}</span>
       </div>
 
       <svg viewBox="0 0 560 260" style={{ width: "100%", maxWidth: 600, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -112,6 +112,4 @@ export default function SybilQuorum() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };

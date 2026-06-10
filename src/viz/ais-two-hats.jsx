@@ -29,22 +29,18 @@ export default function AisTwoHats() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {Object.entries(HATS).map(([k, v]) => (
           <button
             key={k}
+            className="viz-btn"
+            data-active={hat === k}
             onClick={() => setHat(k)}
             style={{
               flex: 1,
-              padding: "6px 8px",
-              fontSize: 12,
-              fontFamily: "var(--font-mono)",
-              cursor: "pointer",
-              borderRadius: 5,
-              border: `1px solid oklch(0.62 0.16 ${v.hue})`,
+              borderColor: `oklch(0.62 0.16 ${v.hue})`,
               background: hat === k ? `oklch(0.62 0.16 ${v.hue})` : "var(--bg-card)",
               color: hat === k ? "var(--bg-card)" : `oklch(0.62 0.16 ${v.hue})`,
-              fontWeight: 600,
             }}
           >
             {k === "feature" ? "▲ funkce" : "▲ refaktor"}

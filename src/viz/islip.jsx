@@ -276,25 +276,21 @@ export default function ISlip() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap",
-        fontSize: 12 }}>
+      <div className="viz-controls">
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           <span>algoritmus:</span>
-          <select value={algo} onChange={(e) => reset(e.target.value)}
-            style={{ padding: "2px 4px", border: "1px solid var(--line-strong)",
-              borderRadius: 3, background: "var(--bg-card)", color: "var(--text)",
-              fontSize: 12 }}>
+          <select className="viz-select" value={algo} onChange={(e) => reset(e.target.value)}>
             <option value="ticket">Take-a-Ticket</option>
             <option value="pim">PIM (náhodný)</option>
             <option value="islip">iSLIP (round-robin)</option>
           </select>
         </label>
-        <button className="btn" onClick={step}>
+        <button className="viz-btn primary" onClick={step}>
           ▸ {phase === "idle" || phase === "accept" ? "REQUEST" :
               phase === "request" ? "GRANT" : "ACCEPT"}
         </button>
-        <button className="btn ghost" onClick={newRequests}>nové požadavky</button>
-        <button className="btn ghost" onClick={() => reset()}>reset</button>
+        <button className="viz-btn" onClick={newRequests}>nové požadavky</button>
+        <button className="viz-btn" onClick={() => reset()}>reset</button>
       </div>
 
       <div style={{ fontSize: 12, color: "var(--text-muted)", lineHeight: 1.45 }}>

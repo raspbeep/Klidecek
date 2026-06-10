@@ -85,31 +85,30 @@ export default function TranspositionEnumeration() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Controls */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls">
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>n:</span>
-        <input type="range" min="4" max="16" step="2" value={n} onChange={(e) => { setN(parseInt(e.target.value, 10)); setStep(0); }} style={{ width: 80 }} />
+        <input type="range" className="viz-slider" min="4" max="16" step="2" value={n} onChange={(e) => { setN(parseInt(e.target.value, 10)); setStep(0); }} style={{ width: 80 }} />
         <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)", minWidth: 24 }}>{n}</span>
         <span style={{ color: "var(--text-muted)", fontWeight: 600, marginLeft: 8 }}>preset:</span>
         {["random", "reverse", "almost"].map((k) => (
-          <button key={k} onClick={() => { setPreset(k); setStep(0); }}
-            style={{ ...modeBtn, ...(preset === k ? activeBtn : {}) }}>
+          <button key={k} className="viz-btn" data-active={preset === k} onClick={() => { setPreset(k); setStep(0); }}>
             {k === "random" ? "náhodný" : k === "reverse" ? "reverzní (worst-case)" : "skoro seřazený"}
           </button>
         ))}
         {preset === "random" && (
-          <button onClick={() => setSeed(seed + 1)} style={modeBtn}>↻ jiný náhodný</button>
+          <button className="viz-btn" onClick={() => setSeed(seed + 1)}>↻ jiný náhodný</button>
         )}
       </div>
 
       {/* Step nav */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step} / {history.length - 1}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(history.length - 1, step + 1))} disabled={step >= history.length - 1}>další →</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(history.length - 1)}>⏭ konec</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(0)}>↻</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(history.length - 1, step + 1))} disabled={step >= history.length - 1}>další →</button>
+        <button className="viz-btn" onClick={() => setStep(history.length - 1)}>⏭ konec</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>↻</button>
       </div>
 
       {/* Array SVG */}
@@ -209,23 +208,3 @@ export default function TranspositionEnumeration() {
   );
 }
 
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

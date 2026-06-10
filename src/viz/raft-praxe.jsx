@@ -309,20 +309,20 @@ export default function RaftPraxe() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Scenario controls */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>scénář:</span>
-        <button onClick={() => setScenario("happy")} style={{ ...modeBtn, ...(scenario === "happy" ? activeBtn : {}) }}>volba + replikace</button>
-        <button onClick={() => setScenario("crash")} style={{ ...modeBtn, ...(scenario === "crash" ? activeBtn : {}) }}>+ pád leadera</button>
+        <button className="viz-btn" data-active={scenario === "happy"} onClick={() => setScenario("happy")}>volba + replikace</button>
+        <button className="viz-btn" data-active={scenario === "crash"} onClick={() => setScenario("crash")}>+ pád leadera</button>
       </div>
 
       {/* Step nav */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step + 1} / {states.length}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(states.length - 1, step + 1))} disabled={step >= states.length - 1}>další →</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(0)}>↻</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(states.length - 1, step + 1))} disabled={step >= states.length - 1}>další →</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>↻</button>
       </div>
 
       {/* Cluster SVG */}
@@ -410,24 +410,3 @@ export default function RaftPraxe() {
     </div>
   );
 }
-
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

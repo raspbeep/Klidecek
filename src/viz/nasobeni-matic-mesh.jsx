@@ -91,14 +91,14 @@ export default function NasobeniMaticMesh() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Step nav */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setT(Math.max(0, t - 1))} disabled={t === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setT(Math.max(0, t - 1))} disabled={t === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           čas t = {t} / {maxT} &nbsp;·&nbsp; potřebných kroků: <b style={{ color: "var(--text)" }}>3n−2 = {maxT}</b>
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setT(Math.min(maxT, t + 1))} disabled={t >= maxT}>další →</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setT(maxT)}>⏭</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setT(0)}>↻</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setT(Math.min(maxT, t + 1))} disabled={t >= maxT}>další →</button>
+        <button className="viz-btn" onClick={() => setT(maxT)}>⏭</button>
+        <button className="viz-btn" onClick={() => setT(0)}>↻</button>
       </div>
 
       {/* Mesh SVG */}
@@ -221,13 +221,3 @@ function MatrixDisplay({ label, matrix, color }) {
     </div>
   );
 }
-
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

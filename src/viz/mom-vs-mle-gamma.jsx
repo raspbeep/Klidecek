@@ -126,17 +126,17 @@ export default function MomVsMleGamma() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={lab()}>k = {trueK.toFixed(1)}
-          <input type="range" min={0.5} max={8} step={0.1} value={trueK} onChange={(e) => setTrueK(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.5} max={8} step={0.1} value={trueK} onChange={(e) => setTrueK(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>θ = {trueTheta.toFixed(1)}
-          <input type="range" min={0.2} max={3} step={0.1} value={trueTheta} onChange={(e) => setTrueTheta(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.2} max={3} step={0.1} value={trueTheta} onChange={(e) => setTrueTheta(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>n = {n}
-          <input type="range" min={5} max={500} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={5} max={500} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový vzorek</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový vzorek</button>
       </div>
 
       <table style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text)", borderCollapse: "collapse" }}>
@@ -153,7 +153,6 @@ export default function MomVsMleGamma() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 180px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }
 function th() { return { textAlign: "left", padding: "3px 10px", fontWeight: "normal", borderBottom: "1px solid var(--line)" }; }
 function td() { return { padding: "3px 10px" }; }

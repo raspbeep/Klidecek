@@ -30,10 +30,10 @@ export default function HenryPatternClassifier() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>vzor:</label>
         {Object.entries(PATTERNS).map(([k, v]) => (
-          <button key={k} style={{ ...btn, background: pattern === k ? "var(--accent)" : "var(--bg-inset)", color: pattern === k ? "#fff" : "var(--text)" }} onClick={() => setPattern(k)}>{v.label}</button>
+          <button key={k} className="viz-btn" data-active={pattern === k} onClick={() => setPattern(k)}>{v.label}</button>
         ))}
       </div>
 
@@ -89,7 +89,7 @@ export default function HenryPatternClassifier() {
           {fingers.map((p, i) => (
             <div key={i} style={{ textAlign: "center", fontSize: 10 }}>
               <div style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>{FINGER_NAMES[i]}</div>
-              <select value={p} onChange={(e) => setFinger(i, e.target.value)} style={{ ...sel, width: "100%", padding: 2 }}>
+              <select className="viz-select" value={p} onChange={(e) => setFinger(i, e.target.value)} style={{ width: "100%" }}>
                 <option value="arch">A</option><option value="loop">L</option><option value="whorl">W</option>
               </select>
               <div style={{ fontSize: 9, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>w={FINGER_WEIGHTS[i]}</div>
@@ -113,10 +113,7 @@ export default function HenryPatternClassifier() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const statBox = { background: "var(--bg-card)", padding: 8, borderRadius: 5, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };
 const statVal = { fontSize: 14, fontWeight: 600, marginTop: 2 };

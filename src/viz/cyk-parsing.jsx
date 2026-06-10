@@ -104,12 +104,12 @@ export default function CykParsing() {
 
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Vstup:</label>
-        <select value={word} onChange={(e) => setWord(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={word} onChange={(e) => setWord(e.target.value)}>
           {PRESETS.map((w) => <option key={w} value={w}>{w}</option>)}
         </select>
-        <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 8 }}>
+        <span className="viz-readout" style={{ marginLeft: 8 }}>
           krok {stepIdx + 1}/{steps.length}
         </span>
       </div>
@@ -227,10 +227,10 @@ export default function CykParsing() {
         </div>
       )}
 
-      <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-        <button onClick={() => setStepIdx(Math.max(0, stepIdx - 1))} disabled={stepIdx === 0} style={btnStyle}>◀</button>
-        <button onClick={() => setStepIdx(0)} style={btnStyle}>reset</button>
-        <button onClick={() => setStepIdx(Math.min(steps.length - 1, stepIdx + 1))} disabled={stepIdx === steps.length - 1} style={btnStyle}>▶</button>
+      <div className="viz-controls" style={{ justifyContent: "center" }}>
+        <button className="viz-btn" onClick={() => setStepIdx(Math.max(0, stepIdx - 1))} disabled={stepIdx === 0}>◀</button>
+        <button className="viz-btn" onClick={() => setStepIdx(0)}>reset</button>
+        <button className="viz-btn primary" onClick={() => setStepIdx(Math.min(steps.length - 1, stepIdx + 1))} disabled={stepIdx === steps.length - 1}>▶</button>
       </div>
     </div>
   );
@@ -246,20 +246,3 @@ const containerStyle = {
   gap: 10,
 };
 
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-};
-
-const btnStyle = {
-  padding: "6px 12px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-  cursor: "pointer",
-  fontSize: 12,
-};

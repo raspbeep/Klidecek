@@ -80,9 +80,9 @@ export default function TrafficMixing() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-        <button className="btn" onClick={() => setMixed(true)} disabled={mixed}>smíchej (reorder + delay)</button>
-        <button className="btn ghost" onClick={() => setMixed(false)} disabled={!mixed}>reset</button>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setMixed(true)} disabled={mixed}>smíchej (reorder + delay)</button>
+        <button className="viz-btn" onClick={() => setMixed(false)} disabled={!mixed}>reset</button>
       </div>
 
       <div style={{ padding: 10, background: "var(--bg-card)", borderRadius: 6, border: "1px solid var(--line)", fontSize: 12.5, color: "var(--text-muted)", lineHeight: 1.5 }}>

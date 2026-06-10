@@ -85,12 +85,12 @@ export default function NavRaceToSleep() {
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         <label style={lbl}>
           <span>HW zrychlení ×{speedup}</span>
-          <input type="range" min={1} max={16} step={1} value={speedup}
+          <input type="range" className="viz-slider" min={1} max={16} step={1} value={speedup}
             onChange={(e) => setSpeedup(+e.target.value)} style={{ flex: 1 }} />
         </label>
         <label style={lbl}>
           <span>HW příkon {hwPeak.toFixed(1)} W</span>
-          <input type="range" min={3.5} max={11} step={0.5} value={hwPeak}
+          <input type="range" className="viz-slider" min={3.5} max={11} step={0.5} value={hwPeak}
             onChange={(e) => setHwPeak(+e.target.value)} style={{ flex: 1 }} />
         </label>
       </div>

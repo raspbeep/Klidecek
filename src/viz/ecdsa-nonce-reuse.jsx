@@ -47,7 +47,7 @@ export default function EcdsaNonceReuse() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>d (soukromý):</label>
         <input type="number" min={1} max={N - 1} value={d} onChange={(e) => setD(+e.target.value)} style={num} />
         <label style={lbl}>k (znovupoužitý):</label>
@@ -66,9 +66,9 @@ export default function EcdsaNonceReuse() {
         </div>
       </div>
 
-      <div style={row}>
-        <button onClick={() => setStep((step + 1) % 4)} style={btn}>▶ Další krok útoku ({step + 1}/4)</button>
-        <button onClick={() => setStep(0)} style={btnSm}>Reset</button>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setStep((step + 1) % 4)}>▶ Další krok útoku ({step + 1}/4)</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>Reset</button>
       </div>
 
       <div style={{ ...section, fontSize: 12 }}>
@@ -105,10 +105,7 @@ export default function EcdsaNonceReuse() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const num = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, fontFamily: "var(--font-mono)", width: 70 };
-const btn = { padding: "5px 12px", background: "var(--accent)", color: "var(--bg-card)", border: "none", borderRadius: 5, fontSize: 11, cursor: "pointer" };
-const btnSm = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const mono = { fontFamily: "var(--font-mono)", color: "var(--text)" };

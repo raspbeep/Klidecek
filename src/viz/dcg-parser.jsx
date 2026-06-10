@@ -54,9 +54,9 @@ export default function DcgParser() {
         <pre style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text)", margin: 0, whiteSpace: "pre" }}>{GRAMMAR}</pre>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>vstup:</label>
-        <select value={inputKey} onChange={(e) => { setInputKey(e.target.value); setStep(0); }} style={sel}>
+        <select className="viz-select" value={inputKey} onChange={(e) => { setInputKey(e.target.value); setStep(0); }}>
           {Object.entries(INPUTS).map(([k, v]) => <option key={k} value={k}>[{v.words.join(", ")}]</option>)}
         </select>
       </div>
@@ -73,10 +73,10 @@ export default function DcgParser() {
         ))}
       </div>
 
-      <div style={row}>
-        <button style={btn} disabled={step === 0} onClick={() => setStep(step - 1)}>‹</button>
-        <span style={{ ...lbl, marginLeft: 8 }}>krok {step + 1} / {steps.length}</span>
-        <button style={btn} disabled={step >= steps.length - 1} onClick={() => setStep(step + 1)}>›</button>
+      <div className="viz-controls">
+        <button className="viz-btn" disabled={step === 0} onClick={() => setStep(step - 1)}>‹</button>
+        <span className="viz-readout" style={{ marginLeft: 8 }}>krok {step + 1} / {steps.length}</span>
+        <button className="viz-btn primary" disabled={step >= steps.length - 1} onClick={() => setStep(step + 1)}>›</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
@@ -97,8 +97,5 @@ sentence(S0, S) :- np(S0, S1), vp(S1, S).
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--accent)" };

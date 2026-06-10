@@ -36,11 +36,11 @@ export default function Wpa2HandshakeKrack() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11 }}>
-        <button onClick={() => setStep(Math.min(STEPS.length, step + 1))} style={btn(false)}>▶ next step</button>
-        <button onClick={() => { setStep(0); setReplay(false); setPacketCount(0); setNonceReset(0); }} style={btn(false)}>reset</button>
-        <button onClick={sendData} disabled={!dataPhase} style={{ ...btn(false), opacity: dataPhase ? 1 : 0.4 }}>send data packet</button>
-        <button onClick={doReplay} disabled={step < 3} style={{ ...btn(replay), opacity: step >= 3 ? 1 : 0.4 }}>⚠ KRACK: replay Msg 3</button>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length, step + 1))}>▶ next step</button>
+        <button className="viz-btn" onClick={() => { setStep(0); setReplay(false); setPacketCount(0); setNonceReset(0); }}>reset</button>
+        <button className="viz-btn" onClick={sendData} disabled={!dataPhase}>send data packet</button>
+        <button className="viz-btn" data-active={replay} onClick={doReplay} disabled={step < 3}>⚠ KRACK: replay Msg 3</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -97,8 +97,4 @@ export default function Wpa2HandshakeKrack() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

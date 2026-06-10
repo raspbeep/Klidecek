@@ -86,15 +86,15 @@ export default function SampleSpaceEvents() {
 
       <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
         <label style={lab()}>P(A) = {pA.toFixed(2)}
-          <input type="range" min={0.05} max={0.95} step={0.01} value={pA}
+          <input type="range" className="viz-slider" min={0.05} max={0.95} step={0.01} value={pA}
             onChange={(e) => { setPA(+e.target.value); setPAB(Math.min(ab, Math.min(+e.target.value, pB))); }} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>P(B) = {pB.toFixed(2)}
-          <input type="range" min={0.05} max={0.95} step={0.01} value={pB}
+          <input type="range" className="viz-slider" min={0.05} max={0.95} step={0.01} value={pB}
             onChange={(e) => { setPB(+e.target.value); setPAB(Math.min(ab, Math.min(pA, +e.target.value))); }} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>P(A∩B) = {ab.toFixed(2)}
-          <input type="range" min={minAB} max={maxAB} step={0.01} value={pAB}
+          <input type="range" className="viz-slider" min={minAB} max={maxAB} step={0.01} value={pAB}
             onChange={(e) => setPAB(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>

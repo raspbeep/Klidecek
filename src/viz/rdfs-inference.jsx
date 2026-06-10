@@ -119,11 +119,8 @@ export default function RdfsInference() {
               const asserted_ = asserted.some(tr => tr[0] === s && tr[1] === "type" && tr[2] === t);
               const derived_ = !asserted_ && derived.some(tr => tr[0] === s && tr[1] === "type" && tr[2] === t);
               return (
-                <button key={`${s}-${t}`} onClick={() => toggleType(s, t)}
-                  style={{ fontFamily: "var(--font-mono)", fontSize: 10, padding: "1px 4px",
-                    background: asserted_ ? "var(--accent)" : derived_ ? "oklch(0.65 0.16 145 / 0.4)" : "var(--bg-inset)",
-                    color: asserted_ ? "var(--bg-card)" : "var(--text)",
-                    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer" }}>
+                <button key={`${s}-${t}`} className="viz-btn" data-active={asserted_} onClick={() => toggleType(s, t)}
+                  style={derived_ ? { background: "oklch(0.65 0.16 145 / 0.4)" } : undefined}>
                   {asserted_ ? "● asserted" : derived_ ? "↳ derived" : "+ add"}
                 </button>
               );

@@ -110,18 +110,18 @@ export default function VanishingGradientDepth() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           hloubka L:
-          <input type="range" min={5} max={60} value={depth} onChange={(e) => setDepth(+e.target.value)} style={{ width: 100 }}/>
+          <input type="range" className="viz-slider" min={5} max={60} value={depth} onChange={(e) => setDepth(+e.target.value)} style={{ width: 100 }}/>
           <span style={{ minWidth: 22 }}>{depth}</span>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           init scale σ:
-          <input type="range" min={0.1} max={2} step={0.05} value={initScale} onChange={(e) => setInitScale(+e.target.value)} style={{ width: 80 }}/>
+          <input type="range" className="viz-slider" min={0.1} max={2} step={0.05} value={initScale} onChange={(e) => setInitScale(+e.target.value)} style={{ width: 80 }}/>
           <span style={{ minWidth: 28 }}>{initScale.toFixed(2)}</span>
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btnStyle()}>nový seed</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed</button>
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 11 }}>
@@ -191,8 +191,4 @@ export default function VanishingGradientDepth() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

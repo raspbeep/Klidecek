@@ -88,16 +88,9 @@ export default function PdfCdfLink() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(MODES).map(([k, v]) => (
-          <button key={k} onClick={() => { setMode(k); setX(v.disc ? 3 : (v.xMin + v.xMax) / 2); }}
-            style={{
-              padding: "3px 9px", fontSize: 11,
-              border: "1px solid " + (mode === k ? "var(--accent)" : "var(--line)"),
-              background: mode === k ? "var(--bg-inset)" : "var(--bg-card)",
-              color: mode === k ? "var(--accent)" : "var(--text)",
-              borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)",
-            }}
+          <button key={k} className="viz-btn" data-active={mode === k} onClick={() => { setMode(k); setX(v.disc ? 3 : (v.xMin + v.xMax) / 2); }}
           >{v.label}</button>
         ))}
       </div>
@@ -177,7 +170,7 @@ export default function PdfCdfLink() {
 
       <label style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
         x = {x.toFixed(2)}
-        <input type="range" min={xMin} max={xMax} step={m.disc ? 1 : 0.05} value={x} onChange={(e) => setX(+e.target.value)} style={{ width: "100%" }} />
+        <input type="range" className="viz-slider" min={xMin} max={xMax} step={m.disc ? 1 : 0.05} value={x} onChange={(e) => setX(+e.target.value)} style={{ width: "100%" }} />
       </label>
 
       <div style={{ fontSize: 10.5, color: "var(--text-muted)" }}>

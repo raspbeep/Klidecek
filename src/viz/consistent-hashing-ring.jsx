@@ -97,14 +97,14 @@ export default function ConsistentHashingRing() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 11 }}>
-        <button onClick={addNode} style={btn(false)}>+ node</button>
-        <button onClick={removeNode} style={btn(false)}>− node</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <span>vnodes/node</span>
-        <input type="range" min={1} max={20} value={vnodes} onChange={(e) => setVnodes(+e.target.value)} />
-        <span>{vnodes}</span>
-        <button onClick={() => setShowModN(s => !s)} style={btn(showModN)}>compare hash mod N</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={addNode}>+ node</button>
+        <button className="viz-btn" onClick={removeNode}>− node</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout">vnodes/node</span>
+        <input type="range" className="viz-slider" min={1} max={20} value={vnodes} onChange={(e) => setVnodes(+e.target.value)} />
+        <span className="viz-readout">{vnodes}</span>
+        <button className="viz-btn" data-active={showModN} onClick={() => setShowModN(s => !s)}>compare hash mod N</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -194,11 +194,3 @@ function ringPoints(nodes, vnodes) {
   return pts.sort((a, b) => a.pos - b.pos);
 }
 
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
-}

@@ -62,10 +62,10 @@ export default function AutoVectorizationTracer() {
   const W = 580, H = 320;
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 6, marginBottom: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
         {SNIPS.map(s => (
-          <button key={s.id} onClick={() => setSel(s.id)}
-            style={{ ...btn(sel === s.id), borderLeft: `4px solid ${s.ok ? "oklch(0.65 0.16 145)" : "oklch(0.65 0.18 22)"}` }}>
+          <button key={s.id} className="viz-btn" data-active={sel === s.id} onClick={() => setSel(s.id)}
+            style={{ borderLeft: `4px solid ${s.ok ? "oklch(0.65 0.16 145)" : "oklch(0.65 0.18 22)"}` }}>
             {s.label}
           </button>
         ))}
@@ -108,13 +108,4 @@ export default function AutoVectorizationTracer() {
       </svg>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "4px 9px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "white" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

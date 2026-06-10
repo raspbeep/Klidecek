@@ -66,11 +66,11 @@ export default function RdfGraphBrowser() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setExpandFull(s => !s)} style={btn(expandFull)}>{expandFull ? "show prefixes" : "show full URIs"}</button>
-        <button onClick={() => setFocus("ex:anna")} style={btn(false)}>focus anna</button>
-        <button onClick={() => setFocus("ex:brno")} style={btn(false)}>focus brno</button>
-        <button onClick={() => setFocus(null)} style={btn(false)}>clear focus</button>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={expandFull} onClick={() => setExpandFull(s => !s)}>{expandFull ? "show prefixes" : "show full URIs"}</button>
+        <button className="viz-btn" onClick={() => setFocus("ex:anna")}>focus anna</button>
+        <button className="viz-btn" onClick={() => setFocus("ex:brno")}>focus brno</button>
+        <button className="viz-btn" onClick={() => setFocus(null)}>clear focus</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -136,13 +136,4 @@ export default function RdfGraphBrowser() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

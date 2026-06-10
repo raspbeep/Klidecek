@@ -104,25 +104,17 @@ export default function RegularizationL1L2() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
-        <div style={{ display: "flex", gap: 4 }}>
-          {["none", "L1", "L2"].map((r) => (
-            <button key={r} onClick={() => setReg(r)}
-              style={{
-                background: reg === r ? "var(--accent)" : "var(--bg-card)",
-                color: reg === r ? "white" : "var(--text)",
-                border: "1px solid var(--line)", padding: "2px 10px", borderRadius: 3, fontSize: 11, cursor: "pointer",
-                fontFamily: "var(--font-mono)",
-              }}>
-              {r}
-            </button>
-          ))}
-        </div>
+      <div className="viz-controls">
+        {["none", "L1", "L2"].map((r) => (
+          <button key={r} className="viz-btn" data-active={reg === r} onClick={() => setReg(r)}>
+            {r}
+          </button>
+        ))}
         {reg !== "none" && (
           <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
             radius R
-            <input type="range" min={0.2} max={3} step={0.05} value={R} onChange={(e) => setR(+e.target.value)} style={{ width: 100 }}/>
-            <span style={{ minWidth: 30 }}>{R.toFixed(2)}</span>
+            <input type="range" className="viz-slider" min={0.2} max={3} step={0.05} value={R} onChange={(e) => setR(+e.target.value)} style={{ width: 100 }}/>
+            <span className="viz-readout" style={{ minWidth: 30 }}>{R.toFixed(2)}</span>
           </label>
         )}
       </div>

@@ -131,8 +131,7 @@ export default function Kademlia() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap",
-        fontSize: 12, color: "var(--text-muted)" }}>
+      <div className="viz-controls" style={{ fontSize: 12, color: "var(--text-muted)" }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
           self
           <input type="number" min="0" max={N - 1} value={self}
@@ -149,11 +148,11 @@ export default function Kademlia() {
               borderRadius: 3, background: "var(--bg-card)", color: "var(--text)",
               fontFamily: "var(--font-mono)" }} />
         </label>
-        <button className="btn"
+        <button className="viz-btn primary"
           onClick={() => setHop((h) => Math.min(traversal.length, h + 1))}
           disabled={hop >= traversal.length}>další hop</button>
-        <button className="btn ghost" onClick={() => setHop(0)}>reset</button>
-        <button className="btn ghost" onClick={() => setHop(traversal.length)}>
+        <button className="viz-btn" onClick={() => setHop(0)}>reset</button>
+        <button className="viz-btn" onClick={() => setHop(traversal.length)}>
           najdi
         </button>
       </div>

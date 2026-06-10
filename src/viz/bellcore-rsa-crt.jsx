@@ -73,9 +73,9 @@ export default function BellcoreRsaCrt() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>preset:</label>
-        <select value={presetIdx} onChange={(e) => { setPresetIdx(+e.target.value); setFaulty(false); }} style={{ ...sel, flex: 1, minWidth: 220 }}>
+        <select className="viz-select" value={presetIdx} onChange={(e) => { setPresetIdx(+e.target.value); setFaulty(false); }} style={{ flex: 1, minWidth: 220 }}>
           {PRESETS.map((p, i) => <option key={i} value={i}>{p.name}</option>)}
         </select>
         <label style={lbl}>plaintext m =</label>
@@ -105,7 +105,7 @@ export default function BellcoreRsaCrt() {
         </div>
       </div>
 
-      <button style={{ ...btn, background: faulty ? "#81b29a" : "var(--accent)", color: "var(--bg-inset)", padding: "8px 16px", fontWeight: 600 }}
+      <button className="viz-btn primary" style={faulty ? { background: "#81b29a", borderColor: "#81b29a", color: "var(--bg-inset)" } : undefined}
         onClick={() => setFaulty(true)} disabled={faulty}>
         {faulty ? "✓ utok proveden" : "→ spocti gcd(S − S', n)"}
       </button>
@@ -133,9 +133,7 @@ export default function BellcoreRsaCrt() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const panel = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, fontSize: 11 };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text)", padding: "1px 0" };

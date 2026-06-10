@@ -33,19 +33,20 @@ export default function WormholeTunnel() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>wormhole tunel mezi M1 a M2:</label>
-        <button style={{ ...btn, background: tunnelOn ? "#e07a5f" : "var(--bg-inset)", color: tunnelOn ? "var(--bg-inset)" : "var(--text)" }}
+        <button className="viz-btn" data-active={tunnelOn}
+          style={tunnelOn ? { background: "#e07a5f", borderColor: "#e07a5f", color: "var(--bg-inset)" } : undefined}
           onClick={() => setTunnelOn(!tunnelOn)}>{tunnelOn ? "ON" : "OFF"}</button>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>from:</label>
-        <select value={src} onChange={(e) => setSrc(e.target.value)} style={sel}>
+        <select className="viz-select" value={src} onChange={(e) => setSrc(e.target.value)}>
           {["A", "B", "C"].map((k) => <option key={k} value={k}>{k}</option>)}
         </select>
         <label style={lbl}>to:</label>
-        <select value={dst} onChange={(e) => setDst(e.target.value)} style={sel}>
+        <select className="viz-select" value={dst} onChange={(e) => setDst(e.target.value)}>
           {["D", "E", "F"].map((k) => <option key={k} value={k}>{k}</option>)}
         </select>
       </div>
@@ -111,7 +112,4 @@ export default function WormholeTunnel() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

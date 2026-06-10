@@ -92,11 +92,11 @@ export default function PcaProjection() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setData(INIT.map(p => [...p]))} style={btn}>reset</button>
-        <button onClick={() => setData([...data, [Math.random() * 8 + 1, Math.random() * 8 + 1]])} style={btn}>+ bod</button>
-        <button onClick={() => setData(data.length > 3 ? data.slice(0, -1) : data)} style={btn}>− bod</button>
-        <button onClick={() => setShowReconstruction(s => !s)} style={{ ...btn, background: showReconstruction ? "var(--accent)" : "var(--bg-inset)" }}>residuals</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setData(INIT.map(p => [...p]))}>reset</button>
+        <button className="viz-btn" onClick={() => setData([...data, [Math.random() * 8 + 1, Math.random() * 8 + 1]])}>+ bod</button>
+        <button className="viz-btn" onClick={() => setData(data.length > 3 ? data.slice(0, -1) : data)}>− bod</button>
+        <button className="viz-btn" data-active={showReconstruction} onClick={() => setShowReconstruction(s => !s)}>residuals</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -171,9 +171,3 @@ export default function PcaProjection() {
     </div>
   );
 }
-
-const btn = {
-  fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-  background: "var(--bg-inset)", color: "var(--text)",
-  border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-};

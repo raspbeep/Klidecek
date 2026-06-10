@@ -78,19 +78,13 @@ export default function CacheMapping() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 10, marginBottom: 10, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 10 }}>
         <label style={{ color: "var(--text)" }}>
           Asociativita:{" "}
           <select
+            className="viz-select"
             value={ways}
             onChange={(e) => { setWays(parseInt(e.target.value)); setStep(0); }}
-            style={{
-              background: "var(--bg-inset)",
-              color: "var(--text)",
-              border: "1px solid var(--line)",
-              padding: "2px 6px",
-              borderRadius: 4,
-            }}
           >
             <option value={1}>Direct-mapped (1-way)</option>
             <option value={2}>2-way</option>
@@ -99,28 +93,28 @@ export default function CacheMapping() {
           </select>
         </label>
         <button
+          className="viz-btn"
           onClick={() => setStep(Math.max(0, step - 1))}
           disabled={step === 0}
-          style={{ padding: "4px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4 }}
         >
           ← Krok
         </button>
         <button
+          className="viz-btn primary"
           onClick={() => setStep(Math.min(ADDRESSES.length - 1, step + 1))}
           disabled={step === ADDRESSES.length - 1}
-          style={{ padding: "4px 12px", background: "var(--accent)", color: "white", border: "1px solid var(--accent)", borderRadius: 4 }}
         >
           Krok →
         </button>
         <button
+          className="viz-btn"
           onClick={() => setStep(ADDRESSES.length - 1)}
-          style={{ padding: "4px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4 }}
         >
           Až konec
         </button>
         <button
+          className="viz-btn"
           onClick={() => setStep(0)}
-          style={{ padding: "4px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4 }}
         >
           Reset
         </button>

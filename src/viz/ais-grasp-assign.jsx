@@ -62,16 +62,9 @@ export default function AisGraspAssign() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       <select
+        className="viz-select"
         value={idx}
         onChange={(e) => setIdx(+e.target.value)}
-        style={{
-          padding: "6px 8px",
-          fontSize: 12.5,
-          borderRadius: 6,
-          border: "1px solid var(--line)",
-          background: "var(--bg-card)",
-          color: "var(--text)",
-        }}
       >
         {QUESTIONS.map((qq, i) => <option key={i} value={i}>{qq.q}</option>)}
       </select>

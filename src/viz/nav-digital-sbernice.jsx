@@ -58,15 +58,14 @@ export default function NavDigitalSbernice() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.keys(BUSES).map((k) => (
-          <button key={k} onClick={() => setSel(k)} style={{
-            ...tab,
-            background: sel === k ? `oklch(0.58 0.15 ${BUSES[k].hue} / 0.18)` : "var(--bg-card)",
-            borderColor: sel === k ? `oklch(0.58 0.15 ${BUSES[k].hue})` : "var(--line)",
+          <button key={k} className="viz-btn" data-active={sel === k} onClick={() => setSel(k)} style={sel === k ? {
+            background: `oklch(0.58 0.15 ${BUSES[k].hue} / 0.18)`,
+            borderColor: `oklch(0.58 0.15 ${BUSES[k].hue})`,
             color: "var(--text)",
-            fontWeight: sel === k ? 700 : 500,
-          }}>{k}</button>
+            fontWeight: 700,
+          } : undefined}>{k}</button>
         ))}
       </div>
 
@@ -135,12 +134,3 @@ export default function NavDigitalSbernice() {
     </div>
   );
 }
-
-const tab = {
-  padding: "4px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  border: "1px solid var(--line)",
-  borderRadius: 5,
-  cursor: "pointer",
-};

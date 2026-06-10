@@ -36,12 +36,12 @@ export default function UxiaUcdCyklus() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={btn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step + 1} / {STEPS.length}{cur.iterate ? "  ·  iterace" : ""}
-        </div>
-        <button className="btn ghost" style={btn} onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>další →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>další →</button>
       </div>
 
       <svg viewBox="0 0 460 250" style={{ width: "100%", maxWidth: 520 }}>
@@ -110,12 +110,3 @@ export default function UxiaUcdCyklus() {
   );
 }
 
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

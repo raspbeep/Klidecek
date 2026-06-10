@@ -139,13 +139,13 @@ export default function CspBacktrackMrv() {
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <input type="checkbox" checked={useFC} onChange={(e) => setFC(e.target.checked)} /> Forward checking
         </label>
-        <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={() => setStep(0)} style={btnStyle()}>⏮</button>
-          <button onClick={() => setStep((s) => Math.max(0, s - 1))} style={btnStyle()}>◀</button>
-          <button onClick={() => setStep((s) => Math.min(events.length - 1, s + 1))} style={btnStyle()}>▶</button>
-          <button onClick={() => setStep(events.length - 1)} style={btnStyle()}>⏭</button>
+        <div className="viz-controls">
+          <button className="viz-btn" onClick={() => setStep(0)}>⏮</button>
+          <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))}>◀</button>
+          <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(events.length - 1, s + 1))}>▶</button>
+          <button className="viz-btn" onClick={() => setStep(events.length - 1)}>⏭</button>
         </div>
-        <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           krok {step}/{events.length - 1} ({events.length} celkem)
         </span>
       </div>
@@ -231,8 +231,4 @@ function describeEvent(e) {
   if (e.kind === "backtrack") return `backtrack z ${e.variable} = ${e.value}`;
   if (e.kind === "solution") return "✓ kompletní přiřazení — řešení";
   return e.kind;
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

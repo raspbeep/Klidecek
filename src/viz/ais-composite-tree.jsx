@@ -124,14 +124,14 @@ export default function AisCompositeTree() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)" }}>
           cíl: <code>{selValid ? selNode.name : "—"}</code>
         </span>
-        <button className="btn ghost" style={btn} disabled={!selValid || playing} onClick={() => addTo("file")}>+ soubor (Leaf)</button>
-        <button className="btn ghost" style={btn} disabled={!selValid || playing} onClick={() => addTo("folder")}>+ složka (Composite)</button>
-        <button className="btn ghost" style={{ ...btn, borderColor: "var(--accent)", color: "var(--accent)" }} disabled={playing} onClick={runShow}>▶ show()</button>
-        <button className="btn ghost" style={btn} onClick={reset}>reset</button>
+        <button className="viz-btn" disabled={!selValid || playing} onClick={() => addTo("file")}>+ soubor (Leaf)</button>
+        <button className="viz-btn" disabled={!selValid || playing} onClick={() => addTo("folder")}>+ složka (Composite)</button>
+        <button className="viz-btn primary" disabled={playing} onClick={runShow}>▶ show()</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W }}>
@@ -172,14 +172,3 @@ export default function AisCompositeTree() {
     </div>
   );
 }
-
-const btn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-  color: "var(--text)",
-};

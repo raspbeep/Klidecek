@@ -153,28 +153,28 @@ export default function QLearningGridworld() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           α
-          <input type="range" min={0.05} max={1} step={0.05} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: 70 }}/>
+          <input type="range" className="viz-slider" min={0.05} max={1} step={0.05} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: 70 }}/>
           <span style={{ minWidth: 30 }}>{alpha.toFixed(2)}</span>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           γ
-          <input type="range" min={0.1} max={0.99} step={0.01} value={gamma} onChange={(e) => setGamma(+e.target.value)} style={{ width: 70 }}/>
+          <input type="range" className="viz-slider" min={0.1} max={0.99} step={0.01} value={gamma} onChange={(e) => setGamma(+e.target.value)} style={{ width: 70 }}/>
           <span style={{ minWidth: 30 }}>{gamma.toFixed(2)}</span>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           ε
-          <input type="range" min={0} max={1} step={0.05} value={eps} onChange={(e) => setEps(+e.target.value)} style={{ width: 70 }}/>
+          <input type="range" className="viz-slider" min={0} max={1} step={0.05} value={eps} onChange={(e) => setEps(+e.target.value)} style={{ width: 70 }}/>
           <span style={{ minWidth: 30 }}>{eps.toFixed(2)}</span>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           episodes
-          <input type="range" min={10} max={500} step={10} value={episodes} onChange={(e) => setEpisodes(+e.target.value)} style={{ width: 90 }}/>
+          <input type="range" className="viz-slider" min={10} max={500} step={10} value={episodes} onChange={(e) => setEpisodes(+e.target.value)} style={{ width: 90 }}/>
           <span style={{ minWidth: 30 }}>{episodes}</span>
         </label>
-        <button onClick={() => setSeed((s) => s + 1)} style={btnStyle()}>nový seed</button>
+        <button className="viz-btn" onClick={() => setSeed((s) => s + 1)}>nový seed</button>
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
@@ -269,8 +269,4 @@ export default function QLearningGridworld() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

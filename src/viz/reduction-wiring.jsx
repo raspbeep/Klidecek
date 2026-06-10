@@ -39,9 +39,9 @@ export default function ReductionWiring() {
 
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Redukce:</label>
-        <select value={targetKey} onChange={(e) => setTargetKey(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={targetKey} onChange={(e) => setTargetKey(e.target.value)}>
           {Object.keys(TARGETS).map((k) => <option key={k} value={k}>{k}</option>)}
         </select>
       </div>
@@ -117,12 +117,12 @@ export default function ReductionWiring() {
       </svg>
 
       {/* Toggle: M halts or loops on w */}
-      <div style={{ display: "flex", justifyContent: "center", gap: 8, fontSize: 12 }}>
+      <div className="viz-controls" style={{ justifyContent: "center" }}>
         <span style={{ color: "var(--text-muted)" }}>Předpoklad:</span>
-        <button onClick={() => setHalts(true)} style={{ ...btnStyle, background: halts ? "color-mix(in oklch, #81b29a 25%, var(--bg-inset))" : "var(--bg-inset)" }}>
+        <button className="viz-btn" data-active={halts} onClick={() => setHalts(true)} style={halts ? { background: "color-mix(in oklch, #81b29a 25%, var(--bg-inset))" } : undefined}>
           M zastaví na w
         </button>
-        <button onClick={() => setHalts(false)} style={{ ...btnStyle, background: !halts ? "color-mix(in oklch, #e07a5f 25%, var(--bg-inset))" : "var(--bg-inset)" }}>
+        <button className="viz-btn" data-active={!halts} onClick={() => setHalts(false)} style={!halts ? { background: "color-mix(in oklch, #e07a5f 25%, var(--bg-inset))" } : undefined}>
           M cyklí na w
         </button>
       </div>
@@ -148,20 +148,3 @@ const containerStyle = {
   gap: 10,
 };
 
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-};
-
-const btnStyle = {
-  padding: "6px 12px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-  cursor: "pointer",
-  fontSize: 12,
-};

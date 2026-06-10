@@ -38,10 +38,10 @@ export default function TypeClassDispatch() {
         </div>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>volání s typem:</label>
         {Object.keys(DICTS).map((t) => (
-          <button key={t} style={type === t ? btnOn : btn} onClick={() => setType(t)}>{t}</button>
+          <button key={t} className="viz-btn" data-active={type === t} onClick={() => setType(t)}>{t}</button>
         ))}
       </div>
 
@@ -80,10 +80,7 @@ export default function TypeClassDispatch() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
 const col = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const colHd = { fontSize: 11, color: "var(--text-muted)", marginBottom: 6, fontWeight: 600 };
 const pre = { fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--text)", margin: 0, whiteSpace: "pre-wrap" };

@@ -113,12 +113,12 @@ export default function GaitCycleWalker() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button style={btn} onClick={() => setAuto(!auto)}>{auto ? "stop" : "play"}</button>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setAuto(!auto)}>{auto ? "stop" : "play"}</button>
         <label style={lbl}>t = {t.toFixed(2)}</label>
-        <input type="range" min="0" max="1" step="0.01" value={t} onChange={(e) => { setAuto(false); setT(parseFloat(e.target.value)); }} style={{ flex: 1, maxWidth: 200 }} />
+        <input type="range" className="viz-slider" min="0" max="1" step="0.01" value={t} onChange={(e) => { setAuto(false); setT(parseFloat(e.target.value)); }} style={{ flex: 1, maxWidth: 200 }} />
         <label style={lbl}>styl:</label>
-        <select value={style} onChange={(e) => setStyle(e.target.value)} style={sel}>
+        <select className="viz-select" value={style} onChange={(e) => setStyle(e.target.value)}>
           <option value="normal">normal</option>
           <option value="fast">fast (větší kroky)</option>
           <option value="limp">limping (asymetrický)</option>
@@ -190,10 +190,7 @@ export default function GaitCycleWalker() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const statBox = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };
 const statVal = { fontSize: 13, fontWeight: 600, fontFamily: "var(--font-mono)", marginTop: 3 };

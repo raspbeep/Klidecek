@@ -57,14 +57,12 @@ export default function WapProtoChain() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
-        <div style={{ display: "flex", gap: 4 }}>
-          <Toggle on={mode === "read"} label="čtení (delegace)" onClick={() => { setMode("read"); reset(); }} />
-          <Toggle on={mode === "write"} label="zápis (shadowing)" onClick={() => { setMode("write"); reset(); }} />
-        </div>
+      <div className="viz-controls" style={{ fontSize: 11.5 }}>
+        <button className="viz-btn" data-active={mode === "read"} onClick={() => { setMode("read"); reset(); }}>čtení (delegace)</button>
+        <button className="viz-btn" data-active={mode === "write"} onClick={() => { setMode("write"); reset(); }}>zápis (shadowing)</button>
         <label style={{ display: "flex", alignItems: "center", gap: 4, marginLeft: 4 }}>
           <span style={mono}>{mode === "write" ? "dite." : ""}prop:</span>
-          <select value={prop} onChange={(e) => { setProp(e.target.value); reset(); }} style={selectStyle}>
+          <select className="viz-select" value={prop} onChange={(e) => { setProp(e.target.value); reset(); }}>
             {LOOKUPS.map((p) => <option key={p} value={p}>{p}</option>)}
           </select>
         </label>
@@ -113,39 +111,16 @@ export default function WapProtoChain() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-        <button className="btn" style={primaryBtn} onClick={next} disabled={done}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={next} disabled={done}>
           {reading ? "krok delegace →" : "proveď zápis →"}
         </button>
-        <button className="btn ghost" style={ghostBtn} onClick={() => { setChain(BASE); reset(); }}>reset</button>
-        <div style={{ flex: 1, textAlign: "right", fontSize: 11.5, fontWeight: 600, ...mono, color: done ? "var(--text)" : "var(--text-muted)" }}>
+        <button className="viz-btn" onClick={() => { setChain(BASE); reset(); }}>reset</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "right" }}>
           {resultText}
-        </div>
+        </span>
       </div>
     </div>
   );
 }
 
-function Toggle({ on, label, onClick }) {
-  return (
-    <button onClick={onClick} className="btn ghost" style={{
-      padding: "4px 9px", fontSize: 11, ...mono, borderRadius: 4, cursor: "pointer",
-      border: "1px solid var(--line)",
-      background: on ? "var(--accent)" : "var(--bg-card)",
-      color: on ? "var(--bg-card)" : "var(--text-muted)",
-    }}>{label}</button>
-  );
-}
-
-const selectStyle = {
-  padding: "3px 6px", fontSize: 11.5, fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: 3, color: "var(--text)",
-};
-const primaryBtn = {
-  padding: "6px 12px", fontSize: 12, fontFamily: "var(--font-mono)", borderRadius: 5, cursor: "pointer",
-  border: "1px solid var(--accent)", background: "var(--accent)", color: "var(--bg-card)",
-};
-const ghostBtn = {
-  padding: "6px 12px", fontSize: 12, fontFamily: "var(--font-mono)", borderRadius: 5, cursor: "pointer",
-  border: "1px solid var(--line)", background: "var(--bg-card)", color: "var(--text-muted)",
-};

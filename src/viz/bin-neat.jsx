@@ -104,21 +104,15 @@ export default function BinNeat() {
         ))}
       </svg>
 
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {stages.map((g, i) => (
-          <button key={i} onClick={() => setS(i)}
-            style={{
-              flex: 1, fontSize: 11, padding: "4px 6px", cursor: "pointer",
-              fontFamily: "var(--font-mono)",
-              background: i === s ? "var(--accent)" : "var(--bg-card)",
-              color: i === s ? "white" : "var(--text-muted)",
-              border: "1px solid var(--line-strong)", borderRadius: 4,
-            }}>
+          <button key={i} className="viz-btn" data-active={i === s} onClick={() => setS(i)}
+            style={{ flex: 1 }}>
             {g.name}
           </button>
         ))}
       </div>
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-readout">
         {st.mut}
       </div>
     </div>

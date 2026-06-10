@@ -81,11 +81,11 @@ export default function LsbSteganografie() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Zpráva:</label>
         <input value={message} onChange={(e) => setMessage(e.target.value.slice(0, 24))} style={inp} maxLength={24} />
         <label style={lbl}>počet LSB: {numLsb}</label>
-        <input type="range" min={1} max={4} value={numLsb} onChange={(e) => setNumLsb(+e.target.value)} />
+        <input type="range" className="viz-slider" min={1} max={4} value={numLsb} onChange={(e) => setNumLsb(+e.target.value)} />
         <label style={{ ...lbl, display: "flex", alignItems: "center", gap: 4 }}>
           <input type="checkbox" checked={showDiff} onChange={(e) => setShowDiff(e.target.checked)} />
           zvýraznit změněné pixely (×8)
@@ -153,7 +153,6 @@ export default function LsbSteganografie() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const inp = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 180 };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };

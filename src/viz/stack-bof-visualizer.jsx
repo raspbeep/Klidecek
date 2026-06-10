@@ -70,10 +70,10 @@ export default function StackBofVisualizer() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 12, marginBottom: 8, flexWrap: "wrap", fontSize: 11, alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         <div>
           input length = {inputLen} B
-          <input type="range" min="1" max="48" value={inputLen} onChange={e => setInputLen(+e.target.value)}
+          <input type="range" className="viz-slider" min="1" max="48" value={inputLen} onChange={e => setInputLen(+e.target.value)}
             style={{ width: 220, marginLeft: 6, verticalAlign: "middle" }} />
         </div>
         <label><input type="checkbox" checked={canary} onChange={e => setCanary(e.target.checked)} /> stack canary</label>

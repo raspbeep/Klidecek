@@ -126,10 +126,10 @@ export default function DfaMinimization() {
         </div>
       )}
 
-      <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-        <button onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0} style={btnStyle}>◀</button>
-        <span style={{ alignSelf: "center", fontSize: 11, color: "var(--text-muted)" }}>iter {step}/{history.length - 1}</span>
-        <button onClick={() => setStep(Math.min(history.length - 1, step + 1))} disabled={step === history.length - 1} style={btnStyle}>▶</button>
+      <div className="viz-controls" style={{ justifyContent: "center" }}>
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>◀</button>
+        <span className="viz-readout">iter {step}/{history.length - 1}</span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(history.length - 1, step + 1))} disabled={step === history.length - 1}>▶</button>
       </div>
     </div>
   );
@@ -143,14 +143,4 @@ const containerStyle = {
   display: "flex",
   flexDirection: "column",
   gap: 10,
-};
-
-const btnStyle = {
-  padding: "6px 12px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-  cursor: "pointer",
-  fontSize: 12,
 };

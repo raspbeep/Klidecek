@@ -106,11 +106,11 @@ export default function ReplacementPolicyRace() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={traceKey} onChange={e => setTraceKey(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={traceKey} onChange={e => setTraceKey(e.target.value)}>
           {Object.entries(TRACES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <span className="viz-readout">
           trace ({trace.length}), N_LINES = {N_LINES} (FIFO i n=3 pro Bélády)
         </span>
       </div>
@@ -160,5 +160,3 @@ export default function ReplacementPolicyRace() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

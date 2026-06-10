@@ -150,18 +150,18 @@ export default function NistTestPlayground() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>generator:</label>
-        <select value={genKey} onChange={(e) => setGenKey(e.target.value)} style={{ ...sel, flex: 1, minWidth: 200 }}>
+        <select className="viz-select" value={genKey} onChange={(e) => setGenKey(e.target.value)} style={{ flex: 1, minWidth: 200 }}>
           {Object.keys(GENS).map((k) => <option key={k} value={k}>{k}</option>)}
         </select>
         <label style={lbl}>n =</label>
-        <select value={n} onChange={(e) => setN(+e.target.value)} style={sel}>
+        <select className="viz-select" value={n} onChange={(e) => setN(+e.target.value)}>
           <option value={500}>500</option>
           <option value={2000}>2000</option>
           <option value={10000}>10000</option>
         </select>
-        <button style={btn} onClick={regen}>↻ nove</button>
+        <button className="viz-btn primary" onClick={regen}>↻ nove</button>
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
@@ -193,7 +193,4 @@ export default function NistTestPlayground() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

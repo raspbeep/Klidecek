@@ -45,9 +45,9 @@ export default function CiRepeatedSampling() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setKnownSigma(true)} style={btn(knownSigma)}>známé σ (z)</button>
-        <button onClick={() => setKnownSigma(false)} style={btn(!knownSigma)}>neznámé σ (Studentovo t)</button>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={knownSigma} onClick={() => setKnownSigma(true)}>známé σ (z)</button>
+        <button className="viz-btn" data-active={!knownSigma} onClick={() => setKnownSigma(false)}>neznámé σ (Studentovo t)</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -84,14 +84,14 @@ export default function CiRepeatedSampling() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={lab()}>n = {n}
-          <input type="range" min={3} max={100} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={3} max={100} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>α = {alpha.toFixed(3)}
-          <input type="range" min={0.01} max={0.3} step={0.01} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.01} max={0.3} step={0.01} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový seed</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed</button>
       </div>
 
       <div style={{ fontSize: 10.5, color: "var(--text-muted)" }}>
@@ -102,5 +102,4 @@ export default function CiRepeatedSampling() {
   );
 }
 
-function btn(active) { return { padding: "3px 9px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 180px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

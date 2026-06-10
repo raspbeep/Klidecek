@@ -77,14 +77,14 @@ export default function LasVegasVsMc() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", marginBottom: 10 }}>
+      <div className="viz-controls" style={{ marginBottom: 10 }}>
         <label style={lab()}>n (pole) = {n}
-          <input type="range" min={4} max={50} step={2} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={4} max={50} step={2} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>k (MC pokusů) = {k}
-          <input type="range" min={1} max={15} value={k} onChange={(e) => setK(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={1} max={15} value={k} onChange={(e) => setK(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový seed</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 880, background: "var(--bg-card)", borderRadius: 6, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -253,5 +253,4 @@ function KeyMetric({ x, y, hue, label, value, sub }) {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 180px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

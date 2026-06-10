@@ -131,28 +131,28 @@ export default function BinningAndOutlierRules() {
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, auto)", gap: "4px 12px", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 11 }}>
         <span>bins</span>
-        <input type="range" min={2} max={5} value={k} onChange={(e) => setK(+e.target.value)} />
+        <input type="range" className="viz-slider" min={2} max={5} value={k} onChange={(e) => setK(+e.target.value)} />
         <span>mode</span>
-        <select value={binMode} onChange={(e) => setBinMode(e.target.value)} style={sel}>
+        <select className="viz-select" value={binMode} onChange={(e) => setBinMode(e.target.value)}>
           <option value="width">equal-width</option>
           <option value="depth">equal-depth</option>
         </select>
 
         <span>smooth</span>
-        <select value={smooth} onChange={(e) => setSmooth(e.target.value)} style={sel}>
+        <select className="viz-select" value={smooth} onChange={(e) => setSmooth(e.target.value)}>
           <option value="mean">bin mean</option>
           <option value="median">bin median</option>
           <option value="boundary">boundary</option>
         </select>
         <span>outlier</span>
-        <select value={outRule} onChange={(e) => setOutRule(e.target.value)} style={sel}>
+        <select className="viz-select" value={outRule} onChange={(e) => setOutRule(e.target.value)}>
           <option value="z">|z| &gt; thr</option>
           <option value="iqr">IQR × thr</option>
           <option value="mad">MAD × thr</option>
         </select>
 
         <span>threshold</span>
-        <input type="range" min={5} max={50} value={thr * 10} onChange={(e) => setThr(+e.target.value / 10)} />
+        <input type="range" className="viz-slider" min={5} max={50} value={thr * 10} onChange={(e) => setThr(+e.target.value / 10)} />
         <span colSpan={2} style={{ gridColumn: "span 2" }}>thr = {thr.toFixed(1)}</span>
       </div>
 
@@ -216,9 +216,3 @@ export default function BinningAndOutlierRules() {
     </div>
   );
 }
-
-const sel = {
-  fontFamily: "var(--font-mono)", fontSize: 11,
-  background: "var(--bg-inset)", color: "var(--text)",
-  border: "1px solid var(--line-strong)", borderRadius: 3, padding: "1px 4px",
-};

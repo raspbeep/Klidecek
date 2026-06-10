@@ -42,24 +42,23 @@ export default function AisBranchingStrategy() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {[false, true].map((v) => {
           const mm = v ? TBD : FEATURE;
           return (
             <button
               key={String(v)}
+              className="viz-btn"
               onClick={() => setTbd(v)}
-              style={{
+              style={tbd === v ? {
                 flex: 1,
-                padding: "6px 8px",
-                fontSize: 12,
-                fontFamily: "var(--font-mono)",
-                cursor: "pointer",
-                borderRadius: 5,
                 border: `1px solid oklch(0.62 0.16 ${mm.hue})`,
-                background: tbd === v ? `oklch(0.62 0.16 ${mm.hue})` : "var(--bg-card)",
-                color: tbd === v ? "var(--bg-card)" : `oklch(0.62 0.16 ${mm.hue})`,
-                fontWeight: 600,
+                background: `oklch(0.62 0.16 ${mm.hue})`,
+                color: "var(--bg-card)",
+              } : {
+                flex: 1,
+                border: `1px solid oklch(0.62 0.16 ${mm.hue})`,
+                color: `oklch(0.62 0.16 ${mm.hue})`,
               }}
             >
               {mm.label}

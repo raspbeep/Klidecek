@@ -55,11 +55,11 @@ export default function RowhammerFlip() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ marginBottom: 8, fontSize: 11 }}>
         <label><input type="checkbox" checked={aggrTop} onChange={e => setAggrTop(e.target.checked)} /> aggressor row 2 (above)</label>
         <label><input type="checkbox" checked={aggrBot} onChange={e => setAggrBot(e.target.checked)} /> aggressor row 4 (below)</label>
-        <button onClick={() => setHammers(h => h + 50_000)} style={btn(false)}>hammer +50k</button>
-        <button onClick={() => setHammers(0)} style={btn(false)}>reset hammer</button>
+        <button onClick={() => setHammers(h => h + 50_000)} className="viz-btn primary">hammer +50k</button>
+        <button onClick={() => setHammers(0)} className="viz-btn">reset hammer</button>
         <label><input type="checkbox" checked={trr} onChange={e => setTrr(e.target.checked)} /> TRR</label>
         <label><input type="checkbox" checked={ecc} onChange={e => setEcc(e.target.checked)} /> ECC</label>
       </div>
@@ -125,8 +125,4 @@ export default function RowhammerFlip() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

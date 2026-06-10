@@ -76,9 +76,9 @@ export default function PrologUnifyTree() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>příklad:</label>
-        <select value={ex} onChange={(e) => { setEx(e.target.value); setStep(0); }} style={sel}>
+        <select className="viz-select" value={ex} onChange={(e) => { setEx(e.target.value); setStep(0); }}>
           {Object.entries(EXAMPLES).map(([k, v]) => <option key={k} value={k}>{v.t1} = {v.t2}</option>)}
         </select>
       </div>
@@ -107,10 +107,10 @@ export default function PrologUnifyTree() {
         </div>
       </div>
 
-      <div style={row}>
-        <button style={btn} disabled={step === 0} onClick={() => setStep(step - 1)}>‹ undo</button>
-        <span style={{ ...lbl, marginLeft: 8 }}>krok {step + 1} / {cur.steps.length}</span>
-        <button style={btn} disabled={step === cur.steps.length - 1} onClick={() => setStep(step + 1)}>další ›</button>
+      <div className="viz-controls">
+        <button className="viz-btn" disabled={step === 0} onClick={() => setStep(step - 1)}>‹ undo</button>
+        <span className="viz-readout" style={{ marginLeft: 8 }}>krok {step + 1} / {cur.steps.length}</span>
+        <button className="viz-btn primary" disabled={step === cur.steps.length - 1} onClick={() => setStep(step + 1)}>další ›</button>
       </div>
 
       {step === cur.steps.length - 1 && (
@@ -129,10 +129,7 @@ export default function PrologUnifyTree() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const col = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const colHd = { fontSize: 11, color: "var(--text-muted)", marginBottom: 6, fontWeight: 600 };
 const lineSt = { fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 0" };

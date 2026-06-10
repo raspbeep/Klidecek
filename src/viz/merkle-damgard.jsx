@@ -69,11 +69,11 @@ export default function MerkleDamgard() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button onClick={() => setShowAttack(false)} style={{ ...btn, background: !showAttack ? "var(--accent)" : "var(--bg-inset)", color: !showAttack ? "var(--bg-card)" : "var(--text)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={!showAttack} onClick={() => setShowAttack(false)}>
           1. Normální MAC = hash(K∥M)
         </button>
-        <button onClick={() => setShowAttack(true)} style={{ ...btn, background: showAttack ? "var(--accent)" : "var(--bg-inset)", color: showAttack ? "var(--bg-card)" : "var(--text)" }}>
+        <button className="viz-btn" data-active={showAttack} onClick={() => setShowAttack(true)}>
           2. Length-extension útok
         </button>
       </div>
@@ -134,7 +134,5 @@ export default function MerkleDamgard() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const btn = { padding: "5px 12px", border: "1px solid var(--line)", borderRadius: 5, fontSize: 11, cursor: "pointer" };
 const chainBox = { display: "flex", gap: 4, flexWrap: "wrap", background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const chainStep = { padding: "4px 6px", background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: 4, textAlign: "center", minWidth: 36 };

@@ -47,13 +47,13 @@ export default function IddfsRedundancy() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           hloubka d:
-          <input type="range" min={1} max={MAX_DEPTH} value={depth} onChange={(e) => setDepth(+e.target.value)} style={{ width: 100 }}/>
+          <input type="range" className="viz-slider" min={1} max={MAX_DEPTH} value={depth} onChange={(e) => setDepth(+e.target.value)} style={{ width: 100 }}/>
           <span style={{ minWidth: 14 }}>{depth}</span>
         </label>
-        <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           b (branching) = {BF}
         </span>
       </div>

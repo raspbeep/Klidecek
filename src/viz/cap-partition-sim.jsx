@@ -67,12 +67,12 @@ export default function CapPartitionSim() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setMode("CP")} style={btn(mode === "CP")}>CP (favor consistency)</button>
-        <button onClick={() => setMode("AP")} style={btn(mode === "AP")}>AP (favor availability)</button>
-        <button onClick={() => setPartition(p => !p)} style={btn(partition)}>{partition ? "✗ partition" : "× start partition"}</button>
-        <button onClick={heal} disabled={!partition} style={{ ...btn(false), opacity: partition ? 1 : 0.5 }}>heal</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={mode === "CP"} onClick={() => setMode("CP")}>CP (favor consistency)</button>
+        <button className="viz-btn" data-active={mode === "AP"} onClick={() => setMode("AP")}>AP (favor availability)</button>
+        <button className="viz-btn" data-active={partition} onClick={() => setPartition(p => !p)}>{partition ? "✗ partition" : "× start partition"}</button>
+        <button className="viz-btn" onClick={heal} disabled={!partition}>heal</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -114,11 +114,11 @@ export default function CapPartitionSim() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {["A", "B", "C"].map(n => (
           <span key={n} style={{ display: "flex", gap: 2 }}>
-            <button onClick={() => write(n, Math.floor(Math.random() * 10) + 10)} style={btn(false)}>write {n}</button>
-            <button onClick={() => read(n)} style={btn(false)}>read {n}</button>
+            <button className="viz-btn" onClick={() => write(n, Math.floor(Math.random() * 10) + 10)}>write {n}</button>
+            <button className="viz-btn" onClick={() => read(n)}>read {n}</button>
           </span>
         ))}
       </div>
@@ -134,13 +134,4 @@ export default function CapPartitionSim() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

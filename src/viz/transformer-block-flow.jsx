@@ -31,14 +31,14 @@ export default function TransformerBlockFlow() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         <div style={{ display: "flex", gap: 4 }}>
-          <button onClick={() => setStage(0)} style={btnStyle()}>⏮</button>
-          <button onClick={() => setStage((s) => Math.max(0, s - 1))} style={btnStyle()}>◀</button>
-          <button onClick={() => setStage((s) => Math.min(STAGES.length - 1, s + 1))} style={btnStyle()}>▶</button>
-          <button onClick={() => setStage(STAGES.length - 1)} style={btnStyle()}>⏭</button>
+          <button className="viz-btn" onClick={() => setStage(0)}>⏮</button>
+          <button className="viz-btn" onClick={() => setStage((s) => Math.max(0, s - 1))}>◀</button>
+          <button className="viz-btn primary" onClick={() => setStage((s) => Math.min(STAGES.length - 1, s + 1))}>▶</button>
+          <button className="viz-btn" onClick={() => setStage(STAGES.length - 1)}>⏭</button>
         </div>
-        <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           stage {stage + 1}/{STAGES.length}
         </span>
       </div>
@@ -137,8 +137,4 @@ export default function TransformerBlockFlow() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

@@ -104,18 +104,15 @@ export default function AesRound() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Krok kola:</label>
         {STEPS.map((s, i) => (
-          <button key={s} onClick={() => setStep(i)} style={{
-            ...btn, background: step === i ? "var(--accent)" : "var(--bg-inset)",
-            color: step === i ? "var(--bg-card)" : "var(--text)",
-          }}>
+          <button key={s} className="viz-btn" data-active={step === i} onClick={() => setStep(i)}>
             {i}: {s}
           </button>
         ))}
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={{ ...lbl, display: "flex", alignItems: "center", gap: 4 }}>
           <input type="checkbox" checked={flippedBit} onChange={(e) => setFlippedBit(e.target.checked)} />
           flip 1 bit ve vstupu (lavinový efekt)
@@ -190,6 +187,4 @@ export default function AesRound() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 12, color: "var(--text-muted)" };
-const btn = { padding: "4px 8px", border: "1px solid var(--line)", borderRadius: 4, fontSize: 10, cursor: "pointer" };

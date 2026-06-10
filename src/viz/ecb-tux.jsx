@@ -78,13 +78,10 @@ export default function EcbTux() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Režim:</label>
         {Object.keys(MODES).map((m) => (
-          <button key={m} onClick={() => setMode(m)} style={{
-            ...btn, background: mode === m ? "var(--accent)" : "var(--bg-inset)",
-            color: mode === m ? "var(--bg-card)" : "var(--text)",
-          }}>
+          <button key={m} className="viz-btn" data-active={mode === m} onClick={() => setMode(m)}>
             {m}
           </button>
         ))}
@@ -126,6 +123,4 @@ export default function EcbTux() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 12, color: "var(--text-muted)" };
-const btn = { padding: "4px 10px", border: "1px solid var(--line)", borderRadius: 5, fontSize: 11, cursor: "pointer" };

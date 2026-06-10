@@ -45,10 +45,10 @@ export default function ArpPoisonMitm() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11 }}>
-        <button onClick={poison} style={btn(false)}>⚠ attacker: send fake ARP reply</button>
-        <button onClick={sendPacket} style={btn(false)}>victim: send packet → gateway</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn" onClick={poison}>⚠ attacker: send fake ARP reply</button>
+        <button className="viz-btn" onClick={sendPacket}>victim: send packet → gateway</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
         <label><input type="checkbox" checked={dai} onChange={e => { setDai(e.target.checked); if (e.target.checked) reset(); }} /> Dynamic ARP Inspection (DAI)</label>
       </div>
 
@@ -112,8 +112,4 @@ export default function ArpPoisonMitm() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

@@ -46,12 +46,12 @@ export default function Handshake() {
           </marker>
         </defs>
       </svg>
-      <div style={{ display: "flex", gap: 6 }}>
-        <button className="btn" onClick={() => setStep((s) => Math.min(steps.length - 1, s + 1))}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(steps.length - 1, s + 1))}>
           {step === steps.length - 1 ? "done" : "next step →"}
         </button>
-        <button className="btn ghost" onClick={() => setStep(0)}>reset</button>
-        <span style={{ marginLeft: "auto", fontSize: 12, color: "var(--text-muted)", alignSelf: "center" }}>{steps[step].label}</span>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
+        <span className="viz-readout push">{steps[step].label}</span>
       </div>
     </div>
   );

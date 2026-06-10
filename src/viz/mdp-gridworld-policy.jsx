@@ -74,12 +74,14 @@ export default function MdpGridworldPolicy() {
     return [newV, newPol];
   }
 
-  function step() {
-    const [newV, newPol] = bellmanBackup(V);
-    setV(newV);
-    setPolicy(newPol);
-    setK(k + 1);
+  function stepN(n) {
+    let v = V, pol = policy;
+    for (let i = 0; i < n; i++) [v, pol] = bellmanBackup(v);
+    setV(v);
+    setPolicy(pol);
+    setK(k + n);
   }
+  function step() { stepN(1); }
 
   function reset() {
     setV(Array.from({ length: ROWS }, () => Array(COLS).fill(0)));
@@ -140,16 +142,16 @@ export default function MdpGridworldPolicy() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={step} style={btn(false)}>krok VI →</button>
-        <button onClick={() => { for (let i = 0; i < 50; i++) step(); }} style={btn(false)}>×50 kroků</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>iterace = {k}</span>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={step}>krok VI →</button>
+        <button className="viz-btn" onClick={() => stepN(50)}>×50 kroků</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout">iterace = {k}</span>
         <label style={lab()}>γ = {gamma.toFixed(2)}
-          <input type="range" min={0.5} max={0.99} step={0.01} value={gamma} onChange={(e) => setGamma(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.5} max={0.99} step={0.01} value={gamma} onChange={(e) => setGamma(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>p(slip) = {slip.toFixed(2)}
-          <input type="range" min={0} max={0.5} step={0.05} value={slip} onChange={(e) => setSlip(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0} max={0.5} step={0.05} value={slip} onChange={(e) => setSlip(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
 
@@ -161,5 +163,4 @@ export default function MdpGridworldPolicy() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "0 1 180px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

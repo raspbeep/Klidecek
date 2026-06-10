@@ -181,23 +181,22 @@ export default function KontrakceUvod() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Controls */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>strom:</span>
         {Object.keys(PRESETS).map((k) => (
-          <button key={k} onClick={() => setPresetKey(k)}
-            style={{ ...modeBtn, ...(presetKey === k ? activeBtn : {}) }}>{k}</button>
+          <button key={k} className="viz-btn" data-active={presetKey === k} onClick={() => setPresetKey(k)}>{k}</button>
         ))}
       </div>
 
       {/* Operation buttons */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button onClick={doRake} disabled={done} style={opBtn}>RAKE (odstraň listy)</button>
-        <button onClick={doCompress} disabled={done} style={opBtnCompress}>COMPRESS (zkrať řetězy)</button>
-        <button onClick={stepBack} disabled={history.length === 1} style={navBtn}>← zpět</button>
-        <button onClick={reset} style={navBtn}>↻ reset</button>
-        <div style={{ flex: 1, textAlign: "right", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={doRake} disabled={done}>RAKE (odstraň listy)</button>
+        <button className="viz-btn" onClick={doCompress} disabled={done} style={{ background: "oklch(0.55 0.18 142)", borderColor: "oklch(0.55 0.18 142)", color: "var(--bg-card)" }}>COMPRESS (zkrať řetězy)</button>
+        <button className="viz-btn" onClick={stepBack} disabled={history.length === 1}>← zpět</button>
+        <button className="viz-btn" onClick={reset}>↻ reset</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "right" }}>
           iterace {history.length - 1} &nbsp;·&nbsp; aktivní uzly: <b style={{ color: done ? "oklch(0.55 0.18 142)" : "var(--text)" }}>{aliveCount} / {totalCount}</b>
-        </div>
+        </span>
       </div>
 
       {/* Tree SVG */}
@@ -265,36 +264,3 @@ export default function KontrakceUvod() {
     </div>
   );
 }
-
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
-const navBtn = {
-  padding: "5px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};
-const opBtn = {
-  padding: "6px 14px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  fontWeight: 600,
-  background: "var(--accent)",
-  color: "var(--bg-card)",
-  border: "none",
-  borderRadius: 4,
-  cursor: "pointer",
-};
-const opBtnCompress = { ...opBtn, background: "oklch(0.55 0.18 142)" };

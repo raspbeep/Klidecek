@@ -192,15 +192,14 @@ export default function HolVoq() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap",
-        fontSize: 12 }}>
+      <div className="viz-controls" style={{ fontSize: 12 }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text)" }}>
           <input type="checkbox" checked={voq} onChange={(e) => reset(e.target.checked)} />
           <span>VOQ (virtual output queueing)</span>
         </label>
-        <button className="btn" onClick={advance}>krok →</button>
-        <button className="btn ghost" onClick={() => reset(voq)}>reset</button>
-        <span style={{ marginLeft: "auto", color: "var(--text-muted)" }}>
+        <button className="viz-btn primary" onClick={advance}>krok →</button>
+        <button className="viz-btn" onClick={() => reset(voq)}>reset</button>
+        <span className="viz-readout push">
           cyklus <strong style={{ color: "var(--text)" }}>{step}</strong>
           {" · "}doručeno <strong style={{ color: "oklch(0.62 0.15 145)" }}>{delivered}</strong>
           {" · "}blokováno <strong style={{ color: "oklch(0.60 0.18 25)" }}>{blocked}</strong>

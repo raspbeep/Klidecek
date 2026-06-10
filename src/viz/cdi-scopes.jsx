@@ -50,18 +50,12 @@ export default function CdiScopes() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <div style={{ display: "flex", gap: 4, padding: 3, background: "var(--bg-inset)", borderRadius: 8, flexWrap: "wrap" }}>
+      <div className="viz-controls" style={{ padding: 3, background: "var(--bg-inset)", borderRadius: 8 }}>
         {SCOPES.map((s) => (
           <button
             key={s.id}
-            className="btn ghost"
-            style={{
-              background: scopeId === s.id ? "var(--bg-card)" : "transparent",
-              boxShadow: scopeId === s.id ? "var(--shadow-sm)" : "none",
-              padding: "5px 10px",
-              fontSize: 12,
-              fontFamily: "var(--font-mono)",
-            }}
+            className="viz-btn"
+            data-active={scopeId === s.id}
             onClick={() => setScopeId(s.id)}
           >
             {s.name}

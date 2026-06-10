@@ -51,23 +51,16 @@ export default function BertMlmFill() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>věta:</span>
-          <select value={sentKey} onChange={(e) => setSentKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={sentKey} onChange={(e) => setSentKey(e.target.value)}>
             {Object.entries(SENTENCES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
         <div style={{ display: "flex", gap: 4 }}>
           {["BERT", "GPT"].map((m) => (
-            <button key={m} onClick={() => setModel(m)}
-              style={{
-                background: model === m ? "var(--accent)" : "var(--bg-card)",
-                color: model === m ? "white" : "var(--text)",
-                border: "1px solid var(--line)", padding: "2px 12px", borderRadius: 3, fontSize: 11, cursor: "pointer",
-                fontFamily: "var(--font-mono)",
-              }}>
+            <button key={m} className="viz-btn" data-active={model === m} onClick={() => setModel(m)}>
               {m}
             </button>
           ))}

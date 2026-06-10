@@ -41,16 +41,12 @@ export default function NavHBridge() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(MODES).map(([k, v]) => (
-          <button key={k} onClick={() => setMode(k)}
-            style={{
-              padding: "5px 11px", fontSize: 11.5, fontFamily: "var(--font-mono)", cursor: "pointer",
-              borderRadius: 5,
-              border: `1px solid ${mode === k ? (k === "shoot" ? "oklch(0.55 0.19 25)" : "var(--accent)") : "var(--line)"}`,
-              background: mode === k ? (k === "shoot" ? "oklch(0.62 0.19 25)" : "var(--accent)") : "var(--bg-card)",
-              color: mode === k ? "white" : "var(--text)",
-            }}>
+          <button key={k} className="viz-btn" data-active={mode === k} onClick={() => setMode(k)}
+            style={mode === k && k === "shoot"
+              ? { background: "oklch(0.62 0.19 25)", borderColor: "oklch(0.55 0.19 25)", color: "white" }
+              : undefined}>
             {v.label}
           </button>
         ))}

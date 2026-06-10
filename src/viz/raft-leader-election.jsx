@@ -112,13 +112,13 @@ export default function RaftLeaderElection() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={startElection} style={btn(false)}>start election</button>
-        <button onClick={collectVotes} style={btn(false)}>collect votes</button>
-        <button onClick={killLeader} style={btn(false)}>× kill leader</button>
-        <button onClick={revive} style={btn(false)}>revive</button>
-        <button onClick={() => setAuto(a => !a)} style={btn(auto)}>{auto ? "■ stop" : "▶ auto"}</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={startElection}>start election</button>
+        <button className="viz-btn" onClick={collectVotes}>collect votes</button>
+        <button className="viz-btn" onClick={killLeader}>× kill leader</button>
+        <button className="viz-btn" onClick={revive}>revive</button>
+        <button className="viz-btn" data-active={auto} onClick={() => setAuto(a => !a)}>{auto ? "■ stop" : "▶ auto"}</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -164,13 +164,4 @@ export default function RaftLeaderElection() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

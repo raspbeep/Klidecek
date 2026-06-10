@@ -24,7 +24,7 @@ export default function PdsReputationArch() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {[
           ["central", "Centralizovaný"],
           ["distributed", "Distribuovaný"],
@@ -32,18 +32,9 @@ export default function PdsReputationArch() {
           <button
             key={k}
             onClick={() => setMode(k)}
-            className="btn ghost"
-            style={{
-              flex: 1,
-              padding: "6px 8px",
-              fontSize: 12,
-              borderRadius: 4,
-              border: "1px solid var(--line)",
-              background: mode === k ? "var(--accent-soft)" : "var(--bg-card)",
-              color: mode === k ? "var(--accent)" : "var(--text-muted)",
-              fontWeight: mode === k ? 600 : 400,
-              cursor: "pointer",
-            }}
+            className="viz-btn"
+            data-active={mode === k}
+            style={{ flex: 1 }}
           >
             {label}
           </button>

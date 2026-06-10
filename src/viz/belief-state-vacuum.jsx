@@ -81,16 +81,16 @@ export default function BeliefStateVacuum() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <span style={{ color: "var(--text-muted)" }}>akce:</span>
         {["L", "R", "U", "D", "Suck"].map((a) => (
           <span key={a} style={{ display: "flex", gap: 2 }}>
-            <button onClick={() => step(a, 0)} style={btnStyle()}>{a}+čisto</button>
-            <button onClick={() => step(a, 1)} style={btnStyle()}>{a}+špín.</button>
+            <button className="viz-btn" onClick={() => step(a, 0)}>{a}+čisto</button>
+            <button className="viz-btn" onClick={() => step(a, 1)}>{a}+špín.</button>
           </span>
         ))}
-        <button onClick={reset} style={btnStyle()}>reset</button>
-        <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)" }}>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout">
           |B| = <strong>{stateCount}</strong>
         </span>
       </div>
@@ -153,8 +153,4 @@ export default function BeliefStateVacuum() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 10, cursor: "pointer", fontFamily: "var(--font-mono)" };
 }

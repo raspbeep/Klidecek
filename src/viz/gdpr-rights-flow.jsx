@@ -62,13 +62,13 @@ export default function GdprRightsFlow() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: 11, alignItems: "center", flexWrap: "wrap" }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         <span>request type:</span>
-        <select value={req} onChange={e => { setReq(e.target.value); setStep(0); }} style={ctrl}>
+        <select className="viz-select" value={req} onChange={e => { setReq(e.target.value); setStep(0); }}>
           {Object.entries(REQUESTS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <button onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} style={btn(false)}>step ›</button>
-        <button onClick={() => setStep(0)} style={btn(false)}>reset</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))}>step ›</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -126,9 +126,4 @@ export default function GdprRightsFlow() {
       </div>
     </div>
   );
-}
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 5px", borderRadius: 3, fontSize: 11 };
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

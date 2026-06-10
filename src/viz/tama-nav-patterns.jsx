@@ -26,14 +26,8 @@ export default function TamaNavPatterns() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-        <button onClick={() => setOpen((o) => !o)}
-          style={{
-            padding: "5px 12px", fontSize: 11.5, fontFamily: "var(--font-mono)", cursor: "pointer", borderRadius: 5,
-            border: `1px solid var(--accent)`,
-            background: open ? "var(--accent)" : "var(--bg-card)",
-            color: open ? "white" : "var(--text)",
-          }}>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={open} onClick={() => setOpen((o) => !o)}>
           {open ? "zavři hamburger menu" : "otevři hamburger menu"}
         </button>
       </div>

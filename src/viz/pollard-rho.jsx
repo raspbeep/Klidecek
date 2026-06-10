@@ -104,9 +104,9 @@ export default function PollardRho() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>velikost hashe n bitů: {n}</label>
-        <input type="range" min={6} max={14} value={n} onChange={(e) => setN(+e.target.value)} style={{ flex: 1, minWidth: 120 }} />
+        <input type="range" className="viz-slider" min={6} max={14} value={n} onChange={(e) => setN(+e.target.value)} style={{ flex: 1, minWidth: 120 }} />
         <label style={lbl}>start x₀:</label>
         <input type="number" min={0} max={N - 1} value={start} onChange={(e) => setStart(+e.target.value)} style={num} />
       </div>
@@ -171,7 +171,6 @@ export default function PollardRho() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const num = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, fontFamily: "var(--font-mono)", width: 70 };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };

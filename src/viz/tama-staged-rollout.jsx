@@ -26,10 +26,10 @@ export default function TamaStagedRollout() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11.5 }}>
-        <button onClick={() => { setStore("apple"); setDay(0); setHalt(false); }} style={tab(store === "apple", 200)}>App Store (pevný 7denní)</button>
-        <button onClick={() => { setStore("google"); setDay(0); setHalt(false); }} style={tab(store === "google", 142)}>Play (volená %)</button>
-        <label style={{ display: "flex", alignItems: "center", gap: 4, marginLeft: 4 }}>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={store === "apple"} onClick={() => { setStore("apple"); setDay(0); setHalt(false); }} style={store === "apple" ? { borderColor: "oklch(0.62 0.14 200)", background: "oklch(0.62 0.14 200 / 0.18)", color: "var(--text)" } : undefined}>App Store (pevný 7denní)</button>
+        <button className="viz-btn" data-active={store === "google"} onClick={() => { setStore("google"); setDay(0); setHalt(false); }} style={store === "google" ? { borderColor: "oklch(0.62 0.14 142)", background: "oklch(0.62 0.14 142 / 0.18)", color: "var(--text)" } : undefined}>Play (volená %)</button>
+        <label style={{ display: "flex", alignItems: "center", gap: 4, marginLeft: 4, fontSize: 11.5 }}>
           <input type="checkbox" checked={halt} onChange={(e) => setHalt(e.target.checked)} />
           <span style={{ fontFamily: "var(--font-mono)" }}>kritický pád → halt</span>
         </label>
@@ -72,17 +72,10 @@ export default function TamaStagedRollout() {
         </text>
       </svg>
 
-      <input type="range" min={0} max={6} value={day} onChange={(e) => setDay(+e.target.value)} disabled={halt} style={{ width: "100%" }} />
-      <div style={{ fontSize: 11.5, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <input type="range" className="viz-slider" min={0} max={6} value={day} onChange={(e) => setDay(+e.target.value)} disabled={halt} style={{ width: "100%" }} />
+      <span className="viz-readout">
         {store === "apple" ? `den ${effDay + 1} / 7` : `fáze ${effDay + 1} / 7`} · {pct} % uživatelů
-      </div>
+      </span>
     </div>
   );
 }
-
-const tab = (active, hue) => ({
-  padding: "5px 9px", fontSize: 11, fontFamily: "var(--font-mono)", borderRadius: 4, cursor: "pointer",
-  color: "var(--text)",
-  border: `1px solid ${active ? `oklch(0.62 0.14 ${hue})` : "var(--line)"}`,
-  background: active ? `oklch(0.62 0.14 ${hue} / 0.18)` : "var(--bg-card)",
-});

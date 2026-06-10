@@ -28,10 +28,10 @@ export default function PdiDataLocality() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 11.5 }}>
-        <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>strategie:</span>
-        <button onClick={() => setMoveData(false)} style={btn(!moveData)}>výpočet → za daty</button>
-        <button onClick={() => setMoveData(true)} style={btn(moveData)}>data → za výpočtem</button>
+      <div className="viz-controls">
+        <span style={{ color: "var(--text-muted)", fontWeight: 600, fontFamily: "var(--font-mono)", fontSize: 11.5 }}>strategie:</span>
+        <button className="viz-btn" data-active={!moveData} onClick={() => setMoveData(false)}>výpočet → za daty</button>
+        <button className="viz-btn" data-active={moveData} onClick={() => setMoveData(true)}>data → za výpočtem</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -115,13 +115,4 @@ export default function PdiDataLocality() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "4px 10px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 4, cursor: "pointer",
-  };
 }

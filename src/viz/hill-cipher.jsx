@@ -99,8 +99,8 @@ export default function HillCipher() {
         </div>
       </div>
 
-      <div style={row}>
-        <button onClick={() => setShowAttack(!showAttack)} style={btn}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setShowAttack(!showAttack)}>
           {showAttack ? "Skrýt" : "Ukázat"} KPA útok
         </button>
       </div>
@@ -142,6 +142,5 @@ const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const num = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, fontFamily: "var(--font-mono)", width: 50 };
 const inp = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 140 };
-const btn = { padding: "5px 12px", background: "var(--accent)", color: "var(--bg-card)", border: "none", borderRadius: 5, fontSize: 11, cursor: "pointer" };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const mono = { fontFamily: "var(--font-mono)", color: "var(--text)", fontSize: 12, lineHeight: 1.6 };

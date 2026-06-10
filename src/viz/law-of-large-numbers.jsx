@@ -52,10 +52,9 @@ export default function LawOfLargeNumbers() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(SOURCES).map(([k, v]) => (
-          <button key={k} onClick={() => setSrc(k)}
-            style={btn(src === k)}>{v.label}</button>
+          <button key={k} className="viz-btn" data-active={src === k} onClick={() => setSrc(k)}>{v.label}</button>
         ))}
       </div>
 
@@ -89,11 +88,11 @@ export default function LawOfLargeNumbers() {
         <text x={PAD_L} y={PAD_T - 4} fontSize="10" fill="var(--text-muted)" fontFamily="var(--font-mono)">X̄_n = (1/n) Σ Xᵢ</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={lab()}>n = {N}
-          <input type="range" min={50} max={5000} step={50} value={N} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={50} max={5000} step={50} value={N} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový seed ({seed})</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed ({seed})</button>
       </div>
 
       <div style={{ fontSize: 10.5, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
@@ -104,5 +103,4 @@ export default function LawOfLargeNumbers() {
   );
 }
 
-function btn(active) { return { padding: "3px 9px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 200px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

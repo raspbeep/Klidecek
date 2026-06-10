@@ -114,9 +114,9 @@ export default function PbiRoc() {
         <text x={RX0 - 4} y={RY0 + 4} textAnchor="end" fontSize="8.5" fill="var(--text-faint)" fontFamily="var(--font-mono)">TPR</text>
       </svg>
 
-      <input type="range" min={0} max={1} step={0.01} value={thr}
+      <input type="range" className="viz-slider" min={0} max={1} step={0.01} value={thr}
         onChange={(e) => setThr(+e.target.value)} style={{ width: "100%" }} />
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-readout">
         práh = {thr.toFixed(2)} · accuracy = {acc.toFixed(2)} · precision = {prec.toFixed(2)} · recall = {rec.toFixed(2)}
       </div>
     </div>

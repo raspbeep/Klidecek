@@ -68,7 +68,7 @@ export default function UxiaSusSkore() {
               color: it.pos ? "oklch(0.5 0.16 142)" : "oklch(0.55 0.18 22)", fontWeight: 700,
             }}>{i + 1}{it.pos ? "+" : "−"}</span>
             <span style={{ flex: 1, color: "var(--text)", lineHeight: 1.3 }}>{it.t}</span>
-            <input type="range" min={1} max={5} value={resp[i]}
+            <input type="range" className="viz-slider" min={1} max={5} value={resp[i]}
               onChange={(e) => set(i, +e.target.value)}
               style={{ flexShrink: 0, width: 90 }} />
             <span style={{ flexShrink: 0, width: 14, textAlign: "center", fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>{resp[i]}</span>

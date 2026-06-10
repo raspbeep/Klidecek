@@ -173,11 +173,11 @@ export default function ColumnCompressionTechniques() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.keys(DISTRIBUTIONS).map(d => (
-          <button key={d} onClick={() => setDist(d)} style={btn(dist === d)}>{d}</button>
+          <button key={d} className="viz-btn" data-active={dist === d} onClick={() => setDist(d)}>{d}</button>
         ))}
-        <button onClick={() => setTick(t => t + 1)} style={btn(false)}>regen</button>
+        <button className="viz-btn" onClick={() => setTick(t => t + 1)}>regen</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -253,11 +253,3 @@ export default function ColumnCompressionTechniques() {
   );
 }
 
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 10, padding: "2px 6px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
-}

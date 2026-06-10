@@ -81,16 +81,10 @@ export default function KnnGnnMp() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+      <div className="viz-controls">
         <span style={{ fontSize: 12, color: "var(--text-muted)" }}>agregace:</span>
         {["sum", "mean"].map((a) => (
-          <button key={a} onClick={() => setAgg(a)}
-            style={{
-              fontSize: 12, padding: "2px 10px", cursor: "pointer",
-              borderRadius: 6, border: "1px solid var(--line-strong)",
-              background: agg === a ? "var(--accent)" : "var(--bg-card)",
-              color: agg === a ? "var(--bg-inset)" : "var(--text)",
-            }}>
+          <button key={a} className="viz-btn" data-active={agg === a} onClick={() => setAgg(a)}>
             {a}
           </button>
         ))}

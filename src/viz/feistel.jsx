@@ -61,10 +61,10 @@ export default function Feistel() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Mód:</label>
-        <button onClick={() => setMode("encrypt")} style={{ ...btn, background: mode === "encrypt" ? "var(--accent)" : "var(--bg-inset)", color: mode === "encrypt" ? "var(--bg-card)" : "var(--text)" }}>Šifrování</button>
-        <button onClick={() => setMode("decrypt")} style={{ ...btn, background: mode === "decrypt" ? "var(--accent)" : "var(--bg-inset)", color: mode === "decrypt" ? "var(--bg-card)" : "var(--text)" }}>Dešifrování</button>
+        <button className="viz-btn" data-active={mode === "encrypt"} onClick={() => setMode("encrypt")}>Šifrování</button>
+        <button className="viz-btn" data-active={mode === "decrypt"} onClick={() => setMode("decrypt")}>Dešifrování</button>
         <label style={lbl}>L₀:</label>
         <input type="number" min={0} max={255} value={L0} onChange={(e) => setL0(+e.target.value & MASK)} style={{ ...num, width: 60 }} />
         <label style={lbl}>R₀:</label>
@@ -135,7 +135,5 @@ export default function Feistel() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 12, color: "var(--text-muted)" };
-const btn = { padding: "4px 10px", border: "1px solid var(--line)", borderRadius: 5, fontSize: 11, cursor: "pointer" };
 const num = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)" };

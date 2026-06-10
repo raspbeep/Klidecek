@@ -117,12 +117,12 @@ export default function WapEventLoop() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={btn} onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0}>← zpět</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0}>← zpět</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {i + 1} / {STEPS.length}
-        </div>
-        <button className="btn ghost" style={btn} onClick={() => setI(Math.min(STEPS.length - 1, i + 1))} disabled={i === STEPS.length - 1}>další →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setI(Math.min(STEPS.length - 1, i + 1))} disabled={i === STEPS.length - 1}>další →</button>
       </div>
 
       <svg viewBox="0 0 540 250" style={{ width: "100%", maxWidth: 560, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -174,13 +174,3 @@ export default function WapEventLoop() {
     </div>
   );
 }
-
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

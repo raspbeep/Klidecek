@@ -76,6 +76,7 @@ export default function UxiFidelityLadder() {
 
       <input
         type="range"
+        className="viz-slider"
         min={0}
         max={RUNGS.length - 1}
         step={1}

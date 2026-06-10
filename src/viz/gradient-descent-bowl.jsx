@@ -131,18 +131,17 @@ export default function GradientDescentBowl() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>plocha:</span>
-          <select value={surfaceKey} onChange={(e) => setSurfaceKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={surfaceKey} onChange={(e) => setSurfaceKey(e.target.value)}>
             {Object.entries(SURFACES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           α
-          <input type="range" min={0.005} max={0.5} step={0.005} value={lr} onChange={(e) => setLr(+e.target.value)} style={{ width: 110 }}/>
-          <span style={{ minWidth: 40 }}>{lr.toFixed(3)}</span>
+          <input type="range" className="viz-slider" min={0.005} max={0.5} step={0.005} value={lr} onChange={(e) => setLr(+e.target.value)} style={{ width: 110 }}/>
+          <span className="viz-readout" style={{ minWidth: 40 }}>{lr.toFixed(3)}</span>
         </label>
         {OPTIMIZERS.map((o) => (
           <label key={o} style={{ display: "flex", gap: 4, alignItems: "center" }}>

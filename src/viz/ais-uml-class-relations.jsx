@@ -73,9 +73,9 @@ export default function AisUmlClassRelations() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap" }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         {Object.keys(RELS).map((k) => (
-          <button key={k} onClick={() => setRel(k)} style={btn(rel === k)}>{RELS[k].label}</button>
+          <button key={k} className="viz-btn" data-active={rel === k} onClick={() => setRel(k)}>{RELS[k].label}</button>
         ))}
       </div>
 
@@ -116,9 +116,4 @@ export default function AisUmlClassRelations() {
       </div>
     </div>
   );
-}
-
-const base = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "4px 10px", borderRadius: 4, fontSize: 11.5, cursor: "pointer" };
-function btn(active) {
-  return { ...base, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", fontWeight: active ? 600 : 400 };
 }

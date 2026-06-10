@@ -83,25 +83,25 @@ export default function LfsrExplorer() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>n =</label>
-        <select value={n} onChange={(e) => { const nn = +e.target.value; setN(nn); setPresetIdx(0); setSeed(defaultSeed(nn)); }} style={sel}>
+        <select className="viz-select" value={n} onChange={(e) => { const nn = +e.target.value; setN(nn); setPresetIdx(0); setSeed(defaultSeed(nn)); }}>
           <option value={4}>4</option>
           <option value={8}>8</option>
           <option value={16}>16</option>
         </select>
         <label style={lbl}>polynom:</label>
-        <select value={presetIdx} onChange={(e) => setPresetIdx(+e.target.value)} style={{ ...sel, flex: 1, minWidth: 200 }}>
+        <select className="viz-select" value={presetIdx} onChange={(e) => setPresetIdx(+e.target.value)} style={{ flex: 1, minWidth: 200 }}>
           {PRESETS[n].map((p, i) => <option key={i} value={i}>{p.name}</option>)}
         </select>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>seed:</label>
         <input type="text" value={seed} onChange={(e) => setSeed(e.target.value.replace(/[^01]/g, ""))} onBlur={() => reset(n, presetIdx, seed)}
           style={{ ...sel, fontFamily: "var(--font-mono)", width: n <= 4 ? 80 : n <= 8 ? 120 : 200 }} />
-        <button style={btn} onClick={step} disabled={running}>krok</button>
-        <button style={btn} onClick={() => setRunning((r) => !r)}>{running ? "stop" : "auto"}</button>
-        <button style={btn} onClick={() => reset(n, presetIdx, seed)}>reset</button>
+        <button className="viz-btn primary" onClick={step} disabled={running}>krok</button>
+        <button className="viz-btn" onClick={() => setRunning((r) => !r)}>{running ? "stop" : "auto"}</button>
+        <button className="viz-btn" onClick={() => reset(n, presetIdx, seed)}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} 130`} style={{ width: "100%", maxWidth: 560, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -143,7 +143,5 @@ export default function LfsrExplorer() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

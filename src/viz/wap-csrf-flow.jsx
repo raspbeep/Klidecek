@@ -76,12 +76,12 @@ export default function WapCsrfFlow() {
         <span style={{ color: token ? GREEN : "var(--text-muted)" }}>{token ? "zapnuto" : "vypnuto"}</span>
       </label>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={btn} onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0}>← zpět</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0}>← zpět</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {i + 1} / {steps.length}
-        </div>
-        <button className="btn ghost" style={btn} onClick={() => setI(Math.min(steps.length - 1, i + 1))} disabled={i === steps.length - 1}>další →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setI(Math.min(steps.length - 1, i + 1))} disabled={i === steps.length - 1}>další →</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W }}>
@@ -145,13 +145,3 @@ export default function WapCsrfFlow() {
     </div>
   );
 }
-
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

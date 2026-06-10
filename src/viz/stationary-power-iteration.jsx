@@ -94,15 +94,15 @@ export default function StationaryPowerIteration() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={lab()}>a = P(0→1) = {a.toFixed(2)}
-          <input type="range" min={0.05} max={0.95} step={0.01} value={a} onChange={(e) => setA(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.05} max={0.95} step={0.01} value={a} onChange={(e) => setA(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>b = P(1→0) = {b.toFixed(2)}
-          <input type="range" min={0.05} max={0.95} step={0.01} value={b} onChange={(e) => setB(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.05} max={0.95} step={0.01} value={b} onChange={(e) => setB(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setRunning(!running)} style={btn(false)}>{running ? "⏸" : "▶"}</button>
-        <button onClick={() => { setK(0); setHistory([[1, 0]]); }} style={btn(false)}>reset</button>
+        <button className="viz-btn primary" onClick={() => setRunning(!running)}>{running ? "⏸" : "▶"}</button>
+        <button className="viz-btn" onClick={() => { setK(0); setHistory([[1, 0]]); }}>reset</button>
       </div>
 
       <div style={{ fontSize: 10.5, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
@@ -114,5 +114,4 @@ export default function StationaryPowerIteration() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 200px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

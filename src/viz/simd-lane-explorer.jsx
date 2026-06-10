@@ -71,14 +71,14 @@ export default function SimdLaneExplorer() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={typeKey} onChange={e => { setTypeKey(e.target.value); setCycle(0); setRunning(false); }} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 10 }}>
+        <select className="viz-select" value={typeKey} onChange={e => { setTypeKey(e.target.value); setCycle(0); setRunning(false); }}>
           {Object.entries(TYPES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <button onClick={() => setCycle(c => Math.min(t.n, c + 1))} style={btn(false)}>krok →</button>
-        <button onClick={() => setRunning(r => !r)} style={btn(running)}>{running ? "■ stop" : "▶ play"}</button>
-        <button onClick={() => { setCycle(0); setRunning(false); }} style={btn(false)}>reset</button>
-        <span style={{ marginLeft: "auto", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
+        <button className="viz-btn primary" onClick={() => setCycle(c => Math.min(t.n, c + 1))}>krok →</button>
+        <button className="viz-btn" data-active={running} onClick={() => setRunning(r => !r)}>{running ? "■ stop" : "▶ play"}</button>
+        <button className="viz-btn" onClick={() => { setCycle(0); setRunning(false); }}>reset</button>
+        <span className="viz-readout push">
           cyklus #{cycle}
         </span>
       </div>
@@ -266,7 +266,3 @@ function Timeline({ x, y, w, h, cycles, done, hue, totalCycles, label }) {
   );
 }
 
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };
-function btn(active) {
-  return { ...ctrl, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", cursor: "pointer", padding: "3px 9px" };
-}

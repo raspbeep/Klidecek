@@ -28,11 +28,11 @@ export default function BankConflictWarp() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={patternKey} onChange={e => setPatternKey(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={patternKey} onChange={e => setPatternKey(e.target.value)}>
           {Object.entries(PATTERNS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <span className="viz-readout">
           cyklů: <b style={{ color: cycles === 1 ? "oklch(0.65 0.16 145)" : "oklch(0.65 0.18 22)" }}>{cycles}</b>
           {" "} (1 = bez konfliktu)
         </span>
@@ -93,5 +93,3 @@ export default function BankConflictWarp() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

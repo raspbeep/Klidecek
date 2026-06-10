@@ -68,13 +68,13 @@ export default function BinEntropy() {
             <span style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)", width: 22 }}>
               p{i + 1}
             </span>
-            <input type="range" min={0} max={10} step={0.5} value={wi}
+            <input type="range" className="viz-slider" min={0} max={10} step={0.5} value={wi}
               onChange={(e) => setOne(i, e.target.value)} style={{ flex: 1 }} />
           </div>
         ))}
       </div>
 
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-readout">
         {near
           ? "rovnoměrné rozdělení → H je maximální (= log2 n)"
           : "posuň jezdce; max H nastane, když jsou všechna p_i stejná"}

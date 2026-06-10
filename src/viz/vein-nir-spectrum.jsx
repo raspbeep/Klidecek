@@ -75,12 +75,12 @@ export default function VeinNirSpectrum() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <label style={lbl}>λ = {lam} nm</label>
-        <input type="range" min={lamMin} max={lamMax} step="5" value={lam} onChange={(e) => setLam(parseInt(e.target.value))} style={{ flex: 1, maxWidth: 400 }} />
-        <button style={btn} onClick={() => setLam(760)}>760 (optimum)</button>
-        <button style={btn} onClick={() => setLam(550)}>550 (vis)</button>
-        <button style={btn} onClick={() => setLam(1000)}>1000 (voda)</button>
+      <div className="viz-controls">
+        <span className="viz-readout">λ = {lam} nm</span>
+        <input type="range" className="viz-slider" min={lamMin} max={lamMax} step="5" value={lam} onChange={(e) => setLam(parseInt(e.target.value))} style={{ flex: 1, maxWidth: 400 }} />
+        <button className="viz-btn" onClick={() => setLam(760)}>760 (optimum)</button>
+        <button className="viz-btn" onClick={() => setLam(550)}>550 (vis)</button>
+        <button className="viz-btn" onClick={() => setLam(1000)}>1000 (voda)</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -148,6 +148,3 @@ export default function VeinNirSpectrum() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

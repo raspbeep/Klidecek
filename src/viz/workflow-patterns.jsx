@@ -152,17 +152,9 @@ export default function WorkflowPatterns() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Pattern picker */}
-      <div style={{ display: "flex", gap: 4, padding: 3, background: "var(--bg-inset)", borderRadius: 8, flexWrap: "wrap" }}>
+      <div className="viz-controls" style={{ padding: 3, background: "var(--bg-inset)", borderRadius: 8 }}>
         {Object.entries(PATTERNS).map(([id, p]) => (
-          <button key={id} onClick={() => switchPattern(id)}
-            className="btn ghost"
-            style={{
-              background: patternId === id ? "var(--bg-card)" : "transparent",
-              boxShadow: patternId === id ? "var(--shadow-sm)" : "none",
-              padding: "5px 10px",
-              fontSize: 11.5,
-              fontFamily: "var(--font-mono)",
-            }}>
+          <button key={id} className="viz-btn" data-active={patternId === id} onClick={() => switchPattern(id)}>
             {p.name}
           </button>
         ))}
@@ -239,7 +231,7 @@ export default function WorkflowPatterns() {
       </svg>
 
       {/* Controls */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <span style={{ fontSize: 11.5, color: "var(--text-muted)" }}>
           enabled transitions:
         </span>
@@ -249,12 +241,12 @@ export default function WorkflowPatterns() {
           </span>
         ) : (
           enabledTransitions.map((t) => (
-            <button key={t.id} onClick={() => fire(t)} style={fireBtn}>
+            <button key={t.id} className="viz-btn" onClick={() => fire(t)}>
               ▶ {t.label}
             </button>
           ))
         )}
-        <button onClick={reset} style={{ ...fireBtn, marginLeft: "auto", background: "oklch(0.55 0.18 22 / 0.10)" }}>↺ reset</button>
+        <button className="viz-btn" onClick={reset} style={{ marginLeft: "auto", background: "oklch(0.55 0.18 22 / 0.10)" }}>↺ reset</button>
       </div>
 
       {pattern.note && (
@@ -282,14 +274,3 @@ export default function WorkflowPatterns() {
     </div>
   );
 }
-
-const fireBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-  color: "var(--text)",
-};

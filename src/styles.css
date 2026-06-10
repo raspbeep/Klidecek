@@ -1073,6 +1073,137 @@ button { font: inherit; color: inherit; }
   .block-viz-loading { animation: none; }
 }
 
+/* ─── Canonical interactive-viz controls ──────────────────────────────────
+ * One control vocabulary shared by EVERY viz, so a reader never has to hunt
+ * for where to click. Scoped under .block-viz-body so it can't leak into page
+ * chrome. Migrate a viz by replacing its bespoke inline `style={btn}` buttons
+ * and ad-hoc flex rows with these classes:
+ *   <div className="viz-controls"> … control row (wraps, left-aligned)
+ *   <button className="viz-btn">              compact mono button
+ *   <button className="viz-btn primary">      the main step/play action
+ *   <button className="viz-btn" data-active={sel}>   toggle / selected option
+ *   <div className="viz-seg">…<button data-active>   segmented (one-of-N) switch
+ *   <span className="viz-readout">…           mono status text (.push → far right)
+ *   <input type="range" className="viz-slider">      accent range slider
+ */
+.block-viz-body .viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.block-viz-body .viz-btn {
+  appearance: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.25;
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.block-viz-body .viz-btn:hover:not(:disabled) {
+  background: var(--bg-inset);
+  border-color: var(--line-strong);
+}
+.block-viz-body .viz-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+/* selected / toggled-on state (one or many) */
+.block-viz-body .viz-btn[data-active="true"],
+.block-viz-body .viz-btn.on {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+/* primary action — the step/play/next button a reader reaches for first */
+.block-viz-body .viz-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text-on);
+}
+.block-viz-body .viz-btn.primary:hover:not(:disabled) {
+  filter: brightness(1.05);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* segmented one-of-N switch — same shape as the Komise scope toggle */
+.block-viz-body .viz-seg {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--bg-inset);
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+.block-viz-body .viz-seg button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.block-viz-body .viz-seg button[data-active="true"] {
+  background: var(--bg-card);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* mono status / readout text trailing the controls */
+.block-viz-body .viz-readout {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+.block-viz-body .viz-readout.push { margin-left: auto; text-align: right; }
+
+/* accent range slider */
+.block-viz-body .viz-slider {
+  accent-color: var(--accent);
+  cursor: pointer;
+  vertical-align: middle;
+}
+/* safety net: every native input inside a viz gets the accent + pointer, even
+ * ones a migration pass didn't reach explicitly. */
+.block-viz-body input[type="range"],
+.block-viz-body input[type="checkbox"],
+.block-viz-body input[type="radio"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* native dropdown styled to match .viz-btn */
+.block-viz-body .viz-select {
+  appearance: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.25;
+  padding: 5px 28px 5px 11px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--bg-card)
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>")
+    no-repeat right 8px center / 13px;
+  color: var(--text);
+  cursor: pointer;
+}
+.block-viz-body .viz-select:hover { border-color: var(--line-strong); }
+
 /* ── YouTube / video embeds ──────────────────────────────────────────────
  * Click-to-load facade: a 16:9 thumbnail with a play button; the iframe is
  * only mounted (and i.ytimg / youtube-nocookie only contacted) on click. */

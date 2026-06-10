@@ -52,15 +52,15 @@ export default function MainDeltaMergeTimeline() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => insert("CZ")} style={btn(false)}>INSERT CZ</button>
-        <button onClick={() => insert("DE")} style={btn(false)}>INSERT DE</button>
-        <button onClick={() => insert("UK")} style={btn(false)}>INSERT UK</button>
-        <button onClick={() => insert("US")} style={btn(false)}>INSERT US</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => insert("CZ")}>INSERT CZ</button>
+        <button className="viz-btn" onClick={() => insert("DE")}>INSERT DE</button>
+        <button className="viz-btn" onClick={() => insert("UK")}>INSERT UK</button>
+        <button className="viz-btn" onClick={() => insert("US")}>INSERT US</button>
         <div style={{ flex: 1 }} />
-        <button onClick={() => selectAll("CZ")} style={btn(false)}>SELECT * WHERE c=CZ</button>
-        <button onClick={mergeDelta} disabled={deltaSize === 0} style={{ ...btn(deltaSize > 0), opacity: deltaSize > 0 ? 1 : 0.5 }}>MERGE DELTA</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
+        <button className="viz-btn" onClick={() => selectAll("CZ")}>SELECT * WHERE c=CZ</button>
+        <button className="viz-btn" data-active={deltaSize > 0} onClick={mergeDelta} disabled={deltaSize === 0}>MERGE DELTA</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -124,13 +124,4 @@ export default function MainDeltaMergeTimeline() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

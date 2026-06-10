@@ -124,25 +124,23 @@ export default function UxiDomainIterace() {
         })}
       </svg>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+      <div className="viz-controls">
         <button
-          className="btn ghost"
-          style={btn}
+          className="viz-btn"
           onClick={() => setI((x) => Math.max(0, x - 1))}
           disabled={i === 0}
         >
           ← zpět
         </button>
         <button
-          className="btn ghost"
-          style={btn}
+          className="viz-btn primary"
           onClick={() => setI((x) => (x === STEPS.length - 1 ? 0 : x + 1))}
         >
           {i === STEPS.length - 1 ? "↻ nová iterace" : "další krok →"}
         </button>
-        <div style={{ flex: 1, textAlign: "right", fontSize: 11.5, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "right" }}>
           krok {step.n} / {STEPS.length}
-        </div>
+        </span>
       </div>
 
       <div style={{ padding: 10, background: "var(--bg-card)", borderRadius: 6, border: `1px solid ${accent}` }}>
@@ -155,12 +153,3 @@ export default function UxiDomainIterace() {
   );
 }
 
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

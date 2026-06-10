@@ -92,10 +92,10 @@ export default function SmartPointerGraph() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>smart pointer:</label>
         {Object.keys(SCENARIOS).map((k) => (
-          <button key={k} style={s === k ? btnOn : btn} onClick={() => setS(k)}>{k}</button>
+          <button key={k} className="viz-btn" data-active={s === k} onClick={() => setS(k)}>{k}</button>
         ))}
       </div>
 
@@ -140,8 +140,5 @@ export default function SmartPointerGraph() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--accent)" };

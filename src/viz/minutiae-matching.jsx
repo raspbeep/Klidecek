@@ -123,14 +123,14 @@ export default function MinutiaeMatching() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>scénář:</label>
-        <select value={scenario} onChange={(e) => { setScenario(e.target.value); setTx(60); setTy(40); setRot(15); }} style={sel}>
+        <select className="viz-select" value={scenario} onChange={(e) => { setScenario(e.target.value); setTx(60); setTy(40); setRot(15); }}>
           <option value="genuine">genuine (stejný prst, jiný snímek)</option>
           <option value="impostor">impostor (jiný prst)</option>
         </select>
-        <button style={btn} onClick={autoAlign}>auto-align (grid RANSAC)</button>
-        <button style={btn} onClick={() => { setTx(0); setTy(0); setRot(0); }}>0/0/0</button>
+        <button className="viz-btn" onClick={autoAlign}>auto-align (grid RANSAC)</button>
+        <button className="viz-btn" onClick={() => { setTx(0); setTy(0); setRot(0); }}>0/0/0</button>
       </div>
 
       <svg viewBox="0 0 320 245" style={{ width: "100%", maxWidth: 600, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -168,15 +168,15 @@ export default function MinutiaeMatching() {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
         <div>
           <label style={lbl}>tx = {tx}</label>
-          <input type="range" min="-60" max="60" value={tx} onChange={(e) => setTx(parseInt(e.target.value))} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min="-60" max="60" value={tx} onChange={(e) => setTx(parseInt(e.target.value))} style={{ width: "100%" }} />
         </div>
         <div>
           <label style={lbl}>ty = {ty}</label>
-          <input type="range" min="-40" max="40" value={ty} onChange={(e) => setTy(parseInt(e.target.value))} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min="-40" max="40" value={ty} onChange={(e) => setTy(parseInt(e.target.value))} style={{ width: "100%" }} />
         </div>
         <div>
           <label style={lbl}>rot = {rot}°</label>
-          <input type="range" min="-30" max="30" value={rot} onChange={(e) => setRot(parseInt(e.target.value))} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min="-30" max="30" value={rot} onChange={(e) => setRot(parseInt(e.target.value))} style={{ width: "100%" }} />
         </div>
       </div>
 
@@ -196,10 +196,7 @@ export default function MinutiaeMatching() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const statBox = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };
 const statVal = { fontSize: 16, fontWeight: 600, fontFamily: "var(--font-mono)", marginTop: 4 };

@@ -47,14 +47,14 @@ export default function PdiSparkStages() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 5, flexWrap: "wrap", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 10.5 }}>
-        <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>přidat:</span>
+      <div className="viz-controls">
+        <span style={{ color: "var(--text-muted)", fontWeight: 600, fontFamily: "var(--font-mono)", fontSize: 10.5 }}>přidat:</span>
         {OPS.filter((o) => o.kind !== "source").map((o) => (
-          <button key={o.id} onClick={() => addOp(o.id)} style={opBtn(o.kind)}>+ {o.label}</button>
+          <button key={o.id} className="viz-btn" onClick={() => addOp(o.id)} style={opBtn(o.kind)}>+ {o.label}</button>
         ))}
         <div style={{ flex: 1 }} />
-        <button onClick={pop} style={ctrlBtn}>← undo</button>
-        <button onClick={reset} style={ctrlBtn}>reset</button>
+        <button className="viz-btn" onClick={pop}>← undo</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -119,13 +119,7 @@ export default function PdiSparkStages() {
 function opBtn(kind) {
   const hue = kind === "wide" ? 22 : 264;
   return {
-    fontFamily: "var(--font-mono)", fontSize: 10, padding: "2px 7px",
-    background: `oklch(0.62 0.14 ${hue} / 0.14)`, color: "var(--text)",
-    border: `1px solid oklch(0.62 0.14 ${hue})`, borderRadius: 3, cursor: "pointer",
+    background: `oklch(0.62 0.14 ${hue} / 0.14)`,
+    borderColor: `oklch(0.62 0.14 ${hue})`,
   };
 }
-const ctrlBtn = {
-  fontFamily: "var(--font-mono)", fontSize: 10, padding: "2px 7px",
-  background: "var(--bg-inset)", color: "var(--text)",
-  border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-};

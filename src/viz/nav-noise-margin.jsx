@@ -84,7 +84,7 @@ export default function NavNoiseMargin() {
         </defs>
       </svg>
 
-      <input type="range" min={1.8} max={5.0} step={0.1} value={vtx}
+      <input type="range" className="viz-slider" min={1.8} max={5.0} step={0.1} value={vtx}
         onChange={(e) => setVtx(+e.target.value)} style={{ width: "100%" }} />
 
       <div style={{ fontSize: 12, fontFamily: "var(--font-mono)", color: "var(--text-muted)", display: "flex", flexWrap: "wrap", gap: "4px 14px" }}>

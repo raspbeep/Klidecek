@@ -47,12 +47,12 @@ export default function NavMericiRetezec() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           článek {step + 1} / {n}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(n - 1, step + 1))} disabled={step === n - 1}>dál →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(n - 1, step + 1))} disabled={step === n - 1}>dál →</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W }}>
@@ -98,13 +98,3 @@ export default function NavMericiRetezec() {
     </div>
   );
 }
-
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

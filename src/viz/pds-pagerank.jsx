@@ -95,10 +95,10 @@ export default function PdsPagerank() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-        <button className="btn ghost" onClick={doStep} style={btn}>▶ iteruj</button>
-        <button className="btn ghost" onClick={reset} style={btn}>↻ reset</button>
-        <span style={{ fontSize: 12, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={doStep}>▶ iteruj</button>
+        <button className="viz-btn" onClick={reset}>↻ reset</button>
+        <span className="viz-readout">
           iterace: {iter}
         </span>
       </div>
@@ -111,14 +111,3 @@ export default function PdsPagerank() {
     </div>
   );
 }
-
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-  color: "var(--text)",
-};

@@ -44,13 +44,13 @@ export default function VpnAnonymity() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <span style={{ fontSize: 12, color: "var(--text-muted)" }}>pozorovatel:</span>
         {OBSERVERS.map((x) => (
           <button key={x.id}
-            className={obs === x.id ? "btn" : "btn ghost"}
-            onClick={() => setObs(x.id)}
-            style={{ fontSize: 11.5 }}>
+            className="viz-btn"
+            data-active={obs === x.id}
+            onClick={() => setObs(x.id)}>
             {x.label}
           </button>
         ))}

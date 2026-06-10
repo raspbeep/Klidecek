@@ -115,7 +115,7 @@ export default function PdiKonzistentniRez() {
         {PROCS.map((p, i) => (
           <label key={p.id} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11.5 }}>
             <span style={{ width: 28, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>{p.id}</span>
-            <input type="range" min={1} max={9} value={cut[i]} onChange={(e) => set(i, e.target.value)} style={{ flex: 1 }} />
+            <input type="range" className="viz-slider" min={1} max={9} value={cut[i]} onChange={(e) => set(i, e.target.value)} style={{ flex: 1 }} />
             <span style={{ width: 20, textAlign: "right", fontFamily: "var(--font-mono)", color: "var(--text-faint)" }}>{cut[i]}</span>
           </label>
         ))}

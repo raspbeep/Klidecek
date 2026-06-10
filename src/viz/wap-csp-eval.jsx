@@ -51,15 +51,9 @@ export default function WapCspEval() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {Object.entries(POLICIES).map(([k, v]) => (
-          <button key={k} onClick={() => setKey(k)} style={{
-            padding: "6px 9px", fontSize: 11.5, borderRadius: 6, cursor: "pointer",
-            border: key === k ? `1.5px solid ${ACCENT}` : "1px solid var(--line)",
-            background: key === k ? "oklch(0.55 0.16 264 / 0.12)" : "var(--bg-card)",
-            color: key === k ? ACCENT : "var(--text-muted)",
-            fontWeight: key === k ? 700 : 500, fontFamily: "var(--font-mono)",
-          }}>{v.label}</button>
+          <button key={k} className="viz-btn" data-active={key === k} onClick={() => setKey(k)}>{v.label}</button>
         ))}
       </div>
 

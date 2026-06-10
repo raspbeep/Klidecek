@@ -84,24 +84,17 @@ export default function BinEca() {
         </text>
       </svg>
 
-      <input type="range" min={0} max={255} value={rule}
+      <input type="range" className="viz-slider" min={0} max={255} value={rule}
         onChange={(e) => setRule(+e.target.value)} style={{ width: "100%" }} />
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {PRESETS.map((p) => (
-          <button key={p.rule} onClick={() => setRule(p.rule)}
-            style={{
-              fontSize: 11, fontFamily: "var(--font-mono)", cursor: "pointer",
-              padding: "3px 7px", borderRadius: 5,
-              border: "1px solid var(--line-strong)",
-              background: rule === p.rule ? "var(--accent)" : "var(--bg-card)",
-              color: rule === p.rule ? "white" : "var(--text-muted)",
-            }}>
+          <button key={p.rule} className="viz-btn" data-active={rule === p.rule} onClick={() => setRule(p.rule)}>
             {p.rule} · {p.label}
           </button>
         ))}
       </div>
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-readout">
         pravidlo {rule} · {PRESETS.find((p) => p.rule === rule)?.note || "vlastní pravidlo (0–255)"}
       </div>
     </div>

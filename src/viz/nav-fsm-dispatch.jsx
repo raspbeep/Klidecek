@@ -66,18 +66,18 @@ export default function NavFsmDispatch() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 10, marginBottom: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         <label style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <span style={{ color: "var(--text-muted)" }}>počet stavů N</span>
-          <input type="range" min={3} max={12} value={n}
+          <input type="range" className="viz-slider" min={3} max={12} value={n}
             onChange={(e) => { setN(+e.target.value); }} style={{ width: 90 }} />
-          <span style={{ fontFamily: "var(--font-mono)" }}>{n}</span>
+          <span className="viz-readout">{n}</span>
         </label>
         <label style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <span style={{ color: "var(--text-muted)" }}>cílový stav</span>
-          <input type="range" min={0} max={n - 1} value={tgt}
+          <input type="range" className="viz-slider" min={0} max={n - 1} value={tgt}
             onChange={(e) => setTarget(+e.target.value)} style={{ width: 90 }} />
-          <span style={{ fontFamily: "var(--font-mono)" }}>S{tgt}</span>
+          <span className="viz-readout">S{tgt}</span>
         </label>
       </div>
 

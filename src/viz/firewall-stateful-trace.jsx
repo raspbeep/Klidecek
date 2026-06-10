@@ -59,10 +59,10 @@ export default function FirewallStatefulTrace() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: 11, alignItems: "center" }}>
-        <button onClick={next} disabled={idx >= SCENARIO.length} style={btn(false)}>▶ next packet ({idx}/{SCENARIO.length})</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <span style={{ color: "var(--text-muted)" }}>scenario: DNS query + attacker probe</span>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn primary" onClick={next} disabled={idx >= SCENARIO.length}>▶ next packet ({idx}/{SCENARIO.length})</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout">scenario: DNS query + attacker probe</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -114,8 +114,4 @@ export default function FirewallStatefulTrace() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

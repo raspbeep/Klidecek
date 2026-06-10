@@ -45,11 +45,11 @@ export default function Wpa3SaeVsPskBrute() {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 8, fontSize: 11 }}>
         <div>
           Password length = {pwLen}
-          <input type="range" min="4" max="20" value={pwLen} onChange={e => setPwLen(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min="4" max="20" value={pwLen} onChange={e => setPwLen(+e.target.value)} style={{ width: "100%" }} />
         </div>
         <div>
           Charset:
-          <select value={charset} onChange={e => setCharset(e.target.value)} style={ctrl}>
+          <select className="viz-select" value={charset} onChange={e => setCharset(e.target.value)} style={{ marginLeft: 5 }}>
             <option value="az">26 lowercase</option>
             <option value="alnum">62 alnum (a-zA-Z0-9)</option>
             <option value="dict">dictionary attack (rockyou 14M)</option>
@@ -96,5 +96,3 @@ export default function Wpa3SaeVsPskBrute() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 5px", borderRadius: 3, fontSize: 11, marginLeft: 5 };

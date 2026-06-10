@@ -60,12 +60,12 @@ export default function NavIsrLatency() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => setStep(Math.max(0, cur - 1))} disabled={cur === 0} style={btn}>← zpět</button>
-        <span style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, cur - 1))} disabled={cur === 0}>← zpět</button>
+        <span className="viz-readout">
           krok {cur + 1} / {steps.length}
         </span>
-        <button onClick={() => setStep(Math.min(steps.length - 1, cur + 1))} disabled={cur === steps.length - 1} style={btn}>vpřed →</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(steps.length - 1, cur + 1))} disabled={cur === steps.length - 1}>vpřed →</button>
         <label style={{ display: "flex", alignItems: "center", gap: 5, marginLeft: 6, fontSize: 11.5 }}>
           <input type="checkbox" checked={inCritical} onChange={(e) => { setInCritical(e.target.checked); setStep(0); }} />
           <span>kritická sekce v hl. smyčce</span>
@@ -131,8 +131,3 @@ export default function NavIsrLatency() {
     </div>
   );
 }
-
-const btn = {
-  background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)",
-  padding: "3px 10px", borderRadius: 3, fontSize: 11.5, cursor: "pointer",
-};

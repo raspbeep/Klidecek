@@ -47,9 +47,9 @@ export default function PrologFindallBagofSetof() {
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
         <pre style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text)", margin: 0, whiteSpace: "pre" }}>{KB}</pre>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>query:</label>
-        <select value={q} onChange={(e) => setQ(e.target.value)} style={sel}>
+        <select value={q} onChange={(e) => setQ(e.target.value)} className="viz-select">
           {Object.entries(QUERIES).map(([k, v]) => <option key={k} value={k}>{k}</option>)}
         </select>
       </div>
@@ -91,9 +91,7 @@ export default function PrologFindallBagofSetof() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const col = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const colHd = { fontSize: 12, color: "var(--accent)", marginBottom: 4, fontWeight: 600 };
 const callCode = { fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--text-muted)", display: "block", marginBottom: 4 };

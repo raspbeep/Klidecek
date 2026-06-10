@@ -127,17 +127,17 @@ export default function EigenfacesRecon() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>target:</label>
-        <select value={target} onChange={(e) => { setTarget(e.target.value); setWeights(TARGETS[e.target.value].w.slice()); }} style={sel}>
+        <select className="viz-select" value={target} onChange={(e) => { setTarget(e.target.value); setWeights(TARGETS[e.target.value].w.slice()); }}>
           <option value="alice">Alice</option>
           <option value="bob">Bob</option>
           <option value="carol">Carol</option>
         </select>
         <label style={lbl}>K = {K}</label>
-        <input type="range" min="0" max="6" value={K} onChange={(e) => setK(parseInt(e.target.value))} />
-        <button style={btn} onClick={autoProject}>auto-projekce</button>
-        <button style={btn} onClick={reset}>reset</button>
+        <input type="range" className="viz-slider" min="0" max="6" value={K} onChange={(e) => setK(parseInt(e.target.value))} />
+        <button className="viz-btn" onClick={autoProject}>auto-projekce</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <div style={{ display: "flex", gap: 16, alignItems: "flex-start", flexWrap: "wrap" }}>
@@ -169,7 +169,7 @@ export default function EigenfacesRecon() {
         {weights.map((w, i) => (
           <div key={i} style={{ background: "var(--bg-inset)", padding: 6, borderRadius: 4, opacity: i < K ? 1 : 0.3 }}>
             <div style={{ fontSize: 10, color: "var(--text-muted)" }}>w<sub>{i+1}</sub></div>
-            <input type="range" min="-1" max="1" step="0.05" value={w} disabled={i >= K} onChange={(e) => { const arr = weights.slice(); arr[i] = parseFloat(e.target.value); setWeights(arr); }} style={{ width: "100%" }} />
+            <input type="range" className="viz-slider" min="-1" max="1" step="0.05" value={w} disabled={i >= K} onChange={(e) => { const arr = weights.slice(); arr[i] = parseFloat(e.target.value); setWeights(arr); }} style={{ width: "100%" }} />
             <div style={{ fontSize: 10, fontFamily: "var(--font-mono)" }}>{w.toFixed(2)}</div>
           </div>
         ))}
@@ -186,9 +186,6 @@ export default function EigenfacesRecon() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const panel = { background: "var(--bg-inset)", padding: 6, borderRadius: 6, textAlign: "center" };
 const panelTitle = { fontSize: 10, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginBottom: 3 };

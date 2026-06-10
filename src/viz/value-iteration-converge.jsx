@@ -91,13 +91,13 @@ export default function ValueIterationConverge() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={step} style={btn(false)}>krok VI →</button>
-        <button onClick={() => { for (let i = 0; i < 10; i++) step(); }} style={btn(false)}>×10</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>iterace = {k}</span>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={step}>krok VI →</button>
+        <button className="viz-btn" onClick={() => { for (let i = 0; i < 10; i++) step(); }}>×10</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout">iterace = {k}</span>
         <label style={lab()}>γ = {gamma.toFixed(2)}
-          <input type="range" min={0.1} max={0.99} step={0.01} value={gamma} onChange={(e) => { setGamma(+e.target.value); setHistory([[0, 0, 0]]); }} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.1} max={0.99} step={0.01} value={gamma} onChange={(e) => { setGamma(+e.target.value); setHistory([[0, 0, 0]]); }} style={{ width: "100%" }} />
         </label>
       </div>
 
@@ -109,5 +109,4 @@ export default function ValueIterationConverge() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "0 1 200px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

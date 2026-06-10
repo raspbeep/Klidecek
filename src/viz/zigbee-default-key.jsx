@@ -49,14 +49,14 @@ export default function ZigbeeDefaultKey() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>verze:</label>
-        <select value={version} onChange={(e) => { setVersion(e.target.value); reset(); }} style={{ ...sel, minWidth: 220 }}>
+        <select className="viz-select" value={version} onChange={(e) => { setVersion(e.target.value); reset(); }} style={{ minWidth: 220 }}>
           <option value="zigbee2007">ZigBee 2007 (default TLK)</option>
           <option value="zigbee3">ZigBee 3.0 (install code)</option>
         </select>
-        <button style={btn} onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step >= steps.length - 1}>vpred →</button>
-        <button style={btn} onClick={reset}>reset</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step >= steps.length - 1}>vpred →</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
@@ -93,7 +93,4 @@ export default function ZigbeeDefaultKey() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

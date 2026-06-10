@@ -49,10 +49,10 @@ export default function TamaMviCycle() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <span style={{ fontSize: 11.5, color: "var(--text-muted)", fontWeight: 600 }}>vyšli Intent:</span>
         {Object.entries(INTENTS).map(([k, v]) => (
-          <button key={k} onClick={() => dispatch(k)} style={btn}>{v.label}</button>
+          <button key={k} className="viz-btn" onClick={() => dispatch(k)}>{v.label}</button>
         ))}
       </div>
 
@@ -105,14 +105,3 @@ export default function TamaMviCycle() {
     </div>
   );
 }
-
-const btn = {
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  padding: "4px 12px",
-  borderRadius: 4,
-  fontSize: 12,
-  fontFamily: "ui-monospace, monospace",
-  cursor: "pointer",
-};

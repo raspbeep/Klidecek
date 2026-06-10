@@ -97,17 +97,17 @@ export default function ControlHazardRecovery() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={strat} onChange={e => { setStrat(e.target.value); setT(0); }} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <select className="viz-select" value={strat} onChange={e => { setStrat(e.target.value); setT(0); }}>
           {Object.entries(STRATS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
           <input type="checkbox" checked={taken} onChange={e => { setTaken(e.target.checked); setT(0); }} /> branch TAKEN
         </label>
-        <button onClick={() => setT(Math.max(0, t - 1))} style={btn(false)}>←</button>
-        <button onClick={() => setT(Math.min(maxT, t + 1))} style={btn(false)}>→</button>
-        <button onClick={() => setAuto(a => !a)} style={btn(auto)}>{auto ? "■" : "▶"}</button>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <button className="viz-btn" onClick={() => setT(Math.max(0, t - 1))}>←</button>
+        <button className="viz-btn primary" onClick={() => setT(Math.min(maxT, t + 1))}>→</button>
+        <button className="viz-btn" data-active={auto} onClick={() => setAuto(a => !a)}>{auto ? "■" : "▶"}</button>
+        <span className="viz-readout">
           flushed bubbles: {flushed} | celkem cyklů: {cycles}
         </span>
       </div>
@@ -152,7 +152,3 @@ export default function ControlHazardRecovery() {
   );
 }
 
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11 };
-function btn(active) {
-  return { ...ctrl, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", cursor: "pointer", padding: "3px 8px" };
-}

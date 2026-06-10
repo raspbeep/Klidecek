@@ -100,12 +100,12 @@ export default function BifSecondaryStruct() {
         <text x={x0 + 194} y={H - 13} fontSize="9" fontFamily="var(--font-mono)" fill="var(--text-muted)">C = smyčka</text>
       </svg>
 
-      <input type="range" min={1} max={9} step={2} value={win}
+      <input type="range" className="viz-slider" min={1} max={9} step={2} value={win}
         onChange={(e) => setWin(+e.target.value)} style={{ width: "100%" }} />
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <span className="viz-readout">
         šířka okna = {win} · větší okno = hladší (méně roztříštěná) predikce ·
         prostřední pozice klasifikována jako {name(labels[Math.floor(SEQ.length / 2)])}
-      </div>
+      </span>
     </div>
   );
 }

@@ -86,25 +86,25 @@ export default function AnovaInteractive() {
         <text x={W - 14} y={H - 6} textAnchor="end" fontSize="10" fill="var(--text-muted)" fontFamily="var(--font-mono)">Y</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <label style={lab(COLORS[0])}>μ₁ = {m1.toFixed(1)}
-          <input type="range" min={70} max={95} step={0.5} value={m1} onChange={(e) => setM1(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={70} max={95} step={0.5} value={m1} onChange={(e) => setM1(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab(COLORS[1])}>μ₂ = {m2.toFixed(1)}
-          <input type="range" min={70} max={95} step={0.5} value={m2} onChange={(e) => setM2(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={70} max={95} step={0.5} value={m2} onChange={(e) => setM2(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab(COLORS[2])}>μ₃ = {m3.toFixed(1)}
-          <input type="range" min={70} max={95} step={0.5} value={m3} onChange={(e) => setM3(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={70} max={95} step={0.5} value={m3} onChange={(e) => setM3(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <label style={lab()}>σ (within) = {sigma.toFixed(2)}
-          <input type="range" min={0.5} max={6} step={0.1} value={sigma} onChange={(e) => setSigma(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.5} max={6} step={0.1} value={sigma} onChange={(e) => setSigma(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>n per skupinu = {n}
-          <input type="range" min={3} max={30} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={3} max={30} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový vzorek</button>
+        <button className="viz-btn primary" onClick={() => setSeed(seed + 1)}>nový vzorek</button>
       </div>
 
       <table style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text)", borderCollapse: "collapse" }}>
@@ -123,7 +123,6 @@ export default function AnovaInteractive() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab(color) { return { flex: "1 1 150px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: color || "var(--text-muted)" }; }
 function th() { return { textAlign: "left", padding: "3px 10px", fontWeight: "normal", borderBottom: "1px solid var(--line)" }; }
 function td() { return { padding: "3px 10px" }; }

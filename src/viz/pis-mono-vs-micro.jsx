@@ -8,25 +8,17 @@ export default function MonoVsMicro() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, padding: 3, background: "var(--bg-inset)", borderRadius: 8, width: "fit-content" }}>
+      <div className="viz-controls" style={{ padding: 3, background: "var(--bg-inset)", borderRadius: 8, width: "fit-content" }}>
         <button
-          className="btn ghost"
-          style={{
-            background: mode === "mono" ? "var(--bg-card)" : "transparent",
-            boxShadow: mode === "mono" ? "var(--shadow-sm)" : "none",
-            padding: "6px 14px",
-          }}
+          className="viz-btn"
+          data-active={mode === "mono"}
           onClick={() => setMode("mono")}
         >
           Monolit
         </button>
         <button
-          className="btn ghost"
-          style={{
-            background: mode === "micro" ? "var(--bg-card)" : "transparent",
-            boxShadow: mode === "micro" ? "var(--shadow-sm)" : "none",
-            padding: "6px 14px",
-          }}
+          className="viz-btn"
+          data-active={mode === "micro"}
           onClick={() => setMode("micro")}
         >
           Mikroslužby

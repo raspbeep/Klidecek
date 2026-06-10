@@ -56,9 +56,9 @@ export default function WapOriginCheck() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>cíl požadavku:</span>
-        <select value={idx} onChange={(e) => setIdx(Number(e.target.value))} style={selectStyle}>
+        <select className="viz-select" value={idx} onChange={(e) => setIdx(Number(e.target.value))}>
           {TARGETS.map((tt, i) => (
             <option key={i} value={i}>{tt.url}</option>
           ))}
@@ -113,13 +113,3 @@ export default function WapOriginCheck() {
     </div>
   );
 }
-
-const selectStyle = {
-  padding: "3px 6px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-};

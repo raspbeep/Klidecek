@@ -44,7 +44,7 @@ export default function PdsReputon() {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, fontSize: 12 }}>
         <label style={lbl}>
           <span style={lblTxt}>reputační služba</span>
-          <select value={service} onChange={(e) => setService(e.target.value)} style={sel}>
+          <select className="viz-select" value={service} onChange={(e) => setService(e.target.value)}>
             {SERVICES.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
         </label>
@@ -58,7 +58,7 @@ export default function PdsReputon() {
         </label>
         <label style={lbl}>
           <span style={lblTxt}>assertion (tvrzení)</span>
-          <select value={assertion} onChange={(e) => setAssertion(e.target.value)} style={sel}>
+          <select className="viz-select" value={assertion} onChange={(e) => setAssertion(e.target.value)}>
             {ASSERTIONS.map((a) => <option key={a} value={a}>{a}</option>)}
           </select>
         </label>

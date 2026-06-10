@@ -35,10 +35,10 @@ export default function OpenmpForkJoin() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
         <label style={{ display: "flex", flexDirection: "column", color: "var(--text)", fontSize: 11 }}>
           threads: {nThreads}
-          <input type="range" min={2} max={8} value={nThreads} onChange={e => setNThreads(+e.target.value)} style={{ width: 100 }} />
+          <input type="range" className="viz-slider" min={2} max={8} value={nThreads} onChange={e => setNThreads(+e.target.value)} style={{ width: 100 }} />
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
           <input type="checkbox" checked={nowait} onChange={e => setNowait(e.target.checked)} /> nowait
@@ -46,9 +46,9 @@ export default function OpenmpForkJoin() {
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
           <input type="checkbox" checked={nested} onChange={e => setNested(e.target.checked)} /> nested
         </label>
-        <button onClick={() => setAuto(a => !a)} style={btn(auto)}>{auto ? "■" : "▶"}</button>
-        <button onClick={() => setT(0)} style={btn(false)}>reset</button>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>t = {t}</span>
+        <button className="viz-btn primary" data-active={auto} onClick={() => setAuto(a => !a)}>{auto ? "■" : "▶"}</button>
+        <button className="viz-btn" onClick={() => setT(0)}>reset</button>
+        <span className="viz-readout">t = {t}</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -124,13 +124,4 @@ export default function OpenmpForkJoin() {
       </svg>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 9px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "white" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

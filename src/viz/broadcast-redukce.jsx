@@ -221,31 +221,29 @@ export default function BroadcastRedukce() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Controls */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>topologie:</span>
         {Object.keys(TOPOLOGIES).map((k) => (
-          <button key={k} onClick={() => { setTopo(k); reset(); }}
-            style={{ ...modeBtn, ...(topo === k ? activeBtn : {}) }}>
+          <button key={k} className="viz-btn" data-active={topo === k} onClick={() => { setTopo(k); reset(); }}>
             {k === "hypercube" ? "hyperkrychle" : k === "mesh" ? "mřížka" : k === "tree" ? "strom" : "kruh"}
           </button>
         ))}
         <span style={{ color: "var(--text-muted)", fontWeight: 600, marginLeft: 8 }}>operace:</span>
         {["broadcast", "reduce", "allreduce"].map((k) => (
-          <button key={k} onClick={() => { setMode(k); reset(); }}
-            style={{ ...modeBtn, ...(mode === k ? activeBtn : {}) }}>
+          <button key={k} className="viz-btn" data-active={mode === k} onClick={() => { setMode(k); reset(); }}>
             {k === "allreduce" ? "all-reduce" : k}
           </button>
         ))}
       </div>
 
       {/* Step nav */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step} / {maxStep}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(maxStep, step + 1))} disabled={step >= maxStep}>další →</button>
-        <button className="btn ghost" style={navBtn} onClick={reset}>↻</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(maxStep, step + 1))} disabled={step >= maxStep}>další →</button>
+        <button className="viz-btn" onClick={reset}>↻</button>
       </div>
 
       {/* Topology SVG */}
@@ -336,23 +334,3 @@ export default function BroadcastRedukce() {
   );
 }
 
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

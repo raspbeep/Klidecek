@@ -89,9 +89,9 @@ export default function FreqAnalysis() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button onClick={() => { setAssignments({}); setSelectedCipher(null); }} style={btn}>Vyčistit</button>
-        <button onClick={autoHint} style={btn}>Návrh: top-3 → E,T,A</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => { setAssignments({}); setSelectedCipher(null); }}>Vyčistit</button>
+        <button className="viz-btn" onClick={autoHint}>Návrh: top-3 → E,T,A</button>
         <span style={{ fontSize: 11, color: "var(--text-muted)" }}>
           Mapování: <b style={{ color: "var(--accent)" }}>{Object.keys(assignments).length}</b> / 26 znaků
           (správně: <b style={{ color: "#81b29a" }}>{correctCount}</b>)
@@ -144,9 +144,8 @@ export default function FreqAnalysis() {
         {ALPHA.split("").map((c) => {
           const used = Object.values(assignments).includes(c);
           return (
-            <button key={c} onClick={() => assign(c)} disabled={!selectedCipher || used}
+            <button key={c} className="viz-btn" onClick={() => assign(c)} disabled={!selectedCipher || used}
               style={{
-                ...btn,
                 opacity: !selectedCipher || used ? 0.4 : 1,
                 background: used ? "var(--bg-inset)" : "var(--bg-card)",
                 color: used ? "var(--text-faint)" : "var(--text)",
@@ -172,6 +171,4 @@ export default function FreqAnalysis() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 8 };
-const row = { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 11, cursor: "pointer" };
 const textBox = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text)", whiteSpace: "pre-wrap", lineHeight: 1.4, wordBreak: "break-all" };

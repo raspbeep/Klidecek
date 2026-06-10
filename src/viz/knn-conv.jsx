@@ -113,26 +113,24 @@ export default function KnnConv() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-muted)" }}>
+      <div className="viz-controls" style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-muted)" }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
           velikost jádra k
-          <input type="range" min={2} max={5} value={k}
+          <input type="range" className="viz-slider" min={2} max={5} value={k}
             onChange={(e) => { setK(+e.target.value); setPos(0); }} />
           <span style={{ color: "var(--accent)" }}>{k}</span>
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
           stride
-          <input type="range" min={1} max={3} value={stride}
+          <input type="range" className="viz-slider" min={1} max={3} value={stride}
             onChange={(e) => { setStride(+e.target.value); setPos(0); }} />
           <span style={{ color: "var(--accent)" }}>{stride}</span>
         </label>
       </div>
-      <div style={{ display: "flex", gap: 8, alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-muted)" }}>
-        <button onClick={() => setPos((q) => (q <= 0 ? nOut - 1 : q - 1))}
-          style={{ cursor: "pointer" }}>◀</button>
-        <span>pozice {p + 1} / {nOut}</span>
-        <button onClick={() => setPos((q) => (q + 1) % nOut)}
-          style={{ cursor: "pointer" }}>▶</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setPos((q) => (q <= 0 ? nOut - 1 : q - 1))}>◀</button>
+        <span className="viz-readout">pozice {p + 1} / {nOut}</span>
+        <button className="viz-btn primary" onClick={() => setPos((q) => (q + 1) % nOut)}>▶</button>
         <span style={{ color: "var(--text-faint)" }}>stejné váhy na každé pozici = sdílení vah</span>
       </div>
     </div>

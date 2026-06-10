@@ -115,20 +115,13 @@ export default function MleLikelihoodCurve() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(MODELS).map(([k, mo]) => (
-          <button key={k} onClick={() => { setModel(k); setData(mo.initData); }}
-            style={{
-              padding: "3px 9px", fontSize: 11,
-              border: "1px solid " + (model === k ? "var(--accent)" : "var(--line)"),
-              background: model === k ? "var(--bg-inset)" : "var(--bg-card)",
-              color: model === k ? "var(--accent)" : "var(--text)",
-              borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)",
-            }}
+          <button key={k} className="viz-btn" data-active={model === k} onClick={() => { setModel(k); setData(mo.initData); }}
           >{mo.label}</button>
         ))}
-        <button onClick={addPoint} style={btnStyle()}>+ bod</button>
-        <button onClick={rmPoint} style={btnStyle()}>− bod</button>
+        <button className="viz-btn" onClick={addPoint}>+ bod</button>
+        <button className="viz-btn" onClick={rmPoint}>− bod</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -186,8 +179,4 @@ export default function MleLikelihoodCurve() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { padding: "3px 9px", fontSize: 11, border: "1px solid var(--line)", background: "var(--bg-card)", color: "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" };
 }

@@ -159,12 +159,10 @@ export default function PbiDecisionTree() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-        <button onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}
-          style={{ padding: "3px 10px" }}>← zpět</button>
-        <button onClick={() => setStep((s) => Math.min(SPLITS.length, s + 1))} disabled={step === SPLITS.length}
-          style={{ padding: "3px 10px" }}>další řez →</button>
-        <span style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}>← zpět</button>
+        <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(SPLITS.length, s + 1))} disabled={step === SPLITS.length}>další řez →</button>
+        <span className="viz-readout">
           řez {step} / {SPLITS.length}
           {infoGain != null && ` · info. zisk ≈ ${infoGain.toFixed(2)} bit`}
           {step === 0 && ` · entropie kořene ≈ ${rootH.toFixed(2)} bit`}

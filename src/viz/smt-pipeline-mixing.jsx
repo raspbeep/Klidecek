@@ -79,11 +79,11 @@ export default function SmtPipelineMixing() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={mixKey} onChange={e => setMixKey(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={mixKey} onChange={e => setMixKey(e.target.value)}>
           {Object.entries(MIXES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <span className="viz-readout">
           1 thread util: {(single.utilized / single.total * 100).toFixed(0)} % →
           SMT util: {(smt.utilized / smt.total * 100).toFixed(0)} %, speedup ≈ {speedup.toFixed(2)}×
         </span>
@@ -137,5 +137,3 @@ export default function SmtPipelineMixing() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

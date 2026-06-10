@@ -64,18 +64,16 @@ export default function RnnUnrollBptt() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>režim:</span>
-          <select value={regimeKey} onChange={(e) => setRegimeKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={regimeKey} onChange={(e) => setRegimeKey(e.target.value)}>
             {Object.entries(REGIMES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>aktivace:</span>
-          <select value={nlKey} onChange={(e) => setNlKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={nlKey} onChange={(e) => setNlKey(e.target.value)}>
             {Object.entries(NLS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>

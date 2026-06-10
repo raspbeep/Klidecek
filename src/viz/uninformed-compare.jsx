@@ -181,14 +181,14 @@ export default function UninformedCompare() {
           <span style={{ fontFamily: "var(--font-mono)", color: "var(--text-faint)", textTransform: "uppercase", letterSpacing: "0.06em", fontSize: 10.5 }}>
             detail · {algo}
           </span>
-          <div style={{ display: "flex", gap: 4 }}>
-            <button onClick={() => setStep(0)} style={btnStyle()}>⏮</button>
-            <button onClick={() => setStep((s) => Math.max(0, s - 1))} style={btnStyle()}>◀</button>
-            <button onClick={() => setPlaying((p) => !p)} style={btnStyle()}>{playing ? "⏸" : "▶"}</button>
-            <button onClick={() => setStep((s) => Math.min(trace.length - 1, s + 1))} style={btnStyle()}>▶|</button>
-            <button onClick={() => setStep(trace.length - 1)} style={btnStyle()}>⏭</button>
+          <div className="viz-controls">
+            <button className="viz-btn" onClick={() => setStep(0)}>⏮</button>
+            <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))}>◀</button>
+            <button className="viz-btn primary" onClick={() => setPlaying((p) => !p)}>{playing ? "⏸" : "▶"}</button>
+            <button className="viz-btn" onClick={() => setStep((s) => Math.min(trace.length - 1, s + 1))}>▶|</button>
+            <button className="viz-btn" onClick={() => setStep(trace.length - 1)}>⏭</button>
           </div>
-          <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+          <span className="viz-readout">
             krok {step}/{trace.length - 1}
           </span>
         </div>
@@ -299,8 +299,4 @@ function MiniGraph({ path, expanded, hue, active }) {
       )}
     </svg>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

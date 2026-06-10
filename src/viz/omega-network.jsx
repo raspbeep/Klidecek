@@ -62,13 +62,13 @@ export default function OmegaNetwork() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Controls */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>zdroj:</span>
-        <select value={src} onChange={(e) => setSrc(+e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={src} onChange={(e) => setSrc(+e.target.value)}>
           {Array.from({ length: P }, (_, i) => <option key={i} value={i}>P_{i}</option>)}
         </select>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>cíl:</span>
-        <select value={dest} onChange={(e) => setDest(+e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={dest} onChange={(e) => setDest(+e.target.value)}>
           {Array.from({ length: P }, (_, i) => <option key={i} value={i}>M_{i}</option>)}
         </select>
         <span style={{ color: "var(--text-muted)", marginLeft: 8 }}>cíl binárně:</span>
@@ -87,14 +87,14 @@ export default function OmegaNetwork() {
       </div>
 
       {/* Step nav */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           fáze {step} / {Q}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(Q, step + 1))} disabled={step >= Q}>další →</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Q)}>⏭</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(0)}>↻</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(Q, step + 1))} disabled={step >= Q}>další →</button>
+        <button className="viz-btn" onClick={() => setStep(Q)}>⏭</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>↻</button>
       </div>
 
       <svg viewBox={`0 0 ${W_SVG} ${H_SVG}`} style={{ width: "100%", maxWidth: W_SVG }}>
@@ -279,21 +279,3 @@ export default function OmegaNetwork() {
   );
 }
 
-const selectStyle = {
-  padding: "3px 6px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-};
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

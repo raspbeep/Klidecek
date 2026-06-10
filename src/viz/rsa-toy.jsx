@@ -58,13 +58,13 @@ export default function RsaToy() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>p:</label>
-        <select value={p} onChange={(ev) => setP(+ev.target.value)} style={sel}>
+        <select className="viz-select" value={p} onChange={(ev) => setP(+ev.target.value)}>
           {PRIMES.map((x) => <option key={x} value={x}>{x}</option>)}
         </select>
         <label style={lbl}>q:</label>
-        <select value={q} onChange={(ev) => setQ(+ev.target.value)} style={sel}>
+        <select className="viz-select" value={q} onChange={(ev) => setQ(+ev.target.value)}>
           {PRIMES.filter((x) => x !== p).map((x) => <option key={x} value={x}>{x}</option>)}
         </select>
         <label style={lbl}>e:</label>
@@ -143,9 +143,7 @@ export default function RsaToy() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 12, color: "var(--text-muted)" };
-const sel = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12 };
 const num = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 70 };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const sectionTitle = { fontSize: 11, color: "var(--accent)", marginBottom: 6, fontWeight: "bold" };

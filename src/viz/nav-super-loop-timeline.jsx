@@ -66,16 +66,16 @@ export default function NavSuperLoopTimeline() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 10, marginBottom: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ marginBottom: 8, fontSize: 11.5 }}>
         <label style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <input type="checkbox" checked={blocking} onChange={(e) => setBlocking(e.target.checked)} />
           <span>úloha B blokuje (čeká na periferii)</span>
         </label>
         <label style={{ display: "flex", alignItems: "center", gap: 5, flex: 1, minWidth: 180 }}>
           <span style={{ color: "var(--text-muted)" }}>událost v</span>
-          <input type="range" min={0} max={99} value={eventAt}
+          <input type="range" className="viz-slider" min={0} max={99} value={eventAt}
             onChange={(e) => setEventAt(+e.target.value)} style={{ flex: 1 }} />
-          <span style={{ fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>{eventAt}%</span>
+          <span className="viz-readout">{eventAt}%</span>
         </label>
       </div>
 

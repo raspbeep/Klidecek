@@ -50,7 +50,7 @@ export default function KnnTensorShapes() {
         ].map(([label, val, set, lo, hi]) => (
           <label key={label} style={{ display: "flex", justifyContent: "space-between", gap: 8, alignItems: "center" }}>
             <span>{label}</span>
-            <input type="range" min={lo} max={hi} value={val}
+            <input type="range" className="viz-slider" min={lo} max={hi} value={val}
               onChange={(e) => set(+e.target.value)} style={{ flex: 1, minWidth: 60 }} />
             <span style={{ color: "var(--accent)", minWidth: 30, textAlign: "right" }}>{val}</span>
           </label>

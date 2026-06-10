@@ -182,16 +182,15 @@ export default function HiCuts() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap",
-        fontSize: 12, color: "var(--text-muted)" }}>
+      <div className="viz-controls" style={{ fontSize: 12, color: "var(--text-muted)" }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text)" }}>
           <input type="checkbox" checked={showCuts}
             onChange={(e) => setShowCuts(e.target.checked)} />
           HiCuts řezy
         </label>
-        <button className="btn ghost"
+        <button className="viz-btn"
           onClick={() => setPacket({ f1: 5, f2: 4 })}>reset P</button>
-        <span style={{ marginLeft: "auto" }}>
+        <span className="viz-readout push">
           {winner ? (
             <span>
               vítěz: <strong style={{ color: RULE_COLORS[winnerIdx] }}>{winner.id}</strong>

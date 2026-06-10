@@ -72,19 +72,13 @@ export default function PbiMetagenomika() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8 }}>
-        <button onClick={() => setMode("amplicon")}
-          style={{ flex: 1, fontFamily: "var(--font-mono)", fontSize: 12, padding: "4px 8px",
-            cursor: "pointer", background: mode === "amplicon" ? "var(--accent)" : "var(--bg-card)",
-            color: mode === "amplicon" ? "var(--bg-inset)" : "var(--text)",
-            border: "1px solid var(--line-strong)", borderRadius: 5 }}>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={mode === "amplicon"} onClick={() => setMode("amplicon")}
+          style={{ flex: 1 }}>
           16S amplikon
         </button>
-        <button onClick={() => setMode("shotgun")}
-          style={{ flex: 1, fontFamily: "var(--font-mono)", fontSize: 12, padding: "4px 8px",
-            cursor: "pointer", background: mode === "shotgun" ? "var(--accent)" : "var(--bg-card)",
-            color: mode === "shotgun" ? "var(--bg-inset)" : "var(--text)",
-            border: "1px solid var(--line-strong)", borderRadius: 5 }}>
+        <button className="viz-btn" data-active={mode === "shotgun"} onClick={() => setMode("shotgun")}
+          style={{ flex: 1 }}>
           shotgun
         </button>
       </div>

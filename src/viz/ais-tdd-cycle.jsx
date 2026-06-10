@@ -118,16 +118,16 @@ export default function AisTddCycle() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={btn} onClick={next}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={next}>
           {i === PHASES.length - 1 ? "↻ nový cyklus" : "další fáze →"}
         </button>
-        <button className="btn ghost" style={btn} onClick={reset}>
+        <button className="viz-btn" onClick={reset}>
           reset
         </button>
-        <div style={{ flex: 1, textAlign: "right", fontSize: 11.5, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "right" }}>
           sada testů: {tests}× · dokončené cykly: {laps}
-        </div>
+        </span>
       </div>
 
       <div style={{ padding: 10, background: "var(--bg-card)", borderRadius: 6, border: `1px solid ${accent}` }}>
@@ -148,13 +148,3 @@ export default function AisTddCycle() {
     </div>
   );
 }
-
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

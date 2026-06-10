@@ -54,13 +54,13 @@ export default function Kerberos() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0} style={btn}>◀</button>
-        <span style={{ fontSize: 12, color: "var(--accent)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>◀</button>
+        <span className="viz-readout">
           krok {step + 1} / {STEPS.length}: {STEPS[step].label}
         </span>
-        <button onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1} style={btn}>▶</button>
-        <button onClick={() => setStep(0)} style={btn}>Reset</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>▶</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>Reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 620 }}>
@@ -123,5 +123,3 @@ export default function Kerberos() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const btn = { padding: "4px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

@@ -152,19 +152,19 @@ export default function PumpingLemma() {
 
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Mód:</label>
-        <select value={mode} onChange={(e) => setMode(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={mode} onChange={(e) => setMode(e.target.value)}>
           <option value="regular">regulární (w = xyz)</option>
           <option value="cfg">CFG (z = uvwxy)</option>
         </select>
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Jazyk:</label>
-        <select value={langKey} onChange={(e) => setLangKey(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={langKey} onChange={(e) => setLangKey(e.target.value)}>
           {Object.keys(langs).map((k) => <option key={k} value={k}>{k}</option>)}
         </select>
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>p:</label>
-        <input type="range" min={2} max={8} value={p} onChange={(e) => setP(+e.target.value)} style={{ flex: "0 1 120px" }} />
-        <span style={{ fontSize: 12, color: "var(--accent)" }}>{p}</span>
+        <input type="range" className="viz-slider" min={2} max={8} value={p} onChange={(e) => setP(+e.target.value)} style={{ flex: "0 1 120px" }} />
+        <span className="viz-readout">{p}</span>
       </div>
 
       <div style={{ fontSize: 12, color: "var(--text-muted)" }}>{L.note}</div>
@@ -199,11 +199,11 @@ export default function PumpingLemma() {
         <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12 }}>
           <label style={{ color: "var(--text-muted)" }}>
             konec x (|x| = {xEnd}):
-            <input type="range" min={0} max={p - 1} value={xEnd} onChange={(e) => { const v = +e.target.value; setXEnd(v); if (yEnd <= v) setYEnd(v + 1); }} style={{ marginLeft: 8, width: 200 }} />
+            <input type="range" className="viz-slider" min={0} max={p - 1} value={xEnd} onChange={(e) => { const v = +e.target.value; setXEnd(v); if (yEnd <= v) setYEnd(v + 1); }} style={{ marginLeft: 8, width: 200 }} />
           </label>
           <label style={{ color: "var(--text-muted)" }}>
             konec y (|xy| = {yEnd} ≤ p = {p}):
-            <input type="range" min={xEnd + 1} max={p} value={yEnd} onChange={(e) => setYEnd(+e.target.value)} style={{ marginLeft: 8, width: 200 }} />
+            <input type="range" className="viz-slider" min={xEnd + 1} max={p} value={yEnd} onChange={(e) => setYEnd(+e.target.value)} style={{ marginLeft: 8, width: 200 }} />
           </label>
         </div>
       ) : (
@@ -216,7 +216,7 @@ export default function PumpingLemma() {
           ].map(([lbl, val, set, min, max]) => (
             <label key={lbl} style={{ color: "var(--text-muted)" }}>
               {lbl} ({val}):
-              <input type="range" min={min} max={max} value={val} onChange={(e) => set(+e.target.value)} style={{ marginLeft: 8, width: 180 }} />
+              <input type="range" className="viz-slider" min={min} max={max} value={val} onChange={(e) => set(+e.target.value)} style={{ marginLeft: 8, width: 180 }} />
             </label>
           ))}
         </div>
@@ -275,12 +275,4 @@ const containerStyle = {
   display: "flex",
   flexDirection: "column",
   gap: 10,
-};
-
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
 };

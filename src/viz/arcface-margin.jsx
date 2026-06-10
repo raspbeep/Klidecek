@@ -69,19 +69,19 @@ export default function ArcfaceMargin() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>loss:</label>
-        <select value={loss} onChange={(e) => setLoss(e.target.value)} style={sel}>
+        <select className="viz-select" value={loss} onChange={(e) => setLoss(e.target.value)}>
           {Object.entries(LOSSES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
         <span style={{ ...lbl, color: "var(--text-muted)" }}>{LOSSES[loss].desc}</span>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>margin m = {m.toFixed(2)}</label>
-        <input type="range" min="0" max="1" step="0.02" value={m} onChange={(e) => setM(parseFloat(e.target.value))} disabled={loss === "softmax"} />
+        <input type="range" className="viz-slider" min="0" max="1" step="0.02" value={m} onChange={(e) => setM(parseFloat(e.target.value))} disabled={loss === "softmax"} />
         <label style={{ ...lbl, marginLeft: 12 }}>scale s = {s}</label>
-        <input type="range" min="1" max="64" value={s} onChange={(e) => setS(parseInt(e.target.value))} />
+        <input type="range" className="viz-slider" min="1" max="64" value={s} onChange={(e) => setS(parseInt(e.target.value))} />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -139,9 +139,9 @@ export default function ArcfaceMargin() {
         </div>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>úhel sample = {sampleAngle}°</label>
-        <input type="range" min="0" max="359" value={sampleAngle} onChange={(e) => setSampleAngle(parseInt(e.target.value))} style={{ flex: 1 }} />
+        <input type="range" className="viz-slider" min="0" max="359" value={sampleAngle} onChange={(e) => setSampleAngle(parseInt(e.target.value))} style={{ flex: 1 }} />
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
@@ -162,8 +162,6 @@ function describeArc(cx, cy, r, startDeg, endDeg) {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const th = { textAlign: "left", padding: "2px 4px", color: "var(--text-muted)", fontSize: 10.5, fontWeight: 500 };
 const td = { padding: "2px 4px" };

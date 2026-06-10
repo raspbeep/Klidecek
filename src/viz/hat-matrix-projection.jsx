@@ -73,12 +73,12 @@ export default function HatMatrixProjection() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <label style={lab()}>poloha Ŷ podél col(X) = {px.toFixed(2)}
-          <input type="range" min={0.1} max={0.9} step={0.01} value={px} onChange={(e) => setPx(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.1} max={0.9} step={0.01} value={px} onChange={(e) => setPx(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>velikost reziduí = {perp.toFixed(2)}
-          <input type="range" min={-0.9} max={0.9} step={0.01} value={perp} onChange={(e) => setPerp(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={-0.9} max={0.9} step={0.01} value={perp} onChange={(e) => setPerp(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
 

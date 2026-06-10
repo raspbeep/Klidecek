@@ -89,20 +89,14 @@ export default function CnnArchitecturesStack() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         <span style={{ color: "var(--text-muted)" }}>architektura:</span>
         {Object.keys(ARCHS).map((k) => (
-          <button key={k} onClick={() => setArchKey(k)}
-            style={{
-              background: archKey === k ? "var(--accent)" : "var(--bg-card)",
-              color: archKey === k ? "white" : "var(--text)",
-              border: "1px solid var(--line)", padding: "2px 10px", borderRadius: 3, fontSize: 11, cursor: "pointer",
-              fontFamily: "var(--font-mono)",
-            }}>
+          <button key={k} className="viz-btn" data-active={archKey === k} onClick={() => setArchKey(k)}>
             {k}
           </button>
         ))}
-        <span style={{ fontFamily: "var(--font-mono)", color: "var(--text-muted)", marginLeft: 8 }}>
+        <span className="viz-readout" style={{ marginLeft: 8 }}>
           {arch.year}
         </span>
       </div>

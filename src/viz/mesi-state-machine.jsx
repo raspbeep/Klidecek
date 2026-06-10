@@ -107,17 +107,17 @@ export default function MesiStateMachine() {
   const W = 580, H = 240;
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={proto} onChange={e => { setProto(e.target.value); reset(); }} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={proto} onChange={e => { setProto(e.target.value); reset(); }}>
           <option value="MSI">MSI (3 stavy)</option>
           <option value="MESI">MESI (+E)</option>
           <option value="MOESI">MOESI (+O)</option>
         </select>
-        <button onClick={() => go("0r")} style={btn(false)}>core 0 read</button>
-        <button onClick={() => go("0w")} style={btn(false)}>core 0 write</button>
-        <button onClick={() => go("1r")} style={btn(false)}>core 1 read</button>
-        <button onClick={() => go("1w")} style={btn(false)}>core 1 write</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
+        <button className="viz-btn" onClick={() => go("0r")}>core 0 read</button>
+        <button className="viz-btn" onClick={() => go("0w")}>core 0 write</button>
+        <button className="viz-btn" onClick={() => go("1r")}>core 1 read</button>
+        <button className="viz-btn" onClick={() => go("1w")}>core 1 write</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -164,7 +164,3 @@ export default function MesiStateMachine() {
   );
 }
 
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };
-function btn(active) {
-  return { ...ctrl, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", cursor: "pointer", padding: "3px 9px" };
-}

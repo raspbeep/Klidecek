@@ -38,7 +38,7 @@ export default function SquareAndMultiply() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>a:</label>
         <input type="number" min={1} value={a} onChange={(e) => setA(Math.max(1, +e.target.value))} style={num} />
         <label style={lbl}>x:</label>
@@ -46,12 +46,12 @@ export default function SquareAndMultiply() {
         <label style={lbl}>n:</label>
         <input type="number" min={2} value={n} onChange={(e) => setN(Math.max(2, +e.target.value))} style={num} />
       </div>
-      <div style={row}>
-        <button onClick={() => setStep(0)} style={btnSm}>Start</button>
-        <button onClick={() => setStep(Math.max(0, currentStep - 1))} style={btnSm}>◀</button>
-        <button onClick={() => setStep(Math.min(result.trace.length - 1, currentStep + 1))} style={btnSm}>▶</button>
-        <button onClick={() => setStep(-1)} style={btnSm}>Konec</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(0)}>Start</button>
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, currentStep - 1))}>◀</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(result.trace.length - 1, currentStep + 1))}>▶</button>
+        <button className="viz-btn" onClick={() => setStep(-1)}>Konec</button>
+        <span className="viz-readout">
           krok {currentStep + 1} / {result.trace.length}
         </span>
       </div>
@@ -109,8 +109,6 @@ export default function SquareAndMultiply() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const num = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 100 };
-const btnSm = { padding: "3px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };

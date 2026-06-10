@@ -47,23 +47,23 @@ export default function RotorPeriod() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Počet rotorů:</label>
-        <input type="range" min={1} max={3} value={numRotors} onChange={(e) => setNumRotors(+e.target.value)} />
+        <input type="range" className="viz-slider" min={1} max={3} value={numRotors} onChange={(e) => setNumRotors(+e.target.value)} />
         <span style={{ fontFamily: "var(--font-mono)", color: "var(--accent)" }}>{numRotors}</span>
         <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 10 }}>
           perioda = 26^{numRotors} = <b style={{ color: "var(--accent)" }}>{periods[numRotors - 1].toLocaleString()}</b>
         </span>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>krok t = {step}:</label>
-        <input type="range" min={0} max={periods[numRotors - 1] - 1} value={step} onChange={(e) => setStep(+e.target.value)} style={{ flex: 1, minWidth: 200 }} />
-        <button onClick={() => setStep(0)} style={btn}>Reset</button>
-        <button onClick={() => setStep(step + 1)} style={btn}>+1</button>
+        <input type="range" className="viz-slider" min={0} max={periods[numRotors - 1] - 1} value={step} onChange={(e) => setStep(+e.target.value)} style={{ flex: 1, minWidth: 200 }} />
+        <button onClick={() => setStep(0)} className="viz-btn">Reset</button>
+        <button onClick={() => setStep(step + 1)} className="viz-btn primary">+1</button>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Sledovat znak:</label>
-        <select value={highlightChar} onChange={(e) => setHighlightChar(e.target.value)} style={sel}>
+        <select className="viz-select" value={highlightChar} onChange={(e) => setHighlightChar(e.target.value)}>
           {ALPHA.split("").map((c) => <option key={c}>{c}</option>)}
         </select>
         <span style={{ color: "var(--text-faint)" }}>→</span>
@@ -110,7 +110,4 @@ export default function RotorPeriod() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
-const sel = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };

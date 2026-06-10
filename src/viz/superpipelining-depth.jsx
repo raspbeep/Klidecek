@@ -44,15 +44,15 @@ export default function SuperpipeliningDepth() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 12, marginBottom: 6, flexWrap: "wrap", alignItems: "center", fontSize: 11, color: "var(--text)" }}>
+      <div className="viz-controls" style={{ marginBottom: 6, fontSize: 11, color: "var(--text)" }}>
         <label>hloubka: <b>{depth}</b><br />
-          <input type="range" min={1} max={32} value={depth} onChange={e => setDepth(+e.target.value)} style={{ width: 130 }} />
+          <input type="range" className="viz-slider" min={1} max={32} value={depth} onChange={e => setDepth(+e.target.value)} style={{ width: 130 }} />
         </label>
         <label>mispred rate: <b>{(mispred * 100).toFixed(1)}%</b><br />
-          <input type="range" min={0} max={0.2} step={0.005} value={mispred} onChange={e => setMispred(+e.target.value)} style={{ width: 130 }} />
+          <input type="range" className="viz-slider" min={0} max={0.2} step={0.005} value={mispred} onChange={e => setMispred(+e.target.value)} style={{ width: 130 }} />
         </label>
         <label>branch freq: <b>{(branchFreq * 100).toFixed(0)}%</b><br />
-          <input type="range" min={0.05} max={0.4} step={0.01} value={branchFreq} onChange={e => setBranchFreq(+e.target.value)} style={{ width: 130 }} />
+          <input type="range" className="viz-slider" min={0.05} max={0.4} step={0.01} value={branchFreq} onChange={e => setBranchFreq(+e.target.value)} style={{ width: 130 }} />
         </label>
       </div>
 

@@ -106,15 +106,15 @@ export default function ArbiterPuf() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>cip:</label>
-        <button style={btn} onClick={() => setModelSeed(Math.floor(Math.random() * 1e6))}>jiny cip (random)</button>
-        <button style={btn} onClick={() => setChal(randomChallenge())}>jine c (random)</button>
+        <button className="viz-btn" onClick={() => setModelSeed(Math.floor(Math.random() * 1e6))}>jiny cip (random)</button>
+        <button className="viz-btn" onClick={() => setChal(randomChallenge())}>jine c (random)</button>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>challenge c =</label>
         {chal.map((b, i) => (
-          <button key={i} style={{ ...chalBtn, background: b ? "var(--accent)" : "var(--bg-inset)", color: b ? "var(--bg-inset)" : "var(--text)" }}
+          <button key={i} className="viz-btn" data-active={b === 1} style={chalBtn}
             onClick={() => setChal(chal.map((x, j) => j === i ? 1 - x : x))}>{b}</button>
         ))}
       </div>
@@ -158,10 +158,10 @@ export default function ArbiterPuf() {
       </svg>
 
       <div style={{ borderTop: "1px dashed var(--line)", paddingTop: 8 }}>
-        <div style={row}>
+        <div className="viz-controls">
           <label style={lbl}>modeling utok: N CRPs =</label>
-          <input type="range" min={5} max={500} step={5} value={nCrps} onChange={(e) => setNCrps(+e.target.value)} style={{ flex: 1, minWidth: 140 }} />
-          <span style={lbl}>{nCrps}</span>
+          <input type="range" className="viz-slider" min={5} max={500} step={5} value={nCrps} onChange={(e) => setNCrps(+e.target.value)} style={{ flex: 1, minWidth: 140 }} />
+          <span className="viz-readout">{nCrps}</span>
         </div>
         <div style={{ fontSize: 12, fontFamily: "var(--font-mono)", marginTop: 6 }}>
           presnost modelu na 200 nove vygenerovanych challenges: &nbsp;
@@ -182,7 +182,5 @@ export default function ArbiterPuf() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const chalBtn = { width: 28, height: 28, borderRadius: 4, border: "1px solid var(--line)", fontFamily: "var(--font-mono)", fontSize: 13, cursor: "pointer" };
+const chalBtn = { width: 28, height: 28, padding: 0, fontSize: 13, textAlign: "center" };

@@ -24,14 +24,14 @@ export default function WapJsonSchemaCond() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* ovládání */}
-      <div style={{
-        display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center",
+      <div className="viz-controls" style={{
+        gap: 12,
         padding: "8px 10px", background: "var(--bg-inset)", borderRadius: 8,
         border: "1px solid var(--line)", fontSize: 12.5,
       }}>
         <label style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <span style={{ fontFamily: "var(--font-mono)" }}>country:</span>
-          <select value={country} onChange={(e) => setCountry(e.target.value)} style={selStyle}>
+          <select className="viz-select" value={country} onChange={(e) => setCountry(e.target.value)}>
             <option value="USA">USA</option>
             <option value="Canada">Canada</option>
           </select>
@@ -115,11 +115,6 @@ export default function WapJsonSchemaCond() {
   );
 }
 
-const selStyle = {
-  padding: "3px 6px", fontSize: 11.5, fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)", border: "1px solid var(--line)",
-  borderRadius: 3, color: "var(--text)",
-};
 const inpStyle = {
   padding: "3px 6px", fontSize: 11.5, fontFamily: "var(--font-mono)",
   background: "var(--bg-card)", border: "1px solid var(--line)",

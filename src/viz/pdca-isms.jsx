@@ -60,10 +60,10 @@ export default function PdcaIsms() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: 11, alignItems: "center" }}>
-        <button onClick={next} style={btn(false)}>▶ next phase</button>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn primary" onClick={next}>▶ next phase</button>
         {PHASES.map((p, i) => (
-          <button key={p.id} onClick={() => setActive(i)} style={btn(active === i)}>{p.label}</button>
+          <button key={p.id} className="viz-btn" data-active={active === i} onClick={() => setActive(i)}>{p.label}</button>
         ))}
       </div>
 
@@ -122,8 +122,4 @@ export default function PdcaIsms() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

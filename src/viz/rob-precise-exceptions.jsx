@@ -129,18 +129,18 @@ export default function RobPreciseExceptions() {
   const W = 580, H = 280;
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
           <input type="checkbox" checked={mispred} onChange={e => setMispred(e.target.checked)} /> mispredict i1
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
           <input type="checkbox" checked={fault} onChange={e => setFault(e.target.checked)} /> page fault i2
         </label>
-        <button onClick={() => setT(Math.max(0, t - 1))} style={btn(false)}>←</button>
-        <button onClick={() => setT(Math.min(result.cycle, t + 1))} style={btn(false)}>→</button>
-        <button onClick={() => setT(result.cycle - 1)} style={btn(false)}>do konce</button>
-        <button onClick={() => setT(0)} style={btn(false)}>reset</button>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>t = {t}</span>
+        <button className="viz-btn" onClick={() => setT(Math.max(0, t - 1))}>←</button>
+        <button className="viz-btn primary" onClick={() => setT(Math.min(result.cycle, t + 1))}>→</button>
+        <button className="viz-btn" onClick={() => setT(result.cycle - 1)}>do konce</button>
+        <button className="viz-btn" onClick={() => setT(0)}>reset</button>
+        <span className="viz-readout">t = {t}</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -197,13 +197,4 @@ export default function RobPreciseExceptions() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 9px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "white" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

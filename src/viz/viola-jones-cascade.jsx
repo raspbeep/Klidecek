@@ -113,12 +113,12 @@ export default function ViolaJonesCascade() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button style={btn} onClick={() => setAutoRun(!autoRun)}>{autoRun ? "stop" : "auto-slide"}</button>
-        <button style={btn} onClick={fullScan}>full scan (statistika)</button>
-        <button style={btn} onClick={() => { setWinX(40); setWinY(50); }}>reset pos</button>
-        <label style={lbl}>velikost = {winSize}</label>
-        <input type="range" min="24" max="80" value={winSize} onChange={(e) => setWinSize(parseInt(e.target.value))} />
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setAutoRun(!autoRun)}>{autoRun ? "stop" : "auto-slide"}</button>
+        <button className="viz-btn" onClick={fullScan}>full scan (statistika)</button>
+        <button className="viz-btn" onClick={() => { setWinX(40); setWinY(50); }}>reset pos</button>
+        <span className="viz-readout">velikost = {winSize}</span>
+        <input type="range" className="viz-slider" min="24" max="80" value={winSize} onChange={(e) => setWinSize(parseInt(e.target.value))} />
       </div>
 
       <svg viewBox={`0 0 ${IMG_W} ${IMG_H}`} style={{ width: "100%", maxWidth: 480, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -146,13 +146,13 @@ export default function ViolaJonesCascade() {
         </text>
       </svg>
 
-      <div style={row}>
-        <label style={lbl}>x = {winX}</label>
-        <input type="range" min="0" max={IMG_W - winSize} value={winX} onChange={(e) => setWinX(parseInt(e.target.value))} style={{ flex: 1 }} />
+      <div className="viz-controls">
+        <span className="viz-readout">x = {winX}</span>
+        <input type="range" className="viz-slider" min="0" max={IMG_W - winSize} value={winX} onChange={(e) => setWinX(parseInt(e.target.value))} style={{ flex: 1 }} />
       </div>
-      <div style={row}>
-        <label style={lbl}>y = {winY}</label>
-        <input type="range" min="0" max={IMG_H - winSize} value={winY} onChange={(e) => setWinY(parseInt(e.target.value))} style={{ flex: 1 }} />
+      <div className="viz-controls">
+        <span className="viz-readout">y = {winY}</span>
+        <input type="range" className="viz-slider" min="0" max={IMG_H - winSize} value={winY} onChange={(e) => setWinY(parseInt(e.target.value))} style={{ flex: 1 }} />
       </div>
 
       {/* cascade stages indicator */}
@@ -194,6 +194,3 @@ export default function ViolaJonesCascade() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

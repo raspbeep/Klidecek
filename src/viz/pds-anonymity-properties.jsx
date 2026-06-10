@@ -49,12 +49,12 @@ export default function AnonymityProperties() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {MODES.map((x) => (
           <button key={x.id}
-            className={mode === x.id ? "btn" : "btn ghost"}
-            onClick={() => setMode(x.id)}
-            style={{ fontSize: 11.5 }}>
+            className="viz-btn"
+            data-active={mode === x.id}
+            onClick={() => setMode(x.id)}>
             {x.label}
           </button>
         ))}

@@ -54,22 +54,19 @@ export default function AisCrcCard() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* picker */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {CARDS.map((c, i) => (
           <button
             key={c.id}
+            className="viz-btn"
+            data-active={i === idx}
             onClick={() => setIdx(i)}
-            style={{
-              padding: "4px 9px",
-              fontSize: 11,
-              fontFamily: "var(--font-mono)",
-              cursor: "pointer",
-              borderRadius: 5,
-              border: `1px solid ${i === idx ? `oklch(0.62 0.14 ${c.color})` : "var(--line)"}`,
-              background: i === idx ? `oklch(0.62 0.14 ${c.color} / 0.16)` : "var(--bg-card)",
-              color: i === idx ? `oklch(0.45 0.14 ${c.color})` : "var(--text-muted)",
-              fontWeight: i === idx ? 600 : 400,
-            }}
+            style={i === idx ? {
+              border: `1px solid oklch(0.62 0.14 ${c.color})`,
+              background: `oklch(0.62 0.14 ${c.color} / 0.16)`,
+              color: `oklch(0.45 0.14 ${c.color})`,
+              fontWeight: 600,
+            } : undefined}
           >
             {c.id}
           </button>

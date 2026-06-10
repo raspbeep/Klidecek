@@ -109,26 +109,23 @@ export default function EulerTour() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Controls */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>strom:</span>
         {Object.keys(TREES).map((k) => (
-          <button key={k} onClick={() => { setTreeKey(k); setStep(0); setPhase("tour"); }}
-            style={{ ...modeBtn, ...(treeKey === k ? activeBtn : {}) }}>{k}</button>
+          <button key={k} className="viz-btn" data-active={treeKey === k} onClick={() => { setTreeKey(k); setStep(0); setPhase("tour"); }}>{k}</button>
         ))}
         <span style={{ color: "var(--text-muted)", fontWeight: 600, marginLeft: 8 }}>fáze:</span>
-        <button onClick={() => { setPhase("tour"); setStep(0); }}
-          style={{ ...modeBtn, ...(phase === "tour" ? activeBtn : {}) }}>1. Euler tour</button>
-        <button onClick={() => { setPhase("ranking"); setStep(0); }}
-          style={{ ...modeBtn, ...(phase === "ranking" ? activeBtn : {}) }}>2. List ranking</button>
+        <button className="viz-btn" data-active={phase === "tour"} onClick={() => { setPhase("tour"); setStep(0); }}>1. Euler tour</button>
+        <button className="viz-btn" data-active={phase === "ranking"} onClick={() => { setPhase("ranking"); setStep(0); }}>2. List ranking</button>
       </div>
 
       {/* Step nav */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           {phase === "tour" ? `Euler edge ${step} / ${tour.length}` : `iterace ${rankingState?.iter ?? 0} / ${ranking.length - 1}`}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(maxStep, step + 1))} disabled={step >= maxStep}>další →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(maxStep, step + 1))} disabled={step >= maxStep}>další →</button>
       </div>
 
       {/* Tree SVG */}
@@ -233,23 +230,3 @@ export default function EulerTour() {
   );
 }
 
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

@@ -123,25 +123,21 @@ export default function CountToInf() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap",
-        fontSize: 12 }}>
+      <div className="viz-controls" style={{ fontSize: 12 }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>obrana:</span>
-          <select value={defense}
-            onChange={(e) => reset(e.target.value)}
-            style={{ padding: "2px 4px", border: "1px solid var(--line-strong)",
-              borderRadius: 3, background: "var(--bg-card)", color: "var(--text)",
-              fontSize: 12 }}>
+          <select className="viz-select" value={defense}
+            onChange={(e) => reset(e.target.value)}>
             <option value="none">žádná</option>
             <option value="maximum">maximum = 16</option>
             <option value="splithorizon">split horizon</option>
             <option value="poison">poison reverse</option>
           </select>
         </label>
-        <button className="btn" onClick={breakLink} disabled={broken}>
+        <button className="viz-btn primary" onClick={breakLink} disabled={broken}>
           ✗ shoď A↔cíl
         </button>
-        <button className="btn ghost" onClick={() => reset(defense)}>reset</button>
+        <button className="viz-btn" onClick={() => reset(defense)}>reset</button>
       </div>
 
       <div style={{ fontSize: 12, color: "var(--text-muted)", lineHeight: 1.45 }}>

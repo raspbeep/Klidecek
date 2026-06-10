@@ -84,16 +84,10 @@ export default function JpaNplus1() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Mode picker */}
-      <div style={{ display: "flex", gap: 4, padding: 3, background: "var(--bg-inset)", borderRadius: 8, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {MODES.map((m) => (
-          <button key={m.id} onClick={() => handleModeChange(m.id)} className="btn ghost"
-            style={{
-              background: mode === m.id ? "var(--bg-card)" : "transparent",
-              boxShadow: mode === m.id ? "var(--shadow-sm)" : "none",
-              padding: "5px 10px",
-              fontSize: 12,
-              fontFamily: "var(--font-mono)",
-            }}>
+          <button key={m.id} onClick={() => handleModeChange(m.id)} className="viz-btn"
+            data-active={mode === m.id}>
             {m.label}
           </button>
         ))}
@@ -104,16 +98,16 @@ export default function JpaNplus1() {
       </div>
 
       {/* Actions */}
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-        <button onClick={() => setStep(Math.max(step, 1))} style={actionBtnStyle} disabled={step >= 1}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(step, 1))} disabled={step >= 1}>
           1. <code>findAll(Customer)</code>
         </button>
         {mode === "lazy" && (
-          <button onClick={accessAll} style={actionBtnStyle} disabled={step < 1 || (mode === "lazy" && accessed.size === CUSTOMERS.length)}>
+          <button className="viz-btn" onClick={accessAll} disabled={step < 1 || (mode === "lazy" && accessed.size === CUSTOMERS.length)}>
             2. Pro každého zákazníka volej <code>.getOrders()</code>
           </button>
         )}
-        <button onClick={reset} style={{ ...actionBtnStyle, background: "oklch(0.55 0.18 22 / 0.10)", marginLeft: "auto" }}>
+        <button className="viz-btn" onClick={reset} style={{ background: "oklch(0.55 0.18 22 / 0.10)", marginLeft: "auto" }}>
           ↺ reset
         </button>
       </div>
@@ -143,8 +137,8 @@ export default function JpaNplus1() {
                       <span style={{ color: "var(--text-faint)", fontFamily: "var(--font-mono)", marginLeft: 8 }}>
                         ↳ orders: <em>not loaded (lazy proxy)</em>
                       </span>
-                      <button onClick={() => setAccessed(new Set([...accessed, c.id]))}
-                        style={{ ...miniBtn, marginLeft: 8 }}>
+                      <button className="viz-btn" onClick={() => setAccessed(new Set([...accessed, c.id]))}
+                        style={{ marginLeft: 8, padding: "2px 8px", fontSize: 10, background: "oklch(0.55 0.18 264 / 0.15)", borderColor: "oklch(0.55 0.18 264)", color: "oklch(0.40 0.18 264)" }}>
                         načti
                       </button>
                     </>
@@ -214,26 +208,6 @@ export default function JpaNplus1() {
   );
 }
 
-const actionBtnStyle = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-  color: "var(--text)",
-};
-const miniBtn = {
-  padding: "2px 8px",
-  fontSize: 10,
-  fontFamily: "var(--font-mono)",
-  background: "oklch(0.55 0.18 264 / 0.15)",
-  border: "1px solid oklch(0.55 0.18 264)",
-  borderRadius: 3,
-  cursor: "pointer",
-  color: "oklch(0.40 0.18 264)",
-};
 const panelStyle = {
   padding: 10,
   background: "var(--bg-inset)",

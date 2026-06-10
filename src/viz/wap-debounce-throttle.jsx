@@ -70,13 +70,13 @@ export default function WapDebounceThrottle() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", fontSize: 11.5, color: "var(--text-muted)" }}>
-        <label style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <label style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: "var(--font-mono)", fontSize: 11.5, color: "var(--text-muted)" }}>
           interval = {ms} ms
-          <input type="range" min={100} max={900} step={50} value={ms}
+          <input type="range" className="viz-slider" min={100} max={900} step={50} value={ms}
             onChange={(e) => setMs(+e.target.value)} style={{ width: 120 }} />
         </label>
-        <button className="btn ghost" style={btn} onClick={reset}>⟲ vymazat</button>
+        <button className="viz-btn" onClick={reset}>⟲ vymazat</button>
       </div>
 
       {/* plocha pro pohyb myší */}
@@ -131,13 +131,3 @@ export default function WapDebounceThrottle() {
     </div>
   );
 }
-
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

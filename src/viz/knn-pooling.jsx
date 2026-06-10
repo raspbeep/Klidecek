@@ -96,22 +96,20 @@ export default function KnnPooling() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-muted)" }}>
-        <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={() => setMode("max")}
-            style={{ cursor: "pointer", fontWeight: mode === "max" ? 700 : 400, color: mode === "max" ? "var(--accent)" : "var(--text-muted)" }}>
+      <div className="viz-controls" style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-muted)" }}>
+        <div className="viz-controls">
+          <button className="viz-btn" data-active={mode === "max"} onClick={() => setMode("max")}>
             max-pooling
           </button>
           <span>/</span>
-          <button onClick={() => setMode("avg")}
-            style={{ cursor: "pointer", fontWeight: mode === "avg" ? 700 : 400, color: mode === "avg" ? "var(--accent)" : "var(--text-muted)" }}>
+          <button className="viz-btn" data-active={mode === "avg"} onClick={() => setMode("avg")}>
             average-pooling
           </button>
         </div>
         <span style={{ display: "flex", gap: 6, alignItems: "center" }}>
-          <button onClick={() => setPos((q) => (q <= 0 ? nOut - 1 : q - 1))} style={{ cursor: "pointer" }}>◀</button>
-          okno {p + 1}/{nOut}
-          <button onClick={() => setPos((q) => (q + 1) % nOut)} style={{ cursor: "pointer" }}>▶</button>
+          <button className="viz-btn" onClick={() => setPos((q) => (q <= 0 ? nOut - 1 : q - 1))}>◀</button>
+          <span className="viz-readout">okno {p + 1}/{nOut}</span>
+          <button className="viz-btn primary" onClick={() => setPos((q) => (q + 1) % nOut)}>▶</button>
         </span>
         <span style={{ color: "var(--text-faint)" }}>okno 2×2, stride 2, žádné parametry</span>
       </div>

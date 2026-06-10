@@ -129,14 +129,14 @@ export default function TTestInteractive() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(MODES).map(([k, mo]) => (
-          <button key={k} onClick={() => setMode(k)} style={btn(mode === k)}>{mo.label}</button>
+          <button key={k} className="viz-btn" data-active={mode === k} onClick={() => setMode(k)}>{mo.label}</button>
         ))}
         <span style={{ width: 12 }} />
-        <button onClick={() => setSide("two")} style={btn(side === "two")}>↔</button>
-        <button onClick={() => setSide("right")} style={btn(side === "right")}>→</button>
-        <button onClick={() => setSide("left")} style={btn(side === "left")}>←</button>
+        <button className="viz-btn" data-active={side === "two"} onClick={() => setSide("two")}>↔</button>
+        <button className="viz-btn" data-active={side === "right"} onClick={() => setSide("right")}>→</button>
+        <button className="viz-btn" data-active={side === "left"} onClick={() => setSide("left")}>←</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -216,11 +216,11 @@ export default function TTestInteractive() {
       <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
         {!m.twoSamples && (
           <label style={lab()}>μ₀ = {mu0.toFixed(2)}
-            <input type="range" min={-2} max={2} step={0.05} value={mu0} onChange={(e) => setMu0(+e.target.value)} style={{ width: "100%" }} />
+            <input type="range" className="viz-slider" min={-2} max={2} step={0.05} value={mu0} onChange={(e) => setMu0(+e.target.value)} style={{ width: "100%" }} />
           </label>
         )}
         <label style={lab()}>α = {alpha.toFixed(3)}
-          <input type="range" min={0.001} max={0.2} step={0.001} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.001} max={0.2} step={0.001} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
 
@@ -234,5 +234,4 @@ export default function TTestInteractive() {
   );
 }
 
-function btn(active) { return { padding: "3px 9px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 180px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

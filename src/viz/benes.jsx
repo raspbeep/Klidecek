@@ -120,16 +120,15 @@ export default function Benes() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap",
-        fontSize: 12, color: "var(--text-muted)" }}>
+      <div className="viz-controls" style={{ fontSize: 12, color: "var(--text-muted)" }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
           <span>n</span>
-          <input type="range" min="1" max="4" step="1" value={n}
+          <input type="range" className="viz-slider" min="1" max="4" step="1" value={n}
             onChange={(e) => setN(parseInt(e.target.value, 10))}
             style={{ width: 120 }} />
           <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)" }}>= {n}</span>
         </label>
-        <span style={{ fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           N = 2<sup>{n}</sup> = {N}, stages = 2·log₂N−1 = {stages}
         </span>
       </div>

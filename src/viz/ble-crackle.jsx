@@ -64,22 +64,22 @@ export default function BleCrackle() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>BLE pairing mod:</label>
-        <select value={mode} onChange={(e) => { setMode(e.target.value); reset(); }} style={{ ...sel, minWidth: 200 }}>
+        <select className="viz-select" value={mode} onChange={(e) => { setMode(e.target.value); reset(); }} style={{ minWidth: 200 }}>
           <option value="legacy">Legacy (BLE 4.0–4.1, 6-digit Passkey)</option>
           <option value="sc">LE Secure Connections (4.2+, ECDH P-256)</option>
         </select>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>tajny PIN:</label>
         <input type="number" min={0} max={999999} value={secretPin} onChange={(e) => setSecretPin(Math.max(0, Math.min(999999, +e.target.value || 0)))}
           style={{ ...sel, width: 120, fontFamily: "var(--font-mono)" }} />
-        <button style={btn} onClick={() => setSecretPin(Math.floor(Math.random() * 1000000))}>nahodne</button>
-        <button style={btn} onClick={captureHandshake}>capture handshake</button>
-        <button style={btn} onClick={startAttack} disabled={attacking || snifferLog.length === 0}>spust crackle</button>
-        <button style={btn} onClick={reset}>reset</button>
+        <button className="viz-btn" onClick={() => setSecretPin(Math.floor(Math.random() * 1000000))}>nahodne</button>
+        <button className="viz-btn" onClick={captureHandshake}>capture handshake</button>
+        <button className="viz-btn primary" onClick={startAttack} disabled={attacking || snifferLog.length === 0}>spust crackle</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, fontFamily: "var(--font-mono)", fontSize: 10, minHeight: 100 }}>
@@ -124,7 +124,5 @@ export default function BleCrackle() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

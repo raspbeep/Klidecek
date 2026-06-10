@@ -24,10 +24,10 @@ export default function TamaUiThread() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+      <div className="viz-controls">
         <span style={{ fontSize: 11.5, color: "var(--text-muted)", fontWeight: 600 }}>režim:</span>
-        <button onClick={() => setMode("blocking")} style={btn(mode === "blocking")}>blokující (na UI vlákně)</button>
-        <button onClick={() => setMode("suspend")} style={btn(mode === "suspend")}>suspend / await (pozadí)</button>
+        <button className="viz-btn" data-active={mode === "blocking"} onClick={() => setMode("blocking")}>blokující (na UI vlákně)</button>
+        <button className="viz-btn" data-active={mode === "suspend"} onClick={() => setMode("suspend")}>suspend / await (pozadí)</button>
       </div>
 
       <svg viewBox={`0 0 ${W} 150`} style={{ width: "100%", maxWidth: 520, background: "var(--bg-inset)", borderRadius: 4 }}>
@@ -68,17 +68,4 @@ export default function TamaUiThread() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "white" : "var(--text)",
-    border: "1px solid var(--line)",
-    padding: "4px 12px",
-    borderRadius: 4,
-    fontSize: 11.5,
-    fontFamily: "ui-monospace, monospace",
-    cursor: "pointer",
-  };
 }

@@ -75,14 +75,14 @@ export default function Branch2bitCounter() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => feed("T")} style={btnT}>výsledek: TAKEN</button>
-        <button onClick={() => feed("N")} style={btnN}>výsledek: NOT</button>
-        <select value={patternKey} onChange={e => setPatternKey(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn" onClick={() => feed("T")} style={{ background: "oklch(0.7 0.15 145 / 0.2)", color: "oklch(0.7 0.15 145)", fontWeight: 600 }}>výsledek: TAKEN</button>
+        <button className="viz-btn" onClick={() => feed("N")} style={{ background: "oklch(0.65 0.18 22 / 0.2)", color: "oklch(0.65 0.18 22)", fontWeight: 600 }}>výsledek: NOT</button>
+        <select className="viz-select" value={patternKey} onChange={e => setPatternKey(e.target.value)}>
           {Object.entries(PATTERNS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <button onClick={runPattern} style={btn(false)}>▶ pustit pattern</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
+        <button className="viz-btn primary" onClick={runPattern}>▶ pustit pattern</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -176,9 +176,3 @@ export default function Branch2bitCounter() {
   );
 }
 
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 8px", borderRadius: 3, fontSize: 11 };
-const btnT = { ...ctrl, background: "oklch(0.7 0.15 145 / 0.2)", color: "oklch(0.7 0.15 145)", cursor: "pointer", fontWeight: 600 };
-const btnN = { ...ctrl, background: "oklch(0.65 0.18 22 / 0.2)", color: "oklch(0.65 0.18 22)", cursor: "pointer", fontWeight: 600 };
-function btn(active) {
-  return { ...ctrl, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", cursor: "pointer" };
-}

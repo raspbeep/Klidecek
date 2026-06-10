@@ -70,13 +70,13 @@ export default function TamperResponse() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>FIPS 140-3 Level:</label>
-        <select value={level} onChange={(e) => { setLevel(+e.target.value); reset(); }} style={sel}>
+        <select className="viz-select" value={level} onChange={(e) => { setLevel(+e.target.value); reset(); }}>
           <option value={3}>3 (tamper detection + zeroization)</option>
           <option value={4}>4 (vsechny env. utoky)</option>
         </select>
-        <button style={btn} onClick={reset}>reset modul</button>
+        <button className="viz-btn" onClick={reset}>reset modul</button>
       </div>
 
       <div style={{ display: "flex", justifyContent: "center", padding: "8px 12px", background: "var(--bg-inset)", borderRadius: 6, fontFamily: "var(--font-mono)", color: phaseColor, fontWeight: 700, fontSize: 14 }}>
@@ -141,7 +141,4 @@ export default function TamperResponse() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

@@ -149,13 +149,11 @@ export default function BifUpgma() {
         })}
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-        <button onClick={() => setStep((s) => (s + 1) % STEPS.length)}
-          style={{ fontSize: 12, padding: "3px 10px", cursor: "pointer",
-            background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line-strong)", borderRadius: 5 }}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setStep((s) => (s + 1) % STEPS.length)}>
           {step === STEPS.length - 1 ? "restart" : "krok ->"}
         </button>
-        <span style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           krok {step} / {STEPS.length - 1} · {cur.clusters.length} shluku
         </span>
       </div>

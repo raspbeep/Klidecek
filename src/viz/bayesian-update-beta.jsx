@@ -41,11 +41,11 @@ export default function BayesianUpdateBeta() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => setSuccesses(successes + 1)} style={btn("var(--accent)")}>+ úspěch (1)</button>
-        <button onClick={() => setFailures(failures + 1)} style={btn("var(--accent-line)")}>+ neúspěch (0)</button>
-        <button onClick={() => { setSuccesses(0); setFailures(0); }} style={btn()}>reset dat</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginLeft: 8 }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setSuccesses(successes + 1)} style={{ borderColor: "var(--accent)", color: "var(--accent)" }}>+ úspěch (1)</button>
+        <button className="viz-btn" onClick={() => setFailures(failures + 1)} style={{ borderColor: "var(--accent-line)", color: "var(--accent-line)" }}>+ neúspěch (0)</button>
+        <button className="viz-btn" onClick={() => { setSuccesses(0); setFailures(0); }}>reset dat</button>
+        <span className="viz-readout">
           k = {successes}, n−k = {failures}, n = {n}
         </span>
       </div>
@@ -91,10 +91,10 @@ export default function BayesianUpdateBeta() {
 
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
         <label style={lab()}>α = {alpha.toFixed(1)}
-          <input type="range" min={0.5} max={10} step={0.1} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.5} max={10} step={0.1} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>β = {beta.toFixed(1)}
-          <input type="range" min={0.5} max={10} step={0.1} value={beta} onChange={(e) => setBeta(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.5} max={10} step={0.1} value={beta} onChange={(e) => setBeta(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
 
@@ -119,9 +119,6 @@ function invertBeta(p, a, b) {
   return (lo + hi) / 2;
 }
 
-function btn(color) {
-  return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (color || "var(--line)"), background: "var(--bg-card)", color: color || "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" };
-}
 function lab() {
   return { flex: "1 1 200px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" };
 }

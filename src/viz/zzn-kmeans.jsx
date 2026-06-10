@@ -107,17 +107,11 @@ export default function ZznKMeans() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => setStep((s) => s + 1)} disabled={converged}
-          style={{ fontFamily: "var(--font-mono)", fontSize: 12, padding: "3px 9px",
-            background: "var(--bg-card)", color: "var(--text)",
-            border: "1px solid var(--line-strong)", borderRadius: 4, cursor: converged ? "default" : "pointer" }}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setStep((s) => s + 1)} disabled={converged}>
           krok iterace ▸
         </button>
-        <button onClick={reset}
-          style={{ fontFamily: "var(--font-mono)", fontSize: 12, padding: "3px 9px",
-            background: "var(--bg-inset)", color: "var(--text-muted)",
-            border: "1px solid var(--line)", borderRadius: 4, cursor: "pointer" }}>
+        <button className="viz-btn" onClick={reset}>
           reset
         </button>
         <label style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-muted)",

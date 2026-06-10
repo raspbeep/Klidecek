@@ -55,13 +55,13 @@ export default function KeeloqWindow() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>akceptacni okno:</label>
-        <select value={winMode} onChange={(e) => setWinMode(e.target.value)} style={sel}>
+        <select className="viz-select" value={winMode} onChange={(e) => setWinMode(e.target.value)}>
           <option value="short">short ({SHORT_WIN}; typicke pro autoklíče)</option>
           <option value="wide">wide ({WIDE_WIN}; pro ztracene stisknuti mimo dosah)</option>
         </select>
-        <button style={btn} onClick={reset}>reset</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -76,11 +76,11 @@ export default function KeeloqWindow() {
         </div>
       </div>
 
-      <div style={row}>
-        <button style={btn} onClick={press}>stisk tlacitka (v dosahu auta)</button>
-        <button style={btn} onClick={pressWithoutReceiver}>stisk MIMO dosah</button>
-        <button style={btn} onClick={capturePkt}>utocnik: capture aktualni paket</button>
-        <button style={btn} onClick={replay} disabled={!captured}>utocnik: replay</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={press}>stisk tlacitka (v dosahu auta)</button>
+        <button className="viz-btn" onClick={pressWithoutReceiver}>stisk MIMO dosah</button>
+        <button className="viz-btn" onClick={capturePkt}>utocnik: capture aktualni paket</button>
+        <button className="viz-btn" onClick={replay} disabled={!captured}>utocnik: replay</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, fontFamily: "var(--font-mono)", fontSize: 11, maxHeight: 180, overflowY: "auto" }}>
@@ -101,9 +101,6 @@ export default function KeeloqWindow() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const panel = { background: "var(--bg-inset)", padding: 8, borderRadius: 6 };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 12, marginTop: 4 };

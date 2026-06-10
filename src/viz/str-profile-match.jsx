@@ -82,9 +82,9 @@ export default function StrProfileMatch() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>scénář:</label>
-        <select value={scenario} onChange={(e) => setScenario(e.target.value)} style={sel}>
+        <select className="viz-select" value={scenario} onChange={(e) => setScenario(e.target.value)}>
           <option value="match">match (podezřelý zanechal stopu)</option>
           <option value="exclusion">vyloučení (1 lokus odlišný)</option>
           <option value="unrelated">unrelated (zcela jiný profil)</option>
@@ -138,9 +138,7 @@ export default function StrProfileMatch() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const tbl = { width: "100%", borderCollapse: "collapse", fontSize: 11.5 };
 const th = { textAlign: "left", padding: "3px 6px", color: "var(--text-muted)", fontSize: 10.5, fontWeight: 500, borderBottom: "1px solid var(--line)" };
 const td = { padding: "2px 6px" };

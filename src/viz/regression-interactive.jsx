@@ -85,11 +85,11 @@ export default function RegressionInteractive() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setData(INIT_DATA)} style={btn(false)}>reset</button>
-        <button onClick={() => setData([...data, [Math.random() * 10 + 1, Math.random() * 12 + 1]])} style={btn(false)}>+ bod</button>
-        <button onClick={() => setData(data.length > 3 ? data.slice(0, -1) : data)} style={btn(false)}>− bod</button>
-        <button onClick={() => setData([[1, 2.1], [2, 2.9], [3, 3.4], [4, 5.1], [5, 5.0], [6, 6.2], [7, 7.1], [8, 7.9], [9, 9.2], [12, 1]])} style={btn(false)}>outlier dolů</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setData(INIT_DATA)}>reset</button>
+        <button className="viz-btn" onClick={() => setData([...data, [Math.random() * 10 + 1, Math.random() * 12 + 1]])}>+ bod</button>
+        <button className="viz-btn" onClick={() => setData(data.length > 3 ? data.slice(0, -1) : data)}>− bod</button>
+        <button className="viz-btn" onClick={() => setData([[1, 2.1], [2, 2.9], [3, 3.4], [4, 5.1], [5, 5.0], [6, 6.2], [7, 7.1], [8, 7.9], [9, 9.2], [12, 1]])}>outlier dolů</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -164,5 +164,3 @@ export default function RegressionInteractive() {
     </div>
   );
 }
-
-function btn(active) { return { padding: "3px 9px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }

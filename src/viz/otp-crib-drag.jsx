@@ -53,9 +53,9 @@ export default function OtpCribDrag() {
       </div>
       <div style={row}>
         <label style={lbl}>posun:</label>
-        <input type="range" min={0} max={Math.max(0, M1.length - cribBytes.length)} value={pos}
+        <input type="range" className="viz-slider" min={0} max={Math.max(0, M1.length - cribBytes.length)} value={pos}
           onChange={(e) => setPos(+e.target.value)} style={{ flex: 1, minWidth: 200 }} />
-        <span style={{ fontFamily: "var(--font-mono)", color: "var(--accent)" }}>{pos}</span>
+        <span className="viz-readout">{pos}</span>
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>

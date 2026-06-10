@@ -53,14 +53,14 @@ export default function BTree() {
           fanout {ORDER}, {leaves.length} leaves
         </text>
       </svg>
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-        <button className="btn" onClick={() => {
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => {
           const k = next.current;
           next.current += 5 + Math.floor(Math.random() * 12);
           setKeys((prev) => [...prev, k]);
         }}>+ insert key</button>
-        <button className="btn ghost" onClick={() => setKeys((prev) => prev.slice(0, -1))}>undo</button>
-        <button className="btn ghost" onClick={() => { setKeys([10, 20, 5, 30, 15, 25]); next.current = 40; }}>reset</button>
+        <button className="viz-btn" onClick={() => setKeys((prev) => prev.slice(0, -1))}>undo</button>
+        <button className="viz-btn" onClick={() => { setKeys([10, 20, 5, 30, 15, 25]); next.current = 40; }}>reset</button>
       </div>
     </div>
   );

@@ -89,11 +89,11 @@ export default function AnscombeAndCorrelation() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.keys(ANSCOMBE).map(k => (
-          <button key={k} onClick={() => loadPreset(k)} style={btn(preset === k)}>Anscombe {k}</button>
+          <button key={k} className="viz-btn" data-active={preset === k} onClick={() => loadPreset(k)}>Anscombe {k}</button>
         ))}
-        <button onClick={() => setData(data.map(([x, y]) => [x, y + (Math.random() - 0.5) * 2]))} style={btn(false)}>jitter y</button>
+        <button className="viz-btn" onClick={() => setData(data.map(([x, y]) => [x, y + (Math.random() - 0.5) * 2]))}>jitter y</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -143,13 +143,4 @@ export default function AnscombeAndCorrelation() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

@@ -87,12 +87,12 @@ export default function PdsBetaReputation() {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, fontSize: 12 }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           <span style={{ fontFamily: "var(--font-mono)" }}>r (poz.)</span>
-          <input type="range" min="0" max="40" step="1" value={r} onChange={(e) => setR(parseInt(e.target.value, 10))} style={{ flex: 1 }} />
+          <input type="range" className="viz-slider" min="0" max="40" step="1" value={r} onChange={(e) => setR(parseInt(e.target.value, 10))} style={{ flex: 1 }} />
           <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)", minWidth: 18, textAlign: "right" }}>{r}</span>
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           <span style={{ fontFamily: "var(--font-mono)" }}>s (neg.)</span>
-          <input type="range" min="0" max="40" step="1" value={s} onChange={(e) => setS(parseInt(e.target.value, 10))} style={{ flex: 1 }} />
+          <input type="range" className="viz-slider" min="0" max="40" step="1" value={s} onChange={(e) => setS(parseInt(e.target.value, 10))} style={{ flex: 1 }} />
           <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)", minWidth: 18, textAlign: "right" }}>{s}</span>
         </label>
       </div>

@@ -111,9 +111,9 @@ export default function AttackTreeTraversal() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: 11, alignItems: "center" }}>
-        <button onClick={() => setState(leaves.reduce((o, l) => ({ ...o, [l.id]: true }), {}))} style={btn(false)}>enable all</button>
-        <button onClick={() => setState(leaves.reduce((o, l) => ({ ...o, [l.id]: false }), {}))} style={btn(false)}>disable all</button>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn" onClick={() => setState(leaves.reduce((o, l) => ({ ...o, [l.id]: true }), {}))}>enable all</button>
+        <button className="viz-btn" onClick={() => setState(leaves.reduce((o, l) => ({ ...o, [l.id]: false }), {}))}>disable all</button>
         <span style={{ color: "var(--text-muted)" }}>klikni na leaf box pro toggle ({enabledCount}/{leaves.length} leaves on)</span>
       </div>
 
@@ -135,8 +135,4 @@ export default function AttackTreeTraversal() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

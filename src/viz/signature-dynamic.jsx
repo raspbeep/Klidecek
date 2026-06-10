@@ -138,15 +138,15 @@ export default function SignatureDynamic() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>vzorek:</label>
-        <select value={scenario} onChange={(e) => setScenario(e.target.value)} style={sel}>
+        <select className="viz-select" value={scenario} onChange={(e) => setScenario(e.target.value)}>
           <option value="genuine">genuine (uložená šablona)</option>
           <option value="skilled">skilled forgery (shape OK, timing/pressure špatně)</option>
           <option value="random">random forgery (jiný shape)</option>
         </select>
-        <button style={btn} onClick={() => setAuto(!auto)}>{auto ? "stop" : "play"}</button>
-        <button style={btn} onClick={() => setT(0)}>reset</button>
+        <button className="viz-btn primary" onClick={() => setAuto(!auto)}>{auto ? "stop" : "play"}</button>
+        <button className="viz-btn" onClick={() => setT(0)}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 480, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -170,9 +170,9 @@ export default function SignatureDynamic() {
         <text x={6} y={H - 4} fontSize="10" fill="var(--text-muted)">t = {t.toFixed(2)} / 0.60</text>
       </svg>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>t:</label>
-        <input type="range" min="0" max="0.7" step="0.01" value={t} onChange={(e) => { setAuto(false); setT(parseFloat(e.target.value)); }} style={{ flex: 1 }} />
+        <input type="range" className="viz-slider" min="0" max="0.7" step="0.01" value={t} onChange={(e) => { setAuto(false); setT(parseFloat(e.target.value)); }} style={{ flex: 1 }} />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -211,10 +211,7 @@ export default function SignatureDynamic() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const panelTitle = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginBottom: 4 };
 const statBox = { background: "var(--bg-inset)", padding: 10, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };

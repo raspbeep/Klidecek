@@ -43,18 +43,15 @@ export default function NeedhamSchroeder() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         {Object.keys(SCENARIOS).map((k) => (
-          <button key={k} onClick={() => { setScenario(k); setStep(0); }} style={{
-            ...btn, background: scenario === k ? "var(--accent)" : "var(--bg-inset)",
-            color: scenario === k ? "var(--bg-card)" : "var(--text)",
-          }}>{k}</button>
+          <button key={k} className="viz-btn" data-active={scenario === k} onClick={() => { setScenario(k); setStep(0); }}>{k}</button>
         ))}
       </div>
-      <div style={row}>
-        <button onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0} style={btnSm}>◀</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)" }}>krok {step + 1} / {steps.length}</span>
-        <button onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step === steps.length - 1} style={btnSm}>▶</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>◀</button>
+        <span className="viz-readout">krok {step + 1} / {steps.length}</span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step === steps.length - 1}>▶</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 620 }}>
@@ -101,6 +98,3 @@ export default function NeedhamSchroeder() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const btn = { padding: "4px 10px", border: "1px solid var(--line)", borderRadius: 5, fontSize: 11, cursor: "pointer" };
-const btnSm = { padding: "3px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };

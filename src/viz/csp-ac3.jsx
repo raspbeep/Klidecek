@@ -122,21 +122,20 @@ export default function CspAc3() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>počátek:</span>
-          <select value={presetKey} onChange={(e) => setPresetKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={presetKey} onChange={(e) => setPresetKey(e.target.value)}>
             {Object.entries(PRESETS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
-        <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={() => setStep(0)} style={btnStyle()}>⏮</button>
-          <button onClick={() => setStep((s) => Math.max(0, s - 1))} style={btnStyle()}>◀</button>
-          <button onClick={() => setStep((s) => Math.min(frames.length - 1, s + 1))} style={btnStyle()}>▶</button>
-          <button onClick={() => setStep(frames.length - 1)} style={btnStyle()}>⏭</button>
+        <div className="viz-controls">
+          <button className="viz-btn" onClick={() => setStep(0)}>⏮</button>
+          <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))}>◀</button>
+          <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(frames.length - 1, s + 1))}>▶</button>
+          <button className="viz-btn" onClick={() => setStep(frames.length - 1)}>⏭</button>
         </div>
-        <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           krok {step}/{frames.length - 1}
         </span>
       </div>
@@ -245,6 +244,3 @@ export default function CspAc3() {
   );
 }
 
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
-}

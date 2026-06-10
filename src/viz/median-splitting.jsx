@@ -180,18 +180,18 @@ export default function MedianSplitting() {
       <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>vstup:</span>
         {Object.keys(PRESETS).map((k) => (
-          <button key={k} onClick={() => setPresetKey(k)} style={{ ...modeBtn, ...(presetKey === k ? activeBtn : {}) }}>{k}</button>
+          <button key={k} className="viz-btn" data-active={presetKey === k} onClick={() => setPresetKey(k)}>{k}</button>
         ))}
       </div>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           fáze {step + 1} / {states.length}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(states.length - 1, step + 1))} disabled={step >= states.length - 1}>další →</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(states.length - 1)}>⏭</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(0)}>↻</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(states.length - 1, step + 1))} disabled={step >= states.length - 1}>další →</button>
+        <button className="viz-btn" onClick={() => setStep(states.length - 1)}>⏭</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>↻</button>
       </div>
 
       {/* Tree SVG */}
@@ -281,23 +281,3 @@ export default function MedianSplitting() {
   );
 }
 
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

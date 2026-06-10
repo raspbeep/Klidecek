@@ -83,11 +83,11 @@ export default function CaesarShift() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, marginTop: 8, alignItems: "center", flexWrap: "wrap" }}>
-        <label style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls" style={{ marginTop: 8 }}>
+        <span className="viz-readout">
           shift k = {k}
-        </label>
-        <input type="range" min={0} max={25} value={k} onChange={(e) => setK(+e.target.value)}
+        </span>
+        <input type="range" className="viz-slider" min={0} max={25} value={k} onChange={(e) => setK(+e.target.value)}
           style={{ flex: 1, minWidth: 140 }} />
         <input type="text" value={text} maxLength={24}
           onChange={(e) => setText(e.target.value.replace(/[^A-Za-z]/g, "").toUpperCase())}

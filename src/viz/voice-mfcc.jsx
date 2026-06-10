@@ -114,17 +114,17 @@ export default function VoiceMfcc() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>speaker A:</label>
-        <select value={speakerA} onChange={(e) => setSpeakerA(parseInt(e.target.value))} style={sel}>
+        <select className="viz-select" value={speakerA} onChange={(e) => setSpeakerA(parseInt(e.target.value))}>
           <option value="1">Alice</option><option value="2">Bob</option><option value="3">Carol</option>
         </select>
         <label style={lbl}>speaker B:</label>
-        <select value={speakerB} onChange={(e) => setSpeakerB(parseInt(e.target.value))} style={sel}>
+        <select className="viz-select" value={speakerB} onChange={(e) => setSpeakerB(parseInt(e.target.value))}>
           <option value="1">Alice</option><option value="2">Bob</option><option value="3">Carol</option>
         </select>
-        <label style={lbl}>frame = {frame}</label>
-        <input type="range" min="0" max={N_FRAMES - 1} value={frame} onChange={(e) => setFrame(parseInt(e.target.value))} />
+        <span className="viz-readout">frame = {frame}</span>
+        <input type="range" className="viz-slider" min="0" max={N_FRAMES - 1} value={frame} onChange={(e) => setFrame(parseInt(e.target.value))} />
       </div>
 
       {/* Pipeline visualization for current frame */}
@@ -190,9 +190,7 @@ export default function VoiceMfcc() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const panelTitle = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginBottom: 4 };
 const statBox = { background: "var(--bg-inset)", padding: 10, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };

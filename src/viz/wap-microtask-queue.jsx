@@ -48,11 +48,11 @@ export default function WapMicrotaskQueue() {
       <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexDirection: "column", gap: 6 }}>
         <div style={{ fontSize: 11, color: "var(--text-muted)", fontWeight: 600 }}>pořadí zápisu v kódu — změň typ každého bloku:</div>
         {blocks.map((b, i) => (
-          <div key={b.id} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11.5 }}>
+          <div key={b.id} className="viz-controls" style={{ gap: 8, fontSize: 11.5 }}>
             <span style={{ fontFamily: "var(--font-mono)", width: 70, color: "var(--text-muted)" }}>
               log("{b.id}")
             </span>
-            <select value={b.kind} onChange={(e) => setKind(i, e.target.value)} style={sel}>
+            <select className="viz-select" value={b.kind} onChange={(e) => setKind(i, e.target.value)}>
               {Object.entries(KINDS).map(([k, v]) => (
                 <option key={k} value={k}>{v.label}</option>
               ))}
@@ -94,13 +94,3 @@ export default function WapMicrotaskQueue() {
     </div>
   );
 }
-
-const sel = {
-  padding: "3px 6px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-};

@@ -55,8 +55,8 @@ export default function NfcAnticollision() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button style={btn} onClick={newField}>↻ nove karty v poli</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={newField}>↻ nove karty v poli</button>
         <span style={lbl}>aktivni: {candidates.length} / {cards.filter((c) => c.state === "ACTIVE").length}</span>
         {candidates.length === 1 && (
           <span style={{ ...lbl, color: "#81b29a" }}>✓ uniquely identified — pripravna pro SELECT</span>
@@ -90,12 +90,12 @@ export default function NfcAnticollision() {
       <div style={row}>
         <span style={lbl}>znama pozice {knownBits.length}/32 — na bitu {knownBits.length} se kandidati rozchazeji:</span>
       </div>
-      <div style={row}>
-        <button style={{ ...btn, padding: "8px 16px", background: conflictBit !== null ? "var(--accent)" : "var(--bg-inset)", color: conflictBit !== null ? "var(--bg-inset)" : "var(--text-muted)" }}
+      <div className="viz-controls">
+        <button className={conflictBit !== null ? "viz-btn primary" : "viz-btn"}
           onClick={() => pickBit("0")} disabled={conflictBit === null}>
           pokracuj s bitem 0 (HALT karty s bitem 1)
         </button>
-        <button style={{ ...btn, padding: "8px 16px", background: conflictBit !== null ? "var(--accent)" : "var(--bg-inset)", color: conflictBit !== null ? "var(--bg-inset)" : "var(--text-muted)" }}
+        <button className={conflictBit !== null ? "viz-btn primary" : "viz-btn"}
           onClick={() => pickBit("1")} disabled={conflictBit === null}>
           pokracuj s bitem 1 (HALT karty s bitem 0)
         </button>
@@ -119,4 +119,3 @@ export default function NfcAnticollision() {
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
 const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

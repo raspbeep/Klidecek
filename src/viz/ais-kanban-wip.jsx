@@ -113,13 +113,13 @@ export default function KanbanWip() {
         })}
       </svg>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11.5, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
-        <span>WIP limit:</span>
-        <input type="range" min={1} max={5} value={wip} onChange={(e) => { setWip(+e.target.value); }} style={{ flex: 1 }} />
-        <span style={{ color: "var(--text)", fontWeight: 600 }}>{wip}</span>
+      <div className="viz-controls">
+        <span className="viz-readout">WIP limit:</span>
+        <input type="range" className="viz-slider" min={1} max={5} value={wip} onChange={(e) => { setWip(+e.target.value); }} style={{ flex: 1 }} />
+        <span className="viz-readout" style={{ color: "var(--text)", fontWeight: 600 }}>{wip}</span>
         <button
+          className="viz-btn"
           onClick={reset}
-          style={{ padding: "4px 10px", fontSize: 11, fontFamily: "var(--font-mono)", background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: 4, cursor: "pointer", color: "var(--text)" }}
         >
           ↺ reset
         </button>

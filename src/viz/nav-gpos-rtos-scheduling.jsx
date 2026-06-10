@@ -53,16 +53,10 @@ export default function NavGposRtosScheduling() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {[["gpos", "GPOS — fair-share"], ["rtos", "RTOS — prioritní preempce"]].map(([m, lbl]) => (
-          <button key={m} onClick={() => setMode(m)}
-            style={{
-              flex: 1, padding: "6px 4px", fontSize: 11.5, cursor: "pointer",
-              fontFamily: "var(--font-mono)", borderRadius: 5,
-              border: `1px solid ${m === mode ? "var(--accent)" : "var(--line)"}`,
-              background: m === mode ? "oklch(0.62 0.14 264 / 0.15)" : "var(--bg-card)",
-              color: m === mode ? "var(--accent)" : "var(--text-muted)",
-            }}>{lbl}</button>
+          <button key={m} className="viz-btn" data-active={m === mode} onClick={() => setMode(m)}
+            style={{ flex: 1 }}>{lbl}</button>
         ))}
       </div>
 

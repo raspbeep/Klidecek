@@ -96,16 +96,16 @@ export default function Dijkstra() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-        <button className="btn"
+      <div className="viz-controls">
+        <button className="viz-btn primary"
           onClick={() => setSteps((s) => Math.min(maxSteps, s + 1))}
           disabled={steps >= maxSteps}>
           krok →
         </button>
-        <button className="btn ghost" onClick={() => setSteps(0)}>reset</button>
-        <button className="btn ghost"
+        <button className="viz-btn" onClick={() => setSteps(0)}>reset</button>
+        <button className="viz-btn"
           onClick={() => setSteps(maxSteps)}>doběhnout</button>
-        <span style={{ marginLeft: "auto", fontSize: 12, color: "var(--text-muted)" }}>
+        <span className="viz-readout push">
           {current.note}
         </span>
       </div>

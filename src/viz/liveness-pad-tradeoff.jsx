@@ -63,7 +63,7 @@ export default function LivenessPadTradeoff() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>aktivní útoky v testu:</label>
         {Object.entries(ATTACKS).map(([k, v]) => (
           <label key={k} style={{ ...chip, borderColor: enabled[k] ? v.color : "var(--line)", color: enabled[k] ? v.color : "var(--text-muted)" }}>
@@ -110,9 +110,9 @@ export default function LivenessPadTradeoff() {
         </div>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>threshold τ:</label>
-        <input type="range" min="0" max="1" step="0.01" value={thr} onChange={(e) => setThr(parseFloat(e.target.value))} style={{ flex: 1 }} />
+        <input type="range" className="viz-slider" min="0" max="1" step="0.01" value={thr} onChange={(e) => setThr(parseFloat(e.target.value))} style={{ flex: 1 }} />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
@@ -141,7 +141,6 @@ export default function LivenessPadTradeoff() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const chip = { padding: "3px 8px", background: "var(--bg-inset)", border: "1px solid", borderRadius: 12, fontSize: 11, cursor: "pointer", display: "flex", alignItems: "center" };
 const statBox = { background: "var(--bg-inset)", padding: 10, borderRadius: 6, textAlign: "center" };

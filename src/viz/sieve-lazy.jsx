@@ -45,9 +45,9 @@ export default function SieveLazy() {
           primes = sieve [2..]  where  sieve (p:xs) = p : sieve [x | x &lt;- xs, x `mod` p /= 0]
         </code>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>take N primes:</label>
-        <input type="range" min="0" max="15" value={demand} onChange={(e) => setDemand(parseInt(e.target.value))} />
+        <input type="range" className="viz-slider" min="0" max="15" value={demand} onChange={(e) => setDemand(parseInt(e.target.value))} />
         <code style={mono}>N = {demand}</code>
         <span style={{ ...lbl, marginLeft: 12 }}>výsledek:</span>
         <code style={{ ...mono, color: "rgb(64,192,87)" }}>[{primes.join(", ")}]</code>
@@ -85,6 +85,5 @@ export default function SieveLazy() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--accent)" };

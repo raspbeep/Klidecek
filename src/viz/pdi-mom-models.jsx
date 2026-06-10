@@ -37,12 +37,12 @@ export default function PdiMomModels() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", fontSize: 11.5 }}>
-        <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>model:</span>
-        <button onClick={() => switchModel("ptp")} style={tabBtn(isPtp, 264)}>Point-to-Point</button>
-        <button onClick={() => switchModel("pubsub")} style={tabBtn(!isPtp, 142)}>Publish-Subscribe</button>
+      <div className="viz-controls">
+        <span style={{ color: "var(--text-muted)", fontWeight: 600, fontSize: 11.5 }}>model:</span>
+        <button className="viz-btn" data-active={isPtp} onClick={() => switchModel("ptp")} style={isPtp ? { background: "oklch(0.62 0.14 264 / 0.2)", borderColor: "oklch(0.6 0.14 264)" } : undefined}>Point-to-Point</button>
+        <button className="viz-btn" data-active={!isPtp} onClick={() => switchModel("pubsub")} style={!isPtp ? { background: "oklch(0.62 0.14 142 / 0.2)", borderColor: "oklch(0.6 0.14 142)" } : undefined}>Publish-Subscribe</button>
         <div style={{ flex: 1 }} />
-        <button onClick={send} style={sendBtn}>▶ poslat zprávu</button>
+        <button className="viz-btn primary" onClick={send}>▶ poslat zprávu</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-inset)", borderRadius: 4 }}>
@@ -102,18 +102,3 @@ export default function PdiMomModels() {
     </div>
   );
 }
-
-function tabBtn(active, hue) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 10px",
-    background: active ? `oklch(0.62 0.14 ${hue} / 0.2)` : "var(--bg-card)",
-    color: "var(--text)",
-    border: `1px solid ${active ? `oklch(0.6 0.14 ${hue})` : "var(--line)"}`,
-    borderRadius: 4, cursor: "pointer", fontWeight: active ? 600 : 400,
-  };
-}
-const sendBtn = {
-  fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 12px",
-  background: "var(--bg-card)", color: "var(--text)",
-  border: "1px solid var(--line-strong)", borderRadius: 4, cursor: "pointer",
-};

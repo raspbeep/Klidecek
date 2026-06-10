@@ -134,11 +134,11 @@ export default function ResidualDiagnostics() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(SCENARIOS).map(([k, v]) => (
-          <button key={k} onClick={() => setSc(k)} style={btn(sc === k)}>{v.label}</button>
+          <button key={k} className="viz-btn" data-active={sc === k} onClick={() => setSc(k)}>{v.label}</button>
         ))}
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový vzorek</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový vzorek</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -154,5 +154,3 @@ export default function ResidualDiagnostics() {
     </div>
   );
 }
-
-function btn(active) { return { padding: "3px 9px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }

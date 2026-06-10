@@ -145,9 +145,9 @@ export default function McClassification() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(PRESETS).map(([k, p]) => (
-          <button key={k} onClick={() => setPreset(k)} style={btn(preset === k)}>{p.label}</button>
+          <button key={k} className="viz-btn" data-active={preset === k} onClick={() => setPreset(k)}>{p.label}</button>
         ))}
       </div>
 
@@ -218,5 +218,3 @@ export default function McClassification() {
     </div>
   );
 }
-
-function btn(active) { return { padding: "3px 9px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }

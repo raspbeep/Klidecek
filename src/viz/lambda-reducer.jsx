@@ -154,17 +154,17 @@ export default function LambdaReducer() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>preset:</label>
-        <select value={preset} onChange={(e) => { setPreset(e.target.value); setSrc(PRESETS[e.target.value].src); }} style={sel}>
+        <select className="viz-select" value={preset} onChange={(e) => { setPreset(e.target.value); setSrc(PRESETS[e.target.value].src); }}>
           {Object.entries(PRESETS).map(([k, v]) => <option key={k} value={k}>{v.desc}</option>)}
         </select>
       </div>
       <input value={src} onChange={(e) => setSrc(e.target.value)} style={inp} spellCheck={false} />
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>strategie:</label>
-        <button style={normal ? btnOn : btn} onClick={() => setNormal(true)}>normal-order</button>
-        <button style={!normal ? btnOn : btn} onClick={() => setNormal(false)}>applicative</button>
+        <button className="viz-btn" data-active={normal} onClick={() => setNormal(true)}>normal-order</button>
+        <button className="viz-btn" data-active={!normal} onClick={() => setNormal(false)}>applicative</button>
         <span style={{ ...lbl, marginLeft: 12 }}>max kroků:</span>
         <input type="number" value={maxSteps} min="1" max="200" onChange={(e) => setMaxSteps(parseInt(e.target.value) || 1)} style={{ ...inp, width: 70 }} />
       </div>
@@ -187,10 +187,6 @@ export default function LambdaReducer() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
 const inp = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, fontFamily: "var(--font-mono)", flex: 1, minWidth: 200 };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--accent)" };

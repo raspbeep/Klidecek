@@ -51,10 +51,10 @@ export default function BirthdayParadox() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>velikost hashe n bitů: {n}</label>
-        <input type="range" min={8} max={32} step={1} value={n} onChange={(e) => { setN(+e.target.value); setTrial(null); }} style={{ flex: 1, minWidth: 200 }} />
-        <button onClick={runTrial} style={btn}>▶ Empirický pokus</button>
+        <input type="range" className="viz-slider" min={8} max={32} step={1} value={n} onChange={(e) => { setN(+e.target.value); setTrial(null); }} style={{ flex: 1, minWidth: 200 }} />
+        <button className="viz-btn primary" onClick={runTrial}>▶ Empirický pokus</button>
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
@@ -119,6 +119,4 @@ export default function BirthdayParadox() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--accent)", color: "var(--bg-card)", border: "none", borderRadius: 5, fontSize: 11, cursor: "pointer" };

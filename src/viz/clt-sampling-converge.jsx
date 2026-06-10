@@ -90,16 +90,9 @@ export default function CltSamplingConverge() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(SOURCES).map(([key, s]) => (
-          <button key={key} onClick={() => setSrc(key)}
-            style={{
-              padding: "3px 8px", fontSize: 10.5,
-              border: "1px solid " + (src === key ? "var(--accent)" : "var(--line)"),
-              background: src === key ? "var(--bg-inset)" : "var(--bg-card)",
-              color: src === key ? "var(--accent)" : "var(--text)",
-              borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)",
-            }}
+          <button key={key} className="viz-btn" data-active={src === key} onClick={() => setSrc(key)}
           >{s.label}</button>
         ))}
       </div>
@@ -152,12 +145,12 @@ export default function CltSamplingConverge() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <label style={{ flex: "1 1 200px", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }}>
           n = {n}
-          <input type="range" min={1} max={200} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={1} max={200} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={{ padding: "5px 14px", fontSize: 11, border: "1px solid var(--line)", background: "var(--bg-card)", color: "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }}>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>
           nový seed ({seed})
         </button>
       </div>

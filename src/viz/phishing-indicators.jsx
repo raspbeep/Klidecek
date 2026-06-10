@@ -40,10 +40,10 @@ export default function PhishingIndicators() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: 11, alignItems: "center" }}>
-        <button onClick={() => setShowAll(s => !s)} style={btn(showAll)}>{showAll ? "skrýt" : "zobrazit"} všechny indikátory</button>
-        <button onClick={() => { setRevealed({}); setShowAll(false); }} style={btn(false)}>reset</button>
-        <span style={{ marginLeft: 6 }}>kliknutí na podezřelou část emailu = označit jako red flag</span>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn" data-active={showAll} onClick={() => setShowAll(s => !s)}>{showAll ? "skrýt" : "zobrazit"} všechny indikátory</button>
+        <button className="viz-btn" onClick={() => { setRevealed({}); setShowAll(false); }}>reset</button>
+        <span style={{ fontSize: 11 }}>kliknutí na podezřelou část emailu = označit jako red flag</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -95,8 +95,4 @@ export default function PhishingIndicators() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

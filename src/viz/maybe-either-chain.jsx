@@ -23,13 +23,13 @@ export default function MaybeEitherChain() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>monad:</label>
         {["Maybe", "Either"].map((m) => (
-          <button key={m} style={mode === m ? btnOn : btn} onClick={() => setMode(m)}>{m}</button>
+          <button key={m} className="viz-btn" data-active={mode === m} onClick={() => setMode(m)}>{m}</button>
         ))}
         <span style={{ ...lbl, marginLeft: 12 }}>fail at step:</span>
-        <select value={failAt} onChange={(e) => setFailAt(parseInt(e.target.value))} style={sel}>
+        <select className="viz-select" value={failAt} onChange={(e) => setFailAt(parseInt(e.target.value))}>
           <option value={-1}>none (all succeed)</option>
           {STEPS.map((s, i) => <option key={i} value={i}>step {i + 1}: {s.lbl}</option>)}
         </select>
@@ -81,9 +81,5 @@ export default function MaybeEitherChain() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--accent)" };

@@ -61,23 +61,23 @@ export default function AisCodeOwnership() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {ORDER.map((k) => (
           <button
             key={k}
+            className="viz-btn"
             onClick={() => setM(k)}
-            style={{
+            style={m === k ? {
               flex: 1,
               minWidth: 92,
-              padding: "5px 6px",
-              fontSize: 11,
-              fontFamily: "var(--font-mono)",
-              cursor: "pointer",
-              borderRadius: 5,
               border: `1px solid oklch(0.62 0.16 ${MODELS[k].hue})`,
-              background: m === k ? `oklch(0.62 0.16 ${MODELS[k].hue})` : "var(--bg-card)",
-              color: m === k ? "var(--bg-card)" : `oklch(0.62 0.16 ${MODELS[k].hue})`,
-              fontWeight: 600,
+              background: `oklch(0.62 0.16 ${MODELS[k].hue})`,
+              color: "var(--bg-card)",
+            } : {
+              flex: 1,
+              minWidth: 92,
+              border: `1px solid oklch(0.62 0.16 ${MODELS[k].hue})`,
+              color: `oklch(0.62 0.16 ${MODELS[k].hue})`,
             }}
           >
             {MODELS[k].label}

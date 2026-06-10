@@ -51,13 +51,13 @@ export default function EventualConsistencyTimeline() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>
         <span>time</span>
-        <input type="range" min={0} max={Tmax} step={0.5} value={T} onChange={(e) => setT(+e.target.value)} style={{ flex: 1, maxWidth: 240 }} />
-        <span>T = {T}</span>
+        <input type="range" className="viz-slider" min={0} max={Tmax} step={0.5} value={T} onChange={(e) => setT(+e.target.value)} style={{ flex: 1, maxWidth: 240 }} />
+        <span className="viz-readout">T = {T}</span>
         <span style={{ marginLeft: 12 }}>read level</span>
         {["ONE", "QUORUM", "ALL"].map(l => (
-          <button key={l} onClick={() => setN(l)} style={btn(N === l)}>{l}</button>
+          <button key={l} className="viz-btn" data-active={N === l} onClick={() => setN(l)}>{l}</button>
         ))}
       </div>
 
@@ -126,11 +126,3 @@ export default function EventualConsistencyTimeline() {
   );
 }
 
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 10, padding: "2px 6px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
-}

@@ -26,22 +26,13 @@ export default function WapTypeofCoercion() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {VALUES.map((x, i) => (
           <button
             key={i}
+            className="viz-btn"
+            data-active={i === idx}
             onClick={() => setIdx(i)}
-            className="btn ghost"
-            style={{
-              padding: "4px 8px",
-              fontSize: 11.5,
-              ...mono,
-              borderRadius: 4,
-              cursor: "pointer",
-              border: "1px solid var(--line)",
-              background: i === idx ? "var(--accent)" : "var(--bg-card)",
-              color: i === idx ? "var(--bg-card)" : "var(--text)",
-            }}
           >
             {x.label}
           </button>

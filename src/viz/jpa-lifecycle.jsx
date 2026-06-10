@@ -210,13 +210,13 @@ export default function JpaLifecycle() {
       </svg>
 
       {/* Operations */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {OPERATIONS.map((op) => (
-          <button key={op.id} onClick={() => run(op)} style={opBtnStyle} title={op.desc}>
+          <button key={op.id} className="viz-btn" onClick={() => run(op)} title={op.desc}>
             {op.label}
           </button>
         ))}
-        <button onClick={reset} style={{ ...opBtnStyle, background: "oklch(0.55 0.18 22 / 0.15)", marginLeft: "auto" }}>
+        <button className="viz-btn" onClick={reset} style={{ background: "oklch(0.55 0.18 22 / 0.15)", marginLeft: "auto" }}>
           ↺ reset
         </button>
       </div>
@@ -294,16 +294,6 @@ export default function JpaLifecycle() {
   );
 }
 
-const opBtnStyle = {
-  padding: "5px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-  color: "var(--text)",
-};
 const panelStyle = {
   padding: 10,
   background: "var(--bg-inset)",

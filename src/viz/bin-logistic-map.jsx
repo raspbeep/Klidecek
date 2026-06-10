@@ -96,10 +96,10 @@ export default function BinLogisticMap() {
         </g>
       </svg>
 
-      <input type="range" min={2.5} max={4} step={0.005} value={r}
+      <input type="range" className="viz-slider" min={2.5} max={4} step={0.005} value={r}
         onChange={(e) => setR(+e.target.value)} style={{ width: "100%" }} />
 
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-readout">
         r = {r.toFixed(3)} · {regime}
         {regime !== "chaos" && distinct <= 16 ? ` · ${distinct} bod${distinct === 1 ? "" : distinct < 5 ? "y" : "u"}` : ""}
       </div>

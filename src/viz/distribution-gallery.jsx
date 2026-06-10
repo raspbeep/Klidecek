@@ -103,18 +103,13 @@ export default function DistributionGallery() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {Object.entries(FAMILIES).map(([key, f]) => (
           <button
             key={key}
+            className="viz-btn"
+            data-active={family === key}
             onClick={() => { setFamily(key); setParams({}); }}
-            style={{
-              padding: "4px 10px", fontSize: 11,
-              border: "1px solid " + (family === key ? "var(--accent)" : "var(--line)"),
-              background: family === key ? "var(--accent-bg, var(--bg-inset))" : "var(--bg-card)",
-              color: family === key ? "var(--accent)" : "var(--text)",
-              borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)",
-            }}
           >{f.label}</button>
         ))}
       </div>
@@ -178,7 +173,7 @@ export default function DistributionGallery() {
           <label key={p.name} style={{ display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)", flex: "1 1 200px" }}>
             <span>{p.name} = {vals[p.name].toFixed(p.step < 1 ? 2 : 0)}</span>
             <input
-              type="range" min={p.min} max={p.max} step={p.step}
+              type="range" className="viz-slider" min={p.min} max={p.max} step={p.step}
               value={vals[p.name]}
               onChange={(e) => setParams({ ...params, [p.name]: +e.target.value })}
             />

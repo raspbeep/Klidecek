@@ -106,11 +106,11 @@ export default function ReachabilityFixpoint() {
         <text x={20} y={H - 10} fontSize="10" fill="var(--text-muted)" fontFamily="var(--font-mono)">x(s) = Σⱼ P(s, j)·x(j) pro s ∉ T ∪ S₀ — iterace</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => setRunning(!running)} style={btn(false)}>{running ? "⏸" : "▶"}</button>
-        <button onClick={step} disabled={running} style={btn(false)}>krok →</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginLeft: 6 }}>k = {k}</span>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setRunning(!running)}>{running ? "⏸" : "▶"}</button>
+        <button className="viz-btn" onClick={step} disabled={running}>krok →</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout">k = {k}</span>
       </div>
 
       <table style={{ fontSize: 10.5, fontFamily: "var(--font-mono)", color: "var(--text)", borderCollapse: "collapse" }}>
@@ -134,6 +134,5 @@ export default function ReachabilityFixpoint() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function th() { return { textAlign: "left", padding: "3px 12px", fontWeight: "normal", borderBottom: "1px solid var(--line)" }; }
 function td() { return { padding: "3px 12px" }; }

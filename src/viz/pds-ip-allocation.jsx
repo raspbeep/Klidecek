@@ -99,12 +99,12 @@ export default function IpAllocation() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {LEVELS.map((l) => (
           <button key={l.id}
-            className={sel === l.id ? "btn" : "btn ghost"}
-            onClick={() => setSel(l.id)}
-            style={{ fontSize: 11.5, fontFamily: "var(--font-mono)" }}>
+            className="viz-btn"
+            data-active={sel === l.id}
+            onClick={() => setSel(l.id)}>
             {l.label}
           </button>
         ))}

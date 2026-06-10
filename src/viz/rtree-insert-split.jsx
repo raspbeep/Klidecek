@@ -257,10 +257,10 @@ export default function RtreeInsertSplit() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setRects(INIT_RECTS.map(r => [...r]))} style={btn(false)}>reset</button>
-        <button onClick={() => setRects(rects.slice(0, -1))} style={btn(false)} disabled={rects.length === 0}>− last</button>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text-muted)", padding: "4px 0" }}>drag empty area to add a rectangle</span>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setRects(INIT_RECTS.map(r => [...r]))}>reset</button>
+        <button className="viz-btn" onClick={() => setRects(rects.slice(0, -1))} disabled={rects.length === 0}>− last</button>
+        <span className="viz-readout">drag empty area to add a rectangle</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -312,13 +312,4 @@ export default function RtreeInsertSplit() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

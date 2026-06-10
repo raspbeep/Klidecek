@@ -42,18 +42,18 @@ export default function AisObserverNotify() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>zpráva:</span>
-        <select value={msgIdx} onChange={(e) => setMsgIdx(+e.target.value)} style={sel}>
+        <select className="viz-select" value={msgIdx} onChange={(e) => setMsgIdx(+e.target.value)}>
           {MSGS.map((m, i) => (
             <option key={i} value={i}>{m}</option>
           ))}
         </select>
-        <button className="btn ghost" style={{ ...btn, borderColor: "oklch(0.62 0.16 22)", color: "oklch(0.5 0.16 22)" }}
+        <button className="viz-btn" style={{ borderColor: "oklch(0.62 0.16 22)", color: "oklch(0.5 0.16 22)" }}
           disabled={attached.length === 0} onClick={notify}>
           notify() →
         </button>
-        <span style={{ color: "var(--text-faint)" }}>připojeno: {attached.length}</span>
+        <span className="viz-readout" style={{ color: "var(--text-faint)" }}>připojeno: {attached.length}</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W }}>
@@ -118,23 +118,3 @@ export default function AisObserverNotify() {
     </div>
   );
 }
-
-const btn = {
-  padding: "4px 12px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-  color: "var(--text)",
-};
-const sel = {
-  padding: "3px 6px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-};

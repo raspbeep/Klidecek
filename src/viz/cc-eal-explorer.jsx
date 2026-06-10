@@ -31,7 +31,7 @@ export default function CcEalExplorer() {
     <div style={{ width: "100%" }}>
       <div style={{ marginBottom: 8, fontSize: 11 }}>
         EAL = {n} ({eal.name})
-        <input type="range" min="1" max="7" value={n} onChange={e => setN(+e.target.value)}
+        <input type="range" className="viz-slider" min="1" max="7" value={n} onChange={e => setN(+e.target.value)}
           style={{ width: 280, marginLeft: 10, verticalAlign: "middle" }} />
       </div>
 

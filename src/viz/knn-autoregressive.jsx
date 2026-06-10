@@ -41,12 +41,10 @@ export default function KnnAutoregressive() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 12 }}>
-        <button onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}
-          style={btn(step === 0)}>◀ zpět</button>
-        <button onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))} disabled={step === STEPS.length - 1}
-          style={btn(step === STEPS.length - 1)}>krok ▶</button>
-        <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls" style={{ fontSize: 12 }}>
+        <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}>◀ zpět</button>
+        <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))} disabled={step === STEPS.length - 1}>krok ▶</button>
+        <span className="viz-readout">
           t = {step + 1} / {STEPS.length}
         </span>
         <label style={{ display: "flex", gap: 5, alignItems: "center", marginLeft: "auto" }}>
@@ -122,13 +120,4 @@ export default function KnnAutoregressive() {
       </div>
     </div>
   );
-}
-
-function btn(disabled) {
-  return {
-    background: disabled ? "var(--bg-card)" : "var(--accent)",
-    color: disabled ? "var(--text-faint)" : "white",
-    border: "1px solid var(--line)", padding: "3px 10px", borderRadius: 4,
-    fontSize: 12, cursor: disabled ? "default" : "pointer", fontFamily: "var(--font-mono)",
-  };
 }

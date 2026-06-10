@@ -159,14 +159,11 @@ export default function BinAdleman() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-        <button onClick={() => setPath([])}
-          style={{ fontSize: 12, fontFamily: "var(--font-mono)", padding: "3px 10px",
-            background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line-strong)",
-            borderRadius: 4, cursor: "pointer" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setPath([])}>
           reset
         </button>
-        <span style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           cesta: {path.length ? path.map((id) => node(id).name).join(" -> ") : "(prazdna)"}
         </span>
       </div>

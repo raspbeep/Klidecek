@@ -131,18 +131,12 @@ export default function JpaInheritance() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <div style={{ display: "flex", gap: 4, padding: 3, background: "var(--bg-inset)", borderRadius: 8, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {STRATEGIES.map((s) => (
           <button
             key={s.id}
-            className="btn ghost"
-            style={{
-              background: stratId === s.id ? "var(--bg-card)" : "transparent",
-              boxShadow: stratId === s.id ? "var(--shadow-sm)" : "none",
-              padding: "5px 10px",
-              fontSize: 12,
-              fontFamily: "var(--font-mono)",
-            }}
+            className="viz-btn"
+            data-active={stratId === s.id}
             onClick={() => setStratId(s.id)}
           >
             {s.name}

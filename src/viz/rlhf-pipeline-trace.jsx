@@ -54,15 +54,9 @@ export default function RlhfPipelineTrace() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         {STAGES.map((s, i) => (
-          <button key={s.id} onClick={() => setStage(i)}
-            style={{
-              background: stage === i ? "var(--accent)" : "var(--bg-card)",
-              color: stage === i ? "white" : "var(--text)",
-              border: "1px solid var(--line)", padding: "4px 12px", borderRadius: 3, fontSize: 11, cursor: "pointer",
-              fontFamily: "var(--font-mono)", fontWeight: stage === i ? 700 : 400,
-            }}>
+          <button key={s.id} className="viz-btn" data-active={stage === i} onClick={() => setStage(i)}>
             {s.short}
           </button>
         ))}

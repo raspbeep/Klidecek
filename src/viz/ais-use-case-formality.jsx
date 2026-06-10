@@ -53,17 +53,10 @@ export default function AisUseCaseFormality() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* level toggle */}
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {LEVELS.map((l, i) => (
-          <button key={l.id} onClick={() => setIdx(i)}
-            style={{
-              flex: 1, padding: "6px 8px", fontSize: 11.5, cursor: "pointer",
-              fontFamily: "var(--font-mono)", borderRadius: 5,
-              border: `1px solid ${i === idx ? "var(--accent)" : "var(--line)"}`,
-              background: i === idx ? "oklch(0.62 0.14 264 / 0.16)" : "var(--bg-card)",
-              color: i === idx ? "var(--accent)" : "var(--text-muted)",
-              fontWeight: i === idx ? 600 : 400,
-            }}>
+          <button key={l.id} className="viz-btn" data-active={i === idx} onClick={() => setIdx(i)}
+            style={{ flex: 1 }}>
             {l.id}
           </button>
         ))}

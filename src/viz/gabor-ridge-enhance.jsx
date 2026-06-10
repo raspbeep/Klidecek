@@ -88,19 +88,19 @@ export default function GaborRidgeEnhance() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>orientace hřebenů: {ridgeAngle}°</label>
-        <input type="range" min="0" max="180" value={ridgeAngle} onChange={(e) => setRidgeAngle(parseInt(e.target.value))} />
+        <input type="range" className="viz-slider" min="0" max="180" value={ridgeAngle} onChange={(e) => setRidgeAngle(parseInt(e.target.value))} />
         <label style={lbl}>šum: {noise.toFixed(2)}</label>
-        <input type="range" min="0" max="1" step="0.05" value={noise} onChange={(e) => setNoise(parseFloat(e.target.value))} />
+        <input type="range" className="viz-slider" min="0" max="1" step="0.05" value={noise} onChange={(e) => setNoise(parseFloat(e.target.value))} />
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Gabor θ: {gaborAngle}°</label>
-        <input type="range" min="0" max="180" value={gaborAngle} onChange={(e) => setGaborAngle(parseInt(e.target.value))} />
+        <input type="range" className="viz-slider" min="0" max="180" value={gaborAngle} onChange={(e) => setGaborAngle(parseInt(e.target.value))} />
         <label style={lbl}>Gabor f: {gaborFreq.toFixed(2)}</label>
-        <input type="range" min="0.05" max="0.3" step="0.01" value={gaborFreq} onChange={(e) => setGaborFreq(parseFloat(e.target.value))} />
-        <button style={btn} onClick={() => { setGaborAngle(ridgeAngle); setGaborFreq(ridgeFreq); }}>match k hřebenům</button>
+        <input type="range" className="viz-slider" min="0.05" max="0.3" step="0.01" value={gaborFreq} onChange={(e) => setGaborFreq(parseFloat(e.target.value))} />
+        <button className="viz-btn" onClick={() => { setGaborAngle(ridgeAngle); setGaborFreq(ridgeFreq); }}>match k hřebenům</button>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
@@ -139,8 +139,6 @@ export default function GaborRidgeEnhance() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const panel = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, textAlign: "center" };
 const panelTitle = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginBottom: 4 };

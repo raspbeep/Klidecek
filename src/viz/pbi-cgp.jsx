@@ -156,16 +156,10 @@ export default function PbiCgp() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {PRESETS.map((p, i) => (
-          <button key={p.name} onClick={() => setPi(i)}
-            style={{
-              flex: 1, fontSize: 12, padding: "4px 8px", cursor: "pointer",
-              fontFamily: "var(--font-mono)",
-              background: i === pi ? "var(--accent)" : "var(--bg-card)",
-              color: i === pi ? "white" : "var(--text-muted)",
-              border: "1px solid var(--line-strong)", borderRadius: 5,
-            }}>
+          <button key={p.name} className="viz-btn" data-active={i === pi} onClick={() => setPi(i)}
+            style={{ flex: 1 }}>
             genotyp {p.name}
           </button>
         ))}

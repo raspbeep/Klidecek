@@ -176,18 +176,12 @@ export default function TmSimulator() {
         gap: 10,
       }}
     >
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Preset:</label>
         <select
+          className="viz-select"
           value={presetKey}
           onChange={(e) => setPresetKey(e.target.value)}
-          style={{
-            padding: "4px 8px",
-            background: "var(--bg-inset)",
-            color: "var(--text)",
-            border: "1px solid var(--line)",
-            borderRadius: 6,
-          }}
         >
           {Object.keys(PRESETS).map((k) => (
             <option key={k} value={k}>
@@ -276,27 +270,17 @@ export default function TmSimulator() {
         })}
       </div>
 
-      <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-        <button onClick={doBack} disabled={history.length === 0} style={btnStyle}>
+      <div className="viz-controls" style={{ justifyContent: "center" }}>
+        <button className="viz-btn" onClick={doBack} disabled={history.length === 0}>
           ◀ zpět
         </button>
-        <button onClick={doReset} style={btnStyle}>
+        <button className="viz-btn" onClick={doReset}>
           reset
         </button>
-        <button onClick={doStep} disabled={isAccepting} style={btnStyle}>
+        <button className="viz-btn primary" onClick={doStep} disabled={isAccepting}>
           krok ▶
         </button>
       </div>
     </div>
   );
 }
-
-const btnStyle = {
-  padding: "6px 12px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-  cursor: "pointer",
-  fontSize: 12,
-};

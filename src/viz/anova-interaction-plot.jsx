@@ -72,15 +72,15 @@ export default function AnovaInteractionPlot() {
         <text x={20} y={PAD_T - 10} fontSize="10" fill="var(--text-muted)" fontFamily="var(--font-mono)">Y</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <label style={lab()}>α (efekt A) = {((alphaA2 - alphaA1) / 2).toFixed(2)}
-          <input type="range" min={-8} max={8} step={0.5} value={alphaA2} onChange={(e) => { setAlphaA2(+e.target.value); setAlphaA1(-(+e.target.value)); }} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={-8} max={8} step={0.5} value={alphaA2} onChange={(e) => { setAlphaA2(+e.target.value); setAlphaA1(-(+e.target.value)); }} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>β (efekt B) = {((betaB2 - betaB1) / 2).toFixed(2)}
-          <input type="range" min={-8} max={8} step={0.5} value={betaB2} onChange={(e) => { setBetaB2(+e.target.value); setBetaB1(-(+e.target.value)); }} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={-8} max={8} step={0.5} value={betaB2} onChange={(e) => { setBetaB2(+e.target.value); setBetaB1(-(+e.target.value)); }} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>γ (interakce) = {interaction.toFixed(2)}
-          <input type="range" min={-6} max={6} step={0.5} value={interaction} onChange={(e) => setInteraction(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={-6} max={6} step={0.5} value={interaction} onChange={(e) => setInteraction(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
 

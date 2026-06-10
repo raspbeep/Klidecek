@@ -180,13 +180,13 @@ export default function CfgDerivation() {
 
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Gramatika:</label>
-        <select value={gKey} onChange={(e) => setGKey(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={gKey} onChange={(e) => setGKey(e.target.value)}>
           {Object.keys(GRAMMARS).map((k) => <option key={k} value={k}>{k}</option>)}
         </select>
         <label style={{ fontSize: 12, color: "var(--text-muted)", marginLeft: 8 }}>Pořadí:</label>
-        <select value={order} onChange={(e) => setOrder(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={order} onChange={(e) => setOrder(e.target.value)}>
           <option value="L">levá derivace</option>
           <option value="R">pravá derivace</option>
         </select>
@@ -236,9 +236,9 @@ export default function CfgDerivation() {
           <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
             Aplikuj pravidlo na {target.symbol}{order === "L" ? " (nejlevější neterminál)" : " (nejpravější neterminál)"}:
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          <div className="viz-controls">
             {applicableRules.map((r, i) => (
-              <button key={i} onClick={() => expand(r)} style={{ ...btnStyle, fontFamily: "var(--font-mono, ui-monospace)" }}>
+              <button key={i} className="viz-btn" onClick={() => expand(r)}>
                 {r.lhs} → {r.rhs.length === 0 ? "ε" : r.rhs.join("")}
               </button>
             ))}
@@ -246,9 +246,9 @@ export default function CfgDerivation() {
         </div>
       )}
 
-      <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-        <button onClick={back} disabled={!history.length} style={btnStyle}>◀ zpět</button>
-        <button onClick={reset} style={btnStyle}>reset</button>
+      <div className="viz-controls" style={{ justifyContent: "center" }}>
+        <button className="viz-btn" onClick={back} disabled={!history.length}>◀ zpět</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
     </div>
   );
@@ -264,20 +264,3 @@ const containerStyle = {
   gap: 10,
 };
 
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-};
-
-const btnStyle = {
-  padding: "6px 12px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-  cursor: "pointer",
-  fontSize: 12,
-};

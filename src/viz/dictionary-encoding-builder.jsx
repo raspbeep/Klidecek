@@ -58,11 +58,11 @@ export default function DictionaryEncodingBuilder() {
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={2}
         style={{ fontFamily: "var(--font-mono)", fontSize: 12, background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line-strong)", padding: 4, resize: "vertical" }} />
-      <div style={{ display: "flex", gap: 6 }}>
-        <button onClick={() => setSorted(true)} style={btn(sorted)}>sorted dict</button>
-        <button onClick={() => setSorted(false)} style={btn(!sorted)}>append-only dict</button>
-        <button onClick={() => setInput("anna anna bob carol anna bob anna dave anna anna eve")} style={btn(false)}>names</button>
-        <button onClick={() => setInput("M F F M F M F F F M M F F M F F M M F")} style={btn(false)}>gender</button>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={sorted} onClick={() => setSorted(true)}>sorted dict</button>
+        <button className="viz-btn" data-active={!sorted} onClick={() => setSorted(false)}>append-only dict</button>
+        <button className="viz-btn" onClick={() => setInput("anna anna bob carol anna bob anna dave anna anna eve")}>names</button>
+        <button className="viz-btn" onClick={() => setInput("M F F M F M F F F M M F F M F F M M F")}>gender</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -125,13 +125,4 @@ export default function DictionaryEncodingBuilder() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

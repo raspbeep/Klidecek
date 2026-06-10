@@ -82,9 +82,9 @@ export default function VigenereAttack() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Předvolba:</label>
-        <select value={presetKey} onChange={(e) => setPresetKey(e.target.value)} style={sel}>
+        <select className="viz-select" value={presetKey} onChange={(e) => setPresetKey(e.target.value)}>
           {Object.keys(PRESETS).map((k) => <option key={k}>{k}</option>)}
         </select>
       </div>
@@ -181,7 +181,5 @@ export default function VigenereAttack() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 8 };
-const row = { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 12, color: "var(--text-muted)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 12, lineHeight: 1.2, whiteSpace: "nowrap", overflowX: "auto" };

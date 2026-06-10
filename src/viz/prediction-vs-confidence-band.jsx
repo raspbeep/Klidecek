@@ -108,12 +108,12 @@ export default function PredictionVsConfidenceBand() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={lab()}>x₀ = {x0.toFixed(2)}
-          <input type="range" min={-1} max={13} step={0.1} value={x0} onChange={(e) => setX0(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={-1} max={13} step={0.1} value={x0} onChange={(e) => setX0(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>α = {alpha.toFixed(2)}
-          <input type="range" min={0.01} max={0.2} step={0.01} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.01} max={0.2} step={0.01} value={alpha} onChange={(e) => setAlpha(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
       <div style={{ fontSize: 10.5, color: "var(--text)", fontFamily: "var(--font-mono)" }}>

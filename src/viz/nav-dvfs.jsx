@@ -68,12 +68,12 @@ export default function NavDvfs() {
 
       <label style={lbl}>
         <span style={tag}>frekvence f</span>
-        <input type="range" min={20} max={100} value={Math.round(fRel * 100)}
+        <input type="range" className="viz-slider" min={20} max={100} value={Math.round(fRel * 100)}
           onChange={(e) => setFRel(+e.target.value / 100)} style={{ flex: 1 }} />
       </label>
       <label style={lbl}>
         <span style={tag}>napětí U</span>
-        <input type="range" min={70} max={100} value={Math.round(u * 100)}
+        <input type="range" className="viz-slider" min={70} max={100} value={Math.round(u * 100)}
           onChange={(e) => setU(+e.target.value / 100)} style={{ flex: 1 }} />
       </label>
     </div>

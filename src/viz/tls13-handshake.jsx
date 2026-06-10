@@ -65,14 +65,14 @@ export default function Tls13Handshake() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0} style={btnSm}>◀</button>
-        <span style={{ fontSize: 12, color: "var(--accent)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>◀</button>
+        <span className="viz-readout" style={{ color: "var(--accent)" }}>
           {STEPS[step].label}
         </span>
-        <button onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1} style={btnSm}>▶</button>
-        <button onClick={() => setStep(0)} style={btnSm}>Reset</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)" }}>{step + 1}/{STEPS.length}</span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>▶</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>Reset</button>
+        <span className="viz-readout push">{step + 1}/{STEPS.length}</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 620 }}>
@@ -137,5 +137,3 @@ export default function Tls13Handshake() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const btnSm = { padding: "3px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };

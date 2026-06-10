@@ -115,7 +115,7 @@ export default function Saga() {
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>scénář:</span>
         <label style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <span style={{ fontFamily: "var(--font-mono)" }}>selhat v kroku:</span>
-          <select value={failAt} onChange={(e) => { setFailAt(parseInt(e.target.value)); setStep(0); }} style={selectStyle}>
+          <select className="viz-select" value={failAt} onChange={(e) => { setFailAt(parseInt(e.target.value)); setStep(0); }}>
             {STEPS_DEF.map((s, i) => (
               <option key={i} value={i}>T{i + 1} — {s.title.split("  ")[1]}</option>
             ))}
@@ -125,13 +125,13 @@ export default function Saga() {
       </div>
 
       {/* Step controls */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step + 1} / {phases.length}
-        </div>
-        <button style={navBtn} onClick={() => setStep(Math.min(phases.length - 1, step + 1))} disabled={step === phases.length - 1}>další →</button>
-        <button style={{ ...navBtn, marginLeft: 6 }} onClick={() => setStep(0)}>↺</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(phases.length - 1, step + 1))} disabled={step === phases.length - 1}>další →</button>
+        <button className="viz-btn" style={{ marginLeft: 6 }} onClick={() => setStep(0)}>↺</button>
       </div>
 
       {/* Forward steps */}
@@ -214,24 +214,6 @@ export default function Saga() {
   );
 }
 
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};
-const selectStyle = {
-  padding: "3px 6px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-};
 const panelHeadStyle = {
   fontSize: 11,
   fontWeight: 600,

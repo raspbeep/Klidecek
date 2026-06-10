@@ -44,16 +44,16 @@ export default function DdosAmplification() {
     <div style={{ width: "100%" }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 8, fontSize: 11 }}>
         <div>
-          Protocol: <select value={protoId} onChange={e => setProtoId(e.target.value)} style={ctrl}>
+          Protocol: <select className="viz-select" value={protoId} onChange={e => setProtoId(e.target.value)}>
             {PROTOCOLS.map(p => <option key={p.id} value={p.id}>{p.name} ({p.amp}×)</option>)}
           </select>
           <div style={{ color: "var(--text-muted)", marginTop: 4, fontSize: 10 }}>{proto.note}</div>
         </div>
         <div>
           <div>Botnet size = {botSize.toLocaleString()} bots
-            <input type="range" min="10" max="100000" step="10" value={botSize} onChange={e => setBotSize(+e.target.value)} style={{ width: "100%" }} /></div>
+            <input type="range" className="viz-slider" min="10" max="100000" step="10" value={botSize} onChange={e => setBotSize(+e.target.value)} style={{ width: "100%" }} /></div>
           <div>Per-bot outgoing = {perBotMbps} Mbps
-            <input type="range" min="0.1" max="10" step="0.1" value={perBotMbps} onChange={e => setPerBotMbps(+e.target.value)} style={{ width: "100%" }} /></div>
+            <input type="range" className="viz-slider" min="0.1" max="10" step="0.1" value={perBotMbps} onChange={e => setPerBotMbps(+e.target.value)} style={{ width: "100%" }} /></div>
         </div>
       </div>
 
@@ -117,5 +117,3 @@ export default function DdosAmplification() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 5px", borderRadius: 3, fontSize: 11 };

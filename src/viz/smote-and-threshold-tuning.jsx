@@ -105,17 +105,17 @@ export default function SmoteAndThresholdTuning() {
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto auto 1fr auto", gap: "4px 12px", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 11 }}>
         <span>imbalance</span>
-        <input type="range" min={2} max={30} value={imb} onChange={(e) => setImb(+e.target.value)} />
+        <input type="range" className="viz-slider" min={2} max={30} value={imb} onChange={(e) => setImb(+e.target.value)} />
         <span>{imb}%</span>
         <span>k (kNN)</span>
-        <input type="range" min={1} max={6} value={k} onChange={(e) => setK(+e.target.value)} />
+        <input type="range" className="viz-slider" min={1} max={6} value={k} onChange={(e) => setK(+e.target.value)} />
         <span>{k}</span>
 
         <span>synthetic</span>
-        <input type="range" min={0} max={60} value={synCount} onChange={(e) => setSynCount(+e.target.value)} />
+        <input type="range" className="viz-slider" min={0} max={60} value={synCount} onChange={(e) => setSynCount(+e.target.value)} />
         <span>{synCount}</span>
         <span>threshold</span>
-        <input type="range" min={0} max={100} value={thr * 100} onChange={(e) => setThr(+e.target.value / 100)} />
+        <input type="range" className="viz-slider" min={0} max={100} value={thr * 100} onChange={(e) => setThr(+e.target.value / 100)} />
         <span>{thr.toFixed(2)}</span>
       </div>
 
@@ -192,7 +192,7 @@ export default function SmoteAndThresholdTuning() {
         SMOTE: for each minority point, pick a random k-NN among minority class, generate a synthetic point on the line segment at random position.
         Threshold ↓ → recall ↑, precision ↓. Default 0.5 is rarely optimal for imbalanced data.
       </div>
-      <button onClick={() => setSeed(s => s + 1)} style={{ alignSelf: "flex-start", fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer" }}>resample</button>
+      <button className="viz-btn" onClick={() => setSeed(s => s + 1)} style={{ alignSelf: "flex-start" }}>resample</button>
     </div>
   );
 }

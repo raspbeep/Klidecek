@@ -98,9 +98,9 @@ export default function ChomskyHierarchy() {
 
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Jazyk:</label>
-        <select value={idx} onChange={(e) => setIdx(+e.target.value)} style={{ ...selectStyle, flex: 1 }}>
+        <select className="viz-select" value={idx} onChange={(e) => setIdx(+e.target.value)} style={{ flex: 1 }}>
           {LANGS.map((l, i) => <option key={i} value={i}>{l.name}</option>)}
         </select>
       </div>
@@ -190,12 +190,4 @@ const containerStyle = {
   display: "flex",
   flexDirection: "column",
   gap: 10,
-};
-
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
 };

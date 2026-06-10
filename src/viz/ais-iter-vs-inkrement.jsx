@@ -46,21 +46,18 @@ export default function IterVsInkrement() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {MODES.map((x) => (
           <button
             key={x.id}
+            className="viz-btn"
+            data-active={mode === x.id}
             onClick={() => setMode(x.id)}
-            style={{
-              padding: "5px 10px",
-              fontSize: 11.5,
-              fontFamily: "var(--font-mono)",
-              borderRadius: 4,
-              cursor: "pointer",
+            style={mode === x.id ? {
+              border: `1px solid oklch(0.62 0.14 ${x.hue})`,
+              background: `oklch(0.62 0.14 ${x.hue} / 0.18)`,
               color: "var(--text)",
-              border: `1px solid ${mode === x.id ? `oklch(0.62 0.14 ${x.hue})` : "var(--line)"}`,
-              background: mode === x.id ? `oklch(0.62 0.14 ${x.hue} / 0.18)` : "var(--bg-card)",
-            }}
+            } : undefined}
           >
             {x.label}
           </button>
@@ -132,7 +129,7 @@ export default function IterVsInkrement() {
         ))}
       </svg>
 
-      <input type="range" min={1} max={3} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+      <input type="range" className="viz-slider" min={1} max={3} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
       <div style={{ fontSize: 11.5, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
         cyklus = {n} / 3 · {mode === "iter"
           ? "celý obraz existuje hned, jen se zjemňuje"

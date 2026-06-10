@@ -53,9 +53,9 @@ export default function DecimalizationAttack() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>DES(PDK, PAN) [prvni 4 hex]:</label>
-        <select value={hexIdx} onChange={(e) => setHexIdx(+e.target.value)} style={{ ...sel, minWidth: 180 }}>
+        <select className="viz-select" value={hexIdx} onChange={(e) => setHexIdx(+e.target.value)} style={{ minWidth: 180 }}>
           {HEX_PRESETS.map((p, i) => <option key={i} value={i}>{p.name} → {p.hex}</option>)}
         </select>
       </div>
@@ -87,11 +87,11 @@ export default function DecimalizationAttack() {
         </div>
       </div>
 
-      <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
-        <button style={btn} onClick={setBoxToStandard}>standardni DT</button>
-        <button style={btn} onClick={setZeroDt}>nulova DT (wildcard)</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={setBoxToStandard}>standardni DT</button>
+        <button className="viz-btn" onClick={setZeroDt}>nulova DT (wildcard)</button>
         {[0,1,2,3,4,5,6,7,8,9].map((d) => (
-          <button key={d} style={{ ...btn, padding: "5px 8px" }} onClick={() => setDi(d)}>D_{d}</button>
+          <button key={d} className="viz-btn" onClick={() => setDi(d)}>D_{d}</button>
         ))}
       </div>
 
@@ -126,7 +126,4 @@ export default function DecimalizationAttack() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

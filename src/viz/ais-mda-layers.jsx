@@ -116,17 +116,18 @@ export default function MdaLayers() {
         ))}
       </svg>
 
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {LAYERS.map((l) => (
           <button
             key={l.id}
+            className="viz-btn"
+            data-active={active === l.id}
             onClick={() => setActive(l.id)}
-            style={{
-              padding: "4px 10px", fontSize: 11, fontFamily: "var(--font-mono)",
-              borderRadius: 4, cursor: "pointer", color: "var(--text)",
-              border: `1px solid ${active === l.id ? `oklch(0.6 0.14 ${l.hue})` : "var(--line)"}`,
-              background: active === l.id ? `oklch(0.62 0.14 ${l.hue} / 0.18)` : "var(--bg-card)",
-            }}
+            style={active === l.id ? {
+              border: `1px solid oklch(0.6 0.14 ${l.hue})`,
+              background: `oklch(0.62 0.14 ${l.hue} / 0.18)`,
+              color: "var(--text)",
+            } : undefined}
           >
             {l.label}
           </button>

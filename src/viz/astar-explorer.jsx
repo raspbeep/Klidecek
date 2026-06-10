@@ -197,39 +197,31 @@ export default function AstarExplorer() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>mapa:</span>
-          <select value={mapKey} onChange={(e) => setMapKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={mapKey} onChange={(e) => setMapKey(e.target.value)}>
             {Object.entries(MAPS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>heuristika:</span>
-          <select value={hKey} onChange={(e) => setHKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={hKey} onChange={(e) => setHKey(e.target.value)}>
             {Object.entries(HEURISTICS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
-        <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={() => setStep(0)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" }}>
-            ⏮ reset
-          </button>
-          <button onClick={() => setStep((s) => Math.max(0, s - 1))}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" }}>
-            ◀
-          </button>
-          <button onClick={() => setStep((s) => Math.min(maxStep, s + 1))}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" }}>
-            ▶
-          </button>
-          <button onClick={() => setStep(maxStep)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" }}>
-            ⏭
-          </button>
-        </div>
+        <button className="viz-btn" onClick={() => setStep(0)}>
+          ⏮ reset
+        </button>
+        <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))}>
+          ◀
+        </button>
+        <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(maxStep, s + 1))}>
+          ▶
+        </button>
+        <button className="viz-btn" onClick={() => setStep(maxStep)}>
+          ⏭
+        </button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", display: "block", maxWidth: 560 }}>

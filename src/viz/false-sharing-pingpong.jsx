@@ -51,13 +51,13 @@ export default function FalseSharingPingpong() {
   const W = 580, H = 280;
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
           <input type="checkbox" checked={padded} onChange={e => { setPadded(e.target.checked); reset(); }} /> padding (aligned 64)
         </label>
-        <button onClick={() => setRunning(r => !r)} style={btn(running)}>{running ? "■ stop" : "▶ run"}</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <button className="viz-btn primary" data-active={running} onClick={() => setRunning(r => !r)}>{running ? "■ stop" : "▶ run"}</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout">
           ops: {ops} | transfers: <b style={{ color: transfers > 0 ? "oklch(0.65 0.18 22)" : "var(--text-muted)" }}>{transfers}</b> ({transferRate} %)
         </span>
       </div>
@@ -141,13 +141,4 @@ export default function FalseSharingPingpong() {
       </svg>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 9px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "white" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

@@ -87,9 +87,9 @@ export default function BacPaceKeys() {
         </div>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>GPU farm: {nGPUs}× RTX 4090 (~{(GPU_KEYS_PER_SEC * nGPUs / 1e9).toFixed(1)}G key/s SHA-1)</label>
-        <input type="range" min="1" max="1000" value={nGPUs} onChange={(e) => setNGPUs(parseInt(e.target.value))} style={{ flex: 1 }} />
+        <input type="range" className="viz-slider" min="1" max="1000" value={nGPUs} onChange={(e) => setNGPUs(parseInt(e.target.value))} style={{ flex: 1 }} />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -122,7 +122,6 @@ function Bar({ bits, maxBits, color }) {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const statBox = { background: "var(--bg-inset)", padding: 10, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };

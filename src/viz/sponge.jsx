@@ -69,11 +69,11 @@ export default function Sponge() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Zpráva:</label>
         <input value={message} onChange={(e) => setMessage(e.target.value.slice(0, 12))} style={inp} maxLength={12} />
         <label style={lbl}>výstupní bytů: {outputBytes}</label>
-        <input type="range" min={4} max={16} step={1} value={outputBytes} onChange={(e) => setOutputBytes(+e.target.value)} style={{ flex: 1 }} />
+        <input type="range" className="viz-slider" min={4} max={16} step={1} value={outputBytes} onChange={(e) => setOutputBytes(+e.target.value)} style={{ flex: 1 }} />
       </div>
 
       <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
@@ -120,6 +120,5 @@ export default function Sponge() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const inp = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 100 };

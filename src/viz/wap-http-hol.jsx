@@ -82,11 +82,9 @@ export default function WapHttpHol() {
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Ovládání */}
       <div
+        className="viz-controls"
         style={{
-          display: "flex",
-          flexWrap: "wrap",
           gap: 12,
-          alignItems: "center",
           padding: 8,
           background: "var(--bg-inset)",
           borderRadius: 8,
@@ -109,17 +107,9 @@ export default function WapHttpHol() {
           ztratit paket streamu:
         </span>
         <select
+          className="viz-select"
           value={lostStream}
           onChange={(e) => setLostStream(e.target.value)}
-          style={{
-            padding: "3px 6px",
-            fontSize: 11.5,
-            fontFamily: "var(--font-mono)",
-            background: "var(--bg-card)",
-            border: "1px solid var(--line)",
-            borderRadius: 3,
-            color: "var(--text)",
-          }}
         >
           {STREAMS.map((s) => (
             <option key={s} value={s}>

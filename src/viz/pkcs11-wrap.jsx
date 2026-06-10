@@ -78,9 +78,10 @@ export default function Pkcs11Wrap() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>PKCS#11 strict mode (v2.40+):</label>
-        <button style={{ ...btn, background: strictMode ? "#81b29a" : "var(--bg-inset)", color: strictMode ? "var(--bg-inset)" : "var(--text)" }}
+        <button className="viz-btn" data-active={strictMode}
+          style={strictMode ? { background: "#81b29a", borderColor: "#81b29a", color: "var(--bg-inset)" } : undefined}
           onClick={() => setStrictMode(!strictMode)}>{strictMode ? "ON ✓" : "OFF"}</button>
       </div>
 
@@ -100,7 +101,7 @@ export default function Pkcs11Wrap() {
               const t = e.target.value;
               const len = t === "DES" ? 56 : t === "3DES" ? 168 : 256;
               setWrapKey({ ...wrapKey, keyType: t, keyLen: len });
-            }} style={selSm}>
+            }} className="viz-select">
               <option value="DES">DES (56b)</option>
               <option value="3DES">3DES (168b)</option>
               <option value="AES">AES (256b)</option>
@@ -110,9 +111,9 @@ export default function Pkcs11Wrap() {
         </div>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>wrap mechanism:</label>
-        <select value={mech} onChange={(e) => setMech(e.target.value)} style={sel}>
+        <select value={mech} onChange={(e) => setMech(e.target.value)} className="viz-select">
           <option value="CKM_DES_ECB">CKM_DES_ECB (slabe)</option>
           <option value="CKM_AES_CBC">CKM_AES_CBC (s IV)</option>
           <option value="CKM_NIST_AES_WRAP">CKM_NIST_AES_WRAP (RFC 3394, doporuc.)</option>
@@ -156,16 +157,12 @@ function Row({ label, val }) {
 function Toggle({ label, v, on }) {
   return <div style={{ display: "flex", gap: 6, padding: "2px 0", fontSize: 11, fontFamily: "var(--font-mono)", alignItems: "center" }}>
     <span style={{ minWidth: 110, color: "var(--text-muted)" }}>{label}:</span>
-    <button onClick={() => on(!v)} style={{ padding: "1px 8px", background: v ? "#81b29a" : "var(--bg-inset)", color: v ? "var(--bg-inset)" : "var(--text)", border: "1px solid var(--line)", borderRadius: 3, fontFamily: "var(--font-mono)", fontSize: 11, cursor: "pointer" }}>
+    <button className="viz-btn" data-active={v} onClick={() => on(!v)} style={v ? { background: "#81b29a", borderColor: "#81b29a", color: "var(--bg-inset)" } : undefined}>
       {v ? "true" : "false"}
     </button>
   </div>;
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const selSm = { padding: "1px 4px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 3, fontSize: 11, fontFamily: "var(--font-mono)" };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const panel = { background: "var(--bg-inset)", padding: 8, borderRadius: 6 };

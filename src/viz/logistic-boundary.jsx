@@ -130,11 +130,10 @@ export default function LogisticBoundary() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>data:</span>
-          <select value={dataKey} onChange={(e) => setDataKey(e.target.value)}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={dataKey} onChange={(e) => setDataKey(e.target.value)}>
             {Object.entries(DATASETS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
@@ -146,19 +145,19 @@ export default function LogisticBoundary() {
           <>
             <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 10 }}>
               w₀
-              <input type="range" min={-3} max={3} step={0.1} value={manualW[0]}
+              <input type="range" className="viz-slider" min={-3} max={3} step={0.1} value={manualW[0]}
                 onChange={(e) => setManualW([+e.target.value, manualW[1], manualW[2]])} style={{ width: 80 }}/>
               <span style={{ minWidth: 36 }}>{manualW[0].toFixed(1)}</span>
             </label>
             <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 10 }}>
               w₁
-              <input type="range" min={-3} max={3} step={0.1} value={manualW[1]}
+              <input type="range" className="viz-slider" min={-3} max={3} step={0.1} value={manualW[1]}
                 onChange={(e) => setManualW([manualW[0], +e.target.value, manualW[2]])} style={{ width: 80 }}/>
               <span style={{ minWidth: 36 }}>{manualW[1].toFixed(1)}</span>
             </label>
             <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 10 }}>
               w₂
-              <input type="range" min={-3} max={3} step={0.1} value={manualW[2]}
+              <input type="range" className="viz-slider" min={-3} max={3} step={0.1} value={manualW[2]}
                 onChange={(e) => setManualW([manualW[0], manualW[1], +e.target.value])} style={{ width: 80 }}/>
               <span style={{ minWidth: 36 }}>{manualW[2].toFixed(1)}</span>
             </label>

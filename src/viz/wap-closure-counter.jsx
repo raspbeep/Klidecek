@@ -59,10 +59,10 @@ const citacB = makeCitac();  // jiné, nezávislé x`}
         ))}
       </svg>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-        <button className="btn" style={btn(264)} onClick={() => tick("A")}>citacA() ++</button>
-        <button className="btn" style={btn(142)} onClick={() => tick("B")}>citacB() ++</button>
-        <button className="btn ghost" style={{ ...btn(0), background: "var(--bg-card)", color: "var(--text-muted)", border: "1px solid var(--line)" }} onClick={reset}>reset</button>
+      <div className="viz-controls">
+        <button className="viz-btn" style={btn(264)} onClick={() => tick("A")}>citacA() ++</button>
+        <button className="viz-btn" style={btn(142)} onClick={() => tick("B")}>citacB() ++</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <div style={{ ...mono, fontSize: 11, color: "var(--text-muted)", background: "var(--bg-inset)", borderRadius: 6, padding: 8, minHeight: 28 }}>
@@ -76,11 +76,6 @@ const citacB = makeCitac();  // jiné, nezávislé x`}
 
 function btn(hue) {
   return {
-    padding: "6px 12px",
-    fontSize: 12,
-    fontFamily: "var(--font-mono)",
-    borderRadius: 5,
-    cursor: "pointer",
     border: `1px solid oklch(0.62 0.13 ${hue})`,
     background: `oklch(0.62 0.13 ${hue} / 0.15)`,
     color: `oklch(0.5 0.14 ${hue})`,

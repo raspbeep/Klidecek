@@ -21,16 +21,20 @@ export default function AisGodObjectRefactor() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center", fontSize: 12 }}>
+      <div className="viz-controls">
         <button
+          className="viz-btn"
+          data-active={!after}
           onClick={() => setAfter(false)}
-          style={tab(!after, "oklch(0.62 0.16 22)")}
+          style={!after ? { border: "1px solid oklch(0.62 0.16 22)", background: "color-mix(in oklch, oklch(0.62 0.16 22) 16%, transparent)", color: "oklch(0.62 0.16 22)", fontWeight: 700 } : undefined}
         >
           PŘED — God Object
         </button>
         <button
+          className="viz-btn"
+          data-active={after}
           onClick={() => setAfter(true)}
-          style={tab(after, "oklch(0.55 0.14 142)")}
+          style={after ? { border: "1px solid oklch(0.55 0.14 142)", background: "color-mix(in oklch, oklch(0.55 0.14 142) 16%, transparent)", color: "oklch(0.55 0.14 142)", fontWeight: 700 } : undefined}
         >
           PO — rozpad služeb
         </button>
@@ -112,18 +116,4 @@ export default function AisGodObjectRefactor() {
       </div>
     </div>
   );
-}
-
-function tab(active, color) {
-  return {
-    padding: "6px 14px",
-    fontSize: 11.5,
-    fontWeight: active ? 700 : 400,
-    fontFamily: "var(--font-mono)",
-    borderRadius: 5,
-    cursor: "pointer",
-    border: `1px solid ${active ? color : "var(--line)"}`,
-    background: active ? `color-mix(in oklch, ${color} 16%, transparent)` : "var(--bg-card)",
-    color: active ? color : "var(--text-muted)",
-  };
 }

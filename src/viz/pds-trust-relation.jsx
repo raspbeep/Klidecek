@@ -93,23 +93,14 @@ export default function PdsTrustRelation() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {STEPS.map((s, i) => (
           <button
             key={s.id}
             onClick={() => setStep(i)}
-            className="btn ghost"
-            style={{
-              flex: 1,
-              padding: "5px 6px",
-              fontSize: 11.5,
-              borderRadius: 4,
-              border: "1px solid var(--line)",
-              background: i === step ? "var(--accent-soft)" : "var(--bg-card)",
-              color: i === step ? "var(--accent)" : "var(--text-muted)",
-              fontWeight: i === step ? 600 : 400,
-              cursor: "pointer",
-            }}
+            className="viz-btn"
+            data-active={i === step}
+            style={{ flex: 1 }}
           >
             {s.label}
           </button>

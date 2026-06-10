@@ -62,16 +62,16 @@ export default function DeepfakeDetection() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>vstupní video:</label>
-        <select value={scenario} onChange={(e) => setScenario(e.target.value)} style={sel}>
+        <select className="viz-select" value={scenario} onChange={(e) => setScenario(e.target.value)}>
           <option value="real">real (skutečný subjekt)</option>
           <option value="deepfake_seen">deepfake — viděný typ (in-domain)</option>
           <option value="deepfake_cross">deepfake — neznámý typ (cross-domain)</option>
         </select>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <span style={lbl}>aktivní signály:</span>
         {Object.entries(CHANNELS).map(([k, v]) => (
           <label key={k} style={{ ...chip, borderColor: enabled[k] ? v.color : "var(--line)", color: enabled[k] ? v.color : "var(--text-muted)" }}>
@@ -122,9 +122,7 @@ export default function DeepfakeDetection() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const chip = { padding: "3px 8px", background: "var(--bg-inset)", border: "1px solid", borderRadius: 12, fontSize: 11, cursor: "pointer", display: "flex", alignItems: "center" };
 const statBox = { background: "var(--bg-inset)", padding: 10, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };

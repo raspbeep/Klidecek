@@ -115,11 +115,11 @@ export default function KargerContractionAnim() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={step} disabled={state.vertexGroups.length <= 2} style={btn(false)}>kontrakce →</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový seed</button>
-        <button onClick={() => runManyTrials(200)} style={btn(false)}>200 pokusů</button>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={step} disabled={state.vertexGroups.length <= 2}>kontrakce →</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed</button>
+        <button className="viz-btn" onClick={() => runManyTrials(200)}>200 pokusů</button>
       </div>
 
       {trialResults.length > 0 && (
@@ -147,5 +147,3 @@ function makeState(graph, seed) {
     lastContracted: null,
   };
 }
-
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }

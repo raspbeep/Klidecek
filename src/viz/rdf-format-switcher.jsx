@@ -111,9 +111,9 @@ export default function RdfFormatSwitcher() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {FORMATS.map(f => (
-          <button key={f.key} onClick={() => setFormat(f.key)} style={btn(format === f.key)}>{f.label}</button>
+          <button key={f.key} className="viz-btn" data-active={format === f.key} onClick={() => setFormat(f.key)}>{f.label}</button>
         ))}
       </div>
 
@@ -144,13 +144,4 @@ export default function RdfFormatSwitcher() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

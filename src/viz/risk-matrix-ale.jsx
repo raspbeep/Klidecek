@@ -40,17 +40,17 @@ export default function RiskMatrixAle() {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 8 }}>
         <div style={{ fontSize: 11 }}>
           <div>Asset Value (AV) = ${(av / 1000).toFixed(0)} k
-            <input type="range" min="10000" max="10000000" step="10000" value={av} onChange={e => setAv(+e.target.value)} style={slider} /></div>
+            <input type="range" className="viz-slider" min="10000" max="10000000" step="10000" value={av} onChange={e => setAv(+e.target.value)} style={{ width: "100%", marginTop: 2 }} /></div>
           <div>Exposure Factor = {ef} %
-            <input type="range" min="5" max="100" step="5" value={ef} onChange={e => setEf(+e.target.value)} style={slider} /></div>
+            <input type="range" className="viz-slider" min="5" max="100" step="5" value={ef} onChange={e => setEf(+e.target.value)} style={{ width: "100%", marginTop: 2 }} /></div>
           <div>ARO (events/year) = {aro.toFixed(2)}
-            <input type="range" min="0.05" max="3" step="0.05" value={aro} onChange={e => setAro(+e.target.value)} style={slider} /></div>
+            <input type="range" className="viz-slider" min="0.05" max="3" step="0.05" value={aro} onChange={e => setAro(+e.target.value)} style={{ width: "100%", marginTop: 2 }} /></div>
         </div>
         <div style={{ fontSize: 11 }}>
           <div>Control cost = ${(ctrlCost / 1000).toFixed(0)} k/year
-            <input type="range" min="0" max="500000" step="5000" value={ctrlCost} onChange={e => setCtrlCost(+e.target.value)} style={slider} /></div>
+            <input type="range" className="viz-slider" min="0" max="500000" step="5000" value={ctrlCost} onChange={e => setCtrlCost(+e.target.value)} style={{ width: "100%", marginTop: 2 }} /></div>
           <div>Control reduces risk = {ctrlReduce} %
-            <input type="range" min="0" max="99" step="1" value={ctrlReduce} onChange={e => setCtrlReduce(+e.target.value)} style={slider} /></div>
+            <input type="range" className="viz-slider" min="0" max="99" step="1" value={ctrlReduce} onChange={e => setCtrlReduce(+e.target.value)} style={{ width: "100%", marginTop: 2 }} /></div>
         </div>
       </div>
 
@@ -108,5 +108,3 @@ export default function RiskMatrixAle() {
     </div>
   );
 }
-
-const slider = { width: "100%", marginTop: 2 };

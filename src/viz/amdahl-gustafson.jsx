@@ -185,19 +185,19 @@ export default function AmdahlGustafson() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, fontSize: 12 }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           <span style={{ fontFamily: "var(--font-mono)", minWidth: 22 }}>α</span>
-          <input type="range" min="0.5" max="0.999" step="0.001" value={alpha} onChange={(e) => setAlpha(parseFloat(e.target.value))} style={{ flex: 1 }} />
+          <input type="range" className="viz-slider" min="0.5" max="0.999" step="0.001" value={alpha} onChange={(e) => setAlpha(parseFloat(e.target.value))} style={{ flex: 1 }} />
           <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)", minWidth: 48 }}>{alpha.toFixed(3)}</span>
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           <span style={{ fontFamily: "var(--font-mono)", minWidth: 22 }}>N</span>
-          <input type="range" min="0" max="5" step="0.05" value={Math.log10(N)} onChange={(e) => setN(Math.round(Math.pow(10, parseFloat(e.target.value))))} style={{ flex: 1 }} />
+          <input type="range" className="viz-slider" min="0" max="5" step="0.05" value={Math.log10(N)} onChange={(e) => setN(Math.round(Math.pow(10, parseFloat(e.target.value))))} style={{ flex: 1 }} />
           <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)", minWidth: 48 }}>{N}</span>
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           <input type="checkbox" checked={logX} onChange={(e) => setLogX(e.target.checked)} />
           <span style={{ fontFamily: "var(--font-mono)" }}>log osa X</span>
         </label>
-        <div style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
+        <div className="viz-controls" style={{ color: "var(--text-muted)" }}>
           <span style={{ fontFamily: "var(--font-mono)" }}>presety:</span>
           {[
             { a: 0.5, label: "α=0.5" },
@@ -205,7 +205,7 @@ export default function AmdahlGustafson() {
             { a: 0.95, label: "α=0.95" },
             { a: 0.99, label: "α=0.99" },
           ].map((p) => (
-            <button key={p.label} onClick={() => setAlpha(p.a)} style={{ ...presetBtn, ...(Math.abs(alpha - p.a) < 0.005 ? { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" } : {}) }}>
+            <button key={p.label} className="viz-btn" data-active={Math.abs(alpha - p.a) < 0.005} onClick={() => setAlpha(p.a)}>
               {p.label}
             </button>
           ))}
@@ -241,16 +241,6 @@ export default function AmdahlGustafson() {
   );
 }
 
-const presetBtn = {
-  padding: "3px 8px",
-  fontSize: 11,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
 const inputStyle = {
   width: 70,
   padding: "3px 6px",

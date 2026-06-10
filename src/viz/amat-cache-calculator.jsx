@@ -41,11 +41,11 @@ export default function AmatCacheCalculator() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={preset} onChange={e => applyPreset(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={preset} onChange={e => applyPreset(e.target.value)}>
           {Object.entries(PRESETS).map(([k, v]) => <option key={k} value={k}>{v.name}</option>)}
         </select>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <span className="viz-readout">
           AMAT = <b>{amat.toFixed(2)}</b> cyklů
         </span>
       </div>
@@ -66,7 +66,7 @@ export default function AmatCacheCalculator() {
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <span>{s.label}</span><span style={{ color: "var(--text-muted)" }}>{s.fmt(s.val)}</span>
               </div>
-              <input type="range" min={s.min} max={s.max} step={s.step} value={s.val} onChange={e => s.set(+e.target.value)} style={{ width: 130 }} />
+              <input type="range" className="viz-slider" min={s.min} max={s.max} step={s.step} value={s.val} onChange={e => s.set(+e.target.value)} style={{ width: 130 }} />
             </div>
           </foreignObject>
         ))}
@@ -124,5 +124,3 @@ export default function AmatCacheCalculator() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

@@ -61,9 +61,9 @@ export default function DaugmanIrisCode() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         {stages.map((s, i) => (
-          <button key={i} style={{ ...stageBtn, background: stage === i ? "var(--accent)" : "var(--bg-inset)", color: stage === i ? "#fff" : "var(--text)" }} onClick={() => setStage(i)}>{s}</button>
+          <button key={i} className="viz-btn" data-active={stage === i} onClick={() => setStage(i)}>{s}</button>
         ))}
       </div>
 
@@ -147,19 +147,19 @@ export default function DaugmanIrisCode() {
         )}
       </svg>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>scénář:</label>
-        <select value={scenario} onChange={(e) => setScenario(e.target.value)} style={sel}>
+        <select className="viz-select" value={scenario} onChange={(e) => setScenario(e.target.value)}>
           <option value="genuine">genuine — stejné oko, jiný snímek</option>
           <option value="impostor">impostor — jiné oko</option>
           <option value="rotated">rotated — stejné oko, naklonění hlavy</option>
         </select>
         <label style={lbl}>pupila r = {pupilR}</label>
-        <input type="range" min="15" max="40" value={pupilR} onChange={(e) => setPupilR(parseInt(e.target.value))} />
+        <input type="range" className="viz-slider" min="15" max="40" value={pupilR} onChange={(e) => setPupilR(parseInt(e.target.value))} />
         {scenario === "rotated" && (
           <>
             <label style={lbl}>shift = {shift}</label>
-            <input type="range" min="-8" max="8" value={shift} onChange={(e) => setShift(parseInt(e.target.value))} />
+            <input type="range" className="viz-slider" min="-8" max="8" value={shift} onChange={(e) => setShift(parseInt(e.target.value))} />
           </>
         )}
       </div>
@@ -189,10 +189,7 @@ export default function DaugmanIrisCode() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const stageBtn = { padding: "5px 10px", border: "1px solid var(--line)", borderRadius: 5, fontSize: 11, cursor: "pointer" };
 const statBox = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };
 const statVal = { fontSize: 16, fontWeight: 600, fontFamily: "var(--font-mono)", marginTop: 4 };

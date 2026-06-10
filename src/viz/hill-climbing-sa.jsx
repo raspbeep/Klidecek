@@ -103,23 +103,23 @@ export default function HillClimbingSa() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           start x:
-          <input type="range" min={0.5} max={9.5} step={0.5} value={start} onChange={(e) => setStart(+e.target.value)} style={{ width: 100 }}/>
+          <input type="range" className="viz-slider" min={0.5} max={9.5} step={0.5} value={start} onChange={(e) => setStart(+e.target.value)} style={{ width: 100 }}/>
           <span style={{ minWidth: 28 }}>{start.toFixed(1)}</span>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           T₀:
-          <input type="range" min={0.05} max={2} step={0.05} value={T0} onChange={(e) => setT0(+e.target.value)} style={{ width: 100 }}/>
+          <input type="range" className="viz-slider" min={0.05} max={2} step={0.05} value={T0} onChange={(e) => setT0(+e.target.value)} style={{ width: 100 }}/>
           <span style={{ minWidth: 28 }}>{T0.toFixed(2)}</span>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           kroky:
-          <input type="range" min={10} max={80} step={5} value={steps} onChange={(e) => setSteps(+e.target.value)} style={{ width: 80 }}/>
+          <input type="range" className="viz-slider" min={10} max={80} step={5} value={steps} onChange={(e) => setSteps(+e.target.value)} style={{ width: 80 }}/>
           <span style={{ minWidth: 24 }}>{steps}</span>
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btnStyle()}>nový seed</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", display: "block", maxWidth: 620 }}>
@@ -173,8 +173,4 @@ export default function HillClimbingSa() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

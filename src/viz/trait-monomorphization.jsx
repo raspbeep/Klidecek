@@ -34,10 +34,10 @@ export default function TraitMonomorphization() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>dispatch:</label>
-        <button style={mode === "generic" ? btnOn : btn} onClick={() => setMode("generic")}>generic (monomorphize)</button>
-        <button style={mode === "dyn" ? btnOn : btn} onClick={() => setMode("dyn")}>dyn Trait (vtable)</button>
+        <button className="viz-btn" data-active={mode === "generic"} onClick={() => setMode("generic")}>generic (monomorphize)</button>
+        <button className="viz-btn" data-active={mode === "dyn"} onClick={() => setMode("dyn")}>dyn Trait (vtable)</button>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
@@ -118,10 +118,7 @@ export default function TraitMonomorphization() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
 const col = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const colHd = { fontSize: 12, color: "var(--accent)", marginBottom: 6, fontWeight: 600 };
 const pre = { fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--text)", margin: 0, whiteSpace: "pre" };

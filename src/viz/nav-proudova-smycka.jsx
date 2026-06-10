@@ -57,7 +57,7 @@ export default function NavProudovaSmycka() {
       </svg>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        <input type="range" min={0} max={100} value={pct}
+        <input type="range" className="viz-slider" min={0} max={100} value={pct}
           disabled={broken}
           onChange={(e) => setPct(+e.target.value)} style={{ width: "100%", opacity: broken ? 0.4 : 1 }} />
         <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>

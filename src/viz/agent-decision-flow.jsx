@@ -112,15 +112,13 @@ export default function AgentDecisionFlow() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         <span style={{ color: "var(--text-muted)" }}>typ agenta:</span>
-        <select value={agentIdx} onChange={(e) => setAgentIdx(+e.target.value)}
-          style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+        <select className="viz-select" value={agentIdx} onChange={(e) => setAgentIdx(+e.target.value)}>
           {AGENT_TYPES.map((a, i) => <option key={a.id} value={i}>{a.label}</option>)}
         </select>
         <span style={{ color: "var(--text-muted)" }}>stav:</span>
-        <select value={stateIdx} onChange={(e) => setStateIdx(+e.target.value)}
-          style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+        <select className="viz-select" value={stateIdx} onChange={(e) => setStateIdx(+e.target.value)}>
           {SCENARIO.initialStates.map((s, i) => <option key={i} value={i}>{s.label}</option>)}
         </select>
       </div>

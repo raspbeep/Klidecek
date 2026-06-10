@@ -104,23 +104,23 @@ export default function EnumerationSort() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>topologie:</span>
-        <button onClick={() => setMode("mesh")} style={{ ...modeBtn, ...(mode === "mesh" ? activeBtn : {}) }}>Mřížka n×n</button>
-        <button onClick={() => setMode("linear")} style={{ ...modeBtn, ...(mode === "linear" ? activeBtn : {}) }}>Lineární + sběrnice</button>
+        <button className="viz-btn" data-active={mode === "mesh"} onClick={() => setMode("mesh")}>Mřížka n×n</button>
+        <button className="viz-btn" data-active={mode === "linear"} onClick={() => setMode("linear")}>Lineární + sběrnice</button>
         <span style={{ color: "var(--text-muted)", fontWeight: 600, marginLeft: 8 }}>vstup:</span>
         {Object.keys(PRESETS).map((k) => (
-          <button key={k} onClick={() => setPresetKey(k)} style={{ ...modeBtn, ...(presetKey === k ? activeBtn : {}) }}>{k}</button>
+          <button key={k} className="viz-btn" data-active={presetKey === k} onClick={() => setPresetKey(k)}>{k}</button>
         ))}
       </div>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setPhase(Math.max(0, phase - 1))} disabled={phase === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setPhase(Math.max(0, phase - 1))} disabled={phase === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           fáze {phase} / {maxPhase}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setPhase(Math.min(maxPhase, phase + 1))} disabled={phase >= maxPhase}>další →</button>
-        <button className="btn ghost" style={navBtn} onClick={() => setPhase(0)}>↻</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setPhase(Math.min(maxPhase, phase + 1))} disabled={phase >= maxPhase}>další →</button>
+        <button className="viz-btn" onClick={() => setPhase(0)}>↻</button>
       </div>
 
       {mode === "mesh" ? (
@@ -327,23 +327,3 @@ function LinearView({ input, ranks, output, phase, W, H }) {
   );
 }
 
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

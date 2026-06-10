@@ -33,10 +33,10 @@ export default function KillChainDefender() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center", fontSize: 11 }}>
-        <button onClick={() => setEnabled(STAGES.reduce((o, s) => ({ ...o, [s.id]: true }), {}))} style={btn}>vše zapnout</button>
-        <button onClick={() => setEnabled({})} style={btn}>vše vypnout</button>
-        <span style={{ color: "var(--text-muted)" }}>kliknutí na fázi = toggle defense</span>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <button className="viz-btn" onClick={() => setEnabled(STAGES.reduce((o, s) => ({ ...o, [s.id]: true }), {}))}>vše zapnout</button>
+        <button className="viz-btn" onClick={() => setEnabled({})}>vše vypnout</button>
+        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>kliknutí na fázi = toggle defense</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -84,5 +84,3 @@ export default function KillChainDefender() {
     </div>
   );
 }
-
-const btn = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer" };

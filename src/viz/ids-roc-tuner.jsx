@@ -59,10 +59,10 @@ export default function IdsRocTuner() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ marginBottom: 8, fontSize: 11 }}>
-        IDS threshold = {threshold}
-        <input type="range" min="0" max="100" value={threshold} onChange={e => setThreshold(+e.target.value)}
-          style={{ width: 300, marginLeft: 8, verticalAlign: "middle" }} />
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <span className="viz-readout">IDS threshold = {threshold}</span>
+        <input type="range" className="viz-slider" min="0" max="100" value={threshold} onChange={e => setThreshold(+e.target.value)}
+          style={{ width: 300 }} />
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>

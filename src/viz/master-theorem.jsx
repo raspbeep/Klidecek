@@ -67,25 +67,25 @@ export default function MasterTheorem() {
 
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>preset:</label>
         {Object.keys(PRESETS).map((k) => (
-          <button key={k} onClick={() => pickPreset(k)} style={{ ...btnStyle, fontSize: 11, padding: "3px 8px" }}>{k}</button>
+          <button key={k} className="viz-btn" onClick={() => pickPreset(k)}>{k}</button>
         ))}
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12, fontSize: 12 }}>
         <label style={{ color: "var(--text-muted)" }}>
-          a (počet podproblémů): <input type="range" min={1} max={8} value={a} onChange={(e) => setA(+e.target.value)} style={{ width: 100 }} />
+          a (počet podproblémů): <input type="range" className="viz-slider" min={1} max={8} value={a} onChange={(e) => setA(+e.target.value)} style={{ width: 100 }} />
           <span style={{ color: "var(--accent)", marginLeft: 4 }}>{a}</span>
         </label>
         <label style={{ color: "var(--text-muted)" }}>
-          b (dělení): <input type="range" min={2} max={5} value={b} onChange={(e) => setB(+e.target.value)} style={{ width: 100 }} />
+          b (dělení): <input type="range" className="viz-slider" min={2} max={5} value={b} onChange={(e) => setB(+e.target.value)} style={{ width: 100 }} />
           <span style={{ color: "var(--accent)", marginLeft: 4 }}>{b}</span>
         </label>
         <label style={{ color: "var(--text-muted)" }}>
           f(n):
-          <select value={fLabel} onChange={(e) => setFLabel(e.target.value)} style={{ ...selectStyle, marginLeft: 4 }}>
+          <select className="viz-select" value={fLabel} onChange={(e) => setFLabel(e.target.value)} style={{ marginLeft: 4 }}>
             {F_OPTIONS.map((o) => <option key={o.label} value={o.label}>{o.label}</option>)}
           </select>
         </label>
@@ -140,20 +140,3 @@ const containerStyle = {
   gap: 10,
 };
 
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-};
-
-const btnStyle = {
-  padding: "6px 12px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-  cursor: "pointer",
-  fontSize: 12,
-};

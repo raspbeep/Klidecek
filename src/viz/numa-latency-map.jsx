@@ -21,13 +21,13 @@ export default function NumaLatencyMap() {
   const W = 580, H = 280;
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 10, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
         <span style={{ color: "var(--text)", fontSize: 11 }}>thread běží na:</span>
-        <button onClick={() => setThreadSocket(0)} style={btn(threadSocket === 0)}>NUMA 0</button>
-        <button onClick={() => setThreadSocket(1)} style={btn(threadSocket === 1)}>NUMA 1</button>
+        <button className="viz-btn" data-active={threadSocket === 0} onClick={() => setThreadSocket(0)}>NUMA 0</button>
+        <button className="viz-btn" data-active={threadSocket === 1} onClick={() => setThreadSocket(1)}>NUMA 1</button>
         <span style={{ color: "var(--text)", fontSize: 11, marginLeft: 8 }}>page alokována na:</span>
-        <button onClick={() => setPageSocket(0)} style={btn(pageSocket === 0)}>NUMA 0</button>
-        <button onClick={() => setPageSocket(1)} style={btn(pageSocket === 1)}>NUMA 1</button>
+        <button className="viz-btn" data-active={pageSocket === 0} onClick={() => setPageSocket(0)}>NUMA 0</button>
+        <button className="viz-btn" data-active={pageSocket === 1} onClick={() => setPageSocket(1)}>NUMA 1</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -124,13 +124,4 @@ export default function NumaLatencyMap() {
       </svg>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 9px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "white" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

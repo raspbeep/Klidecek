@@ -81,12 +81,12 @@ export default function ZznDbscan() {
 
       <label style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
         eps = {eps}
-        <input type="range" min={15} max={70} value={eps}
+        <input type="range" className="viz-slider" min={15} max={70} value={eps}
           onChange={(e) => setEps(+e.target.value)} style={{ width: "100%" }} />
       </label>
       <label style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
         minPts = {minPts}
-        <input type="range" min={2} max={8} value={minPts}
+        <input type="range" className="viz-slider" min={2} max={8} value={minPts}
           onChange={(e) => setMinPts(+e.target.value)} style={{ width: "100%" }} />
       </label>
     </div>

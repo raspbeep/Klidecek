@@ -120,7 +120,7 @@ export default function PdaStack() {
     <div style={containerStyle}>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Preset:</label>
-        <select value={presetKey} onChange={(e) => setPresetKey(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={presetKey} onChange={(e) => setPresetKey(e.target.value)}>
           {Object.keys(PRESETS).map((k) => (
             <option key={k} value={k}>{k}</option>
           ))}
@@ -170,9 +170,9 @@ export default function PdaStack() {
           <div style={{ fontSize: 11, color: "var(--text-muted)" }}>
             {choices.length > 1 ? "Více pravidel — vyber:" : "Aplikuj pravidlo:"}
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          <div className="viz-controls">
             {choices.map((r, i) => (
-              <button key={i} onClick={() => choose(r)} style={{ ...btnStyle, fontFamily: "var(--font-mono, ui-monospace)", fontSize: 11 }}>
+              <button key={i} className="viz-btn" onClick={() => choose(r)}>
                 {r.read}, {r.pop} → {r.push || EPS}, do {r.to}
               </button>
             ))}
@@ -183,9 +183,9 @@ export default function PdaStack() {
         <div style={{ fontSize: 12, color: "var(--text-muted)" }}>Žádné použitelné pravidlo — stroj zamítl.</div>
       )}
 
-      <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-        <button onClick={doBack} disabled={!history.length} style={btnStyle}>◀ zpět</button>
-        <button onClick={doReset} style={btnStyle}>reset</button>
+      <div className="viz-controls" style={{ justifyContent: "center" }}>
+        <button className="viz-btn" onClick={doBack} disabled={!history.length}>◀ zpět</button>
+        <button className="viz-btn" onClick={doReset}>reset</button>
       </div>
     </div>
   );
@@ -201,20 +201,3 @@ const containerStyle = {
   gap: 10,
 };
 
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-};
-
-const btnStyle = {
-  padding: "6px 12px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
-  cursor: "pointer",
-  fontSize: 12,
-};

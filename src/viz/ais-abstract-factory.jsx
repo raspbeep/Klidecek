@@ -19,25 +19,22 @@ export default function AisAbstractFactory() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <span style={{ fontSize: 11.5, color: "var(--text-muted)", fontWeight: 600 }}>
           UiFactory =
         </span>
         {NAMES.map((n) => (
           <button
             key={n}
+            className="viz-btn"
+            data-active={n === fam}
             onClick={() => setFam(n)}
-            style={{
-              padding: "5px 14px",
-              fontSize: 12,
-              fontFamily: "var(--font-mono)",
-              borderRadius: 5,
-              cursor: "pointer",
-              border: `1px solid ${n === fam ? `oklch(0.62 0.14 ${FAMILIES[n].hue})` : "var(--line)"}`,
-              background: n === fam ? `oklch(0.62 0.14 ${FAMILIES[n].hue} / 0.18)` : "var(--bg-card)",
-              color: n === fam ? `oklch(0.45 0.14 ${FAMILIES[n].hue})` : "var(--text-muted)",
-              fontWeight: n === fam ? 700 : 400,
-            }}
+            style={n === fam ? {
+              border: `1px solid oklch(0.62 0.14 ${FAMILIES[n].hue})`,
+              background: `oklch(0.62 0.14 ${FAMILIES[n].hue} / 0.18)`,
+              color: `oklch(0.45 0.14 ${FAMILIES[n].hue})`,
+              fontWeight: 700,
+            } : undefined}
           >
             {n}Factory
           </button>

@@ -24,6 +24,12 @@ export default function IrTimelineMetrics() {
     setTimes({ compromise: 0, ...PRESETS[p] });
   }
 
+  // which preset (if any) the current times exactly match — none once the user
+  // tweaks a slider, so the active highlight honestly reflects the state.
+  const activePreset = Object.keys(PRESETS).find(
+    (p) => times.compromise === 0 && ["detect", "contain", "eradicate", "recover"].every((k) => PRESETS[p][k] === times[k])
+  );
+
   const mttd = times.detect - times.compromise;
   const mttContain = times.contain - times.detect;
   const mttr = times.recover - times.detect;
@@ -35,18 +41,18 @@ export default function IrTimelineMetrics() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: 11, alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         <span>preset:</span>
-        <button onClick={() => applyPreset("fast")} style={btn(false)}>fast (mature SOC)</button>
-        <button onClick={() => applyPreset("median")} style={btn(false)}>median industry</button>
-        <button onClick={() => applyPreset("slow")} style={btn(false)}>slow (no IR)</button>
+        <button className="viz-btn" data-active={activePreset === "fast"} onClick={() => applyPreset("fast")}>fast (mature SOC)</button>
+        <button className="viz-btn" data-active={activePreset === "median"} onClick={() => applyPreset("median")}>median industry</button>
+        <button className="viz-btn" data-active={activePreset === "slow"} onClick={() => applyPreset("slow")}>slow (no IR)</button>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 8, fontSize: 10.5 }}>
         {EVENTS.slice(1).map(e => (
           <div key={e.id}>
             {e.label}: {times[e.id]} h
-            <input type="range" min="0" max={MAX_HOURS} step="1" value={times[e.id]}
+            <input type="range" className="viz-slider" min="0" max={MAX_HOURS} step="1" value={times[e.id]}
               onChange={ev => setTimes(t => ({ ...t, [e.id]: +ev.target.value }))} style={{ width: "100%" }} />
           </div>
         ))}
@@ -115,8 +121,4 @@ export default function IrTimelineMetrics() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

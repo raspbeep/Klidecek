@@ -32,11 +32,11 @@ export default function BiasVar() {
         <text x={W-10} y={H-50} textAnchor="end" fontSize="9" fontFamily="var(--font-mono)" fill="oklch(0.65 0.16 264)">— train</text>
         <text x={W-10} y={H-38} textAnchor="end" fontSize="9" fontFamily="var(--font-mono)" fill="oklch(0.6 0.18 22)">— test</text>
       </svg>
-      <input type="range" min={0} max={100} value={complexity}
+      <input type="range" className="viz-slider" min={0} max={100} value={complexity}
         onChange={(e) => setComplexity(+e.target.value)} style={{ width: "100%" }} />
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <span className="viz-readout">
         complexity = {complexity} · train={here.train.toFixed(2)} · test={here.test.toFixed(2)}
-      </div>
+      </span>
     </div>
   );
 }

@@ -51,15 +51,15 @@ export default function ColumnarTransposition() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Plaintext:</label>
         <input value={plain} onChange={(e) => setPlain(e.target.value)} style={inp} maxLength={40} />
         <label style={lbl}>Klíč:</label>
         <input value={key} onChange={(e) => setKey(e.target.value)} style={{ ...inp, width: 100 }} maxLength={10} />
       </div>
-      <div style={row}>
-        <button onClick={() => setReadIdx(-1)} style={btn}>1. Plnění tabulky</button>
-        <button onClick={() => setReadIdx(readIdx < 0 ? 0 : Math.min(readIdx + 1, cols - 1))} style={btn}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setReadIdx(-1)}>1. Plnění tabulky</button>
+        <button className="viz-btn primary" onClick={() => setReadIdx(readIdx < 0 ? 0 : Math.min(readIdx + 1, cols - 1))}>
           2. Čtení sloupců (rank {readIdx + 1}/{cols})
         </button>
       </div>
@@ -114,8 +114,6 @@ export default function ColumnarTransposition() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const inp = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 220 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };

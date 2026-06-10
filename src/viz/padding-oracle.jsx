@@ -93,12 +93,12 @@ export default function PaddingOracle() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button onClick={step} disabled={allRecovered} style={btn}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={step} disabled={allRecovered}>
           ▶ Najdi další byte
         </button>
-        <button onClick={reset} style={btn}>Reset</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)" }}>
+        <button className="viz-btn" onClick={reset}>Reset</button>
+        <span className="viz-readout">
           odhaleno: <b style={{ color: "var(--accent)" }}>{recovered.length}</b> / {BLOCK} bytů
           {allRecovered && <span style={{ color: "#81b29a" }}> — všechno odhaleno ✓</span>}
         </span>
@@ -178,5 +178,3 @@ export default function PaddingOracle() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const btn = { padding: "5px 12px", background: "var(--accent)", color: "var(--bg-card)", border: "none", borderRadius: 5, fontSize: 12, cursor: "pointer" };

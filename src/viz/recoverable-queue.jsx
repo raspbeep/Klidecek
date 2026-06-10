@@ -133,21 +133,20 @@ export default function RecoverableQueue() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Controls */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-        <button style={navBtn} onClick={prev} disabled={step === 0 && !crashed}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={prev} disabled={step === 0 && !crashed}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step + 1} / {STEPS.length} {crashed && "(💥 crash)"}
-        </div>
-        <button style={navBtn} onClick={next} disabled={step === STEPS.length - 1 && !crashed}>další →</button>
-        <button onClick={() => setCrashed(true)} disabled={crashed} style={{
-          ...navBtn,
+        </span>
+        <button className="viz-btn primary" onClick={next} disabled={step === STEPS.length - 1 && !crashed}>další →</button>
+        <button className="viz-btn" onClick={() => setCrashed(true)} disabled={crashed} style={{
           background: "oklch(0.62 0.18 22 / 0.20)",
           borderColor: "oklch(0.55 0.18 22)",
           color: "oklch(0.40 0.18 22)",
         }}>
           💥 havárie zde
         </button>
-        <button onClick={reset} style={navBtn}>↺</button>
+        <button className="viz-btn" onClick={reset}>↺</button>
       </div>
 
       {/* Three lanes */}
@@ -282,13 +281,3 @@ export default function RecoverableQueue() {
     </div>
   );
 }
-
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

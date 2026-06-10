@@ -45,10 +45,10 @@ export default function LazyThunkGraph() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>demand fib_n:</label>
-        <input type="range" min="0" max={N - 1} value={demand} onChange={(e) => { setDemand(parseInt(e.target.value)); setStep(0); }} />
-        <code style={mono}>n = {demand}</code>
+        <input type="range" className="viz-slider" min="0" max={N - 1} value={demand} onChange={(e) => { setDemand(parseInt(e.target.value)); setStep(0); }} />
+        <span className="viz-readout">n = {demand}</span>
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 600, background: "var(--bg-inset)", borderRadius: 6 }}>
         {/* edges */}
@@ -72,10 +72,10 @@ export default function LazyThunkGraph() {
           );
         })}
       </svg>
-      <div style={row}>
-        <button style={btn} disabled={step === 0} onClick={() => setStep(step - 1)}>‹ undo</button>
-        <button style={btn} disabled={step >= order.length - 1} onClick={() => setStep(step + 1)}>vyhodnoť další thunk ›</button>
-        <span style={{ ...lbl, marginLeft: 8 }}>krok {step + 1} / {order.length}</span>
+      <div className="viz-controls">
+        <button className="viz-btn" disabled={step === 0} onClick={() => setStep(step - 1)}>‹ undo</button>
+        <button className="viz-btn primary" disabled={step >= order.length - 1} onClick={() => setStep(step + 1)}>vyhodnoť další thunk ›</button>
+        <span className="viz-readout" style={{ marginLeft: 8 }}>krok {step + 1} / {order.length}</span>
       </div>
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--accent)" }}>fibs = 0 : 1 : zipWith (+) fibs (tail fibs)</div>
@@ -92,7 +92,5 @@ export default function LazyThunkGraph() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--accent)" };

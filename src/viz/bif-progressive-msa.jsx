@@ -209,28 +209,14 @@ export default function BifProgressiveMsa() {
       <div style={{ fontSize: 13, color: "var(--text)", fontWeight: 600 }}>{s.title}</div>
       <div style={{ fontSize: 12, color: "var(--text-muted)", minHeight: 32 }}>{s.desc}</div>
 
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-        <button onClick={() => setStep((x) => Math.max(0, x - 1))} disabled={step === 0}
-          style={btn(step === 0)}>‹ zpět</button>
-        <button onClick={() => setStep((x) => Math.min(STEPS.length - 1, x + 1))}
-          disabled={step === STEPS.length - 1} style={btn(step === STEPS.length - 1)}>krok ›</button>
-        <span style={{ fontSize: 12, color: "var(--text-faint)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep((x) => Math.max(0, x - 1))} disabled={step === 0}>‹ zpět</button>
+        <button className="viz-btn primary" onClick={() => setStep((x) => Math.min(STEPS.length - 1, x + 1))}
+          disabled={step === STEPS.length - 1}>krok ›</button>
+        <span className="viz-readout">
           {step + 1} / {STEPS.length}
         </span>
       </div>
     </div>
   );
-}
-
-function btn(disabled) {
-  return {
-    padding: "4px 12px",
-    fontSize: 13,
-    fontFamily: "var(--font-mono)",
-    color: disabled ? "var(--text-faint)" : "var(--text)",
-    background: "var(--bg-card)",
-    border: "1px solid var(--line-strong)",
-    borderRadius: 6,
-    cursor: disabled ? "default" : "pointer",
-  };
 }

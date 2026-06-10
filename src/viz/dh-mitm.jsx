@@ -46,9 +46,9 @@ export default function DhMitm() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Skupina:</label>
-        <select value={presetKey} onChange={(e) => setPresetKey(e.target.value)} style={sel}>
+        <select className="viz-select" value={presetKey} onChange={(e) => setPresetKey(e.target.value)}>
           {Object.keys(PRESETS).map((k) => <option key={k}>{k}</option>)}
         </select>
         <label style={{ ...lbl, display: "flex", alignItems: "center", gap: 4 }}>
@@ -57,7 +57,7 @@ export default function DhMitm() {
         </label>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>a (Alice):</label>
         <input type="number" min={1} max={p - 1} value={a} onChange={(e) => setA(Math.max(1, Math.min(p - 1, +e.target.value)))} style={num} />
         <label style={lbl}>b (Bob):</label>
@@ -154,7 +154,5 @@ export default function DhMitm() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 12, color: "var(--text-muted)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const num = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 60 };

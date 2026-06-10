@@ -27,14 +27,13 @@ export default function TamaFormKeyboard() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-        <button onClick={() => setKb((k) => !k)}
-          style={btn(kb)}>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={kb} onClick={() => setKb((k) => !k)}>
           {kb ? "klávesnice nahoře" : "klávesnice dole"}
         </button>
         <span style={{ fontSize: 11, color: "var(--text-muted)", marginLeft: 4 }}>input type:</span>
         {["text", "email", "tel"].map((t) => (
-          <button key={t} onClick={() => setType(t)} style={btn(type === t)}>{t}</button>
+          <button key={t} className="viz-btn" data-active={type === t} onClick={() => setType(t)}>{t}</button>
         ))}
       </div>
 
@@ -89,10 +88,3 @@ export default function TamaFormKeyboard() {
     </div>
   );
 }
-
-const btn = (active) => ({
-  padding: "4px 10px", fontSize: 11, fontFamily: "var(--font-mono)", cursor: "pointer", borderRadius: 5,
-  border: `1px solid ${active ? "var(--accent)" : "var(--line)"}`,
-  background: active ? "var(--accent)" : "var(--bg-card)",
-  color: active ? "white" : "var(--text)",
-});

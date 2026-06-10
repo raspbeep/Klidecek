@@ -31,9 +31,9 @@ export default function EtaPointfree() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>příklad:</label>
-        <select value={ex} onChange={(e) => { setEx(e.target.value); setStep(0); }} style={sel}>
+        <select className="viz-select" value={ex} onChange={(e) => { setEx(e.target.value); setStep(0); }}>
           <option value="sumSq">sumSq = sum . map (^2)</option>
           <option value="doubleAll">doubleAll = map (*2)</option>
           <option value="pipeline">process pipeline</option>
@@ -48,10 +48,10 @@ export default function EtaPointfree() {
           </div>
         ))}
       </div>
-      <div style={row}>
-        <button style={btn} disabled={step === 0} onClick={() => setStep(step - 1)}>‹ předchozí</button>
-        <span style={{ ...lbl, marginLeft: 8 }}>krok {step + 1} / {trace.length}</span>
-        <button style={btn} disabled={step === trace.length - 1} onClick={() => setStep(step + 1)}>další ›</button>
+      <div className="viz-controls">
+        <button className="viz-btn" disabled={step === 0} onClick={() => setStep(step - 1)}>‹ předchozí</button>
+        <span className="viz-readout" style={{ marginLeft: 8 }}>krok {step + 1} / {trace.length}</span>
+        <button className="viz-btn primary" disabled={step === trace.length - 1} onClick={() => setStep(step + 1)}>další ›</button>
       </div>
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
         <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 4 }}>η-konverze:</div>
@@ -66,8 +66,5 @@ export default function EtaPointfree() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--accent)" };

@@ -105,11 +105,11 @@ export default function QuicksortSimulation() {
         <text x={PAD_L + PW} y={H - 6} textAnchor="end" fontSize="10" fill="var(--text-muted)" fontFamily="var(--font-mono)">počet porovnání →</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ gap: 14 }}>
         <label style={lab()}>n = {n}
-          <input type="range" min={10} max={500} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={10} max={500} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btn(false)}>nový seed</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed</button>
       </div>
       <div style={{ fontSize: 10.5, color: "var(--text-muted)" }}>
         {NUM} běhů, n = {n}. Worst-case O(n²) = {n * n}, average O(n log n) ≈ {(2 * n * Math.log(n)).toFixed(0)}.
@@ -119,5 +119,4 @@ export default function QuicksortSimulation() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 180px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

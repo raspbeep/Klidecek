@@ -103,14 +103,12 @@ export default function BackpropChain() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
-        <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={() => setStep(0)} style={btnStyle()}>⏮</button>
-          <button onClick={() => setStep((s) => Math.max(0, s - 1))} style={btnStyle()}>◀</button>
-          <button onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))} style={btnStyle()}>▶</button>
-          <button onClick={() => setStep(STEPS.length - 1)} style={btnStyle()}>⏭</button>
-        </div>
-        <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>krok {step}/{STEPS.length - 1}</span>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(0)}>⏮</button>
+        <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))}>◀</button>
+        <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))}>▶</button>
+        <button className="viz-btn" onClick={() => setStep(STEPS.length - 1)}>⏭</button>
+        <span className="viz-readout">krok {step}/{STEPS.length - 1}</span>
         <span style={{ color: "var(--text)", fontFamily: "var(--font-mono)", fontWeight: 600 }}>{STEPS[step].label}</span>
       </div>
 
@@ -193,8 +191,4 @@ export default function BackpropChain() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 6px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

@@ -128,9 +128,9 @@ export default function SatClique() {
 
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls">
         <label style={{ fontSize: 12, color: "var(--text-muted)" }}>Formule:</label>
-        <select value={presetKey} onChange={(e) => setPresetKey(e.target.value)} style={selectStyle}>
+        <select className="viz-select" value={presetKey} onChange={(e) => setPresetKey(e.target.value)}>
           {Object.keys(PRESETS).map((k) => <option key={k} value={k}>{k}</option>)}
         </select>
         <label style={{ fontSize: 12, color: "var(--text-muted)", marginLeft: 8, display: "flex", alignItems: "center", gap: 4 }}>
@@ -292,12 +292,4 @@ const containerStyle = {
   display: "flex",
   flexDirection: "column",
   gap: 10,
-};
-
-const selectStyle = {
-  padding: "4px 8px",
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  borderRadius: 6,
 };

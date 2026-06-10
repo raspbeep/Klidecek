@@ -48,16 +48,10 @@ export default function TamaThumbZone() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <span style={{ fontSize: 11.5, color: "var(--text-muted)", fontWeight: 600 }}>držící ruka:</span>
         {["left", "right"].map((h) => (
-          <button key={h} onClick={() => setHand(h)}
-            style={{
-              padding: "5px 12px", fontSize: 11.5, fontFamily: "var(--font-mono)", cursor: "pointer", borderRadius: 5,
-              border: `1px solid ${hand === h ? "var(--accent)" : "var(--line)"}`,
-              background: hand === h ? "var(--accent)" : "var(--bg-card)",
-              color: hand === h ? "white" : "var(--text)",
-            }}>
+          <button key={h} className="viz-btn" data-active={hand === h} onClick={() => setHand(h)}>
             {h === "left" ? "levá" : "pravá"}
           </button>
         ))}
@@ -102,7 +96,7 @@ export default function TamaThumbZone() {
         </g>
       </svg>
 
-      <input type="range" min={5.0} max={7.0} step={0.1} value={size}
+      <input type="range" className="viz-slider" min={5.0} max={7.0} step={0.1} value={size}
         onChange={(e) => setSize(+e.target.value)} style={{ width: "100%" }} />
 
       <div style={{ fontSize: 11.5, color: "var(--text-muted)", lineHeight: 1.5 }}>

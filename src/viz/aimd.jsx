@@ -110,10 +110,8 @@ export default function AIMD() {
         fontSize: 12 }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           <span>varianta</span>
-          <select value={variant} onChange={(e) => setVariant(e.target.value)}
-            style={{ padding: "2px 4px", border: "1px solid var(--line-strong)",
-              borderRadius: 3, background: "var(--bg-card)", color: "var(--text)",
-              fontSize: 12, flex: 1 }}>
+          <select className="viz-select" value={variant} onChange={(e) => setVariant(e.target.value)}
+            style={{ flex: 1 }}>
             <option value="tahoe">TCP Tahoe</option>
             <option value="reno">TCP Reno (AIMD)</option>
             <option value="cubic">CUBIC</option>
@@ -121,19 +119,19 @@ export default function AIMD() {
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           loss
-          <input type="range" min="0" max="8" step="0.5" value={lossPct}
+          <input type="range" className="viz-slider" min="0" max="8" step="0.5" value={lossPct}
             onChange={(e) => setLossPct(parseFloat(e.target.value))}
             style={{ flex: 1 }} />
-          <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)" }}>{lossPct.toFixed(1)}%</span>
+          <span className="viz-readout">{lossPct.toFixed(1)}%</span>
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           ssthresh
-          <input type="range" min="4" max="64" step="2" value={ssthreshStart}
+          <input type="range" className="viz-slider" min="4" max="64" step="2" value={ssthreshStart}
             onChange={(e) => setSsthreshStart(parseInt(e.target.value, 10))}
             style={{ flex: 1 }} />
-          <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)" }}>{ssthreshStart}</span>
+          <span className="viz-readout">{ssthreshStart}</span>
         </label>
-        <button className="btn ghost" onClick={() => setSeed(Math.floor(Math.random() * 1000))}>
+        <button className="viz-btn" onClick={() => setSeed(Math.floor(Math.random() * 1000))}>
           ↻ jiný seed
         </button>
       </div>

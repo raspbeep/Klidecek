@@ -237,10 +237,10 @@ export default function CssXpathPlayground() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setMode("css")} style={btn(mode === "css")}>CSS</button>
-        <button onClick={() => setMode("xpath")} style={btn(mode === "xpath")}>XPath</button>
-        <button onClick={() => { setCssSel(".product .price"); setXpath("//div[@class=\"product featured\"]"); }} style={btn(false)}>reset</button>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={mode === "css"} onClick={() => setMode("css")}>CSS</button>
+        <button className="viz-btn" data-active={mode === "xpath"} onClick={() => setMode("xpath")}>XPath</button>
+        <button className="viz-btn" onClick={() => { setCssSel(".product .price"); setXpath("//div[@class=\"product featured\"]"); }}>reset</button>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 11 }}>
@@ -272,12 +272,3 @@ const code = {
   fontFamily: "var(--font-mono)", fontSize: 11, padding: "0 3px",
   background: "var(--bg-inset)", color: "var(--text)", borderRadius: 2,
 };
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
-}

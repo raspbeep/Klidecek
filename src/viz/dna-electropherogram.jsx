@@ -97,9 +97,9 @@ export default function DnaElectropherogram() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>vzorek:</label>
-        <select value={sample} onChange={(e) => setSample(e.target.value)} style={sel}>
+        <select className="viz-select" value={sample} onChange={(e) => setSample(e.target.value)}>
           {Object.entries(SAMPLES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
       </div>

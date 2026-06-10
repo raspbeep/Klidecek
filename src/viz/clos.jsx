@@ -188,7 +188,7 @@ function Slider({ label, value, min, max, onChange }) {
     <label style={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <span style={{ fontSize: 11 }}>{label}</span>
       <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <input type="range" min={min} max={max} step="1" value={value}
+        <input type="range" className="viz-slider" min={min} max={max} step="1" value={value}
           onChange={(e) => onChange(parseInt(e.target.value, 10))}
           style={{ flex: 1 }} />
         <span style={{ fontFamily: "var(--font-mono)", color: "var(--text)", minWidth: 18 }}>{value}</span>

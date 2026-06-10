@@ -48,13 +48,13 @@ export default function RsaSpaTrace() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>tajny exponent d (8 bitu):</label>
         <input type="number" min={0} max={255} value={secret} onChange={(e) => { setSecret(Math.max(0, Math.min(255, +e.target.value || 0))); reset(); }}
           style={{ ...sel, width: 80, fontFamily: "var(--font-mono)" }} />
-        <button style={btn} onClick={randomSecret}>nahodne</button>
-        <button style={btn} onClick={reset}>reset tip</button>
-        <button style={btn} onClick={() => setRevealed(true)} disabled={revealed}>odhal</button>
+        <button className="viz-btn" onClick={randomSecret}>nahodne</button>
+        <button className="viz-btn" onClick={reset}>reset tip</button>
+        <button className="viz-btn" onClick={() => setRevealed(true)} disabled={revealed}>odhal</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 580, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -109,7 +109,5 @@ export default function RsaSpaTrace() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

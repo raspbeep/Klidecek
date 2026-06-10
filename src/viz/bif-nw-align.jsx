@@ -176,11 +176,10 @@ export default function BifNwAlign() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => setStep((s) => Math.min(s + 1, maxStep))}
-          style={btn}>krok ▸</button>
-        <button onClick={() => setStep(maxStep)} style={btn}>dokonči ⏭</button>
-        <button onClick={() => setStep(0)} style={btn}>reset ↺</button>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(s + 1, maxStep))}>krok ▸</button>
+        <button className="viz-btn" onClick={() => setStep(maxStep)}>dokonči ⏭</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset ↺</button>
         <label style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginLeft: 4 }}>
           <input type="checkbox" checked={local}
             onChange={(e) => { setLocal(e.target.checked); setStep(0); }} />
@@ -193,14 +192,3 @@ export default function BifNwAlign() {
     </div>
   );
 }
-
-const btn = {
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  padding: "3px 9px",
-  background: "var(--bg-card)",
-  color: "var(--text)",
-  border: "1px solid var(--line-strong)",
-  borderRadius: 5,
-  cursor: "pointer",
-};

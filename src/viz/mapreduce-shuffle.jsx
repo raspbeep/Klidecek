@@ -51,15 +51,15 @@ export default function MapreduceShuffle() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 11 }}>
-        <span>R (reducers)</span>
-        <input type="range" min={1} max={4} value={R} onChange={(e) => { setR(+e.target.value); setPhase(0); }} />
-        <span>{R}</span>
+      <div className="viz-controls">
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>R (reducers)</span>
+        <input type="range" className="viz-slider" min={1} max={4} value={R} onChange={(e) => { setR(+e.target.value); setPhase(0); }} />
+        <span className="viz-readout">{R}</span>
         <div style={{ flex: 1 }} />
         {PHASES.map((p, i) => (
-          <button key={p} onClick={() => setPhase(i)} style={btn(phase === i)}>{i + 1}. {p}</button>
+          <button key={p} className="viz-btn" data-active={phase === i} onClick={() => setPhase(i)}>{i + 1}. {p}</button>
         ))}
-        <button onClick={() => setAuto(a => !a)} style={btn(auto)}>{auto ? "■ stop" : "▶ auto"}</button>
+        <button className="viz-btn" data-active={auto} onClick={() => setAuto(a => !a)}>{auto ? "■ stop" : "▶ auto"}</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -148,13 +148,4 @@ export default function MapreduceShuffle() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 10, padding: "2px 6px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

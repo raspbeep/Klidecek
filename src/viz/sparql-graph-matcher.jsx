@@ -207,11 +207,11 @@ export default function SparqlGraphMatcher() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.keys(EXAMPLES).map(k => (
-          <button key={k} onClick={() => setQuery(EXAMPLES[k])} style={btn(false)}>{k}</button>
+          <button key={k} className="viz-btn" onClick={() => setQuery(EXAMPLES[k])}>{k}</button>
         ))}
-        <button onClick={() => setQuery(DEFAULT_QUERY)} style={btn(false)}>reset</button>
+        <button className="viz-btn" onClick={() => setQuery(DEFAULT_QUERY)}>reset</button>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -287,13 +287,4 @@ export default function SparqlGraphMatcher() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

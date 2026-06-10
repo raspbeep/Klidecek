@@ -100,16 +100,11 @@ export default function BinEaCycle() {
         </text>
       </svg>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <button onClick={next}
-          style={{
-            padding: "5px 14px", fontSize: 13, cursor: "pointer",
-            background: "var(--accent)", color: "var(--accent-text-on)",
-            border: "none", borderRadius: 6, fontWeight: 600,
-          }}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={next}>
           Krok ▸
         </button>
-        <span style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           fáze {active + 1} / {phases.length} · klikni na uzel pro skok
         </span>
       </div>

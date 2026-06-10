@@ -51,17 +51,15 @@ export default function SoftmaxTemperature() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           T
-          <input type="range" min={0.1} max={10} step={0.05} value={T} onChange={(e) => setT(+e.target.value)} style={{ width: 140 }}/>
-          <span style={{ minWidth: 38 }}>{T.toFixed(2)}</span>
+          <input type="range" className="viz-slider" min={0.1} max={10} step={0.05} value={T} onChange={(e) => setT(+e.target.value)} style={{ width: 140 }}/>
+          <span className="viz-readout" style={{ minWidth: 38 }}>{T.toFixed(2)}</span>
         </label>
-        <div style={{ display: "flex", gap: 4 }}>
-          {presets.map((p) => (
-            <button key={p.T} onClick={() => setT(p.T)} style={btnStyle()}>{p.label}</button>
-          ))}
-        </div>
+        {presets.map((p) => (
+          <button key={p.T} className="viz-btn" onClick={() => setT(p.T)}>{p.label}</button>
+        ))}
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", display: "block", maxWidth: 620 }}>
@@ -98,8 +96,4 @@ export default function SoftmaxTemperature() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 3, fontSize: 10.5, cursor: "pointer" };
 }

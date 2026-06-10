@@ -162,13 +162,13 @@ export default function OnionRouting() {
         </defs>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step + 1} / {STEPS.length}
-        </div>
-        <button className="btn" onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>další hop →</button>
-        <button className="btn ghost" onClick={() => setStep(0)}>reset</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>další hop →</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
       </div>
 
       <div style={{ padding: 10, background: "var(--bg-card)", borderRadius: 6, border: "1px solid var(--line)" }}>

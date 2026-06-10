@@ -173,9 +173,9 @@ export default function AttackPoints7() {
         </div>
       </div>
 
-      <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {[1,2,3,4,5,6,7].map((id) => (
-          <button key={id} style={{ ...pointBtn, background: sel === id ? "rgb(220,80,80)" : "var(--bg-inset)", color: sel === id ? "#fff" : "var(--text)" }} onClick={() => setSel(id)}>
+          <button key={id} className="viz-btn" data-active={sel === id} style={sel === id ? { textAlign: "left", background: "rgb(220,80,80)", borderColor: "rgb(220,80,80)", color: "#fff" } : { textAlign: "left" }} onClick={() => setSel(id)}>
             {id}. {POINTS[id].title.split(" — ")[1] || POINTS[id].title}
           </button>
         ))}
@@ -192,4 +192,3 @@ export default function AttackPoints7() {
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
 const ul = { margin: 0, paddingLeft: 18, fontSize: 11.5, color: "var(--text)", lineHeight: 1.5 };
-const pointBtn = { padding: "4px 8px", border: "1px solid var(--line)", borderRadius: 5, fontSize: 11, cursor: "pointer", textAlign: "left" };

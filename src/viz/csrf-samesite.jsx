@@ -59,7 +59,7 @@ export default function CsrfSamesite() {
         </div>
         <div>
           <div style={{ fontWeight: 600, marginBottom: 3 }}>Útok</div>
-          <select value={requestType} onChange={e => setRequestType(e.target.value)} style={ctrl}>
+          <select className="viz-select" value={requestType} onChange={e => setRequestType(e.target.value)}>
             <option value="post-form">POST form (evil.com)</option>
             <option value="get-img">GET via &lt;img src&gt;</option>
             <option value="top-nav">top-level navigation</option>
@@ -125,5 +125,3 @@ export default function CsrfSamesite() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 5px", borderRadius: 3, fontSize: 11 };

@@ -78,21 +78,19 @@ export default function OAuth2Flow() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+      <div className="viz-controls">
         <button
-          className="btn ghost"
-          style={{ padding: "5px 12px", fontSize: 12 }}
+          className="viz-btn"
           onClick={() => setStep(Math.max(0, step - 1))}
           disabled={step === 0}
         >
           ← předchozí
         </button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step} / {STEPS.length - 1}
-        </div>
+        </span>
         <button
-          className="btn ghost"
-          style={{ padding: "5px 12px", fontSize: 12 }}
+          className="viz-btn primary"
           onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))}
           disabled={step === STEPS.length - 1}
         >

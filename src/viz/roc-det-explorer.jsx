@@ -112,7 +112,7 @@ export default function RocDetExplorer() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         {allKeys.map((k) => (
           <label key={k} style={{ ...chip, borderColor: enabled[k] ? SYSTEMS[k].color : "var(--line)", color: enabled[k] ? SYSTEMS[k].color : "var(--text-muted)" }}>
             <input type="checkbox" checked={enabled[k]} onChange={(e) => setEnabled({ ...enabled, [k]: e.target.checked })} style={{ marginRight: 4 }} />
@@ -121,9 +121,9 @@ export default function RocDetExplorer() {
         ))}
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>operační bod:</label>
-        <select value={marker} onChange={(e) => setMarker(e.target.value)} style={sel}>
+        <select className="viz-select" value={marker} onChange={(e) => setMarker(e.target.value)}>
           <option value="eer">EER</option>
           <option value="far4">FAR = 10⁻⁴</option>
           <option value="far6">FAR = 10⁻⁶</option>
@@ -204,9 +204,7 @@ export default function RocDetExplorer() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
 const chip = { padding: "3px 8px", background: "var(--bg-inset)", border: "1px solid", borderRadius: 12, fontSize: 11, cursor: "pointer", display: "flex", alignItems: "center" };
 const panelTitle = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginBottom: 4 };
 const th = { textAlign: "left", padding: "2px 4px", color: "var(--text-muted)", fontWeight: 500, fontSize: 10.5 };

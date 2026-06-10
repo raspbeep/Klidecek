@@ -59,17 +59,17 @@ export default function BifDeBruijn() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center", fontSize: 12 }}>
+      <div className="viz-controls" style={{ fontSize: 12 }}>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           čtení:
-          <select value={seqKey} onChange={(e) => setSeqKey(e.target.value)}
+          <select className="viz-select" value={seqKey} onChange={(e) => setSeqKey(e.target.value)}
             style={{ fontFamily: "var(--font-mono)" }}>
             {Object.keys(examples).map((kk) => <option key={kk} value={kk}>{kk}</option>)}
           </select>
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>
           k = {k}
-          <input type="range" min={3} max={4} value={k}
+          <input type="range" className="viz-slider" min={3} max={4} value={k}
             onChange={(e) => setK(+e.target.value)} />
         </label>
         <label style={{ display: "flex", gap: 6, alignItems: "center", color: "var(--text-muted)" }}>

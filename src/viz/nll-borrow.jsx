@@ -33,10 +33,10 @@ export default function NllBorrow() {
         <pre style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text)", margin: 0, whiteSpace: "pre" }}>{CODE}</pre>
       </div>
 
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>borrow checker:</label>
-        <button style={!nll ? btnOn : btn} onClick={() => setNll(false)}>pre-NLL (Rust 1.36-)</button>
-        <button style={nll ? btnOn : btn} onClick={() => setNll(true)}>NLL (Rust 2018+)</button>
+        <button className="viz-btn" data-active={!nll} onClick={() => setNll(false)}>pre-NLL (Rust 1.36-)</button>
+        <button className="viz-btn" data-active={nll} onClick={() => setNll(true)}>NLL (Rust 2018+)</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 600, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -87,7 +87,4 @@ export default function NllBorrow() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };

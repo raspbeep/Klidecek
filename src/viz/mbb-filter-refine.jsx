@@ -123,14 +123,14 @@ export default function MbbFilterRefine() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {PREDICATES.map(p => (
-          <button key={p.key} onClick={() => setPredicate(p.key)} style={btn(predicate === p.key)}>{p.label}</button>
+          <button key={p.key} className="viz-btn" data-active={predicate === p.key} onClick={() => setPredicate(p.key)}>{p.label}</button>
         ))}
         <div style={{ flex: 1 }} />
-        <button onClick={() => setStage("filter")} style={btn(stage === "filter")}>Phase 1 only (MBR)</button>
-        <button onClick={() => setStage("refine")} style={btn(stage === "refine")}>Phase 2 only (exact)</button>
-        <button onClick={() => setStage("both")} style={btn(stage === "both")}>both</button>
+        <button className="viz-btn" data-active={stage === "filter"} onClick={() => setStage("filter")}>Phase 1 only (MBR)</button>
+        <button className="viz-btn" data-active={stage === "refine"} onClick={() => setStage("refine")}>Phase 2 only (exact)</button>
+        <button className="viz-btn" data-active={stage === "both"} onClick={() => setStage("both")}>both</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -206,13 +206,4 @@ function wrapLabel(text, max) {
   }
   if (cur) lines.push(cur);
   return lines;
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 10, padding: "2px 6px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

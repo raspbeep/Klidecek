@@ -83,13 +83,13 @@ export default function LrWaldScoreTests() {
 
       <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
         <label style={lab()}>x̄ = {xbar.toFixed(2)} (⇒ λ̂ = {(1 / xbar).toFixed(2)})
-          <input type="range" min={0.3} max={2.5} step={0.05} value={xbar} onChange={(e) => setXbar(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.3} max={2.5} step={0.05} value={xbar} onChange={(e) => setXbar(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>λ₀ = {lambda0.toFixed(2)}
-          <input type="range" min={0.3} max={2.5} step={0.05} value={lambda0} onChange={(e) => setLambda0(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={0.3} max={2.5} step={0.05} value={lambda0} onChange={(e) => setLambda0(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={lab()}>n = {n}
-          <input type="range" min={5} max={200} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={5} max={200} value={n} onChange={(e) => setN(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>
 

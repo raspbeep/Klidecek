@@ -84,22 +84,13 @@ export default function WapRestVerbs() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {ORDER.map((k) => (
           <button
             key={k}
+            className="viz-btn"
+            data-active={verb === k}
             onClick={() => setVerb(k)}
-            style={{
-              padding: "5px 12px",
-              fontSize: 12,
-              fontFamily: "var(--font-mono)",
-              fontWeight: 600,
-              cursor: "pointer",
-              borderRadius: 6,
-              border: `1px solid ${verb === k ? ACCENT : "var(--line)"}`,
-              color: verb === k ? "var(--bg-card)" : "var(--text)",
-              background: verb === k ? ACCENT : "var(--bg-card)",
-            }}
           >
             {k}
           </button>

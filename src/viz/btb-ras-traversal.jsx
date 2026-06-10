@@ -82,14 +82,14 @@ export default function BtbRasTraversal() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={scenarioKey} onChange={e => { setScenarioKey(e.target.value); setStep(0); }} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={scenarioKey} onChange={e => { setScenarioKey(e.target.value); setStep(0); }}>
           {Object.entries(SCENARIOS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <button onClick={() => setStep(Math.max(0, step - 1))} style={btn(false)}>←</button>
-        <button onClick={() => setStep(Math.min(steps.length - 1, step + 1))} style={btn(false)}>krok →</button>
-        <button onClick={() => setStep(steps.length - 1)} style={btn(false)}>do konce</button>
-        <button onClick={() => setStep(0)} style={btn(false)}>reset</button>
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))}>←</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(steps.length - 1, step + 1))}>krok →</button>
+        <button className="viz-btn" onClick={() => setStep(steps.length - 1)}>do konce</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -143,7 +143,3 @@ export default function BtbRasTraversal() {
   );
 }
 
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };
-function btn(active) {
-  return { ...ctrl, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", cursor: "pointer", padding: "3px 9px" };
-}

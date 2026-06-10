@@ -68,13 +68,13 @@ export default function LorawanCounter() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>aktivace:</label>
-        <select value={mode} onChange={(e) => setMode(e.target.value)} style={sel}>
+        <select className="viz-select" value={mode} onChange={(e) => setMode(e.target.value)}>
           <option value="ABP">ABP (staticke klice + reset on reboot)</option>
           <option value="OTAA">OTAA (dynamicke session keys)</option>
         </select>
-        <button style={btn} onClick={reset}>reset vse</button>
+        <button className="viz-btn" onClick={reset}>reset vse</button>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -89,13 +89,13 @@ export default function LorawanCounter() {
         </div>
       </div>
 
-      <div style={row}>
-        <button style={btn} onClick={sendUplink}>ED uplink (FCnt++)</button>
-        <button style={btn} onClick={capturePkt}>utocnik: capture posledni packet</button>
-        <button style={btn} onClick={replay} disabled={!capturedPkt}>replay</button>
-        <button style={btn} onClick={abpReset} disabled={mode !== "ABP"}>ABP reset (vyjmi baterii)</button>
-        <button style={btn} onClick={forceRollover}>nastav FCnt = max</button>
-        <button style={btn} onClick={nsReset}>NS reset (rejoin)</button>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={sendUplink}>ED uplink (FCnt++)</button>
+        <button className="viz-btn" onClick={capturePkt}>utocnik: capture posledni packet</button>
+        <button className="viz-btn" onClick={replay} disabled={!capturedPkt}>replay</button>
+        <button className="viz-btn" onClick={abpReset} disabled={mode !== "ABP"}>ABP reset (vyjmi baterii)</button>
+        <button className="viz-btn" onClick={forceRollover}>nastav FCnt = max</button>
+        <button className="viz-btn" onClick={nsReset}>NS reset (rejoin)</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, maxHeight: 200, overflowY: "auto", fontFamily: "var(--font-mono)", fontSize: 11 }}>
@@ -116,9 +116,6 @@ export default function LorawanCounter() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const panel = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, fontSize: 12 };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 11, marginTop: 4 };

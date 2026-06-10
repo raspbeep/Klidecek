@@ -93,17 +93,11 @@ export default function PipelineHazards() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
+      <div className="viz-controls" style={{ marginBottom: 10 }}>
         <select
+          className="viz-select"
           value={progKey}
           onChange={(e) => setProgKey(e.target.value)}
-          style={{
-            background: "var(--bg-inset)",
-            color: "var(--text)",
-            border: "1px solid var(--line)",
-            padding: "4px 8px",
-            borderRadius: 4,
-          }}
         >
           {Object.keys(PROGRAMS).map((k) => (
             <option key={k} value={k}>
@@ -119,7 +113,7 @@ export default function PipelineHazards() {
           />
           Forwarding (bypass)
         </label>
-        <span style={{ color: "var(--text-muted)", fontSize: 12 }}>
+        <span className="viz-readout">
           Stall cykly: {stalls} · CPI = {cpi.toFixed(2)} (ideál: 1.00)
         </span>
       </div>

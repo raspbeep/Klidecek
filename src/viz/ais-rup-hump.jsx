@@ -99,7 +99,7 @@ export default function RupHump() {
         </text>
       </svg>
 
-      <input type="range" min={0} max={100} value={Math.round(t * 100)} onChange={(e) => setT(+e.target.value / 100)} style={{ width: "100%" }} />
+      <input type="range" className="viz-slider" min={0} max={100} value={Math.round(t * 100)} onChange={(e) => setT(+e.target.value / 100)} style={{ width: "100%" }} />
 
       <div style={{ padding: 8, background: "var(--bg-card)", borderRadius: 6, border: "1px solid var(--line)", fontSize: 11.5 }}>
         <span style={{ fontWeight: 600, color: "var(--text)" }}>Fáze: {phase.label}</span>{" "}

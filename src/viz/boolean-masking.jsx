@@ -33,18 +33,18 @@ export default function BooleanMasking() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>tajny byte s =</label>
         <input type="number" min={0} max={255} value={secret} onChange={(e) => setSecret(Math.max(0, Math.min(255, +e.target.value || 0)))}
           style={{ ...sel, width: 80, fontFamily: "var(--font-mono)" }} />
-        <span style={{ ...lbl, color: "var(--accent)" }}>0x{secret.toString(16).padStart(2, "0")} = {toBin(secret)}</span>
+        <span className="viz-readout" style={{ color: "var(--accent)" }}>0x{secret.toString(16).padStart(2, "0")} = {toBin(secret)}</span>
         <label style={lbl}>rad d =</label>
-        <select value={d} onChange={(e) => setD(+e.target.value)} style={sel}>
+        <select className="viz-select" value={d} onChange={(e) => setD(+e.target.value)}>
           <option value={1}>1 (2 shares)</option>
           <option value={2}>2 (3 shares)</option>
           <option value={3}>3 (4 shares)</option>
         </select>
-        <button style={btn} onClick={refresh}>↻ nove masky</button>
+        <button className="viz-btn" onClick={refresh}>↻ nove masky</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
@@ -91,7 +91,5 @@ export default function BooleanMasking() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

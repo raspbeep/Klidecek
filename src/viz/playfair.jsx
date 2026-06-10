@@ -71,7 +71,7 @@ export default function Playfair() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Klíčové slovo:</label>
         <input value={keyword} onChange={(e) => setKeyword(e.target.value)} style={inp} maxLength={20} />
         <label style={lbl}>Plaintext:</label>
@@ -120,13 +120,9 @@ export default function Playfair() {
 
         <div style={{ flex: 1, minWidth: 200 }}>
           <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 4 }}>Digramy (klikni na jeden):</div>
-          <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+          <div className="viz-controls">
             {digrams.map((d, i) => (
-              <button key={i} onClick={() => setSelectedDigram(i)} style={{
-                ...btn, padding: "4px 8px",
-                background: i === selectedDigram ? "var(--accent)" : "var(--bg-inset)",
-                color: i === selectedDigram ? "var(--bg-card)" : "var(--text)",
-              }}>
+              <button key={i} className="viz-btn" data-active={i === selectedDigram} onClick={() => setSelectedDigram(i)}>
                 {d[0]}{d[1]}→{results[i][0]}{results[i][1]}
               </button>
             ))}
@@ -160,8 +156,6 @@ export default function Playfair() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const inp = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 8px", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer", fontFamily: "var(--font-mono)" };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };

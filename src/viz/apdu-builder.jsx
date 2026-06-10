@@ -99,19 +99,19 @@ export default function ApduBuilder() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <span style={lbl}>stav karty:</span>
-        <span style={{ ...lbl, color: state.selected ? "#81b29a" : "var(--text-muted)" }}>selected={state.selected || "—"}</span>
-        <span style={{ ...lbl, color: state.pinOK ? "#81b29a" : "var(--text-muted)" }}>pinOK={state.pinOK ? "ano" : "ne"}</span>
-        <span style={{ ...lbl, color: state.tries === 0 ? "#e07a5f" : "var(--text-muted)" }}>tries={state.tries}</span>
-        <button style={btn} onClick={reset}>reset karty</button>
+      <div className="viz-controls">
+        <span className="viz-readout">stav karty:</span>
+        <span className="viz-readout" style={{ color: state.selected ? "#81b29a" : "var(--text-muted)" }}>selected={state.selected || "—"}</span>
+        <span className="viz-readout" style={{ color: state.pinOK ? "#81b29a" : "var(--text-muted)" }}>pinOK={state.pinOK ? "ano" : "ne"}</span>
+        <span className="viz-readout" style={{ color: state.tries === 0 ? "#e07a5f" : "var(--text-muted)" }}>tries={state.tries}</span>
+        <button className="viz-btn" onClick={reset}>reset karty</button>
       </div>
 
       <div>
         <div style={lbl}>vyber prikaz a posli na kartu:</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: 4, marginTop: 4 }}>
           {COMMANDS.map((c) => (
-            <button key={c.id} onClick={() => send(c.id)} style={{ ...btn, textAlign: "left", padding: 6 }}>
+            <button key={c.id} className="viz-btn" onClick={() => send(c.id)} style={{ textAlign: "left", padding: 6 }}>
               <div style={{ fontSize: 11, fontWeight: 600 }}>{c.label}</div>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--text-muted)" }}>{c.apdu}</div>
             </button>
@@ -145,6 +145,4 @@ export default function ApduBuilder() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

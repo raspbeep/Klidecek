@@ -48,9 +48,9 @@ export default function ChisqTFGallery() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(FAMILIES).map(([k, v]) => (
-          <button key={k} onClick={() => setFam(k)} style={btn(fam === k)}>{v.label}</button>
+          <button key={k} className="viz-btn" data-active={fam === k} onClick={() => setFam(k)}>{v.label}</button>
         ))}
       </div>
 
@@ -89,13 +89,13 @@ export default function ChisqTFGallery() {
         <text x={W - 14} y={H - 16} fontSize="10" textAnchor="end" fill="var(--text-muted)" fontFamily="var(--font-mono)">x</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         <label style={lab()}>{fam === "chi2" ? "k" : fam === "t" ? "ν" : "d₁"} = {df1}
-          <input type="range" min={1} max={40} value={df1} onChange={(e) => setDf1(+e.target.value)} style={{ width: "100%" }} />
+          <input type="range" className="viz-slider" min={1} max={40} value={df1} onChange={(e) => setDf1(+e.target.value)} style={{ width: "100%" }} />
         </label>
         {F.hasD2 && (
           <label style={lab()}>d₂ = {df2}
-            <input type="range" min={1} max={40} value={df2} onChange={(e) => setDf2(+e.target.value)} style={{ width: "100%" }} />
+            <input type="range" className="viz-slider" min={1} max={40} value={df2} onChange={(e) => setDf2(+e.target.value)} style={{ width: "100%" }} />
           </label>
         )}
       </div>
@@ -108,5 +108,4 @@ export default function ChisqTFGallery() {
   );
 }
 
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }
 function lab() { return { flex: "1 1 200px", display: "flex", flexDirection: "column", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-muted)" }; }

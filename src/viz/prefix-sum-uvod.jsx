@@ -81,10 +81,10 @@ export default function PrefixSumUvod() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* App picker */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", fontSize: 11.5 }}>
+      <div className="viz-controls" style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, fontSize: 11.5 }}>
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>aplikace:</span>
         {Object.keys(APPS).map((k) => (
-          <button key={k} onClick={() => setAppKey(k)} style={{ ...modeBtn, ...(appKey === k ? activeBtn : {}) }}>
+          <button key={k} className="viz-btn" data-active={appKey === k} onClick={() => setAppKey(k)}>
             {k}
           </button>
         ))}
@@ -92,7 +92,7 @@ export default function PrefixSumUvod() {
           <>
             <span style={{ color: "var(--text-muted)", fontWeight: 600, marginLeft: 8 }}>operátor:</span>
             {Object.keys(OPERATORS).map((k) => (
-              <button key={k} onClick={() => setOpKey(k)} style={{ ...modeBtn, ...(opKey === k ? activeBtn : {}) }}>
+              <button key={k} className="viz-btn" data-active={opKey === k} onClick={() => setOpKey(k)}>
                 {k}
               </button>
             ))}
@@ -180,11 +180,8 @@ export default function PrefixSumUvod() {
             </div>
             <div style={{ display: "flex", gap: 4 }}>
               {flags.map((f, i) => (
-                <button key={i} onClick={() => toggleFlag(i)}
-                  style={{ width: 40, padding: "3px 4px", fontSize: 12, fontFamily: "var(--font-mono)",
-                           background: f ? "var(--accent)" : "var(--bg-inset)",
-                           color: f ? "var(--bg-card)" : "var(--text-muted)",
-                           border: "1px solid var(--line)", borderRadius: 3, cursor: "pointer", fontWeight: 600 }}>
+                <button key={i} className="viz-btn" data-active={f === 1} onClick={() => toggleFlag(i)}
+                  style={{ width: 40, fontWeight: 600 }}>
                   {f}
                 </button>
               ))}
@@ -196,14 +193,3 @@ export default function PrefixSumUvod() {
   );
 }
 
-const modeBtn = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-  cursor: "pointer",
-};
-const activeBtn = { background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };

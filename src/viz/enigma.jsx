@@ -99,18 +99,17 @@ export default function Enigma() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Rotor pozice (Stellung):</label>
         {[0, 1, 2].map((i) => (
-          <select key={i} value={positions[i]}
-            onChange={(e) => setPositions(positions.map((p, j) => j === i ? +e.target.value : p))}
-            style={sel}>
+          <select key={i} className="viz-select" value={positions[i]}
+            onChange={(e) => setPositions(positions.map((p, j) => j === i ? +e.target.value : p))}>
             {ALPHA.split("").map((c, idx) => <option key={c} value={idx}>{c}</option>)}
           </select>
         ))}
-        <button onClick={reset} style={btn}>Reset</button>
+        <button className="viz-btn" onClick={reset}>Reset</button>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>Plugboard:</label>
         <input value={plugsStr} onChange={(e) => setPlugsStr(e.target.value.toUpperCase())} style={{ ...sel, flex: 1, minWidth: 200, fontFamily: "var(--font-mono)" }} />
       </div>
@@ -188,5 +187,4 @@ const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", borde
 const row = { display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 12, color: "var(--text-muted)" };
 const sel = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11 };
-const btn = { padding: "3px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };
 const kbBtn = { width: 22, height: 22, padding: 0, fontFamily: "var(--font-mono)", fontSize: 11, background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 3, cursor: "pointer" };

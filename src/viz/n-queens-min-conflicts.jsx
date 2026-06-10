@@ -73,18 +73,18 @@ export default function NQueensMinConflicts() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
-        <button onClick={() => setSeed((s) => s + 1)} style={btnStyle()}>nový start</button>
-        <div style={{ display: "flex", gap: 6 }}>
-          <button onClick={() => setStep(0)} style={btnStyle()}>⏮</button>
-          <button onClick={() => setStep((s) => Math.max(0, s - 1))} style={btnStyle()}>◀</button>
-          <button onClick={() => setStep((s) => Math.min(trace.length - 1, s + 1))} style={btnStyle()}>▶</button>
-          <button onClick={() => setStep(trace.length - 1)} style={btnStyle()}>⏭</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setSeed((s) => s + 1)}>nový start</button>
+        <div className="viz-controls">
+          <button className="viz-btn" onClick={() => setStep(0)}>⏮</button>
+          <button className="viz-btn" onClick={() => setStep((s) => Math.max(0, s - 1))}>◀</button>
+          <button className="viz-btn primary" onClick={() => setStep((s) => Math.min(trace.length - 1, s + 1))}>▶</button>
+          <button className="viz-btn" onClick={() => setStep(trace.length - 1)}>⏭</button>
         </div>
-        <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           krok {step}/{trace.length - 1}
         </span>
-        <span style={{ fontFamily: "var(--font-mono)", color: cur.conflicts === 0 ? "oklch(0.75 0.18 145)" : "var(--text)" }}>
+        <span className="viz-readout" style={{ color: cur.conflicts === 0 ? "oklch(0.75 0.18 145)" : "var(--text)" }}>
           konfliktů: {cur.conflicts}{cur.conflicts === 0 && cur.done ? " ✓" : ""}
         </span>
       </div>
@@ -161,8 +161,4 @@ export default function NQueensMinConflicts() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

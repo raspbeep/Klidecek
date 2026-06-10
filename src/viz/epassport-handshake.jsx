@@ -52,16 +52,16 @@ export default function EpassportHandshake() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>access protokol:</label>
-        <select value={accessMode} onChange={(e) => { setAccessMode(e.target.value); setStep(0); }} style={sel}>
+        <select className="viz-select" value={accessMode} onChange={(e) => { setAccessMode(e.target.value); setStep(0); }}>
           <option value="pace">PACE (modern, EU 2014+)</option>
           <option value="bac">BAC (legacy)</option>
         </select>
-        <button style={btn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>◀ prev</button>
-        <span style={lbl}>krok {step + 1}/{visibleSteps.length}</span>
-        <button style={btn} onClick={() => setStep(Math.min(visibleSteps.length - 1, step + 1))} disabled={step >= visibleSteps.length - 1}>next ▶</button>
-        <button style={btn} onClick={() => setStep(0)}>reset</button>
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>◀ prev</button>
+        <span className="viz-readout">krok {step + 1}/{visibleSteps.length}</span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(visibleSteps.length - 1, step + 1))} disabled={step >= visibleSteps.length - 1}>next ▶</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
@@ -124,7 +124,4 @@ export default function EpassportHandshake() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

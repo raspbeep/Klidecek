@@ -79,7 +79,7 @@ export default function TamaVodopadVsAgile() {
         <text x={padL + 18} y={padT + 15} fontSize="8.5" fill="var(--text-muted)" fontFamily="var(--font-mono)">vodopád (1 release)</text>
       </svg>
 
-      <input type="range" min={0} max={100} value={t} onChange={(e) => setT(+e.target.value)} style={{ width: "100%" }} />
+      <input type="range" className="viz-slider" min={0} max={100} value={t} onChange={(e) => setT(+e.target.value)} style={{ width: "100%" }} />
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", fontSize: 11.5, fontFamily: "var(--font-mono)" }}>
         <span style={{ color: "var(--text-muted)" }}>čas = {t} %</span>
         <span style={{ color: "oklch(0.55 0.16 142)" }}>agile: {Math.round(av * 100)} % funkcí v rukou uživatelů</span>

@@ -61,12 +61,12 @@ export default function TamaOfflineSync() {
         </label>
       </div>
 
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>←</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 11.5, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>←</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step + 1} / {steps.length}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step === steps.length - 1}>→</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step === steps.length - 1}>→</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 420 }}>
@@ -127,8 +127,3 @@ export default function TamaOfflineSync() {
     </div>
   );
 }
-
-const navBtn = {
-  padding: "4px 12px", fontSize: 13, fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: 4, cursor: "pointer",
-};

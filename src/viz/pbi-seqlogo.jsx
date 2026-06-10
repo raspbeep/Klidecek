@@ -131,21 +131,15 @@ export default function PbiSeqLogo() {
           fontFamily="var(--font-mono)" fill="var(--text-faint)">pozice v zarovnání</text>
       </svg>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-        <button onClick={() => setConserved((v) => !v)}
-          style={{ fontSize: 12, fontFamily: "var(--font-mono)", padding: "3px 8px",
-            background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line-strong)",
-            borderRadius: 4, cursor: "pointer" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setConserved((v) => !v)}>
           {conserved ? "motiv: konzervovaný (TATA-box)" : "motiv: variabilní (skoro náhodný)"}
         </button>
-        <button onClick={() => setShowAln((v) => !v)}
-          style={{ fontSize: 12, fontFamily: "var(--font-mono)", padding: "3px 8px",
-            background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line-strong)",
-            borderRadius: 4, cursor: "pointer" }}>
+        <button className="viz-btn" onClick={() => setShowAln((v) => !v)}>
           {showAln ? "skrýt zarovnání" : "zobrazit zarovnání"}
         </button>
       </div>
-      <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-readout">
         celkový obsah loga = {cols.reduce((s, c) => s + c.R, 0).toFixed(2)} bitů · vyšší sloupec = silnější konzervace
       </div>
     </div>

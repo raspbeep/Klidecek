@@ -86,14 +86,14 @@ export default function StridePrefetcherTrace() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={patternKey} onChange={e => setPatternKey(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={patternKey} onChange={e => setPatternKey(e.target.value)}>
           {Object.entries(PATTERNS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
           <input type="checkbox" checked={enabled} onChange={e => setEnabled(e.target.checked)} /> prefetcher
         </label>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <span className="viz-readout">
           miss rate: {(simOff.misses / stream.length * 100).toFixed(0)}% off → {(sim.misses / stream.length * 100).toFixed(0)}% on
         </span>
       </div>
@@ -135,5 +135,3 @@ export default function StridePrefetcherTrace() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

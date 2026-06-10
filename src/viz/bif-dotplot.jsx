@@ -93,13 +93,13 @@ export default function BifDotPlot() {
 
       <label style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
         velikost okna W = {win}
-        <input type="range" min={1} max={4} value={win}
+        <input type="range" className="viz-slider" min={1} max={4} value={win}
           onChange={(e) => { const v = +e.target.value; setWin(v); if (thr > v) setThr(v); }}
           style={{ width: "100%" }} />
       </label>
       <label style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
         prah shody = {Math.min(thr, win)} z {win}
-        <input type="range" min={1} max={4} value={Math.min(thr, win)}
+        <input type="range" className="viz-slider" min={1} max={4} value={Math.min(thr, win)}
           onChange={(e) => setThr(+e.target.value)} style={{ width: "100%" }} />
       </label>
     </div>

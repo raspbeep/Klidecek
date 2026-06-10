@@ -85,20 +85,20 @@ export default function DpaAesSbox() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>skutecny k* =</label>
         <input type="number" min={0} max={255} value={trueKey} onChange={(e) => setTrueKey(Math.max(0, Math.min(255, +e.target.value || 0)))}
           style={{ ...sel, width: 80, fontFamily: "var(--font-mono)" }} />
-        <span style={lbl}>0x{trueKey.toString(16).padStart(2, "0")}</span>
-        <button style={btn} onClick={() => setTrueKey(Math.floor(Math.random() * 256))}>nahodny k*</button>
+        <span className="viz-readout">0x{trueKey.toString(16).padStart(2, "0")}</span>
+        <button className="viz-btn" onClick={() => setTrueKey(Math.floor(Math.random() * 256))}>nahodny k*</button>
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>N traces =</label>
-        <input type="range" min={20} max={2000} step={10} value={n} onChange={(e) => setN(+e.target.value)} style={{ flex: 1, minWidth: 140 }} />
-        <span style={lbl}>{n}</span>
+        <input type="range" className="viz-slider" min={20} max={2000} step={10} value={n} onChange={(e) => setN(+e.target.value)} style={{ flex: 1, minWidth: 140 }} />
+        <span className="viz-readout">{n}</span>
         <label style={lbl}>sum sigma =</label>
-        <input type="range" min={0} max={5} step={0.1} value={noise} onChange={(e) => setNoise(+e.target.value)} style={{ flex: 1, minWidth: 100 }} />
-        <span style={lbl}>{noise.toFixed(1)}</span>
+        <input type="range" className="viz-slider" min={0} max={5} step={0.1} value={noise} onChange={(e) => setNoise(+e.target.value)} style={{ flex: 1, minWidth: 100 }} />
+        <span className="viz-readout">{noise.toFixed(1)}</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 580, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -137,7 +137,5 @@ export default function DpaAesSbox() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
 const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

@@ -84,13 +84,13 @@ export default function LinuxRngBoot() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>scenar:</label>
-        <select value={scenario} onChange={(e) => { setScenario(e.target.value); reset(); }} style={{ ...sel, flex: 1, minWidth: 220 }}>
+        <select className="viz-select" value={scenario} onChange={(e) => { setScenario(e.target.value); reset(); }} style={{ flex: 1, minWidth: 220 }}>
           {Object.entries(SCENARIOS).map(([k, v]) => <option key={k} value={k}>{v.name}</option>)}
         </select>
-        <button style={btn} onClick={() => setPlaying(!playing)}>{playing ? "stop" : "play"}</button>
-        <button style={btn} onClick={reset}>reset</button>
+        <button className="viz-btn primary" onClick={() => setPlaying(!playing)}>{playing ? "stop" : "play"}</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 580, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -166,7 +166,4 @@ export default function LinuxRngBoot() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

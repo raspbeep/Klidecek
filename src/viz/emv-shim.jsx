@@ -65,11 +65,11 @@ export default function EmvShim() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
-        <button style={btn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpet</button>
-        <span style={lbl}>krok {step + 1} / {STEPS.length}</span>
-        <button style={btn} onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>vpred →</button>
-        <button style={btn} onClick={() => setStep(0)}>reset</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpet</button>
+        <span className="viz-readout">krok {step + 1} / {STEPS.length}</span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length - 1, step + 1))} disabled={step === STEPS.length - 1}>vpred →</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 580, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -144,6 +144,3 @@ export default function EmvShim() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

@@ -101,14 +101,14 @@ export default function KeystrokeRhythm() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>enrolled user:</label>
-        <select value={enrolled} onChange={(e) => setEnrolled(e.target.value)} style={sel}>
+        <select className="viz-select" value={enrolled} onChange={(e) => setEnrolled(e.target.value)}>
           {Object.entries(USERS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <button style={btn} onClick={() => simulate("alice")}>simulovat Alice</button>
-        <button style={btn} onClick={() => simulate("bob")}>simulovat Bob</button>
-        <button style={btn} onClick={reset}>reset</button>
+        <button className="viz-btn" onClick={() => simulate("alice")}>simulovat Alice</button>
+        <button className="viz-btn" onClick={() => simulate("bob")}>simulovat Bob</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6 }}>
@@ -174,10 +174,7 @@ export default function KeystrokeRhythm() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
 const statBox = { background: "var(--bg-inset)", padding: 8, borderRadius: 6, textAlign: "center" };
 const statLbl = { fontSize: 10, color: "var(--text-muted)" };
 const statVal = { fontSize: 18, fontWeight: 600, fontFamily: "var(--font-mono)", marginTop: 4 };

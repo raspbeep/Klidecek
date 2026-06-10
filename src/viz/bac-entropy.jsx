@@ -66,9 +66,9 @@ export default function BacEntropy() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>schema:</label>
-        <select value={scheme} onChange={(e) => setScheme(e.target.value)} style={{ ...sel, flex: 1, minWidth: 220 }}>
+        <select className="viz-select" value={scheme} onChange={(e) => setScheme(e.target.value)} style={{ flex: 1, minWidth: 220 }}>
           {Object.entries(SCHEMES).map(([k, v]) => <option key={k} value={k}>{v.name}</option>)}
         </select>
       </div>
@@ -110,6 +110,4 @@ export default function BacEntropy() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };

@@ -51,15 +51,15 @@ export default function PipelineStageTracker() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => setMode(mode === "pipelined" ? "sequential" : "pipelined")} style={btn(false)}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn" onClick={() => setMode(mode === "pipelined" ? "sequential" : "pipelined")}>
           {mode === "pipelined" ? "→ sekvenční" : "→ zřetězené"}
         </button>
-        <button onClick={() => setT(Math.max(0, t - 1))} style={btn(false)} disabled={t === 0}>← krok</button>
-        <button onClick={() => setT(Math.min(maxT, t + 1))} style={btn(false)} disabled={t === maxT}>krok →</button>
-        <button onClick={() => setAuto(a => !a)} style={btn(auto)}>{auto ? "■ stop" : "▶ auto"}</button>
-        <button onClick={() => { setT(0); setAuto(false); }} style={btn(false)}>reset</button>
-        <span style={{ color: "var(--text-muted)", fontSize: 11, marginLeft: 4 }}>
+        <button className="viz-btn" onClick={() => setT(Math.max(0, t - 1))} disabled={t === 0}>← krok</button>
+        <button className="viz-btn primary" onClick={() => setT(Math.min(maxT, t + 1))} disabled={t === maxT}>krok →</button>
+        <button className="viz-btn" data-active={auto} onClick={() => setAuto(a => !a)}>{auto ? "■ stop" : "▶ auto"}</button>
+        <button className="viz-btn" onClick={() => { setT(0); setAuto(false); }}>reset</button>
+        <span className="viz-readout">
           t = {t} | dokončeno: {completed}/{n} | CPI ≈ {cpi.toFixed(2)}
         </span>
       </div>
@@ -104,13 +104,4 @@ export default function PipelineStageTracker() {
       </svg>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 9px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "white" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

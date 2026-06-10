@@ -38,11 +38,11 @@ export default function SiemCorrelationTrace() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: 11, alignItems: "center" }}>
-        <button onClick={() => setIdx(Math.min(EVENTS.length, idx + 1))} style={btn(false)}>▶ next event ({idx}/{EVENTS.length})</button>
-        <button onClick={() => setIdx(EVENTS.length)} style={btn(false)}>▶▶ run all</button>
-        <button onClick={() => setIdx(0)} style={btn(false)}>reset</button>
-        <span style={{ color: "var(--text-muted)" }}>rule: ≥10 fails &amp; success(diff IP) within 60s → account takeover</span>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
+        <button className="viz-btn primary" onClick={() => setIdx(Math.min(EVENTS.length, idx + 1))}>▶ next event ({idx}/{EVENTS.length})</button>
+        <button className="viz-btn" onClick={() => setIdx(EVENTS.length)}>▶▶ run all</button>
+        <button className="viz-btn" onClick={() => setIdx(0)}>reset</button>
+        <span className="viz-readout">rule: ≥10 fails &amp; success(diff IP) within 60s → account takeover</span>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -110,8 +110,4 @@ export default function SiemCorrelationTrace() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

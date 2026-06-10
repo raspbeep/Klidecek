@@ -50,9 +50,9 @@ export default function YCombinator() {
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--accent)", textAlign: "center" }}>
         {Y_DEF}
       </div>
-      <div style={row}>
-        <button style={showUnfold ? btnOn : btn} onClick={() => setShowUnfold(true)}>derivace Y g = g (Y g)</button>
-        <button style={!showUnfold ? btnOn : btn} onClick={() => setShowUnfold(false)}>factorial via Y</button>
+      <div className="viz-controls">
+        <button className="viz-btn" data-active={showUnfold} onClick={() => setShowUnfold(true)}>derivace Y g = g (Y g)</button>
+        <button className="viz-btn" data-active={!showUnfold} onClick={() => setShowUnfold(false)}>factorial via Y</button>
       </div>
       {showUnfold ? (
         <>
@@ -61,10 +61,10 @@ export default function YCombinator() {
               <div key={i} style={{ fontFamily: "var(--font-mono)", fontSize: 12, padding: "2px 0", color: i === unfoldLines.length - 1 ? "var(--accent)" : "var(--text)" }}>{l}</div>
             ))}
           </div>
-          <div style={row}>
+          <div className="viz-controls">
             <label style={lbl}>opakované unfolding:</label>
-            <input type="range" min="0" max="5" value={steps} onChange={(e) => setSteps(parseInt(e.target.value))} />
-            <code style={mono}>{steps}×</code>
+            <input type="range" className="viz-slider" min="0" max="5" value={steps} onChange={(e) => setSteps(parseInt(e.target.value))} />
+            <code className="viz-readout">{steps}×</code>
           </div>
           <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, fontFamily: "var(--font-mono)", fontSize: 11 }}>
             {unfoldExpanded.map((l, i) => <div key={i} style={{ padding: "2px 0", color: i === unfoldExpanded.length - 1 ? "var(--accent)" : "var(--text-muted)" }}>{l}</div>)}
@@ -75,11 +75,11 @@ export default function YCombinator() {
         </>
       ) : (
         <>
-          <div style={row}>
+          <div className="viz-controls">
             <label style={lbl}>FACT n:</label>
-            <input type="range" min="0" max="6" value={n} onChange={(e) => setN(parseInt(e.target.value))} />
-            <code style={mono}>n = {n}</code>
-            <span style={{ marginLeft: 12, color: "var(--accent)", fontFamily: "var(--font-mono)" }}>= {trace.result}</span>
+            <input type="range" className="viz-slider" min="0" max="6" value={n} onChange={(e) => setN(parseInt(e.target.value))} />
+            <code className="viz-readout">n = {n}</code>
+            <span className="viz-readout" style={{ marginLeft: 12, color: "var(--accent)" }}>= {trace.result}</span>
           </div>
           <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, maxHeight: 320, overflowY: "auto" }}>
             {trace.lines.map((l, i) => (
@@ -99,8 +99,5 @@ export default function YCombinator() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--accent)" };

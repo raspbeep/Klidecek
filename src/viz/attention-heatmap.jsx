@@ -96,24 +96,17 @@ export default function AttentionHeatmap() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls">
         <label style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>scénář:</span>
-          <select value={sentKey} onChange={(e) => { setSentKey(e.target.value); setSelectedRow(null); setHead(0); }}
-            style={{ background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 4px", borderRadius: 3 }}>
+          <select className="viz-select" value={sentKey} onChange={(e) => { setSentKey(e.target.value); setSelectedRow(null); setHead(0); }}>
             {Object.entries(SENTENCES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
         </label>
         <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <span style={{ color: "var(--text-muted)" }}>head:</span>
           {data.heads.map((_, i) => (
-            <button key={i} onClick={() => setHead(i)}
-              style={{
-                background: head === i ? "var(--accent)" : "var(--bg-card)",
-                color: head === i ? "white" : "var(--text)",
-                border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer",
-                fontFamily: "var(--font-mono)",
-              }}>
+            <button key={i} className="viz-btn" data-active={head === i} onClick={() => setHead(i)}>
               {i}
             </button>
           ))}

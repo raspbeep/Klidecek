@@ -47,12 +47,12 @@ export default function ClpNqueens() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>n:</label>
-        {[4, 5, 6].map((k) => <button key={k} style={n === k ? btnOn : btn} onClick={() => { setN(k); setStep(0); }}>{k}-queens</button>)}
-        <span style={{ ...lbl, marginLeft: 12 }}>krok {step + 1} / {trace.length}</span>
-        <button style={btn} disabled={step === 0} onClick={() => setStep(step - 1)}>‹</button>
-        <button style={btn} disabled={step >= trace.length - 1} onClick={() => setStep(step + 1)}>›</button>
+        {[4, 5, 6].map((k) => <button key={k} className="viz-btn" data-active={n === k} onClick={() => { setN(k); setStep(0); }}>{k}-queens</button>)}
+        <span className="viz-readout" style={{ marginLeft: 12 }}>krok {step + 1} / {trace.length}</span>
+        <button className="viz-btn" disabled={step === 0} onClick={() => setStep(step - 1)}>‹</button>
+        <button className="viz-btn primary" disabled={step >= trace.length - 1} onClick={() => setStep(step + 1)}>›</button>
       </div>
 
       <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "flex-start" }}>
@@ -112,8 +112,5 @@ queens(Qs) :-
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };
-const btnOn = { ...btn, background: "var(--accent)", color: "var(--bg-card)", borderColor: "var(--accent)" };
 const mono = { fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--accent)" };

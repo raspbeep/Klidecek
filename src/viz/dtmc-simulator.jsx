@@ -110,9 +110,9 @@ export default function DtmcSimulator() {
   // For display, allow viz of graph: nodes + edges
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div className="viz-controls">
         {Object.entries(PRESETS).map(([k, p]) => (
-          <button key={k} onClick={() => setPreset(k)} style={btn(preset === k)}>{p.label}</button>
+          <button key={k} className="viz-btn" data-active={preset === k} onClick={() => setPreset(k)}>{p.label}</button>
         ))}
       </div>
 
@@ -186,16 +186,14 @@ export default function DtmcSimulator() {
         </g>
       </svg>
 
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <button onClick={() => setRunning(!running)} style={btn(false)}>{running ? "⏸ pauza" : "▶ běž"}</button>
-        <button onClick={step} disabled={running} style={btn(false)}>krok →</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
-        <span style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginLeft: 6 }}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={() => setRunning(!running)}>{running ? "⏸ pauza" : "▶ běž"}</button>
+        <button className="viz-btn" onClick={step} disabled={running}>krok →</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
+        <span className="viz-readout" style={{ marginLeft: 6 }}>
           k = {k} · Σ t = {Array.from(t).reduce((a, b) => a + b, 0).toFixed(4)}
         </span>
       </div>
     </div>
   );
 }
-
-function btn(active) { return { padding: "4px 10px", fontSize: 11, border: "1px solid " + (active ? "var(--accent)" : "var(--line)"), background: active ? "var(--bg-inset)" : "var(--bg-card)", color: active ? "var(--accent)" : "var(--text)", borderRadius: 4, cursor: "pointer", fontFamily: "var(--font-mono)" }; }

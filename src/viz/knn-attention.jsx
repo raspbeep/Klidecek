@@ -44,16 +44,10 @@ export default function KnnAttention() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 12, alignItems: "center", fontSize: 12, flexWrap: "wrap" }}>
+      <div className="viz-controls" style={{ fontSize: 12 }}>
         <span style={{ color: "var(--text-muted)" }}>query token:</span>
         {TOKENS.map((t, i) => (
-          <button key={i} onClick={() => setSel(i)}
-            style={{
-              background: sel === i ? "var(--accent)" : "var(--bg-card)",
-              color: sel === i ? "white" : "var(--text)",
-              border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 4,
-              fontSize: 12, cursor: "pointer", fontFamily: "var(--font-mono)",
-            }}>{t}</button>
+          <button key={i} className="viz-btn" data-active={sel === i} onClick={() => setSel(i)}>{t}</button>
         ))}
         <label style={{ display: "flex", gap: 5, alignItems: "center", marginLeft: "auto" }}>
           <input type="checkbox" checked={causal} onChange={(e) => setCausal(e.target.checked)} />

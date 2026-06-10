@@ -43,12 +43,12 @@ export default function NavSarAdc() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← zpět</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           {step === 0 ? "start" : done ? "hotovo" : `krok ${step} / ${N}`}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(N, step + 1))} disabled={done}>další bit →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(N, step + 1))} disabled={done}>další bit →</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W }}>
@@ -103,7 +103,7 @@ export default function NavSarAdc() {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-        <input type="range" min={0} max={LEVELS - 1} value={code}
+        <input type="range" className="viz-slider" min={0} max={LEVELS - 1} value={code}
           onChange={(e) => reset(+e.target.value)} style={{ width: "100%" }} />
         <div style={{ fontSize: 11, color: "var(--text-faint)", fontFamily: "var(--font-mono)" }}>
           cílový kód = {code} · V_in ≈ {vin.toFixed(2)} V (změna resetuje převod)
@@ -112,13 +112,3 @@ export default function NavSarAdc() {
     </div>
   );
 }
-
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

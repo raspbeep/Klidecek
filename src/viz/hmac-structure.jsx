@@ -52,12 +52,9 @@ export default function HmacStructure() {
         <label style={lbl}>Zpráva M:</label>
         <input value={msgStr} onChange={(e) => setMsgStr(e.target.value.slice(0, 16))} style={inp} maxLength={16} />
       </div>
-      <div style={row}>
+      <div className="viz-controls">
         {[0, 1, 2, 3].map((s) => (
-          <button key={s} onClick={() => setStep(s)} style={{
-            ...btn, background: step >= s ? "var(--accent)" : "var(--bg-inset)",
-            color: step >= s ? "var(--bg-card)" : "var(--text)",
-          }}>
+          <button key={s} className="viz-btn" data-active={step >= s} onClick={() => setStep(s)}>
             {s + 1}. {["pad klíč", "vnitřní hash", "vnější hash", "MAC"][s]}
           </button>
         ))}
@@ -145,6 +142,5 @@ const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", borde
 const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)" };
 const inp = { padding: "3px 6px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 4, fontSize: 12, fontFamily: "var(--font-mono)", width: 140 };
-const btn = { padding: "4px 8px", border: "1px solid var(--line)", borderRadius: 4, fontSize: 11, cursor: "pointer" };
 const section = { background: "var(--bg-inset)", padding: 10, borderRadius: 6 };
 const mono = { fontFamily: "var(--font-mono)", color: "var(--text)", fontSize: 11, lineHeight: 1.6 };

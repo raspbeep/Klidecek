@@ -97,11 +97,11 @@ export default function OmpSchedulingComparator() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={wlKey} onChange={e => setWlKey(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={wlKey} onChange={e => setWlKey(e.target.value)}>
           {Object.entries(WORKLOADS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <span className="viz-readout">
           N = {N_ITERS} iterací, {N_THREADS} vláken
         </span>
       </div>
@@ -152,5 +152,3 @@ export default function OmpSchedulingComparator() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

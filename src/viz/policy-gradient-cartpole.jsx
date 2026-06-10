@@ -87,18 +87,18 @@ export default function PolicyGradientCartpole() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           episodes
-          <input type="range" min={1} max={200} value={eps} onChange={(e) => setEps(+e.target.value)} style={{ width: 100 }}/>
+          <input type="range" className="viz-slider" min={1} max={200} value={eps} onChange={(e) => setEps(+e.target.value)} style={{ width: 100 }}/>
           <span style={{ minWidth: 30 }}>{eps}</span>
         </label>
         <label style={{ display: "flex", gap: 4, alignItems: "center", fontFamily: "var(--font-mono)" }}>
           scrub
-          <input type="range" min={1} max={eps} value={scrub} onChange={(e) => setScrub(+e.target.value)} style={{ width: 100 }}/>
+          <input type="range" className="viz-slider" min={1} max={eps} value={scrub} onChange={(e) => setScrub(+e.target.value)} style={{ width: 100 }}/>
           <span style={{ minWidth: 30 }}>{scrub}</span>
         </label>
-        <button onClick={() => setSeed(seed + 1)} style={btnStyle()}>nový seed</button>
+        <button className="viz-btn" onClick={() => setSeed(seed + 1)}>nový seed</button>
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
@@ -188,8 +188,4 @@ export default function PolicyGradientCartpole() {
       </div>
     </div>
   );
-}
-
-function btnStyle() {
-  return { background: "var(--bg-card)", color: "var(--text)", border: "1px solid var(--line)", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

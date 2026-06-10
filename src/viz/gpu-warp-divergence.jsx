@@ -41,8 +41,8 @@ export default function GpuWarpDivergence() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={pattern} onChange={e => setPattern(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={pattern} onChange={e => setPattern(e.target.value)}>
           <option value="split">grouped split (slider)</option>
           <option value="alt">alternating (worst)</option>
           <option value="random">random</option>
@@ -51,7 +51,7 @@ export default function GpuWarpDivergence() {
         {pattern === "split" && (
           <label style={{ display: "flex", flexDirection: "column", color: "var(--text)", fontSize: 11 }}>
             split: {splitN}/{WARP_SIZE}
-            <input type="range" min={0} max={WARP_SIZE} value={splitN} onChange={e => setSplitN(+e.target.value)} style={{ width: 120 }} />
+            <input type="range" className="viz-slider" min={0} max={WARP_SIZE} value={splitN} onChange={e => setSplitN(+e.target.value)} style={{ width: 120 }} />
           </label>
         )}
         <label style={{ display: "flex", gap: 4, alignItems: "center", color: "var(--text)", fontSize: 11 }}>
@@ -116,5 +116,3 @@ export default function GpuWarpDivergence() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

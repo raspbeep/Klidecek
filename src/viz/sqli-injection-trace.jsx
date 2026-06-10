@@ -50,16 +50,16 @@ export default function SqliInjectionTrace() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         <span>username:</span>
         <input value={u} onChange={e => setU(e.target.value)} style={inp} />
         <span>password:</span>
         <input value={p} onChange={e => setP(e.target.value)} style={inp} />
       </div>
-      <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap", fontSize: 11 }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         <span style={{ color: "var(--text-muted)" }}>preset:</span>
         {Object.entries(PRESETS).map(([k, v]) => (
-          <button key={k} onClick={() => { setU(v.u); setP(v.p); }} style={btn(false)}>{k}</button>
+          <button key={k} className="viz-btn" onClick={() => { setU(v.u); setP(v.p); }}>{k}</button>
         ))}
         <label style={{ marginLeft: 10 }}>
           <input type="checkbox" checked={defended} onChange={e => setDefended(e.target.checked)} /> parameterized query
@@ -123,6 +123,3 @@ export default function SqliInjectionTrace() {
 }
 
 const inp = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11, fontFamily: "ui-monospace, monospace", width: 180 };
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "2px 7px", borderRadius: 3, fontSize: 10.5, cursor: "pointer" };
-}

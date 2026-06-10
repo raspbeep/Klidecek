@@ -146,12 +146,12 @@ export default function KdTreeBuilder() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <button onClick={() => setPoints(INIT.map(p => [...p]))} style={btn(false)}>reset</button>
-        <button onClick={() => setAddMode(a => !a)} style={btn(addMode)}>{addMode ? "click canvas to add" : "+ add mode"}</button>
-        <button onClick={() => setPoints(points.length > 1 ? points.slice(0, -1) : points)} style={btn(false)}>− point</button>
-        <button onClick={() => setMode("kd")} style={btn(mode === "kd")}>k-D tree</button>
-        <button onClick={() => setMode("quad")} style={btn(mode === "quad")}>Quadtree</button>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setPoints(INIT.map(p => [...p]))}>reset</button>
+        <button className="viz-btn" data-active={addMode} onClick={() => setAddMode(a => !a)}>{addMode ? "click canvas to add" : "+ add mode"}</button>
+        <button className="viz-btn" onClick={() => setPoints(points.length > 1 ? points.slice(0, -1) : points)}>− point</button>
+        <button className="viz-btn" data-active={mode === "kd"} onClick={() => setMode("kd")}>k-D tree</button>
+        <button className="viz-btn" data-active={mode === "quad"} onClick={() => setMode("quad")}>Quadtree</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`}
@@ -205,13 +205,4 @@ export default function KdTreeBuilder() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11, padding: "2px 8px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--bg-card)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 3, cursor: "pointer",
-  };
 }

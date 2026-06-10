@@ -32,11 +32,11 @@ export default function RustIteratorChain() {
         </code>
       </div>
 
-      <div style={row}>
-        <button style={btn} disabled={step === 0} onClick={() => setStep(step - 1)}>‹</button>
-        <span style={{ ...lbl, marginLeft: 8 }}>krok {step + 1} / {trace.length}</span>
-        <button style={btn} disabled={step >= trace.length - 1} onClick={() => setStep(step + 1)}>›</button>
-        <button style={{ ...btn, marginLeft: 12 }} onClick={() => setStep(trace.length - 1)}>jdi na collect</button>
+      <div className="viz-controls">
+        <button className="viz-btn" disabled={step === 0} onClick={() => setStep(step - 1)}>‹</button>
+        <span className="viz-readout" style={{ marginLeft: 8 }}>krok {step + 1} / {trace.length}</span>
+        <button className="viz-btn primary" disabled={step >= trace.length - 1} onClick={() => setStep(step + 1)}>›</button>
+        <button className="viz-btn" style={{ marginLeft: 12 }} onClick={() => setStep(trace.length - 1)}>jdi na collect</button>
       </div>
 
       <svg viewBox="0 0 540 220" style={{ width: "100%", maxWidth: 600, background: "var(--bg-inset)", borderRadius: 6 }}>
@@ -93,6 +93,3 @@ for x in v.iter() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
-const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const btn = { padding: "4px 10px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

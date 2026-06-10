@@ -28,10 +28,10 @@ export default function TamaRecomposition() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-        <button onClick={() => { setCount((c) => c + 1); recompose("count"); }} style={btn}>count++</button>
-        <button onClick={() => { setTitle((t) => (t === "Profil" ? "Nastavení" : "Profil")); recompose("title"); }} style={btn}>změnit title</button>
-        <span style={{ fontSize: 11, color: "var(--text-faint)", fontFamily: "ui-monospace, monospace" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => { setCount((c) => c + 1); recompose("count"); }}>count++</button>
+        <button className="viz-btn" onClick={() => { setTitle((t) => (t === "Profil" ? "Nastavení" : "Profil")); recompose("title"); }}>změnit title</button>
+        <span className="viz-readout">
           state: count={count}, title="{title}"
         </span>
       </div>
@@ -71,14 +71,3 @@ export default function TamaRecomposition() {
     </div>
   );
 }
-
-const btn = {
-  background: "var(--bg-inset)",
-  color: "var(--text)",
-  border: "1px solid var(--line)",
-  padding: "4px 12px",
-  borderRadius: 4,
-  fontSize: 12,
-  fontFamily: "ui-monospace, monospace",
-  cursor: "pointer",
-};

@@ -65,12 +65,12 @@ export default function GlitchPin() {
 
   return (
     <div style={ctn}>
-      <div style={row}>
+      <div className="viz-controls">
         <label style={lbl}>scénář:</label>
-        <select value={scenario} onChange={(e) => { setScenario(e.target.value); reset(); }} style={{ ...sel, flex: 1, minWidth: 220 }}>
+        <select className="viz-select" value={scenario} onChange={(e) => { setScenario(e.target.value); reset(); }} style={{ flex: 1, minWidth: 220 }}>
           {Object.entries(SCENARIOS).map(([k, v]) => <option key={k} value={k}>{v.title}</option>)}
         </select>
-        <button style={btn} onClick={reset}>reset glitch</button>
+        <button className="viz-btn" onClick={reset}>reset glitch</button>
       </div>
 
       <div style={{ background: "var(--bg-inset)", padding: 10, borderRadius: 6, fontFamily: "var(--font-mono)", fontSize: 12 }}>
@@ -114,7 +114,4 @@ export default function GlitchPin() {
 }
 
 const ctn = { padding: 14, borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--line)", display: "flex", flexDirection: "column", gap: 10 };
-const row = { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" };
 const lbl = { fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" };
-const sel = { padding: "4px 8px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12 };
-const btn = { padding: "5px 12px", background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", borderRadius: 5, fontSize: 12, cursor: "pointer" };

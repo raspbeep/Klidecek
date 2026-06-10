@@ -55,22 +55,14 @@ export default function WapXssTypes() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6 }}>
+      <div className="viz-controls">
         {Object.entries(TYPES).map(([k, v]) => (
           <button
             key={k}
+            className="viz-btn"
+            data-active={key === k}
             onClick={() => setKey(k)}
-            style={{
-              flex: 1,
-              padding: "7px 6px",
-              fontSize: 12,
-              borderRadius: 6,
-              cursor: "pointer",
-              border: key === k ? `1.5px solid ${ACCENT}` : "1px solid var(--line)",
-              background: key === k ? "oklch(0.55 0.16 264 / 0.12)" : "var(--bg-card)",
-              color: key === k ? ACCENT : "var(--text-muted)",
-              fontWeight: key === k ? 700 : 500,
-            }}
+            style={{ flex: 1 }}
           >
             {v.label}
             <div style={{ fontSize: 10, fontWeight: 400, marginTop: 2 }}>{v.sub}</div>

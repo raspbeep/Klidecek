@@ -64,11 +64,11 @@ export default function DvfsPstateCstateTimeline() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={stratKey} onChange={e => setStratKey(e.target.value)} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={stratKey} onChange={e => setStratKey(e.target.value)}>
           {Object.entries(STRATS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <span style={{ color: "var(--text-muted)", fontSize: 11 }}>
+        <span className="viz-readout">
           celková energie ≈ <b style={{ color: stratKey === "race" ? "oklch(0.65 0.16 145)" : "var(--accent)" }}>{energy.toFixed(0)}</b> J
         </span>
       </div>
@@ -115,5 +115,3 @@ export default function DvfsPstateCstateTimeline() {
     </div>
   );
 }
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };

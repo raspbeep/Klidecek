@@ -181,33 +181,22 @@ export default function NfaToDfa() {
             : `δ_NFA(q0, a) = {q0, q1}  →  L = words ending in pattern ...ab.a*`}
         </text>
       </svg>
-      <div style={{ display: "flex", gap: 8, marginTop: 8, alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginTop: 8 }}>
         <button
+          className="viz-btn"
           onClick={() => setStep(Math.max(0, step - 1))}
           disabled={step === 0}
-          style={btnStyle}
         >← prev</button>
         <button
+          className="viz-btn primary"
           onClick={() => setStep(Math.min(DFA.steps.length, step + 1))}
           disabled={step >= DFA.steps.length}
-          style={btnStyle}
         >next →</button>
-        <button onClick={() => setStep(0)} style={btnStyle}>reset</button>
-        <span style={{ marginLeft: 6, fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
+        <span className="viz-readout">
           step {step} / {DFA.steps.length}
         </span>
       </div>
     </div>
   );
 }
-
-const btnStyle = {
-  padding: "4px 12px",
-  fontSize: 12,
-  border: "1px solid var(--line-strong)",
-  background: "var(--bg-card)",
-  color: "var(--text)",
-  borderRadius: 4,
-  cursor: "pointer",
-  fontFamily: "var(--font-mono)",
-};

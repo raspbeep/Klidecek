@@ -142,14 +142,14 @@ export default function TomasuloRsCdb() {
   return (
     <div style={ctn}>
       {/* ── Controls ─────────────────────────────────────────── */}
-      <div style={ctrlRow}>
-        <button onClick={() => setT(Math.max(0, t - 1))} style={btn(false)}>← cycle</button>
-        <button onClick={() => setT(Math.min(FULL.totalCycles, t + 1))} style={btn(false)}>cycle →</button>
-        <button onClick={() => setAuto(a => !a)} style={btn(auto)}>{auto ? "■ pause" : "▶ play"}</button>
-        <button onClick={() => { setT(0); setAuto(false); }} style={btn(false)}>reset</button>
-        <span style={tlabel}>t = <b>{t}</b> / {FULL.totalCycles}</span>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setT(Math.max(0, t - 1))}>← cycle</button>
+        <button className="viz-btn primary" onClick={() => setT(Math.min(FULL.totalCycles, t + 1))}>cycle →</button>
+        <button className="viz-btn" data-active={auto} onClick={() => setAuto(a => !a)}>{auto ? "■ pause" : "▶ play"}</button>
+        <button className="viz-btn" onClick={() => { setT(0); setAuto(false); }}>reset</button>
+        <span className="viz-readout">t = <b>{t}</b> / {FULL.totalCycles}</span>
         {cur.justBroadcast && (
-          <span style={{ ...tlabel, color: "var(--accent)" }}>
+          <span className="viz-readout" style={{ color: "var(--accent)" }}>
             ⚡ CDB: <b>{cur.justBroadcast}</b> just broadcast
           </span>
         )}
@@ -374,9 +374,7 @@ function Cell({ r, field }) {
 
 // ─── Styles ────────────────────────────────────────────────────
 const ctn        = { display: "flex", flexDirection: "column", gap: 12 };
-const ctrlRow    = { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" };
 const twoCol     = { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 };
-const tlabel     = { fontSize: 11.5, fontFamily: "var(--font-mono)", color: "var(--text-muted)" };
 const tbl        = { width: "100%", borderCollapse: "collapse", fontSize: 11.5, fontFamily: "var(--font-mono)" };
 const trHead     = { background: "var(--bg-inset)" };
 const th         = { padding: "4px 6px", textAlign: "left", color: "var(--text-muted)", fontWeight: 600, borderBottom: "1px solid var(--line)" };
@@ -386,12 +384,3 @@ const tdCenter   = { ...td, textAlign: "center", color: "var(--text-muted)" };
 const sectionTitle = { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--text-faint)" };
 const caption    = { fontSize: 10.5, color: "var(--text-faint)", marginTop: 2 };
 const footer     = { fontSize: 11, color: "var(--text-muted)", lineHeight: 1.55, padding: "6px 10px", background: "var(--bg-inset)", borderRadius: 4 };
-
-function btn(active) {
-  return {
-    fontFamily: "var(--font-mono)", fontSize: 11.5, padding: "4px 10px",
-    background: active ? "var(--accent)" : "var(--bg-inset)",
-    color: active ? "var(--accent-text-on)" : "var(--text)",
-    border: "1px solid var(--line-strong)", borderRadius: 4, cursor: "pointer",
-  };
-}

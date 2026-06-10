@@ -85,16 +85,10 @@ export default function ZznRuleMetrics() {
           {passes(r) ? "PROJDE prahy (silné pravidlo)" : "NEPROJDE prahy"}
         </text>
       </svg>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="viz-controls">
         {rules.map((rr, i) => (
-          <button key={i} onClick={() => setRi(i)}
-            style={{
-              fontFamily: "var(--font-mono)", fontSize: 11, padding: "3px 8px", borderRadius: 4,
-              cursor: "pointer",
-              border: i === ri ? "1.5px solid var(--accent)" : "1px solid var(--line)",
-              background: passes(rr) ? "color-mix(in oklch, var(--accent) 18%, var(--bg-card))" : "var(--bg-card)",
-              color: "var(--text)",
-            }}>
+          <button key={i} className="viz-btn" data-active={i === ri} onClick={() => setRi(i)}
+            style={i !== ri && passes(rr) ? { background: "color-mix(in oklch, var(--accent) 18%, var(--bg-card))" } : undefined}>
             {ruleStr(rr)}
           </button>
         ))}
@@ -102,12 +96,12 @@ export default function ZznRuleMetrics() {
       <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
         <label style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
           min-support = {minSup.toFixed(2)}
-          <input type="range" min={0} max={1} step={0.1} value={minSup}
+          <input type="range" className="viz-slider" min={0} max={1} step={0.1} value={minSup}
             onChange={(e) => setMinSup(+e.target.value)} style={{ width: "100%" }} />
         </label>
         <label style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
           min-confidence = {minConf.toFixed(2)}
-          <input type="range" min={0} max={1} step={0.1} value={minConf}
+          <input type="range" className="viz-slider" min={0} max={1} step={0.1} value={minConf}
             onChange={(e) => setMinConf(+e.target.value)} style={{ width: "100%" }} />
         </label>
       </div>

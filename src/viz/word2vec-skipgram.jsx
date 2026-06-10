@@ -35,10 +35,10 @@ export default function Word2VecSkipgram() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11 }}>
+      <div className="viz-controls" style={{ fontSize: 11 }}>
         <span style={{ color: "var(--text-muted)" }}>centrum okna:</span>
-        <input type="range" min={0} max={CORPUS.length - 1} value={centerIdx} onChange={(e) => setCenterIdx(+e.target.value)} style={{ width: 200 }}/>
-        <span style={{ fontFamily: "var(--font-mono)" }}>{centerIdx}</span>
+        <input type="range" className="viz-slider" min={0} max={CORPUS.length - 1} value={centerIdx} onChange={(e) => setCenterIdx(+e.target.value)} style={{ width: 200 }}/>
+        <span className="viz-readout">{centerIdx}</span>
         <label style={{ display: "flex", gap: 4, alignItems: "center", marginLeft: 8 }}>
           <input type="checkbox" checked={showAnalogy} onChange={(e) => setShowAnalogy(e.target.checked)}/>
           analogie king−man+woman ≈ queen

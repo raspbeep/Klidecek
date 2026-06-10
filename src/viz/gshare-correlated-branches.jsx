@@ -88,14 +88,14 @@ export default function GshareCorrelatedBranches() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 6, flexWrap: "wrap", alignItems: "center" }}>
-        <select value={patternKey} onChange={e => { setPatternKey(e.target.value); setTrained(0); }} style={ctrl}>
+      <div className="viz-controls" style={{ marginBottom: 6 }}>
+        <select className="viz-select" value={patternKey} onChange={e => { setPatternKey(e.target.value); setTrained(0); }}>
           {Object.entries(PATTERNS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
         </select>
-        <button onClick={() => setTrained(Math.max(0, trained - 1))} style={btn(false)}>←</button>
-        <button onClick={() => setTrained(Math.min(seq.length - 1, trained + 1))} style={btn(false)}>krok →</button>
-        <button onClick={() => setTrained(seq.length - 1)} style={btn(false)}>vše ({seq.length})</button>
-        <button onClick={() => setTrained(0)} style={btn(false)}>reset</button>
+        <button className="viz-btn" onClick={() => setTrained(Math.max(0, trained - 1))}>←</button>
+        <button className="viz-btn primary" onClick={() => setTrained(Math.min(seq.length - 1, trained + 1))}>krok →</button>
+        <button className="viz-btn" onClick={() => setTrained(seq.length - 1)}>vše ({seq.length})</button>
+        <button className="viz-btn" onClick={() => setTrained(0)}>reset</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 720, background: "var(--bg-card)", borderRadius: 4, fontFamily: "ui-sans-serif, system-ui" }}>
@@ -163,9 +163,4 @@ export default function GshareCorrelatedBranches() {
       </svg>
     </div>
   );
-}
-
-const ctrl = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "3px 6px", borderRadius: 3, fontSize: 11 };
-function btn(active) {
-  return { ...ctrl, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", cursor: "pointer", padding: "3px 9px" };
 }

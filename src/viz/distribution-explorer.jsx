@@ -94,17 +94,17 @@ export default function DistributionExplorer() {
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: "4px 12px", alignItems: "center", fontFamily: "var(--font-mono)", fontSize: 12 }}>
         <span>skew</span>
-        <input type="range" min={-20} max={20} value={skew * 10}
+        <input type="range" className="viz-slider" min={-20} max={20} value={skew * 10}
           onChange={(e) => setSkew(+e.target.value / 10)} />
         <span style={{ width: 40, textAlign: "right" }}>{skew.toFixed(1)}</span>
 
         <span>outliers</span>
-        <input type="range" min={0} max={15} value={outliers}
+        <input type="range" className="viz-slider" min={0} max={15} value={outliers}
           onChange={(e) => setOutliers(+e.target.value)} />
         <span style={{ width: 40, textAlign: "right" }}>{outliers}</span>
 
         <span>trim %</span>
-        <input type="range" min={0} max={40} value={trimPct}
+        <input type="range" className="viz-slider" min={0} max={40} value={trimPct}
           onChange={(e) => setTrimPct(+e.target.value)} />
         <span style={{ width: 40, textAlign: "right" }}>{trimPct}%</span>
       </div>

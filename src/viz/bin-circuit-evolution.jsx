@@ -141,20 +141,14 @@ export default function BinCircuitEvolution() {
         })}
       </svg>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-        <button onClick={evolve}
-          style={{ padding: "5px 14px", fontSize: 13, cursor: "pointer",
-            background: "var(--accent)", color: "var(--accent-text-on)",
-            border: "none", borderRadius: 6, fontWeight: 600 }}>
+      <div className="viz-controls">
+        <button className="viz-btn primary" onClick={evolve}>
           Mutuj / Evolvuj ▸
         </button>
-        <button onClick={reset}
-          style={{ padding: "5px 12px", fontSize: 13, cursor: "pointer",
-            background: "var(--bg-card)", color: "var(--text)",
-            border: "1px solid var(--line-strong)", borderRadius: 6 }}>
+        <button className="viz-btn" onClick={reset}>
           Reset
         </button>
-        <span style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           cíl = XOR · generace {gen} · fitness {fit}/4 {fit === 4 ? "— hotovo!" : ""}
         </span>
       </div>

@@ -32,11 +32,11 @@ export default function AisStateMachine() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <div className="viz-controls" style={{ marginBottom: 8 }}>
         <span style={{ fontSize: 11.5, color: "var(--text-muted)", fontWeight: 600 }}>událost:</span>
-        <button onClick={() => fire("coin")} style={btn(false)}>coin (mince)</button>
-        <button onClick={() => fire("push")} style={btn(false)}>push (zatlačit)</button>
-        <button onClick={reset} style={btn(false)}>reset</button>
+        <button className="viz-btn" onClick={() => fire("coin")}>coin (mince)</button>
+        <button className="viz-btn" onClick={() => fire("push")}>push (zatlačit)</button>
+        <button className="viz-btn" onClick={reset}>reset</button>
       </div>
 
       <svg viewBox="0 0 500 200" style={{ width: "100%", maxWidth: 540, background: "var(--bg-inset)", borderRadius: 4 }}>
@@ -81,9 +81,4 @@ export default function AisStateMachine() {
       </div>
     </div>
   );
-}
-
-const base = { background: "var(--bg-inset)", color: "var(--text)", border: "1px solid var(--line)", padding: "4px 10px", borderRadius: 4, fontSize: 11.5, fontFamily: "ui-monospace, monospace", cursor: "pointer" };
-function btn(active) {
-  return { ...base, background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)" };
 }

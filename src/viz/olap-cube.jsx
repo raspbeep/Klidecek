@@ -115,27 +115,25 @@ export default function OlapCube() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Operations bar */}
-      <div style={{
-        display: "flex", gap: 6, padding: 8, background: "var(--bg-inset)",
-        borderRadius: 8, flexWrap: "wrap", alignItems: "center",
-        fontSize: 12,
+      <div className="viz-controls" style={{
+        padding: 8, background: "var(--bg-inset)", borderRadius: 8,
       }}>
-        <button className="btn ghost" style={btnStyle}
+        <button className="viz-btn"
           onClick={() => rollUp(rowDim)}
           disabled={levels[rowDim] === "rolled"}>
           ↑ Roll-up {dimLabel(rowDim)}
         </button>
-        <button className="btn ghost" style={btnStyle}
+        <button className="viz-btn"
           onClick={() => drillDown(rowDim)}
           disabled={levels[rowDim] === "base"}>
           ↓ Drill-down {dimLabel(rowDim)}
         </button>
-        <button className="btn ghost" style={btnStyle} onClick={pivot}>
+        <button className="viz-btn" onClick={pivot}>
           ↺ Pivot (otoč osy)
         </button>
-        <div style={{ marginLeft: "auto", fontSize: 11, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout push">
           {aggDim} → agregace
-        </div>
+        </span>
       </div>
 
       {/* Cube schematic */}
@@ -268,15 +266,6 @@ export default function OlapCube() {
   );
 }
 
-const btnStyle = {
-  padding: "4px 10px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};
 const cellHeadStyle = {
   background: "var(--bg-card)",
   border: "1px solid var(--line)",

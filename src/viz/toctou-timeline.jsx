@@ -46,10 +46,10 @@ export default function ToctouTimeline() {
 
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap", alignItems: "center", fontSize: 11 }}>
-        <button onClick={() => setStep(Math.max(0, step - 1))} style={btn(false)}>‹ back</button>
-        <button onClick={() => setStep(Math.min(STEPS.length, step + 1))} style={btn(false)}>step ›</button>
-        <button onClick={() => setStep(0)} style={btn(false)}>reset</button>
+      <div className="viz-controls" style={{ marginBottom: 8, fontSize: 11 }}>
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))}>‹ back</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(STEPS.length, step + 1))}>step ›</button>
+        <button className="viz-btn" onClick={() => setStep(0)}>reset</button>
         <label><input type="checkbox" checked={noFollow} onChange={e => { setNoFollow(e.target.checked); if (e.target.checked) setDefended(false); }} /> O_NOFOLLOW</label>
         <label><input type="checkbox" checked={dropPriv} onChange={e => setDropPriv(e.target.checked)} /> drop priv first</label>
         <label><input type="checkbox" checked={defended} onChange={e => { setDefended(e.target.checked); if (e.target.checked) setNoFollow(false); }} /> open + fstat (atomic)</label>
@@ -103,8 +103,4 @@ export default function ToctouTimeline() {
       </div>
     </div>
   );
-}
-
-function btn(active) {
-  return { background: active ? "var(--accent)" : "var(--bg-inset)", color: active ? "white" : "var(--text)", border: "1px solid var(--line)", padding: "3px 9px", borderRadius: 3, fontSize: 11, cursor: "pointer" };
 }

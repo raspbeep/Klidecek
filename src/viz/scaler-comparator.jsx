@@ -90,14 +90,14 @@ export default function ScalerComparator() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-        <select value={dist} onChange={(e) => setDist(e.target.value)} style={sel}>
+      <div className="viz-controls">
+        <select className="viz-select" value={dist} onChange={(e) => setDist(e.target.value)}>
           <option value="normal">normal</option>
           <option value="lognormal">log-normal (right skew)</option>
           <option value="exp">exponential</option>
           <option value="skew+outlier">skew + outliers</option>
         </select>
-        <button onClick={() => setSeed(s => s + 1)} style={btn}>resample</button>
+        <button className="viz-btn primary" onClick={() => setSeed(s => s + 1)}>resample</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", background: "var(--bg-card)", borderRadius: 4 }}>
@@ -133,10 +133,3 @@ export default function ScalerComparator() {
     </div>
   );
 }
-
-const sel = {
-  fontFamily: "var(--font-mono)", fontSize: 11,
-  background: "var(--bg-inset)", color: "var(--text)",
-  border: "1px solid var(--line-strong)", borderRadius: 3, padding: "1px 4px",
-};
-const btn = { ...sel, cursor: "pointer", padding: "2px 8px" };

@@ -77,12 +77,12 @@ export default function PdiChandyLamport() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* ovládání */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={btn} onClick={() => setS(Math.max(0, s - 1))} disabled={s === 0}>← zpět</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setS(Math.max(0, s - 1))} disabled={s === 0}>← zpět</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           fáze {s + 1} / {STEPS.length}
-        </div>
-        <button className="btn ghost" style={btn} onClick={() => setS(Math.min(STEPS.length - 1, s + 1))} disabled={s === STEPS.length - 1}>další →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setS(Math.min(STEPS.length - 1, s + 1))} disabled={s === STEPS.length - 1}>další →</button>
       </div>
 
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: 560 }}>
@@ -185,13 +185,3 @@ export default function PdiChandyLamport() {
     </div>
   );
 }
-
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

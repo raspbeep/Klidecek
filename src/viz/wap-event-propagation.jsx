@@ -57,12 +57,12 @@ export default function WapEventPropagation() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-        <button className="btn ghost" style={btn} onClick={() => setStep(0)}>⟲ reset</button>
-        <button className="btn ghost" style={btn} onClick={() => setStep(Math.min(hits.length, step + 1))} disabled={step >= hits.length}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(0)}>⟲ reset</button>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(hits.length, step + 1))} disabled={step >= hits.length}>
           {step === 0 ? "▶ klikni na tlačítko" : "krok →"}
         </button>
-        <span style={{ fontSize: 11.5, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+        <span className="viz-readout">
           {step}/{hits.length}
         </span>
       </div>
@@ -139,13 +139,3 @@ export default function WapEventPropagation() {
     </div>
   );
 }
-
-const btn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};

@@ -121,18 +121,18 @@ export default function TwoPhaseCommit() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {/* Scenario config */}
-      <div style={{ padding: 8, background: "var(--bg-inset)", borderRadius: 8, display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center", fontSize: 11.5 }}>
+      <div className="viz-controls">
         <span style={{ color: "var(--text-muted)", fontWeight: 600 }}>scénář:</span>
         <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
           <span style={{ fontFamily: "var(--font-mono)" }}>P1:</span>
-          <select value={votes.p1} onChange={(e) => { setVotes({ ...votes, p1: e.target.value }); reset(); }} style={selectStyle}>
+          <select className="viz-select" value={votes.p1} onChange={(e) => { setVotes({ ...votes, p1: e.target.value }); reset(); }}>
             <option value="VOTE-YES">VOTE-YES</option>
             <option value="VOTE-NO">VOTE-NO</option>
           </select>
         </label>
         <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
           <span style={{ fontFamily: "var(--font-mono)" }}>P2:</span>
-          <select value={votes.p2} onChange={(e) => { setVotes({ ...votes, p2: e.target.value }); reset(); }} style={selectStyle}>
+          <select className="viz-select" value={votes.p2} onChange={(e) => { setVotes({ ...votes, p2: e.target.value }); reset(); }}>
             <option value="VOTE-YES">VOTE-YES</option>
             <option value="VOTE-NO">VOTE-NO</option>
           </select>
@@ -144,12 +144,12 @@ export default function TwoPhaseCommit() {
       </div>
 
       {/* Step controls */}
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
-        <div style={{ flex: 1, textAlign: "center", fontSize: 12, color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
+      <div className="viz-controls">
+        <button className="viz-btn" onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>← předchozí</button>
+        <span className="viz-readout" style={{ flex: 1, textAlign: "center" }}>
           krok {step + 1} / {steps.length}
-        </div>
-        <button className="btn ghost" style={navBtn} onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step === steps.length - 1}>další →</button>
+        </span>
+        <button className="viz-btn primary" onClick={() => setStep(Math.min(steps.length - 1, step + 1))} disabled={step === steps.length - 1}>další →</button>
       </div>
 
       {/* Sequence diagram */}
@@ -212,21 +212,3 @@ export default function TwoPhaseCommit() {
   );
 }
 
-const navBtn = {
-  padding: "5px 12px",
-  fontSize: 12,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 4,
-  cursor: "pointer",
-};
-const selectStyle = {
-  padding: "3px 6px",
-  fontSize: 11.5,
-  fontFamily: "var(--font-mono)",
-  background: "var(--bg-card)",
-  border: "1px solid var(--line)",
-  borderRadius: 3,
-  color: "var(--text)",
-};
