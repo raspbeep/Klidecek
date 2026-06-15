@@ -351,6 +351,114 @@ function TopicRow({ content, t, memberNameOf, navigate, rank }) {
   );
 }
 
+/* ─── commission overview charts ──────────────────────────────
+ * Two at-a-glance graphs over the spec-filtered ranking, for min-maxing:
+ *  • a donut of which COURSES the board asks (where to focus), and
+ *  • horizontal okruh bars whose length = how often asked and whose colour
+ *    segments show WHO asked it (one colour per board member). */
+const CHART_HUES = [264, 28, 150, 48, 200, 322, 96, 174, 292, 12, 222, 122, 338, 70];
+const chartColor = (i) => `oklch(0.67 0.15 ${CHART_HUES[i % CHART_HUES.length]})`;
+
+function CommissionCharts({ content, ranked, boardMembers, memberNameOf, navigate }) {
+  // stable colour per board member (board order)
+  const memberColor = useMemo(() => {
+    const m = new Map();
+    boardMembers.forEach((mem, i) => m.set(mem.key, chartColor(i)));
+    return m;
+  }, [boardMembers]);
+
+  // course totals = mapped-topic hits + loose counts, ranked desc
+  const courses = useMemo(() => {
+    const c = new Map();
+    for (const t of ranked.topics) c.set(t.course, (c.get(t.course) || 0) + t.hits);
+    for (const g of ranked.loose) c.set(g.course, (c.get(g.course) || 0) + g.count);
+    const arr = [...c.entries()].map(([course, count]) => ({ course, count }))
+      .sort((a, b) => b.count - a.count || a.course.localeCompare(b.course));
+    return { arr, total: arr.reduce((s, x) => s + x.count, 0) };
+  }, [ranked]);
+
+  // per-member ask totals across mapped topics (for the legend chips)
+  const memberTotals = useMemo(() => {
+    const m = new Map();
+    for (const t of ranked.topics) for (const mm of t.members) m.set(mm.key, (m.get(mm.key) || 0) + mm.count);
+    return m;
+  }, [ranked]);
+
+  const topTopics = ranked.topics.slice(0, 12);
+  const maxHits = Math.max(1, ...topTopics.map((t) => t.hits));
+
+  // donut conic-gradient
+  let acc = 0;
+  const stops = courses.arr.map((d, i) => {
+    const a = (acc / courses.total) * 360; acc += d.count;
+    return `${chartColor(i)} ${a.toFixed(2)}deg ${((acc / courses.total) * 360).toFixed(2)}deg`;
+  });
+  const pieBg = courses.total ? `conic-gradient(${stops.join(", ")})` : "var(--bg-inset)";
+  const legendMembers = boardMembers.filter((m) => memberTotals.get(m.key));
+
+  return (
+    <div className="komise-charts">
+      <div className="komise-chart">
+        <div className="komise-chart-title">Předměty — kam zaměřit přípravu</div>
+        <div className="komise-pie-wrap">
+          <div className="komise-pie-fig">
+            <div className="komise-pie" style={{ background: pieBg }} />
+            <div className="komise-pie-center"><b>{courses.total}</b><span>dotazů</span></div>
+          </div>
+          <ul className="komise-legend">
+            {courses.arr.slice(0, 9).map((d, i) => (
+              <li key={d.course} className="komise-legend-item">
+                <span className="komise-swatch" style={{ background: chartColor(i) }} />
+                <span className="search-chip">{d.course}</span>
+                <span className="komise-legend-n">{d.count}× · {Math.round((d.count / courses.total) * 100)} %</span>
+              </li>
+            ))}
+            {courses.arr.length > 9 && <li className="komise-legend-more">+{courses.arr.length - 9} dalších</li>}
+          </ul>
+        </div>
+      </div>
+
+      {topTopics.length > 0 && (
+        <div className="komise-chart komise-chart-wide">
+          <div className="komise-chart-title">Okruhy podle komisaře <span className="komise-muted">— délka = kolikrát, barva = kdo</span></div>
+          <div className="komise-memberlegend">
+            {legendMembers.map((m) => (
+              <span key={m.key} className="komise-ml-item">
+                <span className="komise-swatch" style={{ background: memberColor.get(m.key) }} />
+                {m.display} <span className="komise-legend-n">{memberTotals.get(m.key)}×</span>
+              </span>
+            ))}
+          </div>
+          <div className="komise-bars">
+            {topTopics.map((t) => {
+              const r = resolveTopic(content, t.course, t.topic, t.examTitle);
+              return (
+                <button key={t.id} className="komise-bar-row" disabled={!r.route}
+                  onClick={() => r.route && navigate(r.route)} title={r.route ? "Otevřít látku" : r.title}>
+                  <span className="komise-bar-label"><span className="search-chip">{t.course}</span> {r.title}</span>
+                  <span className="komise-bar-track">
+                    <span className="komise-bar-fill" style={{ width: `${(t.hits / maxHits) * 100}%` }}>
+                      {t.members.map((mm) => (
+                        <span key={mm.key} className="komise-bar-seg"
+                          style={{ flex: `${mm.count} 1 0`, background: memberColor.get(mm.key) }}
+                          title={`${memberNameOf(mm.key)}: ${mm.count}×`} />
+                      ))}
+                    </span>
+                  </span>
+                  <span className="komise-bar-n">{t.hits}</span>
+                </button>
+              );
+            })}
+          </div>
+          {ranked.topics.length > topTopics.length && (
+            <div className="komise-muted komise-bars-more">…a dalších {ranked.topics.length - topTopics.length} okruhů v seznamu níže</div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── min-max view ────────────────────────────────────────── */
 function MinMaxView({ content, index, board, setBoard, navigate, memberNameOf }) {
   // Spec filter: when the board is filled from a committee NUMBER, restrict the ranking
@@ -462,6 +570,7 @@ function MinMaxView({ content, index, board, setBoard, navigate, memberNameOf })
             <b>{ranked.totalRecords}</b> záznamů · <b>{ranked.topics.length}</b> okruhů
             {ranked.loose.length > 0 && <> · {ranked.loose.reduce((n, g) => n + g.count, 0)} mimo zdejší látku</>}
           </div>
+          <CommissionCharts content={content} ranked={ranked} boardMembers={boardMembers} memberNameOf={memberNameOf} navigate={navigate} />
           <div className="komise-topics">
             {ranked.topics.map((t, i) => (
               <TopicRow key={t.id} content={content} t={t} rank={i} navigate={navigate} memberNameOf={memberNameOf} />
