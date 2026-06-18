@@ -10,20 +10,38 @@
       "courses": [
         {
           "id": "TIN",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "chomsky-hierarchie", "label": "Chomsky" },
-            { "ref": "tridy-p-np", "label": "P / NP" },
-            { "ref": "problem-zastaveni", "label": "Halting" },
-            { "ref": "godel-neuplnost", "label": "Gödel" }
+            {
+              "ref": "chomsky-hierarchie",
+              "label": "Chomsky"
+            },
+            {
+              "ref": "tridy-p-np",
+              "label": "P / NP"
+            },
+            {
+              "ref": "problem-zastaveni",
+              "label": "Halting"
+            },
+            {
+              "ref": "godel-neuplnost",
+              "label": "Gödel"
+            }
           ]
         },
         {
           "id": "FLP",
           "weight": 0.5,
           "highlights": [
-            { "ref": "lambda-syntax", "label": "λ-kalkul" },
-            { "ref": "church-enc", "label": "Church kódování" }
+            {
+              "ref": "lambda-syntax",
+              "label": "λ-kalkul"
+            },
+            {
+              "ref": "church-enc",
+              "label": "Church kódování"
+            }
           ]
         }
       ]
@@ -36,12 +54,24 @@
       "courses": [
         {
           "id": "FLP",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "type-classes", "label": "Type classes" },
-            { "ref": "monady-io", "label": "Monády" },
-            { "ref": "rust-ownership", "label": "Ownership" },
-            { "ref": "unifikace-backtrack", "label": "Unifikace" }
+            {
+              "ref": "type-classes",
+              "label": "Type classes"
+            },
+            {
+              "ref": "monady-io",
+              "label": "Monády"
+            },
+            {
+              "ref": "rust-ownership",
+              "label": "Ownership"
+            },
+            {
+              "ref": "unifikace-backtrack",
+              "label": "Unifikace"
+            }
           ]
         }
       ]
@@ -54,21 +84,42 @@
       "courses": [
         {
           "id": "AVS",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "pipelining-faze", "label": "Pipeline" },
-            { "ref": "tomasulo", "label": "Tomasulo" },
-            { "ref": "cache-mapovani", "label": "Cache" },
-            { "ref": "msi-mesi-moesi", "label": "MESI" },
-            { "ref": "cuda-divergence-occupancy", "label": "CUDA SIMT" }
+            {
+              "ref": "pipelining-faze",
+              "label": "Pipeline"
+            },
+            {
+              "ref": "tomasulo",
+              "label": "Tomasulo"
+            },
+            {
+              "ref": "cache-mapovani",
+              "label": "Cache"
+            },
+            {
+              "ref": "msi-mesi-moesi",
+              "label": "MESI"
+            },
+            {
+              "ref": "cuda-divergence-occupancy",
+              "label": "CUDA SIMT"
+            }
           ]
         },
         {
           "id": "PRL",
           "weight": 0.4,
           "highlights": [
-            { "ref": "flynn-klasifikace", "label": "Flynn" },
-            { "ref": "ne-vn-architektury", "label": "Dataflow" }
+            {
+              "ref": "flynn-klasifikace",
+              "label": "Flynn"
+            },
+            {
+              "ref": "ne-vn-architektury",
+              "label": "Dataflow"
+            }
           ]
         }
       ]
@@ -81,30 +132,60 @@
       "courses": [
         {
           "id": "PRL",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "pram-varianty", "label": "PRAM" },
-            { "ref": "prefix-sum-algoritmus", "label": "Prefix sum" },
-            { "ref": "paxos", "label": "Paxos" },
-            { "ref": "vzajemne-vylouceni", "label": "Mutex" }
+            {
+              "ref": "pram-varianty",
+              "label": "PRAM"
+            },
+            {
+              "ref": "prefix-sum-algoritmus",
+              "label": "Prefix sum"
+            },
+            {
+              "ref": "paxos",
+              "label": "Paxos"
+            },
+            {
+              "ref": "vzajemne-vylouceni",
+              "label": "Mutex"
+            }
           ]
         },
         {
           "id": "AVS",
           "weight": 0.6,
           "highlights": [
-            { "ref": "hyperthreading", "label": "SMT" },
-            { "ref": "sse-avx", "label": "SIMD" },
-            { "ref": "parallel-for-scheduling", "label": "OpenMP" },
-            { "ref": "false-sharing-races", "label": "Races" }
+            {
+              "ref": "hyperthreading",
+              "label": "SMT"
+            },
+            {
+              "ref": "sse-avx",
+              "label": "SIMD"
+            },
+            {
+              "ref": "parallel-for-scheduling",
+              "label": "OpenMP"
+            },
+            {
+              "ref": "false-sharing-races",
+              "label": "Races"
+            }
           ]
         },
         {
           "id": "PIS",
           "weight": 0.4,
           "highlights": [
-            { "ref": "distribuovane-transakce", "label": "Distrib. TX" },
-            { "ref": "mikrosluzby", "label": "Microservices" }
+            {
+              "ref": "distribuovane-transakce",
+              "label": "Distrib. TX"
+            },
+            {
+              "ref": "mikrosluzby",
+              "label": "Microservices"
+            }
           ]
         }
       ]
@@ -117,13 +198,28 @@
       "courses": [
         {
           "id": "PDS",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "tcp-spojeni-hlavicka", "label": "TCP" },
-            { "ref": "quic", "label": "QUIC" },
-            { "ref": "bgp-zaklady", "label": "BGP" },
-            { "ref": "hicuts-tcam", "label": "TCAM" },
-            { "ref": "sdn-uvod", "label": "SDN" }
+            {
+              "ref": "tcp-spojeni-hlavicka",
+              "label": "TCP"
+            },
+            {
+              "ref": "quic",
+              "label": "QUIC"
+            },
+            {
+              "ref": "bgp-zaklady",
+              "label": "BGP"
+            },
+            {
+              "ref": "hicuts-tcam",
+              "label": "TCAM"
+            },
+            {
+              "ref": "sdn-uvod",
+              "label": "SDN"
+            }
           ]
         }
       ]
@@ -136,29 +232,56 @@
       "courses": [
         {
           "id": "KRY",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "3des-aes", "label": "AES" },
-            { "ref": "rsa", "label": "RSA" },
-            { "ref": "elipticke", "label": "ECC" },
-            { "ref": "postkvantova", "label": "PQC" },
-            { "ref": "el-podpis", "label": "Podpis" },
-            { "ref": "tls-aplikace", "label": "TLS" }
+            {
+              "ref": "3des-aes",
+              "label": "AES"
+            },
+            {
+              "ref": "rsa",
+              "label": "RSA"
+            },
+            {
+              "ref": "elipticke",
+              "label": "ECC"
+            },
+            {
+              "ref": "postkvantova",
+              "label": "PQC"
+            },
+            {
+              "ref": "el-podpis",
+              "label": "Podpis"
+            },
+            {
+              "ref": "tls-aplikace",
+              "label": "TLS"
+            }
           ]
         },
         {
           "id": "BIS",
           "weight": 0.35,
           "highlights": [
-            { "ref": "kryptografie-role", "label": "Kryptografie v IS" }
+            {
+              "ref": "kryptografie-role",
+              "label": "Kryptografie v IS"
+            }
           ]
         },
         {
           "id": "BZA",
           "weight": 0.35,
           "highlights": [
-            { "ref": "lfsr-princip", "label": "LFSR" },
-            { "ref": "spa-dpa", "label": "DPA" }
+            {
+              "ref": "lfsr-princip",
+              "label": "LFSR"
+            },
+            {
+              "ref": "spa-dpa",
+              "label": "DPA"
+            }
           ]
         }
       ]
@@ -171,20 +294,38 @@
       "courses": [
         {
           "id": "BZA",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "klasifikace-utoku", "label": "Klasifikace útoků" },
-            { "ref": "fyzicke-utoky", "label": "Fyzické" },
-            { "ref": "dfa-princip", "label": "DFA" },
-            { "ref": "hsm-definice", "label": "HSM" },
-            { "ref": "puf", "label": "PUF" }
+            {
+              "ref": "klasifikace-utoku",
+              "label": "Klasifikace útoků"
+            },
+            {
+              "ref": "fyzicke-utoky",
+              "label": "Fyzické"
+            },
+            {
+              "ref": "dfa-princip",
+              "label": "DFA"
+            },
+            {
+              "ref": "hsm-definice",
+              "label": "HSM"
+            },
+            {
+              "ref": "puf",
+              "label": "PUF"
+            }
           ]
         },
         {
           "id": "AVS",
           "weight": 0.3,
           "highlights": [
-            { "ref": "spekulace-vyjimky", "label": "Spectre" }
+            {
+              "ref": "spekulace-vyjimky",
+              "label": "Spectre"
+            }
           ]
         }
       ]
@@ -197,13 +338,28 @@
       "courses": [
         {
           "id": "BIS",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "terminologie-cia", "label": "CIA" },
-            { "ref": "bell-lapadula", "label": "BLP" },
-            { "ref": "iso-27000", "label": "ISO 27000" },
-            { "ref": "buffer-overflow", "label": "Buffer overflow" },
-            { "ref": "soc-incident-response", "label": "SOC / IR" }
+            {
+              "ref": "terminologie-cia",
+              "label": "CIA"
+            },
+            {
+              "ref": "bell-lapadula",
+              "label": "BLP"
+            },
+            {
+              "ref": "iso-27000",
+              "label": "ISO 27000"
+            },
+            {
+              "ref": "buffer-overflow",
+              "label": "Buffer overflow"
+            },
+            {
+              "ref": "soc-incident-response",
+              "label": "SOC / IR"
+            }
           ]
         }
       ]
@@ -216,14 +372,32 @@
       "courses": [
         {
           "id": "PIS",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "architektury-vrstvy", "label": "Vrstvy" },
-            { "ref": "jpa-entity", "label": "JPA" },
-            { "ref": "rest-design", "label": "REST" },
-            { "ref": "transakce-acid", "label": "ACID" },
-            { "ref": "bpmn-notace", "label": "BPMN" },
-            { "ref": "multidimenzionalni-kostka", "label": "OLAP cube" }
+            {
+              "ref": "architektury-vrstvy",
+              "label": "Vrstvy"
+            },
+            {
+              "ref": "jpa-entity",
+              "label": "JPA"
+            },
+            {
+              "ref": "rest-design",
+              "label": "REST"
+            },
+            {
+              "ref": "transakce-acid",
+              "label": "ACID"
+            },
+            {
+              "ref": "bpmn-notace",
+              "label": "BPMN"
+            },
+            {
+              "ref": "multidimenzionalni-kostka",
+              "label": "OLAP cube"
+            }
           ]
         }
       ]
@@ -236,13 +410,28 @@
       "courses": [
         {
           "id": "UPA",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "cap-teorem", "label": "CAP" },
-            { "ref": "sparql", "label": "SPARQL" },
-            { "ref": "mapreduce", "label": "MapReduce" },
-            { "ref": "row-vs-column", "label": "Sloupcové DB" },
-            { "ref": "rtree", "label": "R-tree" }
+            {
+              "ref": "cap-teorem",
+              "label": "CAP"
+            },
+            {
+              "ref": "sparql",
+              "label": "SPARQL"
+            },
+            {
+              "ref": "mapreduce",
+              "label": "MapReduce"
+            },
+            {
+              "ref": "row-vs-column",
+              "label": "Sloupcové DB"
+            },
+            {
+              "ref": "rtree",
+              "label": "R-tree"
+            }
           ]
         }
       ]
@@ -255,15 +444,36 @@
       "courses": [
         {
           "id": "MSP",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "mle", "label": "MLE" },
-            { "ref": "fisherova-informace", "label": "Fisher" },
-            { "ref": "intervaly-spolehlivosti", "label": "CI" },
-            { "ref": "t-test", "label": "t-test" },
-            { "ref": "linearni-model", "label": "OLS" },
-            { "ref": "dtmc-definice", "label": "DTMC" },
-            { "ref": "mdp-definice", "label": "MDP" }
+            {
+              "ref": "mle",
+              "label": "MLE"
+            },
+            {
+              "ref": "fisherova-informace",
+              "label": "Fisher"
+            },
+            {
+              "ref": "intervaly-spolehlivosti",
+              "label": "CI"
+            },
+            {
+              "ref": "t-test",
+              "label": "t-test"
+            },
+            {
+              "ref": "linearni-model",
+              "label": "OLS"
+            },
+            {
+              "ref": "dtmc-definice",
+              "label": "DTMC"
+            },
+            {
+              "ref": "mdp-definice",
+              "label": "MDP"
+            }
           ]
         }
       ]
@@ -276,14 +486,134 @@
       "courses": [
         {
           "id": "SUI",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "pravdepodobnost-bayes", "label": "Bayes" },
-            { "ref": "informovane", "label": "A*" },
-            { "ref": "gradient-descent", "label": "Gradient" },
-            { "ref": "cnn-architektury", "label": "CNN" },
-            { "ref": "transformer-bert", "label": "Transformer" },
-            { "ref": "rl-framework", "label": "RL" }
+            {
+              "ref": "pravdepodobnost-bayes",
+              "label": "Bayes"
+            },
+            {
+              "ref": "informovane",
+              "label": "A*"
+            },
+            {
+              "ref": "gradient-descent",
+              "label": "Gradient"
+            },
+            {
+              "ref": "cnn-architektury",
+              "label": "CNN"
+            },
+            {
+              "ref": "transformer-bert",
+              "label": "Transformer"
+            },
+            {
+              "ref": "rl-framework",
+              "label": "RL"
+            }
+          ]
+        },
+        {
+          "id": "SUR",
+          "weight": 1,
+          "highlights": [
+            {
+              "ref": "em-algoritmus",
+              "label": "GMM + EM"
+            },
+            {
+              "ref": "svm-kernel",
+              "label": "SVM"
+            },
+            {
+              "ref": "hmm-forward-viterbi",
+              "label": "HMM / Viterbi"
+            },
+            {
+              "ref": "pca",
+              "label": "PCA"
+            }
+          ]
+        },
+        {
+          "id": "BAYa",
+          "weight": 1,
+          "highlights": [
+            {
+              "ref": "bayesuv-teorem",
+              "label": "Bayes. inference"
+            },
+            {
+              "ref": "bayesovske-site",
+              "label": "Bayes. sítě"
+            },
+            {
+              "ref": "variational-bayes",
+              "label": "Variational Bayes"
+            }
+          ]
+        },
+        {
+          "id": "SFC",
+          "weight": 0.9,
+          "highlights": [
+            {
+              "ref": "hopfieldova-sit",
+              "label": "Hopfield"
+            },
+            {
+              "ref": "fuzzy-mnoziny",
+              "label": "Fuzzy"
+            },
+            {
+              "ref": "geneticky-algoritmus",
+              "label": "GA"
+            },
+            {
+              "ref": "pso",
+              "label": "PSO"
+            }
+          ]
+        },
+        {
+          "id": "KNN",
+          "weight": 1,
+          "highlights": [
+            {
+              "ref": "konvolucni-vrstva",
+              "label": "Konvoluce"
+            },
+            {
+              "ref": "detekce-rcnn",
+              "label": "Detekce"
+            },
+            {
+              "ref": "mdp",
+              "label": "MDP / RL"
+            },
+            {
+              "ref": "attention-transformer",
+              "label": "Transformer"
+            }
+          ]
+        },
+        {
+          "id": "SLA",
+          "weight": 0.5,
+          "highlights": [
+            {
+              "ref": "determinant",
+              "label": "Determinant"
+            },
+            {
+              "ref": "vlastni-cisla",
+              "label": "Vlastní čísla"
+            },
+            {
+              "ref": "gaussova-metoda",
+              "label": "Gauss. eliminace"
+            }
           ]
         }
       ]
@@ -296,14 +626,32 @@
       "courses": [
         {
           "id": "BIO",
-          "weight": 1.0,
+          "weight": 1,
           "highlights": [
-            { "ref": "biometricky-system", "label": "Systém" },
-            { "ref": "far-frr", "label": "FAR/FRR" },
-            { "ref": "markanty", "label": "Markanty" },
-            { "ref": "daugman", "label": "Daugman" },
-            { "ref": "deep-learning-face", "label": "DL obličej" },
-            { "ref": "deepfakes", "label": "Deepfake" }
+            {
+              "ref": "biometricky-system",
+              "label": "Systém"
+            },
+            {
+              "ref": "far-frr",
+              "label": "FAR/FRR"
+            },
+            {
+              "ref": "markanty",
+              "label": "Markanty"
+            },
+            {
+              "ref": "daugman",
+              "label": "Daugman"
+            },
+            {
+              "ref": "deep-learning-face",
+              "label": "DL obličej"
+            },
+            {
+              "ref": "deepfakes",
+              "label": "Deepfake"
+            }
           ]
         }
       ]
@@ -313,146 +661,290 @@
     {
       "id": "spectre",
       "label": "Spekulativní spuštění (Spectre / Meltdown)",
-      "from": { "domain": "architecture", "ref": "spekulace-vyjimky" },
-      "to":   { "domain": "infosec",      "ref": "hw-zranitelnosti" }
+      "from": {
+        "domain": "architecture",
+        "ref": "spekulace-vyjimky"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "hw-zranitelnosti"
+      }
     },
     {
       "id": "dpa-side",
       "label": "Postranní kanály v HW",
-      "from": { "domain": "hw-security", "ref": "spa-dpa" },
-      "to":   { "domain": "infosec",     "ref": "hw-zranitelnosti" }
+      "from": {
+        "domain": "hw-security",
+        "ref": "spa-dpa"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "hw-zranitelnosti"
+      }
     },
     {
       "id": "tls-vpn",
       "label": "TLS — od kryptografie k VPN",
-      "from": { "domain": "crypto",  "ref": "tls-aplikace" },
-      "to":   { "domain": "infosec", "ref": "vpn-ipsec" }
+      "from": {
+        "domain": "crypto",
+        "ref": "tls-aplikace"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "vpn-ipsec"
+      }
     },
     {
       "id": "sym-is",
       "label": "AES v IS",
-      "from": { "domain": "crypto",  "ref": "3des-aes" },
-      "to":   { "domain": "infosec", "ref": "symetrika-v-is" }
+      "from": {
+        "domain": "crypto",
+        "ref": "3des-aes"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "symetrika-v-is"
+      }
     },
     {
       "id": "asym-is",
       "label": "RSA + ECC v IS",
-      "from": { "domain": "crypto",  "ref": "rsa" },
-      "to":   { "domain": "infosec", "ref": "asymetrika-v-is" }
+      "from": {
+        "domain": "crypto",
+        "ref": "rsa"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "asymetrika-v-is"
+      }
     },
     {
       "id": "signature-is",
       "label": "Elektronický podpis v IS",
-      "from": { "domain": "crypto",  "ref": "el-podpis" },
-      "to":   { "domain": "infosec", "ref": "hash-podpis-v-is" }
+      "from": {
+        "domain": "crypto",
+        "ref": "el-podpis"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "hash-podpis-v-is"
+      }
     },
     {
       "id": "wpa-aes",
       "label": "CCMP / AES-CCM v WPA2",
-      "from": { "domain": "crypto",  "ref": "3des-aes" },
-      "to":   { "domain": "infosec", "ref": "wpa-wpa2" }
+      "from": {
+        "domain": "crypto",
+        "ref": "3des-aes"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "wpa-wpa2"
+      }
     },
     {
       "id": "mdp-rl",
       "label": "MDP — od pravděpodobnosti k RL",
-      "from": { "domain": "stats", "ref": "mdp-definice" },
-      "to":   { "domain": "ai-ml", "ref": "rl-framework" }
+      "from": {
+        "domain": "stats",
+        "ref": "mdp-definice"
+      },
+      "to": {
+        "domain": "ai-ml",
+        "ref": "rl-framework"
+      }
     },
     {
       "id": "bayes-classification",
       "label": "Bayesovský klasifikátor",
-      "from": { "domain": "stats", "ref": "bayesovsky-odhad" },
-      "to":   { "domain": "ai-ml", "ref": "pravdepodobnost-bayes" }
+      "from": {
+        "domain": "stats",
+        "ref": "bayesovsky-odhad"
+      },
+      "to": {
+        "domain": "ai-ml",
+        "ref": "pravdepodobnost-bayes"
+      }
     },
     {
       "id": "lr-msp-sui",
       "label": "Logistická regrese",
-      "from": { "domain": "stats", "ref": "logisticka-regrese-msp" },
-      "to":   { "domain": "ai-ml", "ref": "logisticka-regrese" }
+      "from": {
+        "domain": "stats",
+        "ref": "logisticka-regrese-msp"
+      },
+      "to": {
+        "domain": "ai-ml",
+        "ref": "logisticka-regrese"
+      }
     },
     {
       "id": "deep-face",
       "label": "CNN pro obličejovou biometrii",
-      "from": { "domain": "ai-ml",     "ref": "cnn-architektury" },
-      "to":   { "domain": "biometrics", "ref": "deep-learning-face" }
+      "from": {
+        "domain": "ai-ml",
+        "ref": "cnn-architektury"
+      },
+      "to": {
+        "domain": "biometrics",
+        "ref": "deep-learning-face"
+      }
     },
     {
       "id": "gdpr-bio",
       "label": "GDPR pro biometrická data",
-      "from": { "domain": "infosec",    "ref": "gdpr-nukib" },
-      "to":   { "domain": "biometrics", "ref": "etika-gdpr" }
+      "from": {
+        "domain": "infosec",
+        "ref": "gdpr-nukib"
+      },
+      "to": {
+        "domain": "biometrics",
+        "ref": "etika-gdpr"
+      }
     },
     {
       "id": "lambda-flp",
       "label": "λ-kalkul → Haskell",
-      "from": { "domain": "theory",    "ref": "lambda-syntax" },
-      "to":   { "domain": "paradigms", "ref": "haskell-syntax-typy" }
+      "from": {
+        "domain": "theory",
+        "ref": "lambda-syntax"
+      },
+      "to": {
+        "domain": "paradigms",
+        "ref": "haskell-syntax-typy"
+      }
     },
     {
       "id": "cache-coherence-mutex",
       "label": "Koherence cache ⇄ vzájemné vyloučení",
-      "from": { "domain": "architecture", "ref": "msi-mesi-moesi" },
-      "to":   { "domain": "parallel",     "ref": "vzajemne-vylouceni" }
+      "from": {
+        "domain": "architecture",
+        "ref": "msi-mesi-moesi"
+      },
+      "to": {
+        "domain": "parallel",
+        "ref": "vzajemne-vylouceni"
+      }
     },
     {
       "id": "consensus-tx",
       "label": "Paxos pro distribuované transakce",
-      "from": { "domain": "parallel",     "ref": "paxos" },
-      "to":   { "domain": "info-systems", "ref": "distribuovane-transakce" }
+      "from": {
+        "domain": "parallel",
+        "ref": "paxos"
+      },
+      "to": {
+        "domain": "info-systems",
+        "ref": "distribuovane-transakce"
+      }
     },
     {
       "id": "cap-consensus",
       "label": "CAP teorém a konsensus",
-      "from": { "domain": "data",     "ref": "cap-teorem" },
-      "to":   { "domain": "parallel", "ref": "failure-modely" }
+      "from": {
+        "domain": "data",
+        "ref": "cap-teorem"
+      },
+      "to": {
+        "domain": "parallel",
+        "ref": "failure-modely"
+      }
     },
     {
       "id": "mapreduce-prefix",
       "label": "Map-reduce ⇄ prefix sum",
-      "from": { "domain": "data",     "ref": "mapreduce" },
-      "to":   { "domain": "parallel", "ref": "prefix-sum-uvod" }
+      "from": {
+        "domain": "data",
+        "ref": "mapreduce"
+      },
+      "to": {
+        "domain": "parallel",
+        "ref": "prefix-sum-uvod"
+      }
     },
     {
       "id": "olap-columnar",
       "label": "OLAP nad sloupcovou DB",
-      "from": { "domain": "info-systems", "ref": "multidimenzionalni-kostka" },
-      "to":   { "domain": "data",         "ref": "row-vs-column" }
+      "from": {
+        "domain": "info-systems",
+        "ref": "multidimenzionalni-kostka"
+      },
+      "to": {
+        "domain": "data",
+        "ref": "row-vs-column"
+      }
     },
     {
       "id": "p-np-randomized",
       "label": "NP-tvrdost ⇄ randomizace",
-      "from": { "domain": "theory", "ref": "tridy-p-np" },
-      "to":   { "domain": "stats",  "ref": "las-vegas-monte-carlo" }
+      "from": {
+        "domain": "theory",
+        "ref": "tridy-p-np"
+      },
+      "to": {
+        "domain": "stats",
+        "ref": "las-vegas-monte-carlo"
+      }
     },
     {
       "id": "topology-pds-prl",
       "label": "Síťové topologie",
-      "from": { "domain": "networks", "ref": "sdn-uvod" },
-      "to":   { "domain": "parallel", "ref": "topologie" }
+      "from": {
+        "domain": "networks",
+        "ref": "sdn-uvod"
+      },
+      "to": {
+        "domain": "parallel",
+        "ref": "topologie"
+      }
     },
     {
       "id": "kerberos-auth",
       "label": "Kerberos a federovaná identita",
-      "from": { "domain": "crypto",       "ref": "kerberos" },
-      "to":   { "domain": "info-systems", "ref": "identita-oauth2" }
+      "from": {
+        "domain": "crypto",
+        "ref": "kerberos"
+      },
+      "to": {
+        "domain": "info-systems",
+        "ref": "identita-oauth2"
+      }
     },
     {
       "id": "cache-locality-row-vs-col",
       "label": "Cache lokalita ⇄ row-vs-column",
-      "from": { "domain": "architecture", "ref": "cache-politiky" },
-      "to":   { "domain": "data",         "ref": "row-vs-column" }
+      "from": {
+        "domain": "architecture",
+        "ref": "cache-politiky"
+      },
+      "to": {
+        "domain": "data",
+        "ref": "row-vs-column"
+      }
     },
     {
       "id": "siem-ids",
       "label": "IDS v síti ⇄ SIEM v SOC",
-      "from": { "domain": "networks", "ref": "ids-uvod" },
-      "to":   { "domain": "infosec",  "ref": "siem-monitoring" }
+      "from": {
+        "domain": "networks",
+        "ref": "ids-uvod"
+      },
+      "to": {
+        "domain": "infosec",
+        "ref": "siem-monitoring"
+      }
     },
     {
       "id": "regex-search",
       "label": "Regex → DFA matcher",
-      "from": { "domain": "theory",   "ref": "regularni-vyrazy" },
-      "to":   { "domain": "networks", "ref": "signatury-snort" }
+      "from": {
+        "domain": "theory",
+        "ref": "regularni-vyrazy"
+      },
+      "to": {
+        "domain": "networks",
+        "ref": "signatury-snort"
+      }
     }
   ]
 }

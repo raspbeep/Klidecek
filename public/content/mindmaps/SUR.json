@@ -1,0 +1,116 @@
+{
+  "courseId": "SUR",
+  "title": "Strojové učení a rozpoznávání",
+  "summary": "Generativní i diskriminativní rozpoznávání, sekvence a příznaky",
+  "branches": [
+    {
+      "id": "generativni",
+      "label": "Generativní modely",
+      "hue": 142,
+      "clusters": [
+        {
+          "id": "gmm",
+          "label": "Směsi a EM",
+          "leaves": [
+            {
+              "ref": "gmm-model"
+            },
+            {
+              "ref": "em-algoritmus"
+            },
+            {
+              "ref": "gmm-klasifikator"
+            }
+          ]
+        },
+        {
+          "id": "gauss-lin",
+          "label": "Gaussovský klasifikátor",
+          "leaves": [
+            {
+              "ref": "linearni-gaussovsky"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diskriminativni",
+      "label": "Diskriminativní klasifikátory",
+      "hue": 22,
+      "clusters": [
+        {
+          "id": "linearni",
+          "label": "Lineární",
+          "leaves": [
+            {
+              "ref": "perceptron"
+            },
+            {
+              "ref": "logisticka-regrese-sur"
+            }
+          ]
+        },
+        {
+          "id": "svm",
+          "label": "SVM",
+          "leaves": [
+            {
+              "ref": "svm-max-margin"
+            },
+            {
+              "ref": "svm-soft-margin"
+            },
+            {
+              "ref": "svm-kernel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sekvence",
+      "label": "Sekvenční modely",
+      "hue": 290,
+      "clusters": [
+        {
+          "id": "hmm",
+          "label": "Skryté Markovovy modely",
+          "leaves": [
+            {
+              "ref": "hmm-model"
+            },
+            {
+              "ref": "hmm-forward-viterbi"
+            },
+            {
+              "ref": "hmm-trenovani"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priznaky",
+      "label": "Extrakce příznaků",
+      "hue": 80,
+      "clusters": [
+        {
+          "id": "redukce",
+          "label": "Redukce dimenze",
+          "leaves": [
+            {
+              "ref": "priznaky-vlastnosti"
+            },
+            {
+              "ref": "pca"
+            },
+            {
+              "ref": "lda"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

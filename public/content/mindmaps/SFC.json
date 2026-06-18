@@ -1,0 +1,102 @@
+{
+  "courseId": "SFC",
+  "title": "Soft Computing",
+  "summary": "Neuronové, fuzzy, evoluční a rojové techniky tolerující nepřesnost",
+  "branches": [
+    {
+      "id": "neuro",
+      "label": "Neuronové sítě",
+      "hue": 200,
+      "clusters": [
+        {
+          "id": "site",
+          "label": "RBF a Hopfield",
+          "leaves": [
+            {
+              "ref": "lbf-rbf-site"
+            },
+            {
+              "ref": "hopfieldova-sit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fuzzy",
+      "label": "Fuzzy systémy",
+      "hue": 50,
+      "clusters": [
+        {
+          "id": "fz",
+          "label": "Množiny, logika, řízení",
+          "leaves": [
+            {
+              "ref": "fuzzy-mnoziny"
+            },
+            {
+              "ref": "fuzzy-rizeni"
+            },
+            {
+              "ref": "fuzzy-kmeans-anfis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evoluce",
+      "label": "Evoluční výpočty",
+      "hue": 142,
+      "clusters": [
+        {
+          "id": "ea",
+          "label": "GA a GP",
+          "leaves": [
+            {
+              "ref": "geneticky-algoritmus"
+            },
+            {
+              "ref": "geneticke-programovani"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarm",
+      "label": "Rojová inteligence",
+      "hue": 22,
+      "clusters": [
+        {
+          "id": "sw",
+          "label": "ACO a PSO",
+          "leaves": [
+            {
+              "ref": "aco"
+            },
+            {
+              "ref": "pso"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rough",
+      "label": "Hrubé množiny",
+      "hue": 300,
+      "clusters": [
+        {
+          "id": "rs",
+          "label": "Aproximační prostory",
+          "leaves": [
+            {
+              "ref": "hrube-mnoziny"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

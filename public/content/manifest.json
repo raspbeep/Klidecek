@@ -2589,6 +2589,52 @@
               "src": "content/courses/KNN/autoregresivni-transformery/attention-transformer.md"
             }
           ]
+        },
+        {
+          "id": "detekce-segmentace",
+          "title": "Detekce objektů a sémantická segmentace",
+          "subtopics": [
+            {
+              "id": "detekce-rcnn",
+              "src": "content/courses/KNN/detekce-segmentace/detekce-rcnn.md"
+            },
+            {
+              "id": "detekce-ssd-yolo",
+              "src": "content/courses/KNN/detekce-segmentace/detekce-ssd-yolo.md"
+            },
+            {
+              "id": "segmentace-unet",
+              "src": "content/courses/KNN/detekce-segmentace/segmentace-unet.md"
+            }
+          ]
+        },
+        {
+          "id": "podobnostni-site",
+          "title": "Sítě pro určování podobnosti",
+          "subtopics": [
+            {
+              "id": "siamske-site",
+              "src": "content/courses/KNN/podobnostni-site/siamske-site.md"
+            },
+            {
+              "id": "triplet-loss",
+              "src": "content/courses/KNN/podobnostni-site/triplet-loss.md"
+            }
+          ]
+        },
+        {
+          "id": "posilovane-uceni",
+          "title": "Markovský rozhodovací proces a posilované učení",
+          "subtopics": [
+            {
+              "id": "mdp",
+              "src": "content/courses/KNN/posilovane-uceni/mdp.md"
+            },
+            {
+              "id": "rl-dqn",
+              "src": "content/courses/KNN/posilovane-uceni/rl-dqn.md"
+            }
+          ]
         }
       ]
     },
@@ -2926,6 +2972,380 @@
             {
               "id": "ml-sekvence",
               "src": "content/courses/PBI/biologicke-sekvence-statisticky/ml-sekvence.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BAYa",
+      "name": "Bayesovské modely pro strojové učení",
+      "credits": 5,
+      "semester": "Winter",
+      "specializations": [
+        "NMAL"
+      ],
+      "blurb": "Bayesovský přístup ke strojovému učení: apriorní/posteriorní rozdělení a inference, konjugované priory, pravděpodobnostní grafické modely (Bayesovské sítě, MRF, faktorové grafy, belief propagation) a přibližná inference (variační Bayes, Gibbsovo vzorkování, EM). Modeluje neurčitost odhadu — klíčové při málu dat.",
+      "resources": [
+        {
+          "title": "Bishop — Pattern Recognition and Machine Learning",
+          "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/",
+          "kind": "book",
+          "note": "Bayesovská inference, grafické modely, přibližná inference."
+        },
+        {
+          "title": "Murphy — Probabilistic Machine Learning: Advanced Topics",
+          "url": "https://probml.github.io/pml-book/book2.html",
+          "kind": "book",
+          "note": "Moderní přehled bayesovských modelů a inference."
+        },
+        {
+          "title": "Koller & Friedman — Probabilistic Graphical Models",
+          "url": "https://mitpress.mit.edu/9780262013192/probabilistic-graphical-models/",
+          "kind": "book",
+          "note": "Bayesovské sítě, MRF, inference."
+        }
+      ],
+      "topics": [
+        {
+          "id": "bayesovska-inference",
+          "title": "Bayesovská inference",
+          "subtopics": [
+            {
+              "id": "bayesuv-teorem",
+              "src": "content/courses/BAYa/bayesovska-inference/bayesuv-teorem.md"
+            },
+            {
+              "id": "konjugovane-priory",
+              "src": "content/courses/BAYa/bayesovska-inference/konjugovane-priory.md"
+            },
+            {
+              "id": "prediktivni-rozdeleni",
+              "src": "content/courses/BAYa/bayesovska-inference/prediktivni-rozdeleni.md"
+            }
+          ]
+        },
+        {
+          "id": "graficke-modely",
+          "title": "Pravděpodobnostní grafické modely",
+          "subtopics": [
+            {
+              "id": "bayesovske-site",
+              "src": "content/courses/BAYa/graficke-modely/bayesovske-site.md"
+            },
+            {
+              "id": "mrf-faktorovy-graf",
+              "src": "content/courses/BAYa/graficke-modely/mrf-faktorovy-graf.md"
+            },
+            {
+              "id": "belief-propagation",
+              "src": "content/courses/BAYa/graficke-modely/belief-propagation.md"
+            }
+          ]
+        },
+        {
+          "id": "priblizna-inference",
+          "title": "Přibližná inference",
+          "subtopics": [
+            {
+              "id": "variational-bayes",
+              "src": "content/courses/BAYa/priblizna-inference/variational-bayes.md"
+            },
+            {
+              "id": "gibbs-mcmc",
+              "src": "content/courses/BAYa/priblizna-inference/gibbs-mcmc.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SUR",
+      "name": "Strojové učení a rozpoznávání",
+      "credits": 5,
+      "semester": "Summer",
+      "specializations": [
+        "NMAL",
+        "NSPE"
+      ],
+      "blurb": "Statistické rozpoznávání: generativní vs diskriminativní modely, Gaussovy směsi a EM, lineární klasifikátory (perceptron, logistická regrese), SVM s jádrovými funkcemi, skryté Markovovy modely a rozpoznávání řeči, extrakce příznaků (PCA, LDA).",
+      "resources": [
+        {
+          "title": "Bishop — Pattern Recognition and Machine Learning",
+          "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/",
+          "kind": "book",
+          "note": "GMM/EM, lineární klasifikátory, SVM, PCA."
+        },
+        {
+          "title": "Rabiner — A Tutorial on Hidden Markov Models (1989)",
+          "url": "https://doi.org/10.1109/5.18626",
+          "kind": "paper",
+          "note": "HMM, forward/Viterbi, trénování, řeč."
+        },
+        {
+          "title": "Cortes & Vapnik — Support-Vector Networks (1995)",
+          "url": "https://doi.org/10.1007/BF00994018",
+          "kind": "paper",
+          "note": "Původní formulace SVM."
+        }
+      ],
+      "topics": [
+        {
+          "id": "smes-gaussovskych",
+          "title": "Směs Gaussových rozložení a EM",
+          "subtopics": [
+            {
+              "id": "gmm-model",
+              "src": "content/courses/SUR/smes-gaussovskych/gmm-model.md"
+            },
+            {
+              "id": "em-algoritmus",
+              "src": "content/courses/SUR/smes-gaussovskych/em-algoritmus.md"
+            },
+            {
+              "id": "gmm-klasifikator",
+              "src": "content/courses/SUR/smes-gaussovskych/gmm-klasifikator.md"
+            }
+          ]
+        },
+        {
+          "id": "linearni-klasifikatory",
+          "title": "Lineární klasifikátory",
+          "subtopics": [
+            {
+              "id": "perceptron",
+              "src": "content/courses/SUR/linearni-klasifikatory/perceptron.md"
+            },
+            {
+              "id": "linearni-gaussovsky",
+              "src": "content/courses/SUR/linearni-klasifikatory/linearni-gaussovsky.md"
+            },
+            {
+              "id": "logisticka-regrese-sur",
+              "src": "content/courses/SUR/linearni-klasifikatory/logisticka-regrese-sur.md"
+            }
+          ]
+        },
+        {
+          "id": "svm",
+          "title": "Support Vector Machine",
+          "subtopics": [
+            {
+              "id": "svm-max-margin",
+              "src": "content/courses/SUR/svm/svm-max-margin.md"
+            },
+            {
+              "id": "svm-soft-margin",
+              "src": "content/courses/SUR/svm/svm-soft-margin.md"
+            },
+            {
+              "id": "svm-kernel",
+              "src": "content/courses/SUR/svm/svm-kernel.md"
+            }
+          ]
+        },
+        {
+          "id": "hmm",
+          "title": "Skryté Markovovy modely",
+          "subtopics": [
+            {
+              "id": "hmm-model",
+              "src": "content/courses/SUR/hmm/hmm-model.md"
+            },
+            {
+              "id": "hmm-forward-viterbi",
+              "src": "content/courses/SUR/hmm/hmm-forward-viterbi.md"
+            },
+            {
+              "id": "hmm-trenovani",
+              "src": "content/courses/SUR/hmm/hmm-trenovani.md"
+            }
+          ]
+        },
+        {
+          "id": "extrakce-priznaku",
+          "title": "Extrakce příznaků (PCA a LDA)",
+          "subtopics": [
+            {
+              "id": "priznaky-vlastnosti",
+              "src": "content/courses/SUR/extrakce-priznaku/priznaky-vlastnosti.md"
+            },
+            {
+              "id": "pca",
+              "src": "content/courses/SUR/extrakce-priznaku/pca.md"
+            },
+            {
+              "id": "lda",
+              "src": "content/courses/SUR/extrakce-priznaku/lda.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SFC",
+      "name": "Soft Computing",
+      "credits": 5,
+      "semester": "Winter",
+      "specializations": [
+        "NMAL",
+        "NIDE",
+        "NISY"
+      ],
+      "blurb": "Soft computing — techniky tolerující nepřesnost: RBF a Hopfieldovy sítě, fuzzy množiny/logika/řízení a ANFIS, evoluční algoritmy (GA, GP), optimalizace inspirovaná přírodou (ACO, PSO) a hrubé množiny.",
+      "resources": [
+        {
+          "title": "Zadeh — Fuzzy Sets (1965)",
+          "url": "https://doi.org/10.1016/S0019-9958(65)90241-X",
+          "kind": "paper",
+          "note": "Zakládající článek fuzzy množin."
+        },
+        {
+          "title": "Hopfield — Neural networks and physical systems (1982)",
+          "url": "https://doi.org/10.1073/pnas.79.8.2554",
+          "kind": "paper",
+          "note": "Hopfieldova síť, asociativní paměť."
+        },
+        {
+          "title": "Kennedy & Eberhart — Particle Swarm Optimization (1995)",
+          "url": "https://doi.org/10.1109/ICNN.1995.488968",
+          "kind": "paper",
+          "note": "PSO."
+        },
+        {
+          "title": "Pawlak — Rough Sets (1982)",
+          "url": "https://doi.org/10.1007/BF01001956",
+          "kind": "paper",
+          "note": "Hrubé množiny."
+        }
+      ],
+      "topics": [
+        {
+          "id": "neuronove-site-sfc",
+          "title": "Neuronové sítě: RBF a Hopfield",
+          "subtopics": [
+            {
+              "id": "lbf-rbf-site",
+              "src": "content/courses/SFC/neuronove-site-sfc/lbf-rbf-site.md"
+            },
+            {
+              "id": "hopfieldova-sit",
+              "src": "content/courses/SFC/neuronove-site-sfc/hopfieldova-sit.md"
+            }
+          ]
+        },
+        {
+          "id": "fuzzy",
+          "title": "Fuzzy systémy",
+          "subtopics": [
+            {
+              "id": "fuzzy-mnoziny",
+              "src": "content/courses/SFC/fuzzy/fuzzy-mnoziny.md"
+            },
+            {
+              "id": "fuzzy-rizeni",
+              "src": "content/courses/SFC/fuzzy/fuzzy-rizeni.md"
+            },
+            {
+              "id": "fuzzy-kmeans-anfis",
+              "src": "content/courses/SFC/fuzzy/fuzzy-kmeans-anfis.md"
+            }
+          ]
+        },
+        {
+          "id": "evolucni-algoritmy",
+          "title": "Evoluční algoritmy",
+          "subtopics": [
+            {
+              "id": "geneticky-algoritmus",
+              "src": "content/courses/SFC/evolucni-algoritmy/geneticky-algoritmus.md"
+            },
+            {
+              "id": "geneticke-programovani",
+              "src": "content/courses/SFC/evolucni-algoritmy/geneticke-programovani.md"
+            }
+          ]
+        },
+        {
+          "id": "swarm",
+          "title": "Optimalizace inspirovaná přírodou",
+          "subtopics": [
+            {
+              "id": "aco",
+              "src": "content/courses/SFC/swarm/aco.md"
+            },
+            {
+              "id": "pso",
+              "src": "content/courses/SFC/swarm/pso.md"
+            }
+          ]
+        },
+        {
+          "id": "hrube-mnoziny",
+          "title": "Hrubé množiny",
+          "subtopics": [
+            {
+              "id": "hrube-mnoziny",
+              "src": "content/courses/SFC/hrube-mnoziny/hrube-mnoziny.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SLA",
+      "name": "Lineární algebra I",
+      "credits": 6,
+      "semester": "Winter",
+      "specializations": [
+        "NMAL",
+        "NSPE"
+      ],
+      "blurb": "Lineární algebra pro strojové učení: matice a operace, determinanty, inverze, soustavy lineárních rovnic (Gaussova eliminace, Cramerovo pravidlo), vlastní čísla a vektory, a dále euklidovské prostory, Jordanův tvar a kvadratické formy.",
+      "resources": [
+        {
+          "title": "Strang — Introduction to Linear Algebra",
+          "url": "https://math.mit.edu/~gs/linearalgebra/",
+          "kind": "book",
+          "note": "Matice, determinanty, soustavy, vlastní čísla."
+        },
+        {
+          "title": "Axler — Linear Algebra Done Right (open access)",
+          "url": "https://linear.axler.net/",
+          "kind": "book",
+          "note": "Vektorové prostory, vlastní hodnoty."
+        }
+      ],
+      "topics": [
+        {
+          "id": "matice-determinanty",
+          "title": "Matice a determinanty",
+          "subtopics": [
+            {
+              "id": "operace-s-maticemi",
+              "src": "content/courses/SLA/matice-determinanty/operace-s-maticemi.md"
+            },
+            {
+              "id": "determinant",
+              "src": "content/courses/SLA/matice-determinanty/determinant.md"
+            },
+            {
+              "id": "vlastni-cisla",
+              "src": "content/courses/SLA/matice-determinanty/vlastni-cisla.md"
+            }
+          ]
+        },
+        {
+          "id": "soustavy-rovnic",
+          "title": "Soustavy lineárních rovnic",
+          "subtopics": [
+            {
+              "id": "gaussova-metoda",
+              "src": "content/courses/SLA/soustavy-rovnic/gaussova-metoda.md"
+            },
+            {
+              "id": "cramerovo-pravidlo",
+              "src": "content/courses/SLA/soustavy-rovnic/cramerovo-pravidlo.md"
             }
           ]
         }
@@ -8359,28 +8779,41 @@
         "id": "t17",
         "n": 17,
         "title": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
-        "refs": [],
+        "refs": [
+          ["SFC","fuzzy","fuzzy-mnoziny"],
+          ["SFC","fuzzy","fuzzy-rizeni"],
+          ["SFC","fuzzy","fuzzy-kmeans-anfis"]
+        ],
         "sharedWith": ["NISY", "NMAL"]
       },
       {
         "id": "t18",
         "n": 18,
         "title": "Markovský rozhodovací proces a posilované učení.",
-        "refs": [],
+        "refs": [
+          ["KNN","posilovane-uceni","mdp"],
+          ["KNN","posilovane-uceni","rl-dqn"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {
         "id": "t19",
         "n": 19,
         "title": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
-        "refs": [],
+        "refs": [
+          ["SFC","evolucni-algoritmy","geneticky-algoritmus"],
+          ["SFC","evolucni-algoritmy","geneticke-programovani"]
+        ],
         "sharedWith": ["NISY", "NMAL"]
       },
       {
         "id": "t20",
         "n": 20,
         "title": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
-        "refs": [],
+        "refs": [
+          ["SFC","swarm","aco"],
+          ["SFC","swarm","pso"]
+        ],
         "sharedWith": ["NISY", "NMAL"]
       },
       {
@@ -10727,21 +11160,31 @@
         "id": "t55",
         "n": 55,
         "title": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
-        "refs": [],
+        "refs": [
+          ["SFC","fuzzy","fuzzy-mnoziny"],
+          ["SFC","fuzzy","fuzzy-rizeni"],
+          ["SFC","fuzzy","fuzzy-kmeans-anfis"]
+        ],
         "sharedWith": ["NIDE", "NMAL"]
       },
       {
         "id": "t56",
         "n": 56,
         "title": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
-        "refs": [],
+        "refs": [
+          ["SFC","evolucni-algoritmy","geneticky-algoritmus"],
+          ["SFC","evolucni-algoritmy","geneticke-programovani"]
+        ],
         "sharedWith": ["NIDE", "NMAL"]
       },
       {
         "id": "t57",
         "n": 57,
         "title": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
-        "refs": [],
+        "refs": [
+          ["SFC","swarm","aco"],
+          ["SFC","swarm","pso"]
+        ],
         "sharedWith": ["NIDE", "NMAL"]
       },
       {
@@ -11424,21 +11867,33 @@
         "id": "t38",
         "n": 38,
         "title": "Bayesovská inference (apriorní pravděpodobnosti, věrohodnost (likelihood), posteriorní rozložení, posteriorní prediktivní rozložení, neurčitost odhadu parametrů).",
-        "refs": [],
+        "refs": [
+          ["BAYa","bayesovska-inference","bayesuv-teorem"],
+          ["BAYa","bayesovska-inference","konjugovane-priory"],
+          ["BAYa","bayesovska-inference","prediktivni-rozdeleni"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t39",
         "n": 39,
         "title": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
-        "refs": [],
+        "refs": [
+          ["BAYa","graficke-modely","bayesovske-site"],
+          ["BAYa","graficke-modely","mrf-faktorovy-graf"],
+          ["BAYa","graficke-modely","belief-propagation"],
+          ["SUR","smes-gaussovskych","em-algoritmus"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t40",
         "n": 40,
         "title": "Přibližná inference v Bayesovských modelech (Variational Bayes inference, Gibbsovo vzorkování, ...).",
-        "refs": [],
+        "refs": [
+          ["BAYa","priblizna-inference","variational-bayes"],
+          ["BAYa","priblizna-inference","gibbs-mcmc"]
+        ],
         "sharedWith": []
       },
       {
@@ -11507,91 +11962,137 @@
         "id": "t47",
         "n": 47,
         "title": "Sítě pro detekci objektů v obraze a sémantickou segmentaci (R-CNN, Faster R-CNN, SSD, U-net).",
-        "refs": [],
+        "refs": [
+          ["KNN","detekce-segmentace","detekce-rcnn"],
+          ["KNN","detekce-segmentace","detekce-ssd-yolo"],
+          ["KNN","detekce-segmentace","segmentace-unet"]
+        ],
         "sharedWith": ["NVIZ"]
       },
       {
         "id": "t48",
         "n": 48,
         "title": "Sítě pro určování podobnosti například v identifikaci osob podle obličeje nebo hlasu. (siamské sítě, contrastive/pair loss, triplet loss, hard negative mining).",
-        "refs": [],
+        "refs": [
+          ["KNN","podobnostni-site","siamske-site"],
+          ["KNN","podobnostni-site","triplet-loss"]
+        ],
         "sharedWith": ["NVIZ"]
       },
       {
         "id": "t49",
         "n": 49,
         "title": "Neuronové sítě: LBF, RBF, back propagation. Hopfieldova síť.",
-        "refs": [],
+        "refs": [
+          ["SFC","neuronove-site-sfc","lbf-rbf-site"],
+          ["SFC","neuronove-site-sfc","hopfieldova-sit"],
+          ["SUI","nn-zaklady","gradient-descent"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t50",
         "n": 50,
         "title": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
-        "refs": [],
+        "refs": [
+          ["SFC","fuzzy","fuzzy-mnoziny"],
+          ["SFC","fuzzy","fuzzy-rizeni"],
+          ["SFC","fuzzy","fuzzy-kmeans-anfis"]
+        ],
         "sharedWith": ["NIDE", "NISY"]
       },
       {
         "id": "t51",
         "n": 51,
         "title": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
-        "refs": [],
+        "refs": [
+          ["SFC","evolucni-algoritmy","geneticky-algoritmus"],
+          ["SFC","evolucni-algoritmy","geneticke-programovani"]
+        ],
         "sharedWith": ["NIDE", "NISY"]
       },
       {
         "id": "t52",
         "n": 52,
         "title": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
-        "refs": [],
+        "refs": [
+          ["SFC","swarm","aco"],
+          ["SFC","swarm","pso"]
+        ],
         "sharedWith": ["NIDE", "NISY"]
       },
       {
         "id": "t53",
         "n": 53,
         "title": "Hrubé množiny (definice, aproximační prostory).",
-        "refs": [],
+        "refs": [
+          ["SFC","hrube-mnoziny","hrube-mnoziny"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t54",
         "n": 54,
         "title": "Směs gaussovských rozložení (vyhodnocení, EM algoritmus, využití pro tvorbu klasifikátoru).",
-        "refs": [],
+        "refs": [
+          ["SUR","smes-gaussovskych","gmm-model"],
+          ["SUR","smes-gaussovskych","em-algoritmus"],
+          ["SUR","smes-gaussovskych","gmm-klasifikator"]
+        ],
         "sharedWith": ["NSPE"]
       },
       {
         "id": "t55",
         "n": 55,
         "title": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese).",
-        "refs": [],
+        "refs": [
+          ["SUR","linearni-klasifikatory","perceptron"],
+          ["SUR","linearni-klasifikatory","linearni-gaussovsky"],
+          ["SUR","linearni-klasifikatory","logisticka-regrese-sur"]
+        ],
         "sharedWith": ["NSPE"]
       },
       {
         "id": "t56",
         "n": 56,
         "title": "Support Vector Machine klasifikátor (varianty pro lineárně separabilní a neseparabilní vzory, jádrové (kernel) funkce).",
-        "refs": [],
+        "refs": [
+          ["SUR","svm","svm-max-margin"],
+          ["SUR","svm","svm-soft-margin"],
+          ["SUR","svm","svm-kernel"]
+        ],
         "sharedWith": []
       },
       {
         "id": "t57",
         "n": 57,
         "title": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
-        "refs": [],
+        "refs": [
+          ["SUR","hmm","hmm-model"],
+          ["SUR","hmm","hmm-forward-viterbi"],
+          ["SUR","hmm","hmm-trenovani"]
+        ],
         "sharedWith": ["NSPE"]
       },
       {
         "id": "t58",
         "n": 58,
         "title": "Extrakce příznaků (požadované vlastnosti příznaků, Analýza hlavních komponent, Lineární diskriminační analýza).",
-        "refs": [],
+        "refs": [
+          ["SUR","extrakce-priznaku","priznaky-vlastnosti"],
+          ["SUR","extrakce-priznaku","pca"],
+          ["SUR","extrakce-priznaku","lda"]
+        ],
         "sharedWith": ["NSPE"]
       },
       {
         "id": "t59",
         "n": 59,
         "title": "Markovský rozhodovací proces a posilované učení.",
-        "refs": [],
+        "refs": [
+          ["KNN","posilovane-uceni","mdp"],
+          ["KNN","posilovane-uceni","rl-dqn"]
+        ],
         "sharedWith": ["NIDE"]
       },
       {
@@ -11618,14 +12119,21 @@
         "id": "t62",
         "n": 62,
         "title": "Matice a determinanty (operace s maticemi, metody výpočtu, determinantů, výpočet inverzní matice, stopa, vlastní hodnoty).",
-        "refs": [],
+        "refs": [
+          ["SLA","matice-determinanty","operace-s-maticemi"],
+          ["SLA","matice-determinanty","determinant"],
+          ["SLA","matice-determinanty","vlastni-cisla"]
+        ],
         "sharedWith": ["NSPE"]
       },
       {
         "id": "t63",
         "n": 63,
         "title": "Soustavy lineárních rovnic (řešitelnost soustavy a jednoznačnost řešení, Gaussova metoda, Cramerovo pravidlo).",
-        "refs": [],
+        "refs": [
+          ["SLA","soustavy-rovnic","gaussova-metoda"],
+          ["SLA","soustavy-rovnic","cramerovo-pravidlo"]
+        ],
         "sharedWith": []
       }
     ],
@@ -16030,35 +16538,55 @@
         "id": "t48",
         "n": 48,
         "title": "Matice a determinanty (operace s maticemi, metody výpočtu, determinantů, výpočet inverzní matice, stopa, vlastní hodnoty).",
-        "refs": [],
+        "refs": [
+          ["SLA","matice-determinanty","operace-s-maticemi"],
+          ["SLA","matice-determinanty","determinant"],
+          ["SLA","matice-determinanty","vlastni-cisla"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {
         "id": "t49",
         "n": 49,
         "title": "Extrakce příznaků (požadované vlastnosti příznaků, Analýza hlavních komponent, Lineární diskriminační analýza).",
-        "refs": [],
+        "refs": [
+          ["SUR","extrakce-priznaku","priznaky-vlastnosti"],
+          ["SUR","extrakce-priznaku","pca"],
+          ["SUR","extrakce-priznaku","lda"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {
         "id": "t50",
         "n": 50,
         "title": "Směs gaussovských rozložení (vyhodnocení, EM algoritmus, využití pro tvorbu klasifikátoru).",
-        "refs": [],
+        "refs": [
+          ["SUR","smes-gaussovskych","gmm-model"],
+          ["SUR","smes-gaussovskych","em-algoritmus"],
+          ["SUR","smes-gaussovskych","gmm-klasifikator"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {
         "id": "t51",
         "n": 51,
         "title": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese).",
-        "refs": [],
+        "refs": [
+          ["SUR","linearni-klasifikatory","perceptron"],
+          ["SUR","linearni-klasifikatory","linearni-gaussovsky"],
+          ["SUR","linearni-klasifikatory","logisticka-regrese-sur"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {
         "id": "t52",
         "n": 52,
         "title": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
-        "refs": [],
+        "refs": [
+          ["SUR","hmm","hmm-model"],
+          ["SUR","hmm","hmm-forward-viterbi"],
+          ["SUR","hmm","hmm-trenovani"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {
@@ -17726,7 +18254,11 @@
         "id": "t48",
         "n": 48,
         "title": "Sítě pro detekci objektů v obraze a sémantickou segmentaci (R-CNN, Faster R-CNN, SSD, U-net).",
-        "refs": [],
+        "refs": [
+          ["KNN","detekce-segmentace","detekce-rcnn"],
+          ["KNN","detekce-segmentace","detekce-ssd-yolo"],
+          ["KNN","detekce-segmentace","segmentace-unet"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {
@@ -17743,7 +18275,10 @@
         "id": "t50",
         "n": 50,
         "title": "Sítě pro určování podobnosti například v identifikaci osob podle obličeje nebo hlasu. (siamské sítě, contrastive/pair loss, triplet loss, hard negative mining).",
-        "refs": [],
+        "refs": [
+          ["KNN","podobnostni-site","siamske-site"],
+          ["KNN","podobnostni-site","triplet-loss"]
+        ],
         "sharedWith": ["NMAL"]
       },
       {

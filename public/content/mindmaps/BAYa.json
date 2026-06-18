@@ -1,0 +1,82 @@
+{
+  "courseId": "BAYa",
+  "title": "Bayesovské modely pro strojové učení",
+  "summary": "Od Bayesova vzorce přes grafické modely k přibližné inferenci",
+  "branches": [
+    {
+      "id": "inference",
+      "label": "Bayesovská inference",
+      "hue": 264,
+      "clusters": [
+        {
+          "id": "zaklad",
+          "label": "Vzorec a priory",
+          "leaves": [
+            {
+              "ref": "bayesuv-teorem"
+            },
+            {
+              "ref": "konjugovane-priory"
+            }
+          ]
+        },
+        {
+          "id": "predikce",
+          "label": "Predikce a neurčitost",
+          "leaves": [
+            {
+              "ref": "prediktivni-rozdeleni"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pgm",
+      "label": "Grafické modely",
+      "hue": 200,
+      "clusters": [
+        {
+          "id": "modely",
+          "label": "Reprezentace",
+          "leaves": [
+            {
+              "ref": "bayesovske-site"
+            },
+            {
+              "ref": "mrf-faktorovy-graf"
+            }
+          ]
+        },
+        {
+          "id": "graf-inf",
+          "label": "Inference v grafu",
+          "leaves": [
+            {
+              "ref": "belief-propagation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priblizna",
+      "label": "Přibližná inference",
+      "hue": 142,
+      "clusters": [
+        {
+          "id": "metody",
+          "label": "VB a vzorkování",
+          "leaves": [
+            {
+              "ref": "variational-bayes"
+            },
+            {
+              "ref": "gibbs-mcmc"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

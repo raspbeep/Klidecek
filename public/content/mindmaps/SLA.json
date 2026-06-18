@@ -1,0 +1,54 @@
+{
+  "courseId": "SLA",
+  "title": "Lineární algebra I",
+  "summary": "Matice, determinanty a soustavy lineárních rovnic",
+  "branches": [
+    {
+      "id": "matice",
+      "label": "Matice a determinanty",
+      "hue": 200,
+      "clusters": [
+        {
+          "id": "operace",
+          "label": "Operace",
+          "leaves": [
+            {
+              "ref": "operace-s-maticemi"
+            }
+          ]
+        },
+        {
+          "id": "det-eig",
+          "label": "Determinant a vlastní čísla",
+          "leaves": [
+            {
+              "ref": "determinant"
+            },
+            {
+              "ref": "vlastni-cisla"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soustavy",
+      "label": "Soustavy rovnic",
+      "hue": 80,
+      "clusters": [
+        {
+          "id": "reseni",
+          "label": "Řešení a řešitelnost",
+          "leaves": [
+            {
+              "ref": "gaussova-metoda"
+            },
+            {
+              "ref": "cramerovo-pravidlo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

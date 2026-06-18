@@ -71,6 +71,72 @@
           ]
         }
       ]
+    },
+    {
+      "id": "detekce",
+      "label": "Detekce a segmentace",
+      "hue": 22,
+      "clusters": [
+        {
+          "id": "det",
+          "label": "Detektory",
+          "leaves": [
+            {
+              "ref": "detekce-rcnn"
+            },
+            {
+              "ref": "detekce-ssd-yolo"
+            }
+          ]
+        },
+        {
+          "id": "seg",
+          "label": "Segmentace",
+          "leaves": [
+            {
+              "ref": "segmentace-unet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podobnost",
+      "label": "Podobnostní sítě",
+      "hue": 340,
+      "clusters": [
+        {
+          "id": "emb",
+          "label": "Embedding a metriky",
+          "leaves": [
+            {
+              "ref": "siamske-site"
+            },
+            {
+              "ref": "triplet-loss"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rl",
+      "label": "Posilované učení",
+      "hue": 80,
+      "clusters": [
+        {
+          "id": "rl",
+          "label": "MDP a RL",
+          "leaves": [
+            {
+              "ref": "mdp"
+            },
+            {
+              "ref": "rl-dqn"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
