@@ -402,6 +402,17 @@ MANUAL_TOPIC = {
     "r0827": "openmp-zaklady",          # AVS: openmp-sync -> openmp-zaklady (audit 2026-06, med)
     "r0847": None,                      # PRL: komunikace -> course-only (audit 2026-06, med)
     "r0866": "cnn",                     # SUI: nn-zaklady -> cnn (audit 2026-06, high)
+    # ── added by 2026-06-18 NMAL mapping audit (new courses BAYa/SUR/SFC/SLA + KNN topics) ──
+    "r0103": "konvolucni-site",          # KNN: detekce-segmentace -> konvolucni-site (convolution basics, dropout, batchnorm)
+    "r0137": "hmm",                      # SUR: course-only -> hmm (HMM + Viterbi inference)
+    "r0141": "smes-gaussovskych",        # SUR: hmm -> smes-gaussovskych (GMM, 2D Gaussians, EM)
+    "r0259": "smes-gaussovskych",        # SUR: hmm -> smes-gaussovskych (started GMM; viterbi/EM mentioned)
+    "r0330": "smes-gaussovskych",        # SUR: course-only -> smes-gaussovskych (GMM density evaluation)
+    "r0335": "hmm",                      # SUR: course-only -> hmm ("HMM")
+    "r0346": "smes-gaussovskych",        # SUR: course-only -> smes-gaussovskych (GMM + EM training)
+    "r0743": "smes-gaussovskych",        # SUR: course-only -> smes-gaussovskych (GMM)
+    "r0755": "hmm",                      # SUR: course-only -> hmm ("HMM")
+    "r0249": None,                       # SFC: swarm -> course-only (RL "posilované učení"; SFC has no RL topic)
 }
 
 

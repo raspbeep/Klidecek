@@ -2540,7 +2540,7 @@
     "course": "KNN",
     "topic": "konvolucni-site",
     "examTitle": "Konvoluční neuronové sítě, jejich části a základní architektury (konvoluční vrstva, pooling vrstva, batch normalizace, tvary tenzorů aktivací, parametry, VGG, ResNet).",
-    "confidence": "low"
+    "confidence": "high"
    }
   },
   {
@@ -2918,9 +2918,9 @@
    "text": "Začal jsem sám, vysvětlil jsem rozdíl mezi detekcí a segmentací, pak jsem řekl, že bych rád začal segmentací a popsal jsem U-NET. Ptal se co je výstupem U-NETu. Byl v pohodě.",
    "map": {
     "course": "KNN",
-    "topic": null,
-    "examTitle": null,
-    "confidence": "course"
+    "topic": "detekce-segmentace",
+    "examTitle": "Sítě pro detekci objektů v obraze a sémantickou segmentaci (R-CNN, Faster R-CNN, SSD, U-net).",
+    "confidence": "high"
    }
   },
   {
@@ -2931,7 +2931,12 @@
    "num": 20,
    "title": null,
    "text": "Na papírku jen \"Extrakce příznaků\" bez těch podtémat, ptal se, jestil vím co tam je, tak jsem mu řekl že tuším a že se kdyžtak doptám. Začal jesm jaké chceme aby měly příznaky vlastnost (gaussovske, nekorelovane, nizkodimenzionalni) a plynule přešel na PCA. Chtěl jsem mu ukázat, jak najít transformaci dat, abych dostal diagonalní kovarianční matici, to mě ale zastavil a řekl ať ukážu rozdíl mezi PCA a LDA. Nakreslil jsem obrázky, ukázal jaké dimenze ty dva přístupy vyberou a proč.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "extrakce-priznaku",
+    "examTitle": "Extrakce příznaků (požadované vlastnosti příznaků, Analýza hlavních komponent, Lineární diskriminační analýza).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0135",
@@ -2941,7 +2946,12 @@
    "num": 17,
    "title": null,
    "text": "Geneticky algoritmus",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "evolucni-algoritmy",
+    "examTitle": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0136",
@@ -2966,7 +2976,12 @@
    "num": 24,
    "title": null,
    "text": "HMM - povedal som zaklady, co to je atd. Potom sa pytal na inferenciu, hlavne, ako priradime stavy datam (Vitterbi cesta), ze tam je dynamicke programovanie, atd.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0138",
@@ -2991,7 +3006,12 @@
    "num": 23,
    "title": null,
    "text": "Na papieriku \"SVM + kernel funkce\". Zacal som popisom SVM - klasifikator pre 2 triedy, vytvara margin medzi datami, vektor vah je normala na margin, rovnobezky y=-1 a y=1. Dalej som vysvetlil ako sa pocita y pre dato, ako sa trenuje SVM a do rovnice som zakomponoval aj slack variables. Potom sa ma pytal co je to ta slack variable, povedal som, ze miera misklasifikacie, ale chcel pocut konkretne. Tak som zistil, ze to je vzdialenost od rovnobezky za ktorou ma dato lezat. Potom som napisal vzorec polynomialnej kernel funkcie a povedal, ze tato funkcia pocita skalarny sucin argumentov vo viac dimenzionalnom priestore. Stacilo ez A. Burget bol velmi mily a supportive.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "svm",
+    "examTitle": "Support Vector Machine klasifikátor (varianty pro lineárně separabilní a neseparabilní vzory, jádrové (kernel) funkce).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0140",
@@ -3001,7 +3021,12 @@
    "num": 15,
    "title": null,
    "text": "Na papieriku boli vypisane pojmy - fuzzy logika, fuzzy generator (wtf is that). Povedal som, ze neviem ako zacat - chcel definovat nejake formalizmy ako univerzum a term, lingvisticka premenna. Nejak som to dal, pomahal mi. Potom som presiel na fuzzy generator, co som nevedel co je. Tak som rozpraval o fuzzy inferencii (fuzzifikacia, inferencia, defuzzifikacia). Celkom sme sa nechapali, dost ma dusil - asi to chcel pocut viac formalne. Pri inferencii som popisal sugeno a mamdani model. Odpoved trvala dlhsie nez bol stanoveny cas, tak to Cernocky ukoncil tak po 6 minutach. Myslel som, ze dostanem F, ale podrzali ma.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0141",
@@ -3011,7 +3036,12 @@
    "num": 21,
    "title": null,
    "text": "Gaussian mixture model. Začal som s tým že pomocou GMM modelujeme zložitejšie rozloženia ako gausovske. Začal som písanim vzorca pre gausovské rozloženie -> nestihol som dopisať, prerušil ma že to netreba. Chcel aby som ukazal ako vyzera GMM pre 2D Gausovky. Napísat vzorec pre vybranie data z GMM, ako sa to trenuje (viterbi, em), ako sa v týchto 2 algoritmoch vypočíta P(c) vo vzorci (počet dat pridelenych dat gausovke / počet všetkych dat)",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "smes-gaussovskych",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0142",
@@ -3036,7 +3066,12 @@
    "num": 22,
    "title": null,
    "text": "Lineární klasifikátory - Popísal som y = wx+b, ukázal ako sa trénuje perceptron, nakreslil skokovú funkciu, nakreslil ako vyzerá lineárny gausovský klasifikátor a spomenul, že sa dá previesť na logistickú regresiu, povedal som že pri logistickej regresii používame sigmoidu. Burget sa pýtal prečo by log. reg. mala byť lepšia na neseparované triedy (nejak to asi vyznelo z toho čo som vravel), tak som povedal, že asi nie je a ešte dodal, že na lineárne neseparovateľné sa hodí SVM kvôli kernel triku, aj keď to už asi nepotreboval počuť. Rozprával som celý čas strašne neformálne a vravel čo mi prvé napadlo, aby som sa niekde nezasekol na terminológii (vyzerali celkom pobavene, keď som vravel aká čiara robí čo :D)",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "linearni-klasifikatory",
+    "examTitle": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese).",
+    "confidence": "low"
+   }
   },
   {
    "id": "r0144",
@@ -3076,7 +3111,12 @@
    "num": 22,
    "title": null,
    "text": "Logisticka regresia - B - stacil zakladny vzorec na linearnu regresiu, potom ze co je logisticka regresia, popisat casti toho vzorca a co je vysledok - povedal som ze posteriorna pravdepodobnost a burget ze OK, to mu staci... Celkovo Burget extremne potahal, Hradis rypal do diplomky, este aj pocas prvej otazky, citil som ze keby to je iba na nom, tak ma vyhodia xD",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "linearni-klasifikatory",
+    "examTitle": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0147",
@@ -3116,7 +3156,12 @@
    "num": 20,
    "title": null,
    "text": "Extrakce příznaků - Dostal jsem jeden papírek, kde byly obě otázky a kdo se na ně ptá. Za tu minutu jsem si napsal na papír jenom pár hesel co vlastně chci říct ke každý z nich. Začal jsem tou co byla na papírku jako první. Řekl jsem ty základní požadavky na příznaky a že můžeme upravovat data tak abychom tyto vlastnosti dostali. Tím jsem přešel k PCA, jenom dost povrchově, co to dělá, mluvil jsem o vl. číslech a vektorech, dost jen letmo jak teda můžeme zmenšit počet dimenzí a tak. Grézl občas něco řekl, aby mě tak jako posunul někam dál. Zeptal se s čím nám PCA nepomůže a to jsem prostě nakreslil ty klasický dvě třídy, kde PCA dá přesně ten špatnej směr jako hlavní a tím jsem se dostal k LDA. Tu zas jen povrchově, napsal jsem co chceme optimalizovat, nakreslil co nám to najde za směr k těm dvěma třídám. Pak zazvonil budík a řekl že takto mu to stačí. Jednou mě nasměroval Hradiš když jsem nechápal otázku, jinak se nikdo jiný nezapojil.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "extrakce-priznaku",
+    "examTitle": "Extrakce příznaků (požadované vlastnosti příznaků, Analýza hlavních komponent, Lineární diskriminační analýza).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0150",
@@ -3821,7 +3866,12 @@
    "num": 49,
    "title": null,
    "text": "Prirodou inspirovane algoritmy - Chcel najprv všeobecne, tak som povedal, že to vyplýva z názvu že sú to teda nejaké algoritmy ktoré sú inšpirované prírodou kde som to potom napojil na ACO. Nejak v polovici ACO ma zastavil a chcel nejaký konkrétny problém kde sa to dá využiť. Povedal som TSP a potom chcel nejak popísať ten princíp pri riešení tohoto problému. Povedal som, že mravci sa presunú do miesta a na základe kvality danej cesty potom vypustia feromóny úmerné tej kvalite. Potom sa spýtal či poznám ešte nejaký ďalší algoritmus. Povedal som PSO a začal ho nejak popisovať. Tam chcel potom vedieť ako sa počíta nová poloha, že to má nejakú globálnu a lokálnu čast. Tam som sa zasekol a zazvonil budík.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "swarm",
+    "examTitle": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0201",
@@ -4411,7 +4461,12 @@
    "num": null,
    "title": "16 - Optimalizace sekvenčního rozhodování, posilované učení",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
   },
   {
    "id": "r0250",
@@ -4421,7 +4476,12 @@
    "num": null,
    "title": "24 - Skryté markovovy modely",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0251",
@@ -4461,7 +4521,12 @@
    "num": null,
    "title": "Fuzzy mnoziny",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0255",
@@ -4471,7 +4536,12 @@
    "num": null,
    "title": "1 - Bayesovská inference",
    "text": "Zeptal jsem se, jestli muzu zacit bayesovym vzorcem, coz burget povolil, tak jsem vysvetlil vse ohledne p(θ|X) a co je co. Ptal se, jak se to lisi od bodoveho odhadu MLE, co a jak odhadujeme treba u Gaussova rozdeleni a nakonec jsem mluvil o konjugovanem prioru NormalGamma a o jeho vyuziti v posteriorni prediktivni pravdepodobnosti, kterou chtel i zapsat p(x'|X)=/p(x'|θ)*p(θ|X)dθ.",
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "bayesovska-inference",
+    "examTitle": "Bayesovská inference (apriorní pravděpodobnosti, věrohodnost (likelihood), posteriorní rozložení, posteriorní prediktivní rozložení, neurčitost odhadu parametrů).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0256",
@@ -4481,7 +4551,12 @@
    "num": null,
    "title": "17 - Genetické programování",
    "text": "Mluvil jsem sam o tom, co se resi genetickyma algoritmama, co je populace, vyber rodicu, krizeni, chromozom, mutace atd. Az na konci se me Rozman zeptal, ze co je ta mutace presne a na co, coz nevim co chtel, protoze mi prislo, ze jsem to vysvetlil dobre. Pak se jeste zeptal, jestli lze genetickym algoritmem resit TSP, coz jsem nemel tuseni. Aj tak uz se ale ptal po vyprseni casu.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "evolucni-algoritmy",
+    "examTitle": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0257",
@@ -4493,9 +4568,9 @@
    "text": "Pohodička, popísal som loss, na čo služí, k akej hodnote by mala konvergovať, ako funguje backprop, optimalizace - GD, tam som napísal GD update a pak sme sa bavili o learning rate, kde sa ma spýtal ako ho zvolíme, kde som spomenul že buď hyperparam search alebo default value napr 1e-3 pri Adam, pak sa toho chytil a pýtal sa ako je to možné že pri Adam optimizer je možné mať nejaký default LR, na čo som mu odpovedal že Adam používa momenty, ktoré normalizujú update step na size 1 (on average) a bolo OK,",
    "map": {
     "course": "KNN",
-    "topic": null,
-    "examTitle": null,
-    "confidence": "course"
+    "topic": "podobnostni-site",
+    "examTitle": "Sítě pro určování podobnosti například v identifikaci osob podle obličeje nebo hlasu. (siamské sítě, contrastive/pair loss, triplet loss, hard negative mining).",
+    "confidence": "high"
    }
   },
   {
@@ -4521,7 +4596,12 @@
    "num": null,
    "title": "21 - GMM",
    "text": "Začal som GMM, napísal som vzorec potom som trochu zmetkoval otázkou čo je P(c) - váha gaussovky. povedal som viterbi, rozdiel s EM. Spital sa na sharding gaussoviek ale o tom som nepočul",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "smes-gaussovskych",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0260",
@@ -4531,7 +4611,12 @@
    "num": null,
    "title": "24 - SVM",
    "text": "Povedal som že to je binarny klasifikator, nakreslil som obrázok, tam som popísal ako funguje, prešiel som na SVM pre lineárne neseparovateľné triedy a nakoniec som nevedel vysvetliť kernel funkcie.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "svm",
+    "examTitle": "Support Vector Machine klasifikátor (varianty pro lineárně separabilní a neseparabilní vzory, jádrové (kernel) funkce).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0261",
@@ -4541,7 +4626,12 @@
    "num": null,
    "title": "3 - Přibližná inference v Bayesovských modelech (Gibbs sampling)",
    "text": "Bylo to velmi špatný. Popsal jsem gibbs sampling podle slidů ale pak se Burget zeptal: \"Co znamená p(theta1, theta2)?\". Protože jsem to téma měl jenom nabilflovaný a látku moc dopodrobna nechápu tak jsme s Burgetem měli 10minutovou anabázi přes maximum likelihood, posteriorní prediktivní rozložení a bayesovský vzorec než jsme se dostali k odpovědi. Během celého zkoušení docela hodně cringoval ale nějaké nabiflované vzorečky jsem mu tam napsal a cca popsal co znamenají (i když pokusy to nějak tématicky propojit s gibbs samplingem mi vůbec nevyšly). Nakonec po zkoušení řekl že to byla nejzákeřnější otázka co dával tak mi dal C.",
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "bayesovska-inference",
+    "examTitle": "Bayesovská inference (apriorní pravděpodobnosti, věrohodnost (likelihood), posteriorní rozložení, posteriorní prediktivní rozložení, neurčitost odhadu parametrů).",
+    "confidence": "low"
+   }
   },
   {
    "id": "r0262",
@@ -4596,7 +4686,12 @@
    "num": null,
    "title": "20. Extrakce příznaků (PCA, LDA)",
    "text": "Všetko super, nechal ma rozprávať. Mal dotaz čo môžeme robiť ak pre LDA jednotlivé triedy majú výrazne odlišnú kovariančnú maticu. Nevedel som, a povedal že nevadí, že asi sme sa to neučili.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "extrakce-priznaku",
+    "examTitle": "Extrakce příznaků (požadované vlastnosti příznaků, Analýza hlavních komponent, Lineární diskriminační analýza).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0266",
@@ -4606,7 +4701,12 @@
    "num": null,
    "title": "18. ACO, PSO",
    "text": "Boli super, iba Hradiš mal blbé komentáre a miestami s uškŕňal, a bol celkovo zákerný. Rozman bol super. Janoušek sa opýtal ako môžeme pri výpočte novej pozíce pri PSO sčítať pozíciu s rýchlosťou, ale nevadilo mu že som nevedel. (Tá rýchlosť je prenásobená časom 1, takže je to vlastne poloha.)",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
   },
   {
    "id": "r0267",
@@ -5216,7 +5316,12 @@
    "num": null,
    "title": "Genetický algoritmus",
    "text": "Postupne som vysvetlila ako sa inicializuje populácie, čo je fitness funkcia, ako sa vyberajú rodičia, kríženie (jednobodové, viacbodové), pýtal sa na čo slúži mutácia.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "evolucni-algoritmy",
+    "examTitle": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0311",
@@ -5341,7 +5446,12 @@
    "num": null,
    "title": "Fuzzy množiny a fuzzy logika. Fuzzy řízení (fuzzyfikace, inference, defuzzyfikace).",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0320",
@@ -5476,7 +5586,12 @@
    "num": null,
    "title": "Geneticky algoritmus",
    "text": "V pohode, len som nechapal ake rozmnozovanie este odo mna chce. A on mal na mysli mutaciu.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "evolucni-algoritmy",
+    "examTitle": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0330",
@@ -5486,7 +5601,12 @@
    "num": null,
    "title": "GMM",
    "text": "Nevedel som ako vyhodnotit pravdepodobnost nejakeho data u GMM (Suma_cez_komponenty P(C) * N_c(x, mu_c, str_c^2)), mal som okno. Ale s mensou pomocou som sa k tomu dostal. Burget sa snazil poradit ale od neho sa to pochopit nedalo. Ale Grezl bol mega napomocny cely cas.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "smes-gaussovskych",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0331",
@@ -5541,7 +5661,12 @@
    "num": null,
    "title": "SVM",
    "text": "řekl jsem mu co je v sdílené složce, chtěl i nějaké vzorce (nevím jaké přesně, protože jsem mu je neřekl) jinak je ta otázka celkem straight forward. Jen je vhodné zmínit, že v sdílené složce je toho málo ohledně SVM na lineárně neseparovatelné vzory. chtěl například i vědět, jestli support vektory tam stále jsou a co se s nima děje, pak se moc netvářil  (na to, když jsem mu řekl že se ty data \"pokutují\" které přesahují \"na druhou stranu\" atd.. dostal jsem E, což moc nechápu, ale asi to byl dojezd i obhajoby a toho jak jsem zandal druhou otázku (a průměru)",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "svm",
+    "examTitle": "Support Vector Machine klasifikátor (varianty pro lineárně separabilní a neseparabilní vzory, jádrové (kernel) funkce).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0335",
@@ -5551,7 +5676,12 @@
    "num": null,
    "title": "HMM",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0336",
@@ -5576,7 +5706,12 @@
    "num": null,
    "title": "lin. klasifikátory",
    "text": "Začal jsem rozdílem mezi generativními a diskriminativními modely. Pak chtěl napsat, jak se spočítá posteriorní pravděpodobnost u Gaussovského klasifikátoru a jak u logistické regrese. Ptal se na to, co je to evidence a k čemu to je. Nakonec chtěl vědět, co musí platit, aby byl Gaussovský klasifikátor lineární. Byl v pohodě.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "linearni-klasifikatory",
+    "examTitle": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0338",
@@ -5601,7 +5736,12 @@
    "num": null,
    "title": "trenovani HMM",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0340",
@@ -5641,7 +5781,12 @@
    "num": null,
    "title": "Bayesovská inference",
    "text": "Tady to začalo trošku jinak, Burget se na nic neptal tak jsem začal vykládat sám. Popsal jsem rozdíl mezi frequentist a bayesian přístupem jak se to popisovalo v BAYa, plylune jsem přešel k tomu že se při tom využívá hlavně bayesuv vzorec. Na tabuli jsem ho \"grandiozně\" odvodil z P(A|B) * P(B) = P(B|A) * P(A), což je teda ale asi moc neuchvátilo. Potom se už Burget začal vyptávat, měl jsem popsat co jsou jednotlivé části bayesova vzorce, Pak jsme se chvíli motali u posteriorního odhadu parametrů nějakého rozložení, tak jsem popsal jak se to liší od maximum likelyhood, ptal se co to teda vlastně je. Chvíli jsem se to tam snažil kreslit a vysvětlovat, směřoval mě k něčemu konkrétnímu, ale pořád jsem se nějak nechytal co přesně chce slyšet. Až se mě pak Hradiš zeptal co je teda vstupem, na což jsem řekl že trénovací data a nějaký prior těch parametrů. Což už teda asi bylo to co chtěl Burget slyšet. Chvilku potom zazvonil budík a bylo to. Všichni byli v pohodě a celé to mělo takovou překvapivě přátelskou atmosféru i když jsem byl vystresovanej a pořád se nějak pletl a opravoval.",
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "bayesovska-inference",
+    "examTitle": "Bayesovská inference (apriorní pravděpodobnosti, věrohodnost (likelihood), posteriorní rozložení, posteriorní prediktivní rozložení, neurčitost odhadu parametrů).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0343",
@@ -5666,7 +5811,12 @@
    "num": null,
    "title": "Extrakce příznaků PCA, LDA",
    "text": "Trochu horší. Nechtěli matiku, ale chtěli ivcelku podrobný popis. Kde a k čemu to je, které klasifikátory z toho nejvíc těží a jak se to koncepčně počíta. Trochu mě mrzelo, že Černocký po mně chtěl definici výpočtu přes matice a když jsem mu dal druhou definici, tak mi ji podstatě neuznal ani když se za mě postavil Hradiš s tím, že těch definic je víc.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "extrakce-priznaku",
+    "examTitle": "Extrakce příznaků (požadované vlastnosti příznaků, Analýza hlavních komponent, Lineární diskriminační analýza).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0345",
@@ -5691,7 +5841,12 @@
    "num": null,
    "title": "GMM",
    "text": "Šel přímo po tom, co je napsaný v otázce. Takže co je to GMM, jak bych ho použil na klasifikaci a jak bych ho trénoval pomocí EM algoritmu. Mimo vzorec pro GMM jsem všechno říkal jen slovně.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "smes-gaussovskych",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0347",
@@ -6206,7 +6361,12 @@
    "num": null,
    "title": "Neuronové sítě",
    "text": "Zbořil st. je absolutní zlato. Nechal mi volnou ruku, a tak nějak očekával, že do jisté míry zaadresuju v té otázce všechno. Úvod k sítím, že jsou to propojený neurony, že některý maj lineární bázové funkce (na to mě nasměroval), a pak ze mě ještě vytáhl radiální (udělal na mě rukama kolečko, pomáhá fakt hodně). Dopředné sítě: maj vrstvy, backpropagation, derivace a hledání minima gradient descentem, úprava vah, klasika. Stačilo v podstatě takhle ty věci vyjmenovat, nehrabal se v nich. Boltzmannův stroj: že je z plně propojené Hopfieldovy asociativní sítě, že se učí simulovaným žíháním, že ta potřeba odpadá u omezeného. Co jsem nevěděl si dořekl sám, a mám pocit, že to počítal, jako bych to řekl já. KNN: co je konvoluce, že se řeší stride a okraje, jaké jsou tam vrstvy, pooling (max, avg), aktivační, plně propojené, a pak řekl, že mu to stačí. Dal mi A, a přitom vůbec nemusel.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "neuronove-site-sfc",
+    "examTitle": "Neuronové sítě: LBF, RBF, back propagation. Hopfieldova síť.",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0385",
@@ -8371,7 +8531,12 @@
    "num": null,
    "title": "HMM a jejich využití pro zpracování řeči",
    "text": "Začal jsem definicí HMM a na příkladu rozpoznání řeci jsem mu popsal co se dá pomocí HMM zjistit. Pak jsme probrali cca vše co je k HMM ve slidech od Burgeta. Na začátku podle mě bylo důležité, že jsem mu řekl, že každý vzorek řeči se rozdělí na stejně dlouhé vzorky.  Ptal se co je to nejpravděpodobněší (viterbi) cesta, jak se spočítá celková P jednoho vzorku atd., trénování chtěl celkem podrobně jak se updatují váhy. Celkově jsme to probrali docela podrobně a dostal ze mě snad vše co jsem věděl. Jelo se určitě přes časový limit, chtěl projít komplet vše.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0541",
@@ -9066,7 +9231,12 @@
    "num": 65,
    "title": null,
    "text": "Na papírku zase jen \"Logistická regrese\", tak jsem začal co vlastně modeluje, z čeho vychází, jaké jsou parametry a vstupy, její rovnice, pak vzorec maximum likelihood a nakonec převod na binární cross-entropy. Za celou dobu nepadla jediná otázka a pak zazvonil budík.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "linearni-klasifikatory",
+    "examTitle": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0589",
@@ -9091,7 +9261,12 @@
    "num": 67,
    "title": null,
    "text": null,
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
   },
   {
    "id": "r0591",
@@ -9118,9 +9293,9 @@
    "text": "r-cnn",
    "map": {
     "course": "KNN",
-    "topic": null,
-    "examTitle": null,
-    "confidence": "course"
+    "topic": "detekce-segmentace",
+    "examTitle": "Sítě pro detekci objektů v obraze a sémantickou segmentaci (R-CNN, Faster R-CNN, SSD, U-net).",
+    "confidence": "high"
    }
   },
   {
@@ -9146,7 +9321,12 @@
    "num": 45,
    "title": null,
    "text": "Na papieriku bolo \"inferencia v BN+MRF\". Popisal som BN (orientovaný graf, uzly náhodné premenné, hrany značia podmienenosť). Popísal som conditional independence, chcel aby som nakreslil nejaku siet a ukazal to na nej. Následne sa ešte spýtal na joint probablity celej siete. Chcel som pokračovať zobecnením na d-separation, ale tam ma stopol, že mám ísť na MRF. Tam som tiež nakreslil nejaký basic example, porozprával som mu o klikách a ako sa počíta joint prob. Tam som sa osral bo som tam dal sumu namiesto productu, ale na to ma upozornil, tak som to opravil, inak všetko v pohode. Tiež som ešte ukázal example na conditional independence a potom ma stopol.",
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "graficke-modely",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0595",
@@ -9195,7 +9375,7 @@
     "course": "KNN",
     "topic": "konvolucni-site",
     "examTitle": "Konvoluční neuronové sítě, jejich části a základní architektury (konvoluční vrstva, pooling vrstva, batch normalizace, tvary tenzorů aktivací, parametry, VGG, ResNet).",
-    "confidence": "low"
+    "confidence": "high"
    }
   },
   {
@@ -10146,7 +10326,12 @@
    "num": null,
    "title": "HMM",
    "text": "Hmm co to je? A jeho popis. Jak se použije ke klasifikaci. Jak se trénuje.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": null,
+    "examTitle": null,
+    "confidence": "course"
+   }
   },
   {
    "id": "r0666",
@@ -10171,7 +10356,12 @@
    "num": null,
    "title": "44. Bayesovská inference",
    "text": "Tady to bylo horsi z moji strany a zaroven mluvil dost i Burget. Mel jsem na otazku cele okno, ale rekl jsem si ze bude lepsi mluvit nez mlcet. Na zacatek jsem odrikal rozdily mezi frequentist pristupem a tim bayeosvskym, tak jak je to na slajdech. A pote jsem se dostal k popisu bayesova vzorce, tam jsem se celkem dost zasekaval, ale Burget hodne pomahal, kdyz se mu neco nelibilo, tak me nasmeroval spravnou otazkou. Postupne jsem pojmenoval vsechny cleny bayese a uvedl co znaci. U prioru jsem se dost zamotal, tak me navedl na konjugovane priory, konkretne se ptal jakym prior jsme pouzivali u normlaniho rozdeleni -> NormalGamma. Chtel vedet co je konkretne likelyhood, stacilo mu ze to muze byt primo normlani rozdeleni. Skoncili co je teda posterior, kde ze me vydoloval ze to jsou pravdepodobne parametry, ktere vygenerovaly prichozi data X. Na vyhlaseni rekl ze to bylo prumerne, ze se musel ptat, ale jakmile se zeptal, tak slo videt, ze ty znalosti tam jsou, takze za C",
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "bayesovska-inference",
+    "examTitle": "Bayesovská inference (apriorní pravděpodobnosti, věrohodnost (likelihood), posteriorní rozložení, posteriorní prediktivní rozložení, neurčitost odhadu parametrů).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0668",
@@ -10226,7 +10416,12 @@
    "num": null,
    "title": "63. Extrakce příznaků",
    "text": "Tohle byla jedna z otázek na které jsem byl připravený nejvíc. Nejdřív jsem mu řekl těch pár vlastností které chceme aby features měly (separovatelnost, nízka dimenzionalita, nekorelovatelnost). Pak jsem nakreslil 2d normalni rozložení a ukázal jaké směry najde pca. Hned mě přesměroval na LDA a chtěl abych tyto metody porovnal v čem se liší. Tam jsem mu řekl že lda předpokládá normální rozložení všech tříd a hledá směry takové kde je co nejvyšší rozptyl mezi středními hodnotami a nejmenší rozptyl jednotlivých tříd (v docích je to nějaký zlomek který se optimalizuje). Tvářil se jako by nevěl o čem mluvím :D asi čekal jednodušší popis. Pak chtěl nakreslit příklad dvou tříd u kterých nám pca nepomůže s klasifikací (to jsou ty dve podélné gaussovky vedle sebe)",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "extrakce-priznaku",
+    "examTitle": "Extrakce příznaků (požadované vlastnosti příznaků, Analýza hlavních komponent, Lineární diskriminační analýza).",
+    "confidence": "low"
+   }
   },
   {
    "id": "r0672",
@@ -10281,7 +10476,12 @@
    "num": null,
    "title": "66. Support Vector Machine klasifikátor",
    "text": "Nakreslil jsem na tabuli plus jsem to trochu popsal pak se začal ptát. Když viděl že něco nevím tak jen mávl rukou a šel dál.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "svm",
+    "examTitle": "Support Vector Machine klasifikátor (varianty pro lineárně separabilní a neseparabilní vzory, jádrové (kernel) funkce).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0676",
@@ -10661,7 +10861,12 @@
    "num": null,
    "title": "60. Genetický algoritmus (princip, výběr rodičů, křížení, mutace).",
    "text": "chtel popsat co se tim resi temito algoritmy, co znamena mutace, krizeni, co se mysli pod pojmem algoritmy inspirovane prirodou, jakym zpusobem muzeme vybrat novou populaci (opet stylem otazka odpoved) ; vysledna znamka: E",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "evolucni-algoritmy",
+    "examTitle": "Genetický algoritmus, genetické programování (princip, výběr rodičů, křížení, mutace).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0706",
@@ -10671,7 +10876,12 @@
    "num": null,
    "title": "57-Optimalizačné algoritmy inšpirované prírodou",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "swarm",
+    "examTitle": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0707",
@@ -10736,7 +10946,12 @@
    "num": 57,
    "title": null,
    "text": "Fuzzy množiny a fuzzy logika. Fuzzy řízení (fuzzyfikace, inference, defuzzyfikace). Nějak jsme prošli co to je fuzzy množina. Potom proces fuzzy řízení jak funguje fuzzifikace, pravidla a pak jsem jsem se zasekl u defuzzifikace (co když padmene do dvou fuzzy množin). Celkově potahal hodně na E.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0712",
@@ -11196,7 +11411,12 @@
    "num": null,
    "title": "64 - GMM",
    "text": "Na tuto otázku už nezbylo moc času. Chtěl vzorec a obecně popsat, k čemu to GMM je. Grezl i Burget hodně pomáhali",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "smes-gaussovskych",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0744",
@@ -11206,7 +11426,12 @@
    "num": null,
    "title": "65 - LIneárny gaussovský klasifikátor",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "linearni-klasifikatory",
+    "examTitle": "Lineární klasifikátory (perceptron, lineární gaussovský klasifikátor, logistická regrese).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0745",
@@ -11246,7 +11471,12 @@
    "num": null,
    "title": "44 - Bayesovská inference",
    "text": null,
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "bayesovska-inference",
+    "examTitle": "Bayesovská inference (apriorní pravděpodobnosti, věrohodnost (likelihood), posteriorní rozložení, posteriorní prediktivní rozložení, neurčitost odhadu parametrů).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0748",
@@ -11361,7 +11591,12 @@
    "num": null,
    "title": "HMM",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0756",
@@ -12836,7 +13071,12 @@
    "num": null,
    "title": "Optimalizační algoritmy inspirované přírodou",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "swarm",
+    "examTitle": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0866",
@@ -12961,7 +13201,12 @@
    "num": 57,
    "title": null,
    "text": "RCE a Hopfield - Zboril napovedal dost, ale zaroven mi aj dost nerozumel lebo som hovoril potichu :hahaa: a to ma dost vykolajilo :hahaa:",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "neuronove-site-sfc",
+    "examTitle": "Neuronové sítě: LBF, RBF, back propagation. Hopfieldova síť.",
+    "confidence": "high"
+   }
   },
   {
    "id": "r0875",
@@ -13627,11 +13872,16 @@
    "id": "h0035",
    "session": "MSZ 2018",
    "memberKey": "zboril-sr",
-   "course": "",
+   "course": "SFC",
    "num": "18",
    "title": "Fuzzy množiny",
    "text": null,
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0036",
@@ -13747,11 +13997,16 @@
    "id": "h0046",
    "session": "MSZ 2018",
    "memberKey": "cernocky",
-   "course": "",
+   "course": "SUR",
    "num": null,
    "title": "HMM",
    "text": "HMM čo to je, načo je to dobré, nakresliť postupnosť stavov a prechodov, vedieť rozhádzať vektory, definovať postupnosť stavov a vysvetlit princíp trénovania.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0047",
@@ -16377,11 +16632,16 @@
    "id": "h0252",
    "session": "MSZ 2019",
    "memberKey": "zboril-sr",
-   "course": "",
+   "course": "SFC",
    "num": "14",
    "title": null,
    "text": "zakladny popis + kde sa pouziva, o co tam ide s energiou, problemy, kapacita (1/10 poctu neuronov), lokalne extremy, navysenie kapacity - boltzmanov stroj. Kohonen - popis, kde sa pouziva (zhlukovanie), vzorec na update vah 2.) Diskretne systémy",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "neuronove-site-sfc",
+    "examTitle": "Neuronové sítě: LBF, RBF, back propagation. Hopfieldova síť.",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0253",
@@ -17192,11 +17452,16 @@
    "id": "h0315",
    "session": "MSZ 2019",
    "memberKey": "rozman",
-   "course": "",
+   "course": "SFC",
    "num": "17",
    "title": "Jiný algoritmus než ACO a PSO",
    "text": "Jiný algoritmus než ACO a PSO...",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "swarm",
+    "examTitle": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0316",
@@ -17822,11 +18087,16 @@
    "id": "h0363",
    "session": "MSZ 2019",
    "memberKey": "matousek-r",
-   "course": "",
+   "course": "SFC",
    "num": "58",
    "title": null,
    "text": "fuzzyfikace, defuzzyfikace, to to je ta funkce příslušnosti, jak to funguje v fuzzyřízení, inference atd.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0364",
@@ -17942,11 +18212,16 @@
    "id": "h0372",
    "session": "MSZ 2019",
    "memberKey": "seda",
-   "course": "",
+   "course": "SFC",
    "num": "18",
    "title": "Fuzzy řízení",
    "text": "Šeda Miloš - Fuzzy řízení. Fuzzy množiny, jednotlivé části a co která provádí + detailněji inferenci a kombinaci pravidel",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0373",
@@ -18562,11 +18837,16 @@
    "id": "h0420",
    "session": "MSZ 2020",
    "memberKey": "hradis",
-   "course": "",
+   "course": "BAYa",
    "num": null,
    "title": "Bayesovské sítě",
    "text": null,
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "graficke-modely",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0421",
@@ -18582,11 +18862,16 @@
    "id": "h0422",
    "session": "MSZ 2020",
    "memberKey": "bidlo",
-   "course": "",
+   "course": "SFC",
    "num": null,
    "title": "Optimalizační algoritmy (ACO, PSO)",
    "text": "k optimalizacnym algoritmom zaklady teda PSO a ACO.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "swarm",
+    "examTitle": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0423",
@@ -19297,11 +19582,16 @@
    "id": "h0475",
    "session": "MSZ 2020",
    "memberKey": "kekely",
-   "course": "",
+   "course": "SFC",
    "num": "58",
    "title": "Fuzzy množiny a logika",
    "text": "chcel zadefinovať, čo to je tá fuzzy logika, ako sa odlišuje od klasickej. Na príklade ukázať operácie prieniku, zjednotenia a doplnku. Ukázať nejakú vyslovene fuzzy operáciu (popisovala som normalizáciu). A na záver fuzzy riadenie - nakresliť jednotlivé kroky a trochu ich popísať.",
-   "map": null
+   "map": {
+    "course": "SFC",
+    "topic": "fuzzy",
+    "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0476",
@@ -19582,11 +19872,16 @@
    "id": "h0495",
    "session": "MSZ 2020",
    "memberKey": "grezl",
-   "course": "",
+   "course": "SUR",
    "num": "57",
    "title": "Rozpoznávání HMM",
    "text": "O HMM jsem věděl jen obecné věci - k čemu jsou a nakreslil jsem strukturu na tabuli. Pak se vyptával na konkrétní výpočty (pravděpodobnost související se stavem), což jsem moc nevěděl, pletl jsem pojmy. Chvíli to ze mě tahal a hodně napovídal. Nakonec jsem nakreslil graf cest v HMM.",
-   "map": null
+   "map": {
+    "course": "SUR",
+    "topic": "hmm",
+    "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0496",
@@ -20747,11 +21042,16 @@
    "id": "h0582",
    "session": "MSZ 2020",
    "memberKey": "hradis",
-   "course": "",
+   "course": "BAYa",
    "num": null,
    "title": "Bayesovské sítě",
    "text": null,
-   "map": null
+   "map": {
+    "course": "BAYa",
+    "topic": "graficke-modely",
+    "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+    "confidence": "high"
+   }
   },
   {
    "id": "h0583",

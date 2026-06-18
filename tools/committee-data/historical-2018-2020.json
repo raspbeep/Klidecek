@@ -565,7 +565,12 @@
     "num": "18",
     "title": "Fuzzy množiny",
     "text": null,
-    "map": null
+    "map": {
+      "course": "SFC",
+      "topic": "fuzzy",
+      "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2018",
@@ -718,7 +723,12 @@
     "num": null,
     "title": "HMM",
     "text": "HMM čo to je, načo je to dobré, nakresliť postupnosť stavov a prechodov, vedieť rozhádzať vektory, definovať postupnosť stavov a vysvetlit princíp trénovania.",
-    "map": null
+    "map": {
+      "course": "SUR",
+      "topic": "hmm",
+      "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2018",
@@ -3966,7 +3976,12 @@
     "num": "14",
     "title": null,
     "text": "zakladny popis + kde sa pouziva, o co tam ide s energiou, problemy, kapacita (1/10 poctu neuronov), lokalne extremy, navysenie kapacity - boltzmanov stroj. Kohonen - popis, kde sa pouziva (zhlukovanie), vzorec na update vah 2.) Diskretne systémy",
-    "map": null
+    "map": {
+      "course": "SFC",
+      "topic": "neuronove-site-sfc",
+      "examTitle": "Neuronové sítě: LBF, RBF, back propagation. Hopfieldova síť.",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2019",
@@ -4970,7 +4985,12 @@
     "num": "17",
     "title": "Jiný algoritmus než ACO a PSO",
     "text": "Jiný algoritmus než ACO a PSO...",
-    "map": null
+    "map": {
+      "course": "SFC",
+      "topic": "swarm",
+      "examTitle": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2019",
@@ -5744,7 +5764,12 @@
     "num": "58",
     "title": null,
     "text": "fuzzyfikace, defuzzyfikace, to to je ta funkce příslušnosti, jak to funguje v fuzzyřízení, inference atd.",
-    "map": null
+    "map": {
+      "course": "SFC",
+      "topic": "fuzzy",
+      "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2019",
@@ -5891,7 +5916,12 @@
     "num": "18",
     "title": "Fuzzy řízení",
     "text": "Šeda Miloš - Fuzzy řízení. Fuzzy množiny, jednotlivé části a co která provádí + detailněji inferenci a kombinaci pravidel",
-    "map": null
+    "map": {
+      "course": "SFC",
+      "topic": "fuzzy",
+      "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2019",
@@ -6655,7 +6685,12 @@
     "num": null,
     "title": "Bayesovské sítě",
     "text": null,
-    "map": null
+    "map": {
+      "course": "BAYa",
+      "topic": "graficke-modely",
+      "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2020",
@@ -6681,7 +6716,12 @@
     "num": null,
     "title": "Optimalizační algoritmy (ACO, PSO)",
     "text": "k optimalizacnym algoritmom zaklady teda PSO a ACO.",
-    "map": null
+    "map": {
+      "course": "SFC",
+      "topic": "swarm",
+      "examTitle": "ACO, PSO a jiné optimalizační algoritmy inspirované přírodou (základní principy).",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2020",
@@ -7555,7 +7595,12 @@
     "num": "58",
     "title": "Fuzzy množiny a logika",
     "text": "chcel zadefinovať, čo to je tá fuzzy logika, ako sa odlišuje od klasickej. Na príklade ukázať operácie prieniku, zjednotenia a doplnku. Ukázať nejakú vyslovene fuzzy operáciu (popisovala som normalizáciu). A na záver fuzzy riadenie - nakresliť jednotlivé kroky a trochu ich popísať.",
-    "map": null
+    "map": {
+      "course": "SFC",
+      "topic": "fuzzy",
+      "examTitle": "Fuzzy množiny, fuzzy k-means, fuzzy logika, fuzzy řízení, adaptivní neuro-fuzzy systémy.",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2020",
@@ -7900,7 +7945,12 @@
     "num": "57",
     "title": "Rozpoznávání HMM",
     "text": "O HMM jsem věděl jen obecné věci - k čemu jsou a nakreslil jsem strukturu na tabuli. Pak se vyptával na konkrétní výpočty (pravděpodobnost související se stavem), což jsem moc nevěděl, pletl jsem pojmy. Chvíli to ze mě tahal a hodně napovídal. Nakonec jsem nakreslil graf cest v HMM.",
-    "map": null
+    "map": {
+      "course": "SUR",
+      "topic": "hmm",
+      "examTitle": "Skryté markovovy modely a jejich aplikace na rozpoznávání řeči (vyhodnocení a trénování modelu, Viterbi algoritmus).",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2020",
@@ -9326,7 +9376,12 @@
     "num": null,
     "title": "Bayesovské sítě",
     "text": null,
-    "map": null
+    "map": {
+      "course": "BAYa",
+      "topic": "graficke-modely",
+      "examTitle": "Inference v pravděpodobnostních grafických modelech (Bayesovské sítě, Markovovo náhodné pole (MRF), Faktorový graf, EM algoritmus, šíření přesvědčení (belief propagation)).",
+      "confidence": "high"
+    }
   },
   {
     "session": "MSZ 2020",
